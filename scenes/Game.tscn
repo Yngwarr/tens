@@ -24,14 +24,27 @@ font_size = 52
 [sub_resource type="LabelSettings" id="LabelSettings_syoim"]
 font_size = 28
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid", "sum_label")]
 script = ExtResource("1_wmfvw")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
 highlight = NodePath("Highlight")
 grid = NodePath("Grid")
+sum_label = NodePath("HUD/Sum")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Sum" type="Label" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
 
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
 process_mode = 2
@@ -176,5 +189,3 @@ pause_screen = NodePath("../PauseMenu")
 position = Vector2(576, 324)
 script = ExtResource("9_sd0hf")
 inner_node = ExtResource("9_7gv6k")
-width = null
-height = null

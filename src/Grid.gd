@@ -35,26 +35,21 @@ func on_cell_moved(cell: NumberCell) -> void:
 func update_highlight() -> void:
     var left_point: Vector2
     var right_point: Vector2
-    var downward: bool
 
     if first_point.x <= second_point.x && first_point.y <= second_point.y:
         # print("2")
-        downward = true
         left_point = first_point
         right_point = second_point
     elif first_point.x > second_point.x && first_point.y <= second_point.y:
         # print("3")
-        downward = false
         left_point = Vector2(second_point.x, first_point.y)
         right_point = Vector2(first_point.x, second_point.y)
     elif first_point.x <= second_point.x && first_point.y > second_point.y:
         # print("1")
-        downward = false
         left_point = Vector2(first_point.x, second_point.y)
         right_point = Vector2(second_point.x, first_point.y)
     else:
         # print("4")
-        downward = true
         left_point = second_point
         right_point = first_point
 
@@ -64,6 +59,5 @@ func update_highlight() -> void:
     var h := right_point.y + Game.CELL_SIZE / 2. - y
 
     var rect := Rect2(x, y, abs(w), abs(h))
-    print(rect, " ", downward)
 
     highlight_changed.emit(rect)
