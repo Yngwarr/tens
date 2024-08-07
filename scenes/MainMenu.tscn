@@ -28,7 +28,7 @@ theme_override_constants/margin_top = 100
 
 [node name="Title" type="Label" parent="Menu/Container/TitleMargin"]
 layout_mode = 2
-text = "Epic Megagame"
+text = "Tens!"
 label_settings = SubResource("LabelSettings_8bkd4")
 horizontal_alignment = 1
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://mbbrk257a4oj"]
+
+[ext_resource type="Script" path="res://src/Number.gd" id="1_4guiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
+size = Vector2(48, 48)
+
+[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area")]
+script = ExtResource("1_4guiy")
+label = NodePath("Label")
+area = NodePath("Area2D")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 24
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7bdmo")

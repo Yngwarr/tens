@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=16 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
@@ -6,10 +6,11 @@
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_tg1ur"]
 [ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="5_k0seo"]
 [ext_resource type="Script" path="res://src/UI/ChangeSceneButton.gd" id="6_2c0ui"]
-[ext_resource type="AudioStream" uid="uid://b2w6q0xx1b6fx" path="res://sfx/bass.wav" id="6_lyifp"]
-[ext_resource type="AudioStream" uid="uid://cd2hwotdnkao1" path="res://sfx/drum.wav" id="7_3ipul"]
 [ext_resource type="Script" path="res://src/Pause.gd" id="8_cpxey"]
 [ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="8_lyls7"]
+[ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
+[ext_resource type="Script" path="res://src/Grid.gd" id="9_sd0hf"]
+[ext_resource type="Script" path="res://src/Highlight.gd" id="11_60rkr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v63bu"]
 shader = ExtResource("3_tg1ur")
@@ -23,95 +24,19 @@ font_size = 52
 [sub_resource type="LabelSettings" id="LabelSettings_syoim"]
 font_size = 28
 
-[sub_resource type="Animation" id="Animation_s7kd2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Icon2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Icon3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
+texture = ExtResource("8_lyls7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
-[sub_resource type="Animation" id="Animation_nmfpk"]
-resource_name = "loop"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Icon2:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1.56917, 0.482968, 0.615572),
-"update": 0,
-"values": [0.0, 3.34056, 6.28319]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Icon3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.901, 1.21), Vector2(1.846, 1.738), Vector2(1.416, 1.777), Vector2(1.115, 1.174), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aiee3"]
-_data = {
-"RESET": SubResource("Animation_s7kd2"),
-"loop": SubResource("Animation_nmfpk")
-}
-
-[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid")]
 script = ExtResource("1_wmfvw")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
+highlight = NodePath("Highlight")
+grid = NodePath("Grid")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -252,29 +177,16 @@ process_mode = 3
 script = ExtResource("8_cpxey")
 pause_screen = NodePath("../PauseMenu")
 
-[node name="Bass" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_lyifp")
-autoplay = true
-bus = &"Music"
+[node name="Highlight" type="Panel" parent="."]
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o2sfh")
+script = ExtResource("11_60rkr")
 
-[node name="Drum" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3ipul")
-autoplay = true
-bus = &"SFX"
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(434, 151)
-texture = ExtResource("8_lyls7")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(156, 451)
-texture = ExtResource("8_lyls7")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(877, 324)
-texture = ExtResource("8_lyls7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_aiee3")
-}
+[node name="Grid" type="Node2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("9_sd0hf")
+inner_node = ExtResource("9_7gv6k")
+width = null
+height = null
