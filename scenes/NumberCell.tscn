@@ -24,3 +24,4 @@ vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_7bdmo")
+debug_color = Color(0, 0.6, 0.701961, 0.243137)

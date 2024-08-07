@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=15 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://src/Pause.gd" id="8_cpxey"]
 [ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="8_lyls7"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
+[ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="9_20cip"]
 [ext_resource type="Script" path="res://src/Grid.gd" id="9_sd0hf"]
-[ext_resource type="Script" path="res://src/Highlight.gd" id="11_60rkr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v63bu"]
 shader = ExtResource("3_tg1ur")
@@ -23,13 +23,6 @@ font_size = 52
 
 [sub_resource type="LabelSettings" id="LabelSettings_syoim"]
 font_size = 28
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
-texture = ExtResource("8_lyls7")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid")]
 script = ExtResource("1_wmfvw")
@@ -177,12 +170,7 @@ process_mode = 3
 script = ExtResource("8_cpxey")
 pause_screen = NodePath("../PauseMenu")
 
-[node name="Highlight" type="Panel" parent="."]
-offset_right = 48.0
-offset_bottom = 48.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_o2sfh")
-script = ExtResource("11_60rkr")
+[node name="Highlight" parent="." instance=ExtResource("9_20cip")]
 
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2(576, 324)
