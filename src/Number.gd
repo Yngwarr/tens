@@ -6,8 +6,9 @@ signal moved_to(target: NumberCell)
 
 @export var label: Label
 @export var area: Area2D
-@export var upper_limit: int = 9
+@export var view: Node2D
 
+var upper_limit: int = Game.TARGET_SUM - 1
 var value: int
 
 func _ready() -> void:
@@ -33,3 +34,7 @@ func on_pressed() -> void:
 
 func on_moved() -> void:
 	moved_to.emit(self)
+
+func remove() -> void:
+	view.visible = false
+	value = 0

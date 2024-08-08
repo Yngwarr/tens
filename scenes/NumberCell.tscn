@@ -5,13 +5,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
 size = Vector2(48, 48)
 
-[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area")]
+[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view")]
 script = ExtResource("1_4guiy")
-label = NodePath("Label")
+label = NodePath("View/Label")
 area = NodePath("Area2D")
-upper_limit = null
+view = NodePath("View")
 
-[node name="Label" type="Label" parent="."]
+[node name="View" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="View"]
 offset_left = -17.0
 offset_top = -17.0
 offset_right = 15.0

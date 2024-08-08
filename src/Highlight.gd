@@ -27,3 +27,19 @@ func resize(rect: Rect2) -> void:
 
 func toggle(on: bool) -> void:
     visible = on
+
+func clear() -> int:
+    var amount: int = 0
+
+    for a in area.get_overlapping_areas():
+        var parent = a.get_parent()
+
+        if not parent is NumberCell:
+            continue
+        if parent.value == 0:
+            continue
+
+        parent.remove()
+        amount += 1
+
+    return amount

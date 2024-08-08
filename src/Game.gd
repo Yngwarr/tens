@@ -6,12 +6,16 @@ extends Node2D
 ## you.
 
 static var CELL_SIZE := 48
+static var TARGET_SUM := 10
 
 @export var pause_ctl: Pause
 @export var pause_menu: PauseMenu
 @export var highlight: Highlight
 @export var grid: Grid
 @export var sum_label: Label
+@export var score_label: Label
+
+var score: int = 0
 
 func _ready() -> void:
 	pause_menu.modal_open.connect(pause_ctl.drop_next)
@@ -24,8 +28,16 @@ func _ready() -> void:
 func update_sum(value: int) -> void:
 	sum_label.text = str(value)
 
+func update_score(value: int) -> void:
+	score = value
+	score_label.text = str(score)
+
 func on_grabbed() -> void:
 	highlight.toggle(true)
 
 func on_released() -> void:
 	highlight.toggle(false)
+
+	if highlight.sum == TARGET_SUM:
+		var amount_removed = highlight.clear()
+		update_score(score + amount_removed - 1)
