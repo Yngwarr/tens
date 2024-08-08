@@ -2,6 +2,8 @@ class_name Grid
 extends Node2D
 
 signal highlight_changed(rect: Rect2)
+signal grabbed
+signal released
 
 @export var inner_node: PackedScene
 @export_range(0, 100) var width: int = 16
@@ -21,11 +23,23 @@ func _ready() -> void:
             node.moved_to.connect(on_cell_moved)
             add_child(node)
 
+func _input(event: InputEvent) -> void:
+    if not event is InputEventMouseButton:
+        return
+    if event.pressed:
+        return
+
+    on_released()
+
 func on_cell_pressed(cell: NumberCell) -> void:
     var pos := cell.global_position
     first_point = pos
     second_point = pos
     update_highlight()
+    grabbed.emit()
+
+func on_released() -> void:
+    released.emit()
 
 func on_cell_moved(cell: NumberCell) -> void:
     var pos := cell.global_position

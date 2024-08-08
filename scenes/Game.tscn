@@ -184,6 +184,7 @@ script = ExtResource("8_cpxey")
 pause_screen = NodePath("../PauseMenu")
 
 [node name="Highlight" parent="." instance=ExtResource("9_20cip")]
+visible = false
 
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2(576, 324)

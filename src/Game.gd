@@ -17,7 +17,15 @@ func _ready() -> void:
 	pause_menu.modal_open.connect(pause_ctl.drop_next)
 	pause_menu.resume_pressed.connect(pause_ctl.unpause)
 	grid.highlight_changed.connect(highlight.resize)
+	grid.grabbed.connect(on_grabbed)
+	grid.released.connect(on_released)
 	highlight.sum_changed.connect(update_sum)
 
 func update_sum(value: int) -> void:
 	sum_label.text = str(value)
+
+func on_grabbed() -> void:
+	highlight.toggle(true)
+
+func on_released() -> void:
+	highlight.toggle(false)

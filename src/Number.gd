@@ -21,10 +21,9 @@ func on_input(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index != MOUSE_BUTTON_LEFT:
 			return
-		if not event.pressed:
-			return
+		if event.pressed:
+			on_pressed()
 
-		on_pressed()
 	elif event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			on_moved()

@@ -24,3 +24,6 @@ func resize(rect: Rect2) -> void:
 
     collider.shape.size = rect.size - Vector2(8, 8)
     collider.position = rect.size / 2.
+
+func toggle(on: bool) -> void:
+    visible = on

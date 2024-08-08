@@ -9,6 +9,7 @@ size = Vector2(48, 48)
 script = ExtResource("1_4guiy")
 label = NodePath("Label")
 area = NodePath("Area2D")
+upper_limit = null
 
 [node name="Label" type="Label" parent="."]
 offset_left = -17.0
