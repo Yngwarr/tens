@@ -27,6 +27,9 @@ func resize(rect: Rect2) -> void:
 
 func toggle(on: bool) -> void:
     visible = on
+    if not on:
+        collider.shape.size = Vector2.ZERO
+        collider.global_position = Vector2.ZERO
 
 func clear() -> int:
     var amount: int = 0

@@ -32,6 +32,11 @@ game_pause={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="numbers"
+2d_physics/layer_2="highlight"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
