@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://mbbrk257a4oj"]
+[gd_scene load_steps=4 format=3 uid="uid://mbbrk257a4oj"]
 
 [ext_resource type="Script" path="res://src/Number.gd" id="1_4guiy"]
+[ext_resource type="Texture2D" uid="uid://uhyr7asxs6rh" path="res://img/cell.png" id="2_6old5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
 size = Vector2(48, 48)
@@ -13,10 +14,13 @@ view = NodePath("View")
 
 [node name="View" type="Node2D" parent="."]
 
+[node name="Cell" type="Sprite2D" parent="View"]
+texture = ExtResource("2_6old5")
+
 [node name="Label" type="Label" parent="View"]
-offset_left = -17.0
+offset_left = -16.0
 offset_top = -17.0
-offset_right = 15.0
+offset_right = 16.0
 offset_bottom = 17.0
 theme_override_font_sizes/font_size = 24
 text = "5"
