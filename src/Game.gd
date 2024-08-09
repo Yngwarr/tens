@@ -12,6 +12,7 @@ static var TARGET_SUM := 10
 @export var pause_menu: PauseMenu
 @export var highlight: Highlight
 @export var grid: Grid
+@export var solver: Solver
 @export var sum_label: Label
 @export var score_label: Label
 
@@ -41,3 +42,4 @@ func on_released() -> void:
 	if highlight.sum == TARGET_SUM:
 		var amount_removed = highlight.clear()
 		update_score(score + amount_removed - 1)
+		solver.read()

@@ -14,8 +14,8 @@ var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
 
 func _ready() -> void:
-    for x in range(width):
-        for y in range(height):
+    for y in range(height):
+        for x in range(width):
             var node := inner_node.instantiate() as Node2D
             node.position.x = step * x - step * width / 2.
             node.position.y = step * y - step * height / 2.

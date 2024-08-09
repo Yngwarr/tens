@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=16 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="9_20cip"]
 [ext_resource type="Script" path="res://src/Grid.gd" id="9_sd0hf"]
+[ext_resource type="Script" path="res://src/Solver.gd" id="12_ntxpy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v63bu"]
 shader = ExtResource("3_tg1ur")
@@ -24,12 +25,13 @@ font_size = 52
 [sub_resource type="LabelSettings" id="LabelSettings_syoim"]
 font_size = 28
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid", "sum_label", "score_label")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "grid", "solver", "sum_label", "score_label")]
 script = ExtResource("1_wmfvw")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
 highlight = NodePath("Highlight")
 grid = NodePath("Grid")
+solver = NodePath("Solver")
 sum_label = NodePath("HUD/HBoxContainer/Sum")
 score_label = NodePath("HUD/HBoxContainer/Score")
 
@@ -202,3 +204,7 @@ visible = false
 position = Vector2(576, 324)
 script = ExtResource("9_sd0hf")
 inner_node = ExtResource("9_7gv6k")
+
+[node name="Solver" type="Node" parent="." node_paths=PackedStringArray("grid")]
+script = ExtResource("12_ntxpy")
+grid = NodePath("../Grid")
