@@ -1,6 +1,8 @@
 class_name Solver
 extends Node
 
+signal none_left
+
 @export var grid: Grid
 
 func _ready() -> void:
@@ -16,18 +18,18 @@ func _ready() -> void:
 	# print_sum(0, 0, 2, 2)
 
 func read() -> void:
-	var all: int = 0
 	var tens: int = 0
 
 	for x0 in range(grid.width):
 		for y0 in range(grid.height):
 			for x1 in range(x0, grid.width):
 				for y1 in range(y0, grid.height):
-					all += 1
 					if is_ten(x0, y0, x1, y1):
 						tens += 1
 
-	print("%s out of %s" % [tens, all])
+	print("%s tens left" % tens)
+	if tens == 0:
+		none_left.emit()
 
 func is_ten(x0: int, y0: int, x1: int, y1: int) -> bool:
 	var sum: int = 0

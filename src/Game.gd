@@ -10,6 +10,7 @@ static var TARGET_SUM := 10
 
 @export var pause_ctl: Pause
 @export var pause_menu: PauseMenu
+@export var game_over_screen: CanvasLayer
 @export var highlight: Highlight
 @export var grid: Grid
 @export var solver: Solver
@@ -25,6 +26,7 @@ func _ready() -> void:
 	grid.grabbed.connect(on_grabbed)
 	grid.released.connect(on_released)
 	highlight.sum_changed.connect(update_sum)
+	solver.none_left.connect(finish)
 
 func update_sum(value: int) -> void:
 	sum_label.text = str(value)
@@ -43,3 +45,6 @@ func on_released() -> void:
 		var amount_removed = highlight.clear()
 		update_score(score + amount_removed - 1)
 		solver.read()
+
+func finish() -> void:
+	game_over_screen.show()
