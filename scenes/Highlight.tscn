@@ -13,6 +13,7 @@ texture_margin_bottom = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks2s0"]
 
 [node name="Highlight" type="Panel" node_paths=PackedStringArray("area", "collider")]
+modulate = Color(0.72549, 0.309804, 0.219608, 1)
 offset_right = 48.0
 offset_bottom = 48.0
 mouse_filter = 2
