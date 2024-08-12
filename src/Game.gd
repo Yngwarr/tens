@@ -53,6 +53,8 @@ func on_released() -> void:
 func show_hint() -> void:
 	if not solver.next_hint:
 		return
+	if hint.visible:
+		return
 
 	hint.appear(solver.next_hint)
 

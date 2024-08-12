@@ -1,9 +1,9 @@
 # TODO
 
 - [x] Redesign.
-- [ ] Optimize hints.
+- [x] Optimize hints.
+- [x] Tween hint's size.
 - [ ] Accent 10.
-- [ ] Tween hint's size.
 - [ ] Hint button should appear on the 5th success and have 3 (?) tries.
 - [ ] Cell's disappear animation.
 - [ ] Game over sequence.

@@ -36,7 +36,6 @@ func read() -> void:
 		none_left.emit()
 	else:
 		next_hint = optimize_hint(hints.pick_random())
-		print("next_hint ", next_hint)
 
 # x,y -> z,y
 #         |
@@ -49,7 +48,6 @@ func optimize_hint(hint: Vector4i) -> Vector4:
 	var w := hint.w
 
 	while true:
-		print("hint %s %s %s %s -> %s" % [x, y, z, w, rect_sum(x, y, z, y)])
 		if rect_sum(x, y, z, y) == 0:
 			y += 1
 			continue
