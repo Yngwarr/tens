@@ -17,7 +17,7 @@ static var TARGET_SUM := 10
 @export var solver: Solver
 @export var sum_label: Label
 @export var score_label: Label
-@export var hint_button: Button
+@export var hint_button: BaseButton
 
 var score: int = 0
 
@@ -36,7 +36,7 @@ func update_sum(value: int) -> void:
 
 func update_score(value: int) -> void:
 	score = value
-	score_label.text = str(score)
+	score_label.text = "Score: %s" % score
 
 func on_grabbed() -> void:
 	highlight.toggle(true)
