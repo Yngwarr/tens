@@ -5,7 +5,7 @@ signal none_left
 
 @export var grid: Grid
 
-var hints: Array[Vector4]
+var hints: Array[Vector4i]
 var next_hint: Vector4
 
 func _ready() -> void:
@@ -29,13 +29,42 @@ func read() -> void:
 			for x1 in range(x0, grid.width):
 				for y1 in range(y0, grid.height):
 					if is_ten(x0, y0, x1, y1):
-						hints.push_back(make_hint(x0, y0, x1, y1))
+						hints.push_back(Vector4i(x0, y0, x1, y1))
 
 	print("%s tens left" % len(hints))
 	if len(hints) == 0:
 		none_left.emit()
 	else:
-		next_hint = hints.pick_random()
+		next_hint = optimize_hint(hints.pick_random())
+		print("next_hint ", next_hint)
+
+# x,y -> z,y
+#         |
+#         v
+# x,w <- z,w
+func optimize_hint(hint: Vector4i) -> Vector4:
+	var x := hint.x
+	var y := hint.y
+	var z := hint.z
+	var w := hint.w
+
+	while true:
+		print("hint %s %s %s %s -> %s" % [x, y, z, w, rect_sum(x, y, z, y)])
+		if rect_sum(x, y, z, y) == 0:
+			y += 1
+			continue
+		if rect_sum(z, y, z, w) == 0:
+			z -= 1
+			continue
+		if rect_sum(x, w, z, w) == 0:
+			w -= 1
+			continue
+		if rect_sum(x, y, x, w) == 0:
+			x += 1
+			continue
+		break
+
+	return hint_to_global(x, y, z, w)
 
 func is_ten(x0: int, y0: int, x1: int, y1: int) -> bool:
 	var sum: int = 0
@@ -63,7 +92,7 @@ func cell_on(x: int, y: int) -> NumberCell:
 func num_on(x: int, y: int) -> int:
 	return cell_on(x, y).value
 
-func make_hint(x0, y0, x1, y1) -> Vector4:
+func hint_to_global(x0: int, y0: int, x1: int, y1: int) -> Vector4:
 	var first_point := cell_on(x0, y0).global_position
 	var second_point := cell_on(x1, y1).global_position
 	return Vector4(first_point.x, first_point.y, second_point.x, second_point.y)
