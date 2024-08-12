@@ -47,7 +47,7 @@ highlight = NodePath("Highlight")
 hint = NodePath("Hint")
 grid = NodePath("Grid")
 solver = NodePath("Solver")
-sum_label = NodePath("HUD/HBoxContainer/Sum")
+sum_label = NodePath("HUD/Sum")
 score_label = NodePath("HUD/ScoreLabel")
 hint_button = NodePath("HUD/Hint")
 
@@ -97,17 +97,10 @@ texture_pressed = ExtResource("4_3pnvk")
 texture_hover = ExtResource("5_tffks")
 texture_click_mask = ExtResource("6_tlvfk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -45.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Sum" type="Label" parent="HUD/HBoxContainer"]
-layout_mode = 2
+[node name="Sum" type="Label" parent="HUD"]
+offset_top = 603.0
+offset_right = 1152.0
+offset_bottom = 648.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "0"
