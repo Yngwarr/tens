@@ -18,6 +18,7 @@ static var TARGET_SUM := 10
 @export var sum_label: Label
 @export var score_label: Label
 @export var hint_button: BaseButton
+@export var anim: AnimationPlayer
 
 var score: int = 0
 
@@ -33,6 +34,7 @@ func _ready() -> void:
 	Global.sum_toggled.connect(toggle_sum)
 
 	toggle_sum(Global.show_sum)
+	anim.play(&"start")
 
 func toggle_sum(on: bool) -> void:
 	sum_label.visible = on

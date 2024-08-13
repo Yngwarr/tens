@@ -24,6 +24,8 @@ func _ready() -> void:
 	label.text = str(value)
 	label.modulate = Palette.color(value)
 
+	hide()
+
 func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
 		return
@@ -86,3 +88,9 @@ func unbounce() -> void:
 
 	anim.play_backwards(&"selected")
 	selected = false
+
+func appear() -> void:
+	if visible:
+		return
+
+	anim.play(&"appear")

@@ -9,10 +9,12 @@ signal released
 @export var front_layer: CanvasLayer
 @export_range(0, 100) var width: int = 16
 @export_range(0, 100) var height: int = 11
-@export var step: int = Game.CELL_SIZE
+@export var appear_timer: Timer
 
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
+var step: int = Game.CELL_SIZE
+var appear_step: int = 0
 
 func _ready() -> void:
     for y in range(height):
@@ -77,3 +79,33 @@ func update_highlight() -> void:
     var rect := Rect2(x, y, abs(w), abs(h))
 
     highlight_changed.emit(rect)
+
+func appear() -> void:
+    appear_timer.timeout.connect([
+        appear_down,
+        appear_left
+    ].pick_random())
+    appear_timer.start()
+
+func appear_down() -> void:
+    if appear_step == height:
+        appear_timer.stop()
+        return
+
+    var start := appear_step * width
+    var end := start + width
+
+    for i in range(start, end):
+        get_child(i).appear()
+
+    appear_step += 1
+
+func appear_left() -> void:
+    if appear_step == width:
+        appear_timer.stop()
+        return
+
+    for i in range(appear_step, height * width, width):
+        get_child(i).appear()
+
+    appear_step += 1
