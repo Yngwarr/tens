@@ -98,6 +98,7 @@ texture_hover = ExtResource("5_tffks")
 texture_click_mask = ExtResource("6_tlvfk")
 
 [node name="Sum" type="Label" parent="HUD"]
+visible = false
 offset_top = 603.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -120,6 +121,7 @@ horizontal_alignment = 1
 
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
 process_mode = 2
+layer = 3
 visible = false
 script = ExtResource("2_xdcds")
 resume_button = NodePath("Container/MenuMargin/Menu/Resume")
@@ -194,6 +196,7 @@ dialog_autowrap = true
 cancel_button_text = "No"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
+layer = 4
 visible = false
 
 [node name="BackgroundBlur" type="TextureRect" parent="GameOverScreen"]

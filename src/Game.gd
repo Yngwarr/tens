@@ -47,7 +47,7 @@ func on_released() -> void:
 
 	if highlight.sum == TARGET_SUM:
 		var amount_removed = highlight.clear()
-		update_score(score + amount_removed - 1)
+		update_score(score + amount_removed)
 		solver.read()
 
 func show_hint() -> void:

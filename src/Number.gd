@@ -13,6 +13,7 @@ signal moved_to(target: NumberCell)
 var upper_limit: int = Game.TARGET_SUM - 1
 var value: int
 var selected := false
+var velocity := Vector2.ZERO
 
 func _ready() -> void:
 	area.input_event.connect(on_input)
@@ -22,6 +23,15 @@ func _ready() -> void:
 	value = randi_range(1, upper_limit)
 	label.text = str(value)
 	label.modulate = Palette.color(value)
+
+func _physics_process(delta: float) -> void:
+	if velocity == Vector2.ZERO:
+		return
+	if view.position.y >= 2000:
+		return
+
+	view.position += velocity * delta * 20
+	velocity.y += 9.8 * delta * 20
 
 func on_area_entered(other: Area2D) -> void:
 	var parent := other.get_parent()
@@ -55,8 +65,16 @@ func on_moved() -> void:
 	moved_to.emit(self)
 
 func remove() -> void:
-	view.visible = false
+	# view.visible = false
+	move_to_front()
 	value = 0
+
+	velocity = Vector2(randi_range(-30, 30), -20 + randi_range(-10, 10))
+
+	# var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
+	# tween.tween_property(view, "position:x", view.position.x + randi_range(-200, 200), 1)
+	# tween.set_parallel(true)
+	# tween.tween_property(view, "position:y", 1000, 1)
 
 func bounce() -> void:
 	if selected:
