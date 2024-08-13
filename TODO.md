@@ -8,9 +8,8 @@
 
 ## Tuesday
 
-- [ ] Cell's disappear animation.
+- [x] Cell's disappear animation.
 - [ ] An option to show sum (hide by default).
-- [ ] Accent 10.
 
 ## Wednesday
 

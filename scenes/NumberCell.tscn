@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://src/Number.gd" id="1_4guiy"]
 [ext_resource type="Texture2D" uid="uid://uhyr7asxs6rh" path="res://img/cell.png" id="2_6old5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
-size = Vector2(48, 48)
-
 [sub_resource type="Animation" id="Animation_mwbh2"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,11 +40,15 @@ _data = {
 "selected": SubResource("Animation_ufe0d")
 }
 
-[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
+size = Vector2(48, 48)
+
+[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view", "anim")]
 script = ExtResource("1_4guiy")
 label = NodePath("View/Label")
 area = NodePath("Area2D")
 view = NodePath("View")
+anim = NodePath("View/AnimationPlayer")
 
 [node name="View" type="Node2D" parent="."]
 
@@ -64,14 +65,15 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="View"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_pulwf")
+}
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_7bdmo")
 debug_color = Color(0, 0.6, 0.701961, 0.243137)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_pulwf")
-}

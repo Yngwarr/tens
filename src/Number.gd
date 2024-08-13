@@ -7,8 +7,7 @@ signal moved_to(target: NumberCell)
 @export var label: Label
 @export var area: Area2D
 @export var view: Node2D
-
-@onready var anim: AnimationPlayer = $AnimationPlayer
+@export var anim: AnimationPlayer
 
 var upper_limit: int = Game.TARGET_SUM - 1
 var value: int
