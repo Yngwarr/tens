@@ -11,6 +11,7 @@
 - [x] Cell's disappear animation.
 - [x] An option to show sum (hide by default).
 - [x] Change font for score and, maybe, for the numbers
+- [x] Credits.
 
 ## Wednesday
 
@@ -34,5 +35,4 @@
     - [ ] Main menu.
     - [ ] Pause.
     - [ ] Options window.
-- [ ] Credits.
 - [ ] Mobile build.

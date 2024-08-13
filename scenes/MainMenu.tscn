@@ -81,20 +81,20 @@ offset_top = 4.0
 offset_right = 361.0
 offset_bottom = 321.0
 bbcode_enabled = true
-text = "[center][b]Epic Megagame[/b][/center]
+text = "[center][b]Tens![/b][/center]
 
 Brought to you by:
 [ul]
 [b]Yngvarr[/b] - code and game design.
-[b]Syudzius[/b] - art and also game design.
+[b]Syudzius[/b] - art.
 [/ul]
 
 With use of these 3rd party assets:
 [ul]
-[b]White square[/b] by squaresausage [i](via [url=https://hardweird.net]his personal site[/url])[/i].
+[url=https://virgil.excalidraw.com/]Font Virgil[/url] by Ellinor Rapp.
 [/ul]
 
-Special thanks to all my homies!"
+Inspired by [url=https://pancelor.itch.io/make-ten]Make Ten[/url] by pancelor and [url=https://www.gamesaien.com/game/fruit_box_a/]Fruit Box[/url] by GameSaien."
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
