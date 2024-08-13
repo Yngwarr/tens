@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=9 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
+[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
 [ext_resource type="Script" path="res://src/UI/ChangeSceneButton.gd" id="2_5fb6k"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="2_eahdg"]
+[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_67860"]
 [ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
 
@@ -12,6 +14,11 @@ font_size = 52
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
 script = ExtResource("1_62wd7")
 first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/Start")
+
+[node name="Background" parent="." instance=ExtResource("2_0hy48")]
+
+[node name="ColorRect" parent="Background" index="1"]
+visible = false
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
@@ -28,6 +35,7 @@ theme_override_constants/margin_top = 100
 
 [node name="Title" type="Label" parent="Menu/Container/TitleMargin"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_67860")
 text = "Tens!"
 label_settings = SubResource("LabelSettings_8bkd4")
 horizontal_alignment = 1
@@ -98,3 +106,5 @@ Inspired by [url=https://pancelor.itch.io/make-ten]Make Ten[/url] by pancelor an
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+
+[editable path="Background"]
