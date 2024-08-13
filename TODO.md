@@ -9,7 +9,8 @@
 ## Tuesday
 
 - [x] Cell's disappear animation.
-- [ ] An option to show sum (hide by default).
+- [x] An option to show sum (hide by default).
+- [x] Change font for score and, maybe, for the numbers
 
 ## Wednesday
 
@@ -29,7 +30,6 @@
 
 ## ***
 
-- [ ] Change font for score and, maybe, for the numbers
 - [ ] Screens redesign:
     - [ ] Main menu.
     - [ ] Pause.

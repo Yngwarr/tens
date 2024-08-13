@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=25 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/bg.png" id="2_1n4yb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dudsl5pvigssi" path="res://img/hint-button/hover.png" id="5_tffks"]
 [ext_resource type="Script" path="res://src/UI/ChangeSceneButton.gd" id="6_2c0ui"]
 [ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/hint-button/mask.png" id="6_tlvfk"]
+[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="7_vbbfo"]
 [ext_resource type="Script" path="res://src/Pause.gd" id="8_cpxey"]
 [ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="8_lyls7"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
@@ -98,11 +99,11 @@ texture_hover = ExtResource("5_tffks")
 texture_click_mask = ExtResource("6_tlvfk")
 
 [node name="Sum" type="Label" parent="HUD"]
-visible = false
 offset_top = 603.0
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
@@ -115,6 +116,7 @@ offset_left = -194.0
 offset_top = 50.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 horizontal_alignment = 1
