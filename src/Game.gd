@@ -19,6 +19,7 @@ static var TARGET_SUM := 10
 @export var score_label: Label
 @export var hint_button: BaseButton
 @export var anim: AnimationPlayer
+@export var protection_layer: Control
 
 var score: int = 0
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 	grid.highlight_changed.connect(highlight.resize)
 	grid.grabbed.connect(on_grabbed)
 	grid.released.connect(on_released)
+	grid.fully_appeared.connect(on_grid_appeared)
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
@@ -68,3 +70,6 @@ func show_hint() -> void:
 
 func finish() -> void:
 	game_over_screen.show()
+
+func on_grid_appeared() -> void:
+	protection_layer.queue_free()

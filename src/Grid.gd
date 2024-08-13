@@ -4,6 +4,7 @@ extends Node2D
 signal highlight_changed(rect: Rect2)
 signal grabbed
 signal released
+signal fully_appeared
 
 @export var inner_node: PackedScene
 @export var front_layer: CanvasLayer
@@ -90,6 +91,7 @@ func appear() -> void:
 func appear_down() -> void:
     if appear_step == height:
         appear_timer.stop()
+        fully_appeared.emit()
         return
 
     var start := appear_step * width
@@ -103,6 +105,7 @@ func appear_down() -> void:
 func appear_left() -> void:
     if appear_step == width:
         appear_timer.stop()
+        fully_appeared.emit()
         return
 
     for i in range(appear_step, height * width, width):

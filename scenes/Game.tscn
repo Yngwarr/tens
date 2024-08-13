@@ -162,7 +162,7 @@ _data = {
 "start": SubResource("Animation_kp7j3")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "game_over_screen", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "hint_button", "anim")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "game_over_screen", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "hint_button", "anim", "protection_layer")]
 script = ExtResource("1_wmfvw")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
@@ -175,6 +175,7 @@ sum_label = NodePath("HUD/Sum")
 score_label = NodePath("HUD/ScoreLabel")
 hint_button = NodePath("HUD/Hint")
 anim = NodePath("AnimationPlayer")
+protection_layer = NodePath("FrontLayer/ProtectionLayer")
 
 [node name="Background" parent="." instance=ExtResource("2_cmwjy")]
 
@@ -226,6 +227,15 @@ horizontal_alignment = 1
 
 [node name="FrontLayer" type="CanvasLayer" parent="."]
 layer = 2
+
+[node name="ProtectionLayer" type="ColorRect" parent="FrontLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+color = Color(1, 1, 1, 0)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
 process_mode = 2
