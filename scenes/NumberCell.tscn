@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://mbbrk257a4oj"]
+[gd_scene load_steps=9 format=3 uid="uid://mbbrk257a4oj"]
 
 [ext_resource type="Script" path="res://src/Number.gd" id="1_4guiy"]
 [ext_resource type="Texture2D" uid="uid://uhyr7asxs6rh" path="res://img/cell.png" id="2_6old5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ycem"]
+font_size = 24
+outline_size = 1
+outline_color = Color(0, 0, 0, 0.12549)
 
 [sub_resource type="Animation" id="Animation_mwbh2"]
 length = 0.001
@@ -115,6 +120,7 @@ offset_right = 16.0
 offset_bottom = 17.0
 theme_override_font_sizes/font_size = 24
 text = "5"
+label_settings = SubResource("LabelSettings_5ycem")
 horizontal_alignment = 1
 vertical_alignment = 1
 
