@@ -2,3 +2,4 @@
 
 [resource]
 Button/font_sizes/font_size = 32
+CheckButton/font_sizes/font_size = 16

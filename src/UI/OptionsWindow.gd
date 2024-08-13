@@ -4,6 +4,7 @@ extends PopupPanel
 
 ## Grid container that will be populated with control elements.
 @export var container: GridContainer
+@export var show_sum: CheckButton
 
 var sliders: Array[VolumeSlider] = []
 
@@ -19,6 +20,8 @@ func on_toggle() -> void:
 
 	for s in sliders:
 		s.update_value()
+
+	show_sum.button_pressed = Global.show_sum
 
 	sliders[0].grab_focus()
 

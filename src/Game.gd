@@ -30,6 +30,12 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
+	Global.sum_toggled.connect(toggle_sum)
+
+	toggle_sum(Global.show_sum)
+
+func toggle_sum(on: bool) -> void:
+	sum_label.visible = on
 
 func update_sum(value: int) -> void:
 	sum_label.text = str(value)

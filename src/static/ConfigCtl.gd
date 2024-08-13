@@ -5,8 +5,12 @@ extends Object
 
 const CONFIG_FILE: StringName = "user://config.ini"
 
-## Sound section name.
+# Section names.
 const SOUND_VOLUME: StringName = "SoundVolume"
+const GAMEPLAY: StringName = "Gameplay"
+
+# gameplay options
+const SHOW_SUM: StringName = "ShowSum"
 
 ## Loads a global config file and sets values described there.
 static func load_config() -> void:
@@ -27,6 +31,8 @@ static func load_config() -> void:
 		SoundCtl.set_volume(bus,\
 				clamp(value, SoundCtl.MIN_VOLUME, SoundCtl.MAX_VOLUME))
 
+	Global.show_sum = config.get_value(GAMEPLAY, SHOW_SUM, false)
+
 ## Actualizes values and stores them in the global config file. Opens a file if
 ## [code]config[/code] not provided.
 static func update_config(config: ConfigFile = null) -> void:
@@ -39,5 +45,8 @@ static func update_config(config: ConfigFile = null) -> void:
 		config.set_value(SOUND_VOLUME,\
 			AudioServer.get_bus_name(bus),\
 			AudioServer.get_bus_volume_db(bus))
+
+	# gameplay
+	config.set_value(GAMEPLAY, SHOW_SUM, Global.show_sum)
 
 	config.save(CONFIG_FILE)

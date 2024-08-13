@@ -1,28 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp02anwflcyv8"]
+[gd_scene load_steps=3 format=3 uid="uid://dp02anwflcyv8"]
 
 [ext_resource type="Script" path="res://src/UI/OptionsWindow.gd" id="1_08yxq"]
+[ext_resource type="Script" path="res://src/UI/ShowSumButton.gd" id="2_yqcwl"]
 
-[node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container")]
+[node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container", "show_sum")]
 title = "Options"
 initial_position = 2
-size = Vector2i(193, 124)
+size = Vector2i(265, 124)
 visible = true
 borderless = false
 content_scale_mode = 1
 script = ExtResource("1_08yxq")
-container = NodePath("SoundLevels/Container")
+container = NodePath("VBoxContainer/SoundLevels/Container")
+show_sum = NodePath("VBoxContainer/ShowSum")
 
-[node name="SoundLevels" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 189.0
+offset_right = 261.0
 offset_bottom = 120.0
 
-[node name="Header" type="Label" parent="SoundLevels"]
+[node name="SoundLevels" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="VBoxContainer/SoundLevels"]
 layout_mode = 2
 text = "Sound Levels"
 horizontal_alignment = 1
 
-[node name="Container" type="GridContainer" parent="SoundLevels"]
+[node name="Container" type="GridContainer" parent="VBoxContainer/SoundLevels"]
 layout_mode = 2
 columns = 2
+
+[node name="ShowSum" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Show a sum of  selected numbers."
+text = "Show sum"
+script = ExtResource("2_yqcwl")
