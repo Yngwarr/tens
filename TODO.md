@@ -12,12 +12,15 @@
 - [x] An option to show sum (hide by default).
 - [x] Change font for score and, maybe, for the numbers
 - [x] Credits.
+- [x] Transition from main menu to the game.
 
 ## Wednesday
 
 - [ ] Wish parents a Happy Anniversary (don't forget)!
 - [ ] Game over sequence.
 - [ ] High scores (or, maybe, a gallery, like in Threes).
+- [ ] Redesign buttons.
+- [ ] Redesign modal windows.
 
 ## Thursday
 
@@ -31,8 +34,4 @@
 
 ## ***
 
-- [ ] Screens redesign:
-    - [ ] Main menu.
-    - [ ] Pause.
-    - [ ] Options window.
 - [ ] Mobile build.
