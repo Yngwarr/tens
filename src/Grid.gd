@@ -6,6 +6,7 @@ signal grabbed
 signal released
 
 @export var inner_node: PackedScene
+@export var front_layer: CanvasLayer
 @export_range(0, 100) var width: int = 16
 @export_range(0, 100) var height: int = 11
 @export var step: int = Game.CELL_SIZE
@@ -19,6 +20,7 @@ func _ready() -> void:
             var node := inner_node.instantiate() as Node2D
             node.position.x = step * x - step * width / 2.
             node.position.y = step * y - step * height / 2.
+            node.front_layer = front_layer
             node.pressed.connect(on_cell_pressed)
             node.moved_to.connect(on_cell_moved)
             add_child(node)

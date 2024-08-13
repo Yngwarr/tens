@@ -48,6 +48,8 @@ func optimize_hint(hint: Vector4i) -> Vector4:
 	var w := hint.w
 
 	while true:
+		# print('hint %s %s %s %s' % [x, y, z, w])
+		# print('sums %s %s %s %s' % [rect_sum(x, y, z, y), rect_sum(z, y, z, w), rect_sum(x, w, z, w), rect_sum(x, y, x, w)])
 		if rect_sum(x, y, z, y) == 0:
 			y += 1
 			continue

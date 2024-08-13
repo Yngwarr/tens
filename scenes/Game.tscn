@@ -119,6 +119,9 @@ theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 horizontal_alignment = 1
 
+[node name="FrontLayer" type="CanvasLayer" parent="."]
+layer = 2
+
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
 process_mode = 2
 layer = 3
@@ -265,10 +268,11 @@ modulate = Color(0.0705882, 1, 0.537255, 1)
 [node name="Highlight" parent="." instance=ExtResource("9_20cip")]
 visible = false
 
-[node name="Grid" type="Node2D" parent="."]
+[node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("front_layer")]
 position = Vector2(594, 342)
 script = ExtResource("9_sd0hf")
 inner_node = ExtResource("9_7gv6k")
+front_layer = NodePath("../FrontLayer")
 
 [node name="Solver" type="Node" parent="." node_paths=PackedStringArray("grid")]
 script = ExtResource("12_ntxpy")
