@@ -10,13 +10,13 @@ static var TARGET_SUM := 10
 
 @export var pause_ctl: Pause
 @export var pause_menu: PauseMenu
-@export var game_over_screen: CanvasLayer
 @export var highlight: Highlight
 @export var hint: Hint
 @export var grid: Grid
 @export var solver: Solver
 @export var sum_label: Label
 @export var score_label: Label
+@export var final_score_label: Label
 @export var hint_button: BaseButton
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
@@ -69,9 +69,9 @@ func show_hint() -> void:
 	hint.appear(solver.next_hint)
 
 func finish() -> void:
+	final_score_label.text = str(score)
 	protection_layer.show()
 	anim.play(&"game_over")
-	# game_over_screen.show()
 
 func on_grid_appeared() -> void:
 	protection_layer.hide()
