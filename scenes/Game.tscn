@@ -561,6 +561,7 @@ visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 117.0
+offset_right = -2.0
 offset_bottom = 198.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
@@ -597,12 +598,11 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 0.00012207
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 40
 
 [node name="Menu" type="VBoxContainer" parent="GameOverLayer/MenuMargin"]

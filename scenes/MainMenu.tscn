@@ -128,8 +128,8 @@ horizontal_alignment = 1
 [node name="MenuMargin" type="MarginContainer" parent="Menu/Container"]
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 100
 
 [node name="Menu" type="VBoxContainer" parent="Menu/Container/MenuMargin"]
