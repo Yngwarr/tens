@@ -16,14 +16,14 @@
 
 ## Wednesday
 
-- [ ] Game over sequence.
-- [ ] High scores (or, maybe, a gallery, like in Threes).
-- [ ] Redesign buttons.
-- [ ] Redesign modal windows.
+- [x] Game over sequence.
+- [x] Redesign buttons.
 
 ## Thursday
 
 - [ ] Play Helldivers 2.
+- [ ] Redesign modal windows.
+- [ ] Redesign cells.
 - [ ] Hint button should appear on the 5th success and have 3 (?) tries.
 
 ## Friday
@@ -34,3 +34,4 @@
 ## ***
 
 - [ ] Mobile build.
+- [ ] High scores (or, maybe, a gallery, like in Threes).
