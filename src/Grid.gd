@@ -129,3 +129,11 @@ func appear_left() -> void:
 func finish_appearing() -> void:
     appear_timer.stop()
     fully_appeared.emit()
+
+func duck() -> void:
+    for c in get_children():
+        c.bounce()
+
+func fall_apart() -> void:
+    for c in get_children():
+        c.remove()

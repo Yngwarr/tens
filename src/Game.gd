@@ -19,7 +19,7 @@ static var TARGET_SUM := 10
 @export var score_label: Label
 @export var hint_button: BaseButton
 @export var anim: AnimationPlayer
-@export var protection_layer: Control
+@export var protection_layer: CanvasLayer
 
 var score: int = 0
 
@@ -46,7 +46,7 @@ func update_sum(value: int) -> void:
 
 func update_score(value: int) -> void:
 	score = value
-	score_label.text = "Score: %s" % score
+	score_label.text = str(score)
 
 func on_grabbed() -> void:
 	highlight.toggle(true)
@@ -69,7 +69,11 @@ func show_hint() -> void:
 	hint.appear(solver.next_hint)
 
 func finish() -> void:
-	game_over_screen.show()
+	protection_layer.show()
+	anim.play(&"game_over")
+	# game_over_screen.show()
 
 func on_grid_appeared() -> void:
-	protection_layer.queue_free()
+	protection_layer.hide()
+	# TODO remove
+	# finish()

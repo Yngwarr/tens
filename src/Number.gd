@@ -67,6 +67,9 @@ func on_moved() -> void:
 	moved_to.emit(self)
 
 func remove() -> void:
+	if value == 0:
+		return
+
 	var pos := view.global_position
 	remove_child(view)
 	front_layer.add_child(view)
