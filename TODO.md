@@ -16,7 +16,6 @@
 
 ## Wednesday
 
-- [ ] Wish parents a Happy Anniversary (don't forget)!
 - [ ] Game over sequence.
 - [ ] High scores (or, maybe, a gallery, like in Threes).
 - [ ] Redesign buttons.

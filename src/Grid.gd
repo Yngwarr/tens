@@ -83,15 +83,29 @@ func update_highlight() -> void:
 
 func appear() -> void:
     appear_timer.timeout.connect([
+        appear_corner,
         appear_down,
         appear_left
     ].pick_random())
     appear_timer.start()
 
+func appear_corner() -> void:
+    if appear_step == width + height:
+        finish_appearing()
+        return
+
+    for y in range(0, height):
+        var x = appear_step - y
+        if x < 0 || x >= width:
+            continue
+
+        get_child(x + y * width).appear()
+
+    appear_step += 1
+
 func appear_down() -> void:
     if appear_step == height:
-        appear_timer.stop()
-        fully_appeared.emit()
+        finish_appearing()
         return
 
     var start := appear_step * width
@@ -104,11 +118,14 @@ func appear_down() -> void:
 
 func appear_left() -> void:
     if appear_step == width:
-        appear_timer.stop()
-        fully_appeared.emit()
+        finish_appearing()
         return
 
     for i in range(appear_step, height * width, width):
         get_child(i).appear()
 
     appear_step += 1
+
+func finish_appearing() -> void:
+    appear_timer.stop()
+    fully_appeared.emit()
