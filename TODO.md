@@ -24,7 +24,6 @@
 - [ ] Play Helldivers 2.
 - [ ] Redesign modal windows.
 - [ ] Redesign cells.
-- [ ] Hint button should appear on the 5th success and have 3 (?) tries.
 
 ## Friday
 
@@ -33,5 +32,6 @@
 
 ## ***
 
-- [ ] Mobile build.
+- [x] Mobile build.
 - [ ] High scores (or, maybe, a gallery, like in Threes).
+- [ ] Hint button should appear on the 5th success and have 3 (?) tries.
