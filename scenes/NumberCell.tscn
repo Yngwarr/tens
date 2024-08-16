@@ -5,8 +5,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ycem"]
 font_size = 24
-outline_size = 1
-outline_color = Color(0, 0, 0, 0.12549)
+outline_size = 2
+shadow_size = 10
+shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [sub_resource type="Animation" id="Animation_mwbh2"]
 length = 0.001
@@ -103,7 +104,7 @@ size = Vector2(48, 48)
 
 [node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view", "anim")]
 script = ExtResource("1_4guiy")
-label = NodePath("View/Label")
+label = NodePath("View/Cell/Label")
 area = NodePath("Area2D")
 view = NodePath("View")
 anim = NodePath("View/AnimationPlayer")
@@ -113,13 +114,15 @@ anim = NodePath("View/AnimationPlayer")
 [node name="Cell" type="Sprite2D" parent="View"]
 texture = ExtResource("2_6old5")
 
-[node name="Label" type="Label" parent="View"]
-offset_left = -16.0
-offset_top = -17.0
+[node name="Label" type="Label" parent="View/Cell"]
+modulate = Color(0.0666667, 0, 1, 1)
+offset_left = -17.0
+offset_top = -18.0
 offset_right = 16.0
 offset_bottom = 17.0
 theme_override_font_sizes/font_size = 24
-text = "5"
+text = "2
+"
 label_settings = SubResource("LabelSettings_5ycem")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -58,7 +58,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("HUD/Hint:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -407,7 +407,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("HUD/Hint:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
@@ -483,15 +483,13 @@ protection_layer = NodePath("ProtectionLayer")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Hint" type="TextureButton" parent="HUD"]
-anchors_preset = 6
+anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -38.0
-offset_right = -65.9993
-offset_bottom = 26.0
+offset_left = -110.0
+offset_top = 47.0
+offset_right = -46.0
+offset_bottom = 111.0
 grow_horizontal = 0
 grow_vertical = 2
 tooltip_text = "Show hint."
@@ -515,14 +513,10 @@ horizontal_alignment = 1
 
 [node name="ScoreContainer" type="HBoxContainer" parent="HUD"]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -170.0
-offset_top = 48.0
-offset_right = -15.0
-offset_bottom = 89.0
-grow_horizontal = 0
+offset_left = 15.0
+offset_top = 50.0
+offset_right = 170.0
+offset_bottom = 91.0
 
 [node name="ScoreLabel" type="Label" parent="HUD/ScoreContainer"]
 layout_mode = 2
@@ -531,6 +525,7 @@ theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 32
 text = "Score:"
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Score" type="Label" parent="HUD/ScoreContainer"]
 layout_mode = 2
@@ -539,6 +534,7 @@ theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="ProtectionLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -724,6 +720,7 @@ modulate = Color(0.0705882, 1, 0.537255, 1)
 
 [node name="Highlight" parent="." instance=ExtResource("9_20cip")]
 visible = false
+modulate = Color(0.909005, 0.86517, 2.31028e-06, 1)
 
 [node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("front_layer", "appear_timer")]
 position = Vector2(594, 342)
