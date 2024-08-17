@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_efhjy"]
 [ext_resource type="Script" path="res://src/Highlight.gd" id="2_86qa4"]
-[ext_resource type="AudioStream" uid="uid://vkpjwaga2mms" path="res://sfx/hold.wav" id="3_cxsvr"]
+[ext_resource type="AudioStream" uid="uid://dn55skkkxuach" path="res://sfx/press.wav" id="3_f8nl5"]
 [ext_resource type="AudioStream" uid="uid://bl77eu1tykkrl" path="res://sfx/swipe.wav" id="4_6w4lo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
@@ -24,8 +24,8 @@ script = ExtResource("2_86qa4")
 area = NodePath("Area2D")
 collider = NodePath("Area2D/CollisionShape2D")
 player = NodePath("AudioStreamPlayer")
-hold_sfx = ExtResource("3_cxsvr")
-swipe_sfx = ExtResource("4_6w4lo")
+resize_sfx = ExtResource("3_f8nl5")
+clear_sfx = ExtResource("4_6w4lo")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

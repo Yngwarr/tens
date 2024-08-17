@@ -6,8 +6,8 @@ signal sum_changed(sum: int)
 @export var area: Area2D
 @export var collider: CollisionShape2D
 @export var player: AudioStreamPlayer
-@export var hold_sfx: AudioStream
-@export var swipe_sfx: AudioStream
+@export var resize_sfx: AudioStream
+@export var clear_sfx: AudioStream
 
 var sum: int = 0
 
@@ -22,16 +22,22 @@ func _physics_process(_delta: float) -> void:
     sum_changed.emit(sum)
 
 func resize(rect: Rect2) -> void:
+    if size == rect.size and position == rect.position:
+        return
+
     size = rect.size
     position = rect.position
 
     collider.shape.size = rect.size - Vector2(8, 8)
     collider.position = rect.size / 2.
 
+    player.stream = resize_sfx
+    player.play()
+
 func toggle(on: bool) -> void:
     visible = on
     if on:
-        player.stream = hold_sfx
+        player.stream = resize_sfx
         player.play()
     else:
         collider.shape.size = Vector2.ZERO
@@ -51,7 +57,7 @@ func clear() -> int:
         parent.remove()
         amount += 1
 
-    player.stream = swipe_sfx
+    player.stream = clear_sfx
     player.play()
 
     return amount
