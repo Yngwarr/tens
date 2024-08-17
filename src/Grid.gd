@@ -16,6 +16,7 @@ var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
 var step: int = Game.CELL_SIZE
 var appear_step: int = 0
+var is_held := false
 
 func _ready() -> void:
     for y in range(height):
@@ -40,13 +41,21 @@ func on_cell_pressed(cell: NumberCell) -> void:
     var pos := cell.global_position
     first_point = pos
     second_point = pos
+    is_held = true
     update_highlight()
     grabbed.emit()
 
 func on_released() -> void:
+    if not is_held:
+        return
+
+    is_held = false
     released.emit()
 
 func on_cell_moved(cell: NumberCell) -> void:
+    if not is_held:
+        return
+
     var pos := cell.global_position
     second_point = pos
     update_highlight()
