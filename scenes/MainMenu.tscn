@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
-font_size = 52
+font_size = 105
 
 [sub_resource type="Animation" id="Animation_vlt1r"]
 length = 0.001

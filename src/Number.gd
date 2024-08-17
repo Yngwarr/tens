@@ -4,6 +4,8 @@ extends Node2D
 signal pressed(target: NumberCell)
 signal moved_to(target: NumberCell)
 
+@onready var frame: Sprite2D = $View/Cell/Frame
+@onready var cell: Sprite2D = $View/Cell
 @export var label: Label
 @export var area: Area2D
 @export var view: Node2D
@@ -23,7 +25,8 @@ func _ready() -> void:
 	value = randi_range(1, upper_limit)
 	label.text = str(value)
 	label.modulate = Palette.color(value)
-
+	frame.modulate = Palette.color(value)
+	#cell.self_modulate = Palette.color(value)
 	hide()
 
 func _physics_process(delta: float) -> void:
