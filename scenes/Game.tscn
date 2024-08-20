@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=32 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_cmwjy"]
+[ext_resource type="Script" path="res://src/MobileCamera.gd" id="2_d6dgw"]
 [ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
 [ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_c6kah"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="3_j5m3f"]
@@ -481,9 +482,17 @@ anim = NodePath("AnimationPlayer")
 protection_layer = NodePath("ProtectionLayer")
 hint_sound = NodePath("HintSound")
 
+[node name="MobileCamera" type="Camera2D" parent="."]
+position = Vector2(661.15, 319.68)
+enabled = false
+zoom = Vector2(1.175, 1.175)
+script = ExtResource("2_d6dgw")
+
 [node name="Background" parent="." instance=ExtResource("2_cmwjy")]
+follow_viewport_enabled = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="Hint" type="TextureButton" parent="HUD"]
 anchors_preset = 1
@@ -620,6 +629,7 @@ next_scene_name = "res://scenes/MainMenu.tscn"
 
 [node name="FrontLayer" type="CanvasLayer" parent="."]
 layer = 4
+follow_viewport_enabled = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
 process_mode = 2
