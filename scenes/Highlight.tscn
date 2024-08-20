@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_efhjy"]
 [ext_resource type="Script" path="res://src/Highlight.gd" id="2_86qa4"]
-[ext_resource type="AudioStream" uid="uid://b48qi4wxh7qp7" path="res://sfx/click_002.ogg" id="3_jwcca"]
-[ext_resource type="AudioStream" uid="uid://f0kivppehag6" path="res://sfx/click_001.ogg" id="3_r3vdx"]
-[ext_resource type="AudioStream" uid="uid://cfkhd4o23j4dy" path="res://sfx/drop_003.ogg" id="5_6oexd"]
+[ext_resource type="AudioStream" uid="uid://jhqiujjg8nj5" path="res://sfx/kenney_iface/pluck_001.ogg" id="5_ptglk"]
+[ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="6_5ef4h"]
+[ext_resource type="AudioStream" uid="uid://yio5igb1uhi5" path="res://sfx/kenney_iface/click_001.ogg" id="7_ln5do"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
 texture = ExtResource("1_efhjy")
@@ -15,7 +15,7 @@ texture_margin_bottom = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks2s0"]
 
-[node name="Highlight" type="Panel" node_paths=PackedStringArray("area", "collider", "player")]
+[node name="Highlight" type="Panel" node_paths=PackedStringArray("area", "collider", "resize_sfx", "clear_sfx", "fail_sfx")]
 modulate = Color(0.72549, 0.309804, 0.219608, 1)
 offset_right = 48.0
 offset_bottom = 48.0
@@ -24,10 +24,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_o2sfh")
 script = ExtResource("2_86qa4")
 area = NodePath("Area2D")
 collider = NodePath("Area2D/CollisionShape2D")
-player = NodePath("AudioStreamPlayer")
-resize_sfx = ExtResource("3_jwcca")
-clear_sfx = ExtResource("3_r3vdx")
-fail_sfx = ExtResource("5_6oexd")
+resize_sfx = NodePath("ResizePlayer")
+clear_sfx = NodePath("ClearPlayer")
+fail_sfx = NodePath("FailPlayer")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -36,5 +35,18 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_ks2s0")
 debug_color = Color(0.730705, 0.233905, 1, 0.42)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5ef4h")
+volume_db = 6.0
+bus = &"SFX"
+
+[node name="ClearPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ln5do")
+volume_db = 6.0
+bus = &"SFX"
+
+[node name="FailPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ptglk")
+volume_db = -9.0
+pitch_scale = 0.5
 bus = &"SFX"

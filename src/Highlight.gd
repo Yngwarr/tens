@@ -5,10 +5,9 @@ signal sum_changed(sum: int)
 
 @export var area: Area2D
 @export var collider: CollisionShape2D
-@export var player: AudioStreamPlayer
-@export var resize_sfx: AudioStream
-@export var clear_sfx: AudioStream
-@export var fail_sfx: AudioStream
+@export var resize_sfx: AudioStreamPlayer
+@export var clear_sfx: AudioStreamPlayer
+@export var fail_sfx: AudioStreamPlayer
 
 var sum: int = 0
 
@@ -32,14 +31,12 @@ func resize(rect: Rect2) -> void:
     collider.shape.size = rect.size - Vector2(8, 8)
     collider.position = rect.size / 2.
 
-    player.stream = resize_sfx
-    player.play()
+    resize_sfx.play()
 
 func toggle(on: bool) -> void:
     visible = on
     if on:
-        player.stream = resize_sfx
-        player.play()
+        resize_sfx.play()
     else:
         collider.shape.size = Vector2.ZERO
         collider.global_position = Vector2.ZERO
@@ -58,11 +55,9 @@ func clear() -> int:
         parent.remove()
         amount += 1
 
-    player.stream = clear_sfx
-    player.play()
+    clear_sfx.play()
 
     return amount
 
 func fail() -> void:
-    player.stream = fail_sfx
-    player.play()
+    fail_sfx.play()

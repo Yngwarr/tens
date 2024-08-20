@@ -113,9 +113,11 @@ anim = NodePath("View/AnimationPlayer")
 [node name="View" type="Node2D" parent="."]
 
 [node name="Cell" type="Sprite2D" parent="View"]
+self_modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("2_6old5")
 
 [node name="Frame" type="Sprite2D" parent="View/Cell"]
+self_modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("3_35xo7")
 
 [node name="Label" type="Label" parent="View/Cell"]

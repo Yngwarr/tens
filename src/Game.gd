@@ -20,6 +20,7 @@ static var TARGET_SUM := 10
 @export var hint_button: BaseButton
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
+@export var hint_sound: AudioStreamPlayer
 
 var score: int = 0
 
@@ -68,6 +69,7 @@ func show_hint() -> void:
 	if hint.visible:
 		return
 
+	hint_sound.play()
 	hint.appear(solver.next_hint)
 
 func finish() -> void:

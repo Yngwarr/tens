@@ -11,6 +11,7 @@ signal fully_appeared
 @export_range(0, 100) var width: int = 16
 @export_range(0, 100) var height: int = 11
 @export var appear_timer: Timer
+@export var appear_sound: AudioStreamPlayer
 
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
@@ -100,7 +101,6 @@ func appear() -> void:
     appear_timer.start()
 
 func appear_corner() -> void:
-    print("corner? ", appear_step)
     if appear_step == width + height:
         finish_appearing()
         return
@@ -113,6 +113,7 @@ func appear_corner() -> void:
         get_child(x + y * width).appear()
 
     appear_step += 1
+    appear_sound.play()
 
 func appear_down() -> void:
     print("down? ", appear_step)
@@ -127,6 +128,7 @@ func appear_down() -> void:
         get_child(i).appear()
 
     appear_step += 1
+    appear_sound.play()
 
 func appear_left() -> void:
     print("left? ", appear_step)
@@ -138,6 +140,7 @@ func appear_left() -> void:
         get_child(i).appear()
 
     appear_step += 1
+    appear_sound.play()
 
 func finish_appearing() -> void:
     appear_timer.stop()
