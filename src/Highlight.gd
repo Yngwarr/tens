@@ -8,6 +8,7 @@ signal sum_changed(sum: int)
 @export var player: AudioStreamPlayer
 @export var resize_sfx: AudioStream
 @export var clear_sfx: AudioStream
+@export var fail_sfx: AudioStream
 
 var sum: int = 0
 
@@ -61,3 +62,7 @@ func clear() -> int:
     player.play()
 
     return amount
+
+func fail() -> void:
+    player.stream = fail_sfx
+    player.play()

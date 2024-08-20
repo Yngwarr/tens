@@ -59,6 +59,8 @@ func on_released() -> void:
 		var amount_removed = highlight.clear()
 		update_score(score + amount_removed)
 		solver.read()
+	else:
+		highlight.fail()
 
 func show_hint() -> void:
 	if not solver.next_hint:

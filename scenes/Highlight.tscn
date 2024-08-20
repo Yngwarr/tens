@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://beuhw1og8dasw"]
+[gd_scene load_steps=8 format=3 uid="uid://beuhw1og8dasw"]
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_efhjy"]
 [ext_resource type="Script" path="res://src/Highlight.gd" id="2_86qa4"]
-[ext_resource type="AudioStream" uid="uid://dn55skkkxuach" path="res://sfx/press.wav" id="3_f8nl5"]
-[ext_resource type="AudioStream" uid="uid://bl77eu1tykkrl" path="res://sfx/swipe.wav" id="4_6w4lo"]
+[ext_resource type="AudioStream" uid="uid://b48qi4wxh7qp7" path="res://sfx/click_002.ogg" id="3_jwcca"]
+[ext_resource type="AudioStream" uid="uid://f0kivppehag6" path="res://sfx/click_001.ogg" id="3_r3vdx"]
+[ext_resource type="AudioStream" uid="uid://cfkhd4o23j4dy" path="res://sfx/drop_003.ogg" id="5_6oexd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
 texture = ExtResource("1_efhjy")
@@ -24,8 +25,9 @@ script = ExtResource("2_86qa4")
 area = NodePath("Area2D")
 collider = NodePath("Area2D/CollisionShape2D")
 player = NodePath("AudioStreamPlayer")
-resize_sfx = ExtResource("3_f8nl5")
-clear_sfx = ExtResource("4_6w4lo")
+resize_sfx = ExtResource("3_jwcca")
+clear_sfx = ExtResource("3_r3vdx")
+fail_sfx = ExtResource("5_6oexd")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
