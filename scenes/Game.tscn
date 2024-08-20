@@ -722,7 +722,6 @@ modulate = Color(0.0705882, 1, 0.537255, 1)
 
 [node name="Highlight" parent="." instance=ExtResource("9_20cip")]
 visible = false
-modulate = Color(0.909005, 0.86517, 2.31028e-06, 1)
 
 [node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("front_layer", "appear_timer", "appear_sound")]
 position = Vector2(594, 342)

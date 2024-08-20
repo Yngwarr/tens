@@ -16,7 +16,7 @@ texture_margin_bottom = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks2s0"]
 
 [node name="Highlight" type="Panel" node_paths=PackedStringArray("area", "collider", "resize_sfx", "clear_sfx", "fail_sfx")]
-modulate = Color(0.72549, 0.309804, 0.219608, 1)
+modulate = Color(0.22, 0.389, 1, 1)
 offset_right = 48.0
 offset_bottom = 48.0
 mouse_filter = 2
@@ -47,6 +47,6 @@ bus = &"SFX"
 
 [node name="FailPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ptglk")
-volume_db = -9.0
+volume_db = -12.0
 pitch_scale = 0.5
 bus = &"SFX"
