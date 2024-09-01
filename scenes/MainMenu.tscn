@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=13 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
 [ext_resource type="Script" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
+[ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105
@@ -49,6 +50,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [100]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AmbiencePlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_v4ew3"]
 resource_name = "hide"
@@ -88,6 +101,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [100, -500]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AmbiencePlayer:volume_db")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 2.82843),
+"update": 0,
+"values": [0.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbhfu"]
@@ -197,5 +222,10 @@ layer = 2
 libraries = {
 "": SubResource("AnimationLibrary_rbhfu")
 }
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e02lm")
+autoplay = true
+bus = &"Music"
 
 [editable path="Background"]
