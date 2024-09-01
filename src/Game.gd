@@ -21,6 +21,8 @@ static var TARGET_SUM := 10
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
 @export var hint_sound: AudioStreamPlayer
+@export var game_over_sound: AudioStreamPlayer
+@export var music_player: AudioStreamPlayer
 
 var score: int = 0
 
@@ -73,6 +75,8 @@ func show_hint() -> void:
 	hint.appear(solver.next_hint)
 
 func finish() -> void:
+	music_player.stop()
+	game_over_sound.play()
 	final_score_label.text = str(score)
 	protection_layer.show()
 	anim.play(&"game_over")
