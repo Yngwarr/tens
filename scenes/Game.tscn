@@ -526,10 +526,10 @@ follow_viewport_enabled = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -130.0
-offset_top = 286.0
-offset_right = -66.0
-offset_bottom = 350.0
+offset_left = -1152.0
+offset_top = 1000.0
+offset_right = -1088.0
+offset_bottom = 1064.0
 grow_horizontal = 0
 tooltip_text = "Show hint."
 keep_pressed_outside = true
@@ -595,9 +595,9 @@ visible = false
 [node name="HiLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = -200.0
+offset_top = 117.0
 offset_right = -2.0
-offset_bottom = -119.0
+offset_bottom = 198.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64
@@ -619,8 +619,8 @@ vertical_alignment = 1
 [node name="LowLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 490.0
-offset_bottom = 571.0
+offset_top = 390.0
+offset_bottom = 471.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64
@@ -632,8 +632,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 52.0
-offset_bottom = 202.0
+offset_top = -150.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
@@ -803,7 +802,7 @@ bus = &"Music"
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_55bac")
-volume_db = -6.0
+volume_db = -3.0
 bus = &"SFX"
 
 [editable path="Background"]
