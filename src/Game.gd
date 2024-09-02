@@ -18,6 +18,7 @@ static var TARGET_SUM := 10
 @export var score_label: Label
 @export var final_score_label: Label
 @export var hint_button: BaseButton
+@export var pause_button: BaseButton
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
 @export var hint_sound: AudioStreamPlayer
@@ -36,6 +37,7 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
+	pause_button.pressed.connect(pause_ctl.pause)
 	Global.sum_toggled.connect(toggle_sum)
 
 	toggle_sum(Global.show_sum)
