@@ -773,8 +773,8 @@ horizontal_alignment = 1
 [node name="MenuMargin" type="MarginContainer" parent="PauseMenu/Container"]
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 100
 
 [node name="Menu" type="VBoxContainer" parent="PauseMenu/Container/MenuMargin"]
@@ -865,7 +865,7 @@ bus = &"Music"
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_55bac")
-volume_db = -3.0
+volume_db = -5.0
 bus = &"SFX"
 
 [editable path="Background"]
