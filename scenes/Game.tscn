@@ -846,26 +846,26 @@ libraries = {
 
 [node name="AppearSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_jtnx0")
-volume_db = 6.0
+volume_db = 9.0
 pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="HintSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_yogje")
-volume_db = -6.0
+volume_db = 4.0
 pitch_scale = 0.6
 bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("23_vdq03")
-volume_db = -6.0
+volume_db = 6.0
 autoplay = true
 bus = &"Music"
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_55bac")
-volume_db = -5.0
+volume_db = 6.0
 bus = &"SFX"
 
 [editable path="Background"]

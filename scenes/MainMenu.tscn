@@ -50,18 +50,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [100]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AmbiencePlayer:volume_db")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_v4ew3"]
 resource_name = "hide"
@@ -88,7 +76,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [100, -100]
+"values": [100, -120]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,18 +89,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [100, -500]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AmbiencePlayer:volume_db")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 2.82843),
-"update": 0,
-"values": [0.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbhfu"]
@@ -227,7 +203,8 @@ libraries = {
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_e02lm")
+volume_db = -3.0
 autoplay = true
-bus = &"Music"
+bus = &"SFX"
 
 [editable path="Background"]

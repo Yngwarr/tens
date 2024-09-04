@@ -37,16 +37,16 @@ debug_color = Color(0.730705, 0.233905, 1, 0.42)
 
 [node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_5ef4h")
-volume_db = 6.0
+volume_db = 9.0
 bus = &"SFX"
 
 [node name="ClearPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ln5do")
-volume_db = 6.0
+volume_db = 12.0
 bus = &"SFX"
 
 [node name="FailPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ptglk")
-volume_db = -12.0
+volume_db = -8.0
 pitch_scale = 0.5
 bus = &"SFX"
