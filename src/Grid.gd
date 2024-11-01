@@ -92,7 +92,6 @@ func update_highlight() -> void:
     highlight_changed.emit(rect)
 
 func appear() -> void:
-    print("appear?")
     appear_timer.timeout.connect([
         appear_corner,
         appear_down,
@@ -116,7 +115,6 @@ func appear_corner() -> void:
     appear_sound.play()
 
 func appear_down() -> void:
-    print("down? ", appear_step)
     if appear_step == height:
         finish_appearing()
         return
@@ -131,7 +129,6 @@ func appear_down() -> void:
     appear_sound.play()
 
 func appear_left() -> void:
-    print("left? ", appear_step)
     if appear_step == width:
         finish_appearing()
         return
