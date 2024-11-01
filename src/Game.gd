@@ -1,3 +1,4 @@
+@tool
 class_name Game
 extends Node2D
 
@@ -28,6 +29,9 @@ static var TARGET_SUM := 10
 var score: int = 0
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	pause_menu.modal_open.connect(pause_ctl.drop_next)
 	pause_menu.resume_pressed.connect(pause_ctl.unpause)
 	grid.highlight_changed.connect(highlight.resize)

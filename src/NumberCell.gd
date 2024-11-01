@@ -1,3 +1,4 @@
+@tool
 class_name NumberCell
 extends Node2D
 
@@ -18,16 +19,16 @@ var velocity := Vector2.ZERO
 var front_layer: CanvasLayer
 
 func _ready() -> void:
-	area.input_event.connect(on_input)
-	area.area_entered.connect(on_area_entered)
-	area.area_exited.connect(on_area_exited)
-
 	value = randi_range(1, upper_limit)
 	label.text = str(value)
 	label.modulate = Palette.color(value)
 	frame.modulate = Palette.color(value)
-	#cell.self_modulate = Palette.color(value)
-	hide()
+
+	if not Engine.is_editor_hint():
+		area.input_event.connect(on_input)
+		area.area_entered.connect(on_area_entered)
+		area.area_exited.connect(on_area_exited)
+		hide()
 
 func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO:

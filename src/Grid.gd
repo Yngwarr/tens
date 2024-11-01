@@ -1,3 +1,4 @@
+@tool
 class_name Grid
 extends Node2D
 
@@ -26,11 +27,16 @@ func _ready() -> void:
             node.position.x = step * x - step * width / 2.
             node.position.y = step * y - step * height / 2.
             node.front_layer = front_layer
-            node.pressed.connect(on_cell_pressed)
-            node.moved_to.connect(on_cell_moved)
             add_child(node)
 
+            if not Engine.is_editor_hint():
+                node.pressed.connect(on_cell_pressed)
+                node.moved_to.connect(on_cell_moved)
+
 func _input(event: InputEvent) -> void:
+    if Engine.is_editor_hint():
+        return
+
     if not event is InputEventMouseButton:
         return
     if event.pressed:
