@@ -117,18 +117,18 @@ self_modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("2_6old5")
 
 [node name="Frame" type="Sprite2D" parent="View/Cell"]
-modulate = Color(0.501961, 0.894118, 0.384314, 1)
+modulate = Color(0.388235, 0.745098, 0.894118, 1)
 self_modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("3_35xo7")
 
 [node name="Label" type="Label" parent="View/Cell"]
-modulate = Color(0.501961, 0.894118, 0.384314, 1)
+modulate = Color(0.388235, 0.745098, 0.894118, 1)
 offset_left = -17.0
 offset_top = -18.0
 offset_right = 16.0
 offset_bottom = 16.0
 theme_override_font_sizes/font_size = 24
-text = "8"
+text = "6"
 label_settings = SubResource("LabelSettings_5ycem")
 horizontal_alignment = 1
 vertical_alignment = 1

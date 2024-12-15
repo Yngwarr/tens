@@ -8,4 +8,5 @@ extends Node2D
 
 func _ready() -> void:
 	ConfigCtl.load_config()
+	Stats.read_stats()
 	first_to_focus.grab_focus()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=14 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
+[ext_resource type="Script" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105
@@ -138,25 +139,36 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("anim")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Start"
 script = ExtResource("4_iyc1n")
 next_scene_name = "res://scenes/Game.tscn"
 anim = NodePath("../../../../../AnimationPlayer")
 
+[node name="Stats" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Stats"
+script = ExtResource("3_pto1d")
+popup = NodePath("../../../../../StatsWindow")
+
 [node name="Options" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Options"
 script = ExtResource("3_pto1d")
 popup = NodePath("../../../../../OptionsWindow")
 
 [node name="Credits" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Credits"
 script = ExtResource("3_pto1d")
 popup = NodePath("../../../../../CreditsWindow")
 
 [node name="Quit" type="Button" parent="Menu/Container/MenuMargin/Menu"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Quit"
 script = ExtResource("4_kgmp6")
 
@@ -192,6 +204,29 @@ Ambience sound by Sound Spark LLC (part of GDC 2019 Game Audio Bundle).
 [/ul]
 
 Inspired by [url=https://pancelor.itch.io/make-ten]Make Ten[/url] by pancelor and [url=https://www.gamesaien.com/game/fruit_box_a/]Fruit Box[/url] by GameSaien."
+
+[node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]
+auto_translate_mode = 1
+title = "Stats"
+initial_position = 2
+size = Vector2i(241, 117)
+borderless = false
+content_scale_mode = 1
+script = ExtResource("8_rqins")
+label_container = NodePath("MarginContainer/LabelContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 237.0
+offset_bottom = 113.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
+layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

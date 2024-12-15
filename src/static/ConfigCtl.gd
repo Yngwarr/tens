@@ -14,8 +14,8 @@ const SHOW_SUM: StringName = "ShowSum"
 
 ## Loads a global config file and sets values described there.
 static func load_config() -> void:
-	var config = ConfigFile.new()
-	var err = config.load(CONFIG_FILE)
+	var config := ConfigFile.new()
+	var err := config.load(CONFIG_FILE)
 
 	if err != OK:
 		if err == ERR_FILE_NOT_FOUND:
