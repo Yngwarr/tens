@@ -81,6 +81,15 @@ func show_hint() -> void:
 	hint.appear(solver.next_hint)
 
 func finish() -> void:
+	Stats.increase_stat(&"games_played", 1)
+	Stats.increase_stat(&"total_score", score)
+
+	if Stats.get_stat(&"best_score") < score:
+		Stats.set_stat(&"best_score", score)
+		# TODO add an effect for the new record
+
+	Stats.write_stats()
+
 	music_player.stop()
 	game_over_sound.play()
 	final_score_label.text = str(score)
