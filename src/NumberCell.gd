@@ -12,18 +12,12 @@ signal moved_to(target: NumberCell)
 @export var view: Node2D
 @export var anim: AnimationPlayer
 
-var upper_limit: int = Game.TARGET_SUM - 1
 var value: int
 var selected := false
 var velocity := Vector2.ZERO
 var front_layer: CanvasLayer
 
 func _ready() -> void:
-	value = randi_range(1, upper_limit)
-	label.text = str(value)
-	label.modulate = Palette.color(value)
-	frame.modulate = Palette.color(value)
-
 	if not Engine.is_editor_hint():
 		area.input_event.connect(on_input)
 		area.area_entered.connect(on_area_entered)
@@ -69,6 +63,12 @@ func on_pressed() -> void:
 
 func on_moved() -> void:
 	moved_to.emit(self)
+
+func set_value(x: int) -> void:
+	value = x
+	label.text = str(value)
+	label.modulate = Palette.color(value)
+	frame.modulate = Palette.color(value)
 
 func remove() -> void:
 	if value == 0:

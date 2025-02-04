@@ -9,11 +9,11 @@ signal fully_appeared
 
 @export var inner_node: PackedScene
 @export var front_layer: CanvasLayer
-@export_range(0, 100) var width: int = 16
-@export_range(0, 100) var height: int = 11
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
 
+var width: int = 16
+var height: int = 11
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
 var step: int = Game.CELL_SIZE
@@ -23,11 +23,12 @@ var is_held := false
 func _ready() -> void:
     for y in range(height):
         for x in range(width):
-            var node := inner_node.instantiate() as Node2D
+            var node := inner_node.instantiate() as NumberCell
             node.position.x = step * x - step * width / 2.
             node.position.y = step * y - step * height / 2.
             node.front_layer = front_layer
             add_child(node)
+            node.set_value(randi_range(1, Game.TARGET_SUM - 1))
 
             if not Engine.is_editor_hint():
                 node.pressed.connect(on_cell_pressed)
