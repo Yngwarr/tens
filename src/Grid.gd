@@ -21,6 +21,12 @@ var appear_step: int = 0
 var is_held := false
 
 func _ready() -> void:
+    width = Global.level_desc.width
+    height = Global.level_desc.height
+
+    var level_type: StringName = Global.level_desc.type
+    var ptr: int = 0
+
     for y in range(height):
         for x in range(width):
             var node := inner_node.instantiate() as NumberCell
@@ -28,7 +34,12 @@ func _ready() -> void:
             node.position.y = step * y - step * height / 2.
             node.front_layer = front_layer
             add_child(node)
-            node.set_value(randi_range(1, Game.TARGET_SUM - 1))
+
+            if level_type == &"arcade":
+                node.set_value(randi_range(1, Game.TARGET_SUM - 1))
+            else:
+                node.set_value(Global.level_desc.level[ptr])
+                ptr += 1
 
             if not Engine.is_editor_hint():
                 node.pressed.connect(on_cell_pressed)

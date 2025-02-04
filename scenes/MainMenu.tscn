@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=13 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="2_eahdg"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_67860"]
 [ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
-[ext_resource type="Script" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
 [ext_resource type="Script" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
@@ -98,9 +97,13 @@ _data = {
 "hide": SubResource("Animation_v4ew3")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "arcade_button", "puzzle_button", "again_button")]
 script = ExtResource("1_62wd7")
-first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/Start")
+first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Puzzle")
+game_scene_name = "res://scenes/Game.tscn"
+arcade_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Arcade")
+puzzle_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Puzzle")
+again_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Again")
 
 [node name="Background" parent="." instance=ExtResource("2_0hy48")]
 
@@ -137,13 +140,26 @@ theme_override_constants/margin_bottom = 100
 [node name="Menu" type="VBoxContainer" parent="Menu/Container/MenuMargin"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("anim")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Container/MenuMargin/Menu"]
 layout_mode = 2
+
+[node name="Puzzle" type="Button" parent="Menu/Container/MenuMargin/Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
-text = "Start"
-script = ExtResource("4_iyc1n")
-next_scene_name = "res://scenes/Game.tscn"
-anim = NodePath("../../../../../AnimationPlayer")
+text = "Puzzle"
+
+[node name="Arcade" type="Button" parent="Menu/Container/MenuMargin/Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Arcade"
+
+[node name="Again" type="Button" parent="Menu/Container/MenuMargin/Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Again"
 
 [node name="Stats" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2

@@ -19,6 +19,4 @@ func _ready() -> void:
 		pressed.connect(proceed)
 
 func proceed() -> void:
-	# this is 100% expected behavior
-	get_tree().paused = false
-	get_tree().change_scene_to_file(next_scene_name)
+	Global.change_scene(next_scene_name)
