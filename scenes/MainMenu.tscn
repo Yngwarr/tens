@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=14 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
 [ext_resource type="Script" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45pfm"]
+font = ExtResource("3_67860")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105
@@ -97,18 +101,32 @@ _data = {
 "hide": SubResource("Animation_v4ew3")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "arcade_button", "puzzle_button", "again_button")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "arcade_button", "puzzle_button", "again_button", "puzzles_loaded")]
 script = ExtResource("1_62wd7")
 first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Puzzle")
 game_scene_name = "res://scenes/Game.tscn"
 arcade_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Arcade")
 puzzle_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Puzzle")
 again_button = NodePath("Menu/Container/MenuMargin/Menu/HBoxContainer/Again")
+puzzles_loaded = NodePath("Background/PuzzlesLoaded")
 
 [node name="Background" parent="." instance=ExtResource("2_0hy48")]
 
 [node name="ColorRect" parent="Background" index="1"]
 visible = false
+
+[node name="PuzzlesLoaded" type="Label" parent="Background"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "8 puzzles loaded"
+label_settings = SubResource("LabelSettings_45pfm")
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
