@@ -7,6 +7,6 @@ extends Node2D
 @export var first_to_focus: Control
 
 func _ready() -> void:
-    ConfigCtl.load_config()
-    Stats.read_stats()
-    first_to_focus.grab_focus()
+	ConfigCtl.load_config()
+	Stats.read_stats()
+	first_to_focus.grab_focus()
