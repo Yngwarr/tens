@@ -1,5 +1,43 @@
-[gd_resource type="Theme" format=3 uid="uid://kg42ikejce6b"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://kg42ikejce6b"]
+
+[ext_resource type="Texture2D" uid="uid://muq8hguo5fai" path="res://img/kenney-theme/button_square_depth_gloss.svg" id="1_e1x85"]
+[ext_resource type="StyleBox" uid="uid://8tpvxr4wuqae" path="res://theme/button_hover.stylebox.tres" id="2_110ce"]
+[ext_resource type="StyleBox" uid="uid://igcibdtfqin8" path="res://theme/button_normal.stylebox.tres" id="2_vj6dk"]
+[ext_resource type="StyleBox" uid="uid://c5h1v76ugrvng" path="res://theme/button_pressed.stylebox.tres" id="3_vj6dk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("1_e1x85")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.49803922, 0.5529412, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [resource]
+Button/colors/font_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_disabled_color = Color(0.39689007, 0.39688888, 0.39688927, 1)
+Button/colors/font_focus_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_hover_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_hover_pressed_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_outline_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_pressed_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
 Button/font_sizes/font_size = 32
+Button/styles/disabled = SubResource("StyleBoxTexture_05tig")
+Button/styles/focus = SubResource("StyleBoxFlat_110ce")
+Button/styles/hover = ExtResource("2_110ce")
+Button/styles/hover_pressed = ExtResource("3_vj6dk")
+Button/styles/normal = ExtResource("2_vj6dk")
+Button/styles/pressed = ExtResource("3_vj6dk")
 CheckButton/font_sizes/font_size = 16

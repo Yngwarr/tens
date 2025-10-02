@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ck6s0pk35tg4o"]
+
+[ext_resource type="Texture2D" uid="uid://muq8hguo5fai" path="res://img/kenney-theme/button_square_depth_gloss.svg" id="1_l8c8s"]
+
+[resource]
+texture = ExtResource("1_l8c8s")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.6999892, 0.75063145, 0.99999946, 1)
