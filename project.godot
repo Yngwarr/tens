@@ -20,11 +20,16 @@ config/windows_native_icon="res://img/icon/icon.ico"
 [autoload]
 
 Global="*res://src/Global.gd"
+PokiSDK="*res://addons/poki-sdk/pokisdk.gd"
 
 [display]
 
 window/size/mode=2
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/poki-sdk/plugin.cfg")
 
 [gui]
 
