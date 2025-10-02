@@ -1,29 +1,29 @@
 [gd_scene load_steps=38 format=3 uid="uid://csahdmph2aji4"]
 
-[ext_resource type="Script" path="res://src/Game.gd" id="1_wmfvw"]
+[ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_cmwjy"]
-[ext_resource type="Script" path="res://src/MobileCamera.gd" id="2_d6dgw"]
-[ext_resource type="Script" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
+[ext_resource type="Script" uid="uid://cougw4e1mpl38" path="res://src/MobileCamera.gd" id="2_d6dgw"]
+[ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
 [ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_c6kah"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="3_j5m3f"]
-[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_tg1ur"]
+[ext_resource type="Shader" uid="uid://cjkfy3s4f7nyv" path="res://shaders/blur.gdshader" id="3_tg1ur"]
 [ext_resource type="Texture2D" uid="uid://jqlgv5tccfia" path="res://img/hint-button/pressed.png" id="4_3pnvk"]
-[ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="5_k0seo"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/ShowPopupButton.gd" id="5_k0seo"]
 [ext_resource type="Texture2D" uid="uid://dudsl5pvigssi" path="res://img/hint-button/hover.png" id="5_tffks"]
-[ext_resource type="Script" path="res://src/UI/ChangeSceneButton.gd" id="6_2c0ui"]
+[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/ChangeSceneButton.gd" id="6_2c0ui"]
 [ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/button-mask.png" id="6_tlvfk"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="7_vbbfo"]
-[ext_resource type="Script" path="res://src/Pause.gd" id="8_cpxey"]
+[ext_resource type="Script" uid="uid://bfh4sfjmjr14" path="res://src/Pause.gd" id="8_cpxey"]
 [ext_resource type="Texture2D" uid="uid://dsy0a7u04vdc4" path="res://img/pause-button/normal.png" id="8_lnq1p"]
 [ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="8_lyls7"]
 [ext_resource type="Texture2D" uid="uid://fmv7ccnf2r30" path="res://img/pause-button/pressed.png" id="9_3lx4o"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="9_20cip"]
-[ext_resource type="Script" path="res://src/Grid.gd" id="9_sd0hf"]
+[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/Grid.gd" id="9_sd0hf"]
 [ext_resource type="Texture2D" uid="uid://blcjkpdtpofj3" path="res://img/pause-button/hover.png" id="10_a76yp"]
 [ext_resource type="PackedScene" uid="uid://bbmiblmihgxla" path="res://scenes/Hint.tscn" id="10_ra2ve"]
-[ext_resource type="Script" path="res://src/PauseButton.gd" id="11_iwtml"]
-[ext_resource type="Script" path="res://src/Solver.gd" id="12_ntxpy"]
+[ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/PauseButton.gd" id="11_iwtml"]
+[ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/Solver.gd" id="12_ntxpy"]
 [ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="20_jtnx0"]
 [ext_resource type="AudioStream" uid="uid://dhsfcanwnf5n0" path="res://sfx/kenney_iface/drop_003.ogg" id="20_yogje"]
 [ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="23_vdq03"]
@@ -527,9 +527,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lb3xy"]
 _data = {
-"RESET": SubResource("Animation_xhhx8"),
-"game_over": SubResource("Animation_6obku"),
-"start": SubResource("Animation_kp7j3")
+&"RESET": SubResource("Animation_xhhx8"),
+&"game_over": SubResource("Animation_6obku"),
+&"start": SubResource("Animation_kp7j3")
 }
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player")]
@@ -844,7 +844,7 @@ grid = NodePath("../Grid")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lb3xy")
+&"": SubResource("AnimationLibrary_lb3xy")
 }
 
 [node name="AppearSound" type="AudioStreamPlayer" parent="."]
