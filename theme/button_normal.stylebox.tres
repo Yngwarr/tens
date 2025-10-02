@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://igcibdtfqin8"]
 
-[ext_resource type="Texture2D" uid="uid://muq8hguo5fai" path="res://img/kenney-theme/button_square_depth_gloss.svg" id="1_gs5ak"]
+[ext_resource type="Texture2D" uid="uid://csq60fowh4571" path="res://img/kenney-theme/button_square_depth_flat.svg" id="1_gs5ak"]
 
 [resource]
 texture = ExtResource("1_gs5ak")

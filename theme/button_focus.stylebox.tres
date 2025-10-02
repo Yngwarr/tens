@@ -1,11 +1,13 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ck6s0pk35tg4o"]
-
-[ext_resource type="Texture2D" uid="uid://muq8hguo5fai" path="res://img/kenney-theme/button_square_depth_gloss.svg" id="1_l8c8s"]
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://ck6s0pk35tg4o"]
 
 [resource]
-texture = ExtResource("1_l8c8s")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.6999892, 0.75063145, 0.99999946, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.49803922, 0.5529412, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
