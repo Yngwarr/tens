@@ -99,7 +99,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(775, 543)]
+"values": [Vector2(600, 600)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -111,7 +111,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(183, 49)]
+"values": [Vector2(264, 12)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -276,7 +276,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.666667, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(775, 543), Vector2(775, 0)]
+"values": [Vector2(600, 600), Vector2(600, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -288,7 +288,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.666667, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(183, 49), Vector2(183, 592)]
+"values": [Vector2(264, 12), Vector2(264, 612)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -572,7 +572,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
 offset_top = 1000.0
-offset_right = -1088.0
+offset_right = -1087.9993
 offset_bottom = 1064.0
 grow_horizontal = 0
 tooltip_text = "Show hint."
@@ -592,7 +592,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 348.0
 offset_top = -120.0
-offset_right = 412.0
+offset_right = 412.00073
 offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -686,7 +686,7 @@ vertical_alignment = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 390.0
-offset_bottom = 471.0
+offset_bottom = 471.00012
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64

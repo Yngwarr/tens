@@ -6,7 +6,7 @@ extends Node2D
 ## where your dreams come true! Adjust to your likings and may the code be with
 ## you.
 
-static var CELL_SIZE := 48
+static var CELL_SIZE := 60
 static var TARGET_SUM := 10
 
 @export var pause_ctl: Pause

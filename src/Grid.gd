@@ -12,15 +12,16 @@ signal fully_appeared
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
 
-var width: int = 16
-var height: int = 11
+var width: int = 10
+var height: int = 10
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
-var step: int = Game.CELL_SIZE
 var appear_step: int = 0
 var is_held := false
 
 func _ready() -> void:
+    var step := Game.CELL_SIZE
+
     for y in range(height):
         for x in range(width):
             var node := inner_node.instantiate() as NumberCell
