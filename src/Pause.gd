@@ -6,26 +6,33 @@ extends Node
 
 var to_drop_next := false
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("game_pause"):
-
 		if get_tree().paused:
 			unpause(false)
 		else:
 			pause()
 
+
 func pause() -> void:
+	PokiSDK.gameplayStop()
+
 	to_drop_next = false
 	get_tree().paused = true
 	pause_screen.pause()
+
 
 func unpause(ignore_drop := true) -> void:
 	if to_drop_next and not ignore_drop:
 		to_drop_next = false
 		return
 
+	PokiSDK.gameplayStart()
+
 	get_tree().paused = false
 	pause_screen.unpause()
+
 
 func drop_next() -> void:
 	to_drop_next = true

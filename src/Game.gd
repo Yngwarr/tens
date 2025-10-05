@@ -28,6 +28,7 @@ static var TARGET_SUM := 10
 
 var score: int = 0
 
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -47,18 +48,23 @@ func _ready() -> void:
 	toggle_sum(Global.show_sum)
 	anim.play(&"start")
 
+
 func toggle_sum(on: bool) -> void:
 	sum_label.visible = on
 
+
 func update_sum(value: int) -> void:
 	sum_label.text = str(value)
+
 
 func update_score(value: int) -> void:
 	score = value
 	score_label.text = str(score)
 
+
 func on_grabbed() -> void:
 	highlight.toggle(true)
+
 
 func on_released() -> void:
 	highlight.toggle(false)
@@ -71,6 +77,7 @@ func on_released() -> void:
 	else:
 		highlight.fail()
 
+
 func show_hint() -> void:
 	if not solver.next_hint:
 		return
@@ -80,7 +87,10 @@ func show_hint() -> void:
 	hint_sound.play()
 	hint.appear(solver.next_hint)
 
+
 func finish() -> void:
+	PokiSDK.gameplayStop()
+
 	Stats.increase_stat(&"games_played", 1)
 	Stats.increase_stat(&"total_score", score)
 
@@ -96,7 +106,7 @@ func finish() -> void:
 	protection_layer.show()
 	anim.play(&"game_over")
 
+
 func on_grid_appeared() -> void:
 	protection_layer.hide()
-	# TODO remove
-	# finish()
+	PokiSDK.gameplayStart()
