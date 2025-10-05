@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=15 format=3 uid="uid://cbplqxkaqi83r"]
 
-[ext_resource type="Script" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
+[ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="2_eahdg"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_67860"]
-[ext_resource type="Script" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
-[ext_resource type="Script" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
-[ext_resource type="Script" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
+[ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
+[ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
+[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_7la6k"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
-[ext_resource type="Script" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
+[ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105
@@ -94,8 +95,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbhfu"]
 _data = {
-"RESET": SubResource("Animation_vlt1r"),
-"hide": SubResource("Animation_v4ew3")
+&"RESET": SubResource("Animation_vlt1r"),
+&"hide": SubResource("Animation_v4ew3")
 }
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
@@ -181,12 +182,13 @@ initial_position = 2
 size = Vector2i(365, 325)
 borderless = false
 content_scale_mode = 1
+theme_override_styles/panel = ExtResource("8_7la6k")
 
 [node name="CreditsLabel" type="RichTextLabel" parent="CreditsWindow"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 361.0
-offset_bottom = 321.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 355.0
+offset_bottom = 315.0
 bbcode_enabled = true
 text = "[center][b]Tens![/b][/center]
 
@@ -212,14 +214,15 @@ initial_position = 2
 size = Vector2i(241, 117)
 borderless = false
 content_scale_mode = 1
+theme_override_styles/panel = ExtResource("8_7la6k")
 script = ExtResource("8_rqins")
 label_container = NodePath("MarginContainer/LabelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 237.0
-offset_bottom = 113.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 231.0
+offset_bottom = 119.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -233,7 +236,7 @@ layer = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rbhfu")
+&"": SubResource("AnimationLibrary_rbhfu")
 }
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]

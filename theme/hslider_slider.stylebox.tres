@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c817gjlswy5xw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ahvxb"]
+load_path = "res://.godot/imported/slide_horizontal_color.svg-1a46db1d4d7b8130d682c78b397c9cf2.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_ahvxb")
+texture_margin_left = 15.0
+texture_margin_top = 8.0
+texture_margin_right = 15.0
+texture_margin_bottom = 8.0

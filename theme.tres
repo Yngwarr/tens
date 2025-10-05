@@ -1,12 +1,45 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://kg42ikejce6b"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://kg42ikejce6b"]
 
 [ext_resource type="StyleBox" uid="uid://bvarxeo5ibi88" path="res://theme/button_disabled.stylebox.tres" id="1_05tig"]
 [ext_resource type="StyleBox" uid="uid://ck6s0pk35tg4o" path="res://theme/button_focus.stylebox.tres" id="1_110ce"]
 [ext_resource type="StyleBox" uid="uid://8tpvxr4wuqae" path="res://theme/button_hover.stylebox.tres" id="2_110ce"]
 [ext_resource type="StyleBox" uid="uid://igcibdtfqin8" path="res://theme/button_normal.stylebox.tres" id="2_vj6dk"]
 [ext_resource type="StyleBox" uid="uid://c5h1v76ugrvng" path="res://theme/button_pressed.stylebox.tres" id="3_vj6dk"]
+[ext_resource type="Texture2D" uid="uid://bhaueanxsibqs" path="res://img/kenney-theme/slide_hangle.svg" id="6_mihib"]
+[ext_resource type="Texture2D" uid="uid://c4h7xs1yjcfjm" path="res://img/kenney-theme/slide_horizontal_grey.svg" id="7_ttqs8"]
+[ext_resource type="StyleBox" uid="uid://c817gjlswy5xw" path="res://theme/hslider_slider.stylebox.tres" id="7_yin2u"]
+[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="9_ttqs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttqs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdt2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cw85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_504p6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_howt0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("7_ttqs8")
+texture_margin_left = 15.0
+texture_margin_top = 8.0
+texture_margin_right = 15.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yin2u"]
+load_path = "res://.godot/imported/slide_horizontal_grey.svg-8851c59ee86b019602b3eefb57ea3142.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = SubResource("CompressedTexture2D_yin2u")
+texture_margin_left = 15.0
+texture_margin_top = 8.0
+texture_margin_right = 15.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.6999892, 0.75063145, 0.99999946, 1)
 
 [resource]
+AcceptDialog/styles/panel = ExtResource("9_ttqs8")
 Button/colors/font_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
 Button/colors/font_disabled_color = Color(0.39689007, 0.39688888, 0.39688927, 1)
 Button/colors/font_focus_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
@@ -21,4 +54,21 @@ Button/styles/hover = ExtResource("2_110ce")
 Button/styles/hover_pressed = ExtResource("3_vj6dk")
 Button/styles/normal = ExtResource("2_vj6dk")
 Button/styles/pressed = ExtResource("3_vj6dk")
+CheckButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+CheckButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+CheckButton/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+CheckButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_pressed_color = Color(1, 1, 1, 1)
 CheckButton/font_sizes/font_size = 16
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_ttqs8")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_wdt2l")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_6cw85")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_504p6")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_howt0")
+HSlider/icons/grabber = ExtResource("6_mihib")
+HSlider/icons/grabber_disabled = ExtResource("6_mihib")
+HSlider/icons/grabber_highlight = ExtResource("6_mihib")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_mihib")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ttqs8")
+HSlider/styles/slider = ExtResource("7_yin2u")
+Panel/styles/panel = ExtResource("9_ttqs8")
