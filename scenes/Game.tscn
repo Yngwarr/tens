@@ -105,7 +105,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HUD/ScoreContainer:modulate")
+tracks/4/path = NodePath("HUD/CenterContainer/ScoreContainer:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -234,6 +234,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(1500, 528)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("HUD/SumLabel:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 263)]
+}
 
 [sub_resource type="Animation" id="Animation_6obku"]
 resource_name = "game_over"
@@ -286,7 +298,7 @@ tracks/3/path = NodePath("HUD/Hint:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.666667),
+"times": PackedFloat32Array(0, 0.6667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1022, 286), Vector2(2000, 286)]
@@ -294,7 +306,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HUD/ScoreContainer:modulate")
+tracks/4/path = NodePath("HUD/CenterContainer/ScoreContainer:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -423,6 +435,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(1022, 528), Vector2(2000, 528)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("HUD/SumLabel:position")
+tracks/15/interp = 2
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.6667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 263), Vector2(-300, 263)]
+}
 
 [sub_resource type="Animation" id="Animation_kp7j3"]
 resource_name = "start"
@@ -468,7 +492,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HUD/ScoreContainer:modulate")
+tracks/3/path = NodePath("HUD/CenterContainer/ScoreContainer:modulate")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -489,6 +513,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1500, 528), Vector2(1022, 528)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/SumLabel:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 263), Vector2(0, 263)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lb3xy"]
 _data = {
@@ -506,7 +542,7 @@ hint = NodePath("Hint")
 grid = NodePath("Grid")
 solver = NodePath("Solver")
 sum_label = NodePath("HUD/SumLabel")
-score_label = NodePath("HUD/ScoreContainer/Score")
+score_label = NodePath("HUD/CenterContainer/ScoreContainer/Score")
 final_score_label = NodePath("GameOverLayer/Score")
 hint_button = NodePath("HUD/Hint")
 pause_button = NodePath("HUD/Pause")
@@ -537,7 +573,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
 offset_top = 1000.0
-offset_right = -1087.9985
+offset_right = -1087.9983
 offset_bottom = 1064.0
 grow_horizontal = 0
 tooltip_text = "Show hint."
@@ -557,7 +593,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 348.0
 offset_top = -120.0
-offset_right = 412.00146
+offset_right = 412.00195
 offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -572,24 +608,28 @@ texture_click_mask = ExtResource("6_tlvfk")
 script = ExtResource("11_iwtml")
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("12_754j2")]
+offset_left = -300.0
+offset_right = -38.0
 
-[node name="ScoreContainer" type="HBoxContainer" parent="HUD"]
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+offset_top = 12.0
+offset_right = 264.0
+offset_bottom = 74.0
+
+[node name="ScoreContainer" type="HBoxContainer" parent="HUD/CenterContainer"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 15.0
-offset_top = 50.0
-offset_right = 170.0
-offset_bottom = 91.0
+layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="HUD/ScoreContainer"]
+[node name="ScoreLabel" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 32
-text = "Score:"
+text = "Score: "
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Score" type="Label" parent="HUD/ScoreContainer"]
+[node name="Score" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("7_vbbfo")
@@ -643,7 +683,7 @@ vertical_alignment = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 390.0
-offset_bottom = 471.0
+offset_bottom = 471.00006
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64
@@ -656,7 +696,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 8.0
+offset_bottom = 8.000061
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
