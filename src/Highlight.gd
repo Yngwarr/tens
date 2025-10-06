@@ -12,14 +12,16 @@ signal sum_changed(sum: int)
 var sum: int = 0
 
 func _physics_process(_delta: float) -> void:
-    sum = 0
+    var new_sum: int = 0
 
     for a in area.get_overlapping_areas():
         var parent = a.get_parent()
         if parent is NumberCell:
-            sum += parent.value
+            new_sum += parent.value
 
-    sum_changed.emit(sum)
+    if new_sum != sum:
+        sum = new_sum
+        sum_changed.emit(sum)
 
 func resize(rect: Rect2) -> void:
     if size == rect.size and position == rect.position:
