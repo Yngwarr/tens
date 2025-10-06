@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/Game.gd" id="1_wmfvw"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_cmwjy"]
-[ext_resource type="Script" uid="uid://cougw4e1mpl38" path="res://src/MobileCamera.gd" id="2_d6dgw"]
 [ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/PauseMenu.gd" id="2_xdcds"]
 [ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_c6kah"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="3_j5m3f"]
@@ -25,6 +24,7 @@
 [ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/PauseButton.gd" id="11_iwtml"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_754j2"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/Solver.gd" id="12_ntxpy"]
+[ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="14_754j2"]
 [ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="20_jtnx0"]
 [ext_resource type="AudioStream" uid="uid://dhsfcanwnf5n0" path="res://sfx/kenney_iface/drop_003.ogg" id="20_yogje"]
 [ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="23_vdq03"]
@@ -100,7 +100,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(264, 12)]
+"values": [Vector2(276, 24)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -289,7 +289,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.666667, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(264, 12), Vector2(264, 612)]
+"values": [Vector2(276, 24), Vector2(276, 612)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -552,12 +552,6 @@ hint_sound = NodePath("HintSound")
 game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 
-[node name="MobileCamera" type="Camera2D" parent="."]
-position = Vector2(661.15, 319.68)
-enabled = false
-zoom = Vector2(1.175, 1.175)
-script = ExtResource("2_d6dgw")
-
 [node name="Background" parent="." instance=ExtResource("2_cmwjy")]
 follow_viewport_enabled = true
 
@@ -573,7 +567,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
 offset_top = 1000.0
-offset_right = -1087.9983
+offset_right = -1087.998
 offset_bottom = 1064.0
 grow_horizontal = 0
 tooltip_text = "Show hint."
@@ -660,7 +654,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_top = 117.0
 offset_right = -2.0
-offset_bottom = 198.00002
+offset_bottom = 198.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64
@@ -683,7 +677,7 @@ vertical_alignment = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 390.0
-offset_bottom = 471.00006
+offset_bottom = 471.00012
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_vbbfo")
 theme_override_font_sizes/font_size = 64
@@ -719,8 +713,50 @@ text = "Quit to menu"
 script = ExtResource("6_2c0ui")
 next_scene_name = "res://scenes/MainMenu.tscn"
 
-[node name="FrontLayer" type="CanvasLayer" parent="."]
+[node name="TutorialLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("grid")]
+process_mode = 3
 layer = 4
+visible = false
+script = ExtResource("14_754j2")
+grid = NodePath("MarginContainer/Panel/Grid")
+
+[node name="Backdrop" type="ColorRect" parent="TutorialLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="TutorialLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Grid" type="Node2D" parent="TutorialLayer/MarginContainer/Panel" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(232, 268)
+script = ExtResource("9_sd0hf")
+inner_node = ExtResource("9_7gv6k")
+front_layer = NodePath("../../../../FrontLayer")
+appear_timer = NodePath("../Timer")
+width = 4
+height = 4
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="Timer" type="Timer" parent="TutorialLayer/MarginContainer/Panel"]
+wait_time = 0.05
+
+[node name="FrontLayer" type="CanvasLayer" parent="."]
+layer = 5
 follow_viewport_enabled = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
@@ -826,12 +862,13 @@ modulate = Color(0.0705882, 1, 0.537255, 1)
 visible = false
 
 [node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("front_layer", "appear_timer", "appear_sound")]
-position = Vector2(594, 342)
+position = Vector2(576, 324)
 script = ExtResource("9_sd0hf")
 inner_node = ExtResource("9_7gv6k")
 front_layer = NodePath("../FrontLayer")
 appear_timer = NodePath("../AppearTimer")
 appear_sound = NodePath("../AppearSound")
+metadata/_edit_lock_ = true
 
 [node name="AppearTimer" type="Timer" parent="."]
 wait_time = 0.05

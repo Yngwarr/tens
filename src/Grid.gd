@@ -11,9 +11,9 @@ signal fully_appeared
 @export var front_layer: CanvasLayer
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
+@export var width: int = 10
+@export var height: int = 10
 
-var width: int = 10
-var height: int = 10
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
 var appear_step: int = 0
@@ -25,8 +25,8 @@ func _ready() -> void:
     for y in range(height):
         for x in range(width):
             var node := inner_node.instantiate() as NumberCell
-            node.position.x = step * x - step * width / 2.
-            node.position.y = step * y - step * height / 2.
+            node.position.x = step * (x + .5) - step * width / 2.
+            node.position.y = step * (y + .5) - step * height / 2.
             node.front_layer = front_layer
             add_child(node)
             node.set_value(randi_range(1, Game.TARGET_SUM - 1))
@@ -120,7 +120,8 @@ func appear_corner() -> void:
         get_child(x + y * width).appear()
 
     appear_step += 1
-    appear_sound.play()
+    if appear_sound:
+        appear_sound.play()
 
 func appear_down() -> void:
     if appear_step == height:
@@ -134,7 +135,8 @@ func appear_down() -> void:
         get_child(i).appear()
 
     appear_step += 1
-    appear_sound.play()
+    if appear_sound:
+        appear_sound.play()
 
 func appear_left() -> void:
     if appear_step == width:
@@ -145,7 +147,8 @@ func appear_left() -> void:
         get_child(i).appear()
 
     appear_step += 1
-    appear_sound.play()
+    if appear_sound:
+        appear_sound.play()
 
 func finish_appearing() -> void:
     appear_timer.stop()
