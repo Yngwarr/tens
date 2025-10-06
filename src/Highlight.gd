@@ -11,55 +11,60 @@ signal sum_changed(sum: int)
 
 var sum: int = 0
 
+
 func _physics_process(_delta: float) -> void:
-    var new_sum: int = 0
+	var new_sum: int = 0
 
-    for a in area.get_overlapping_areas():
-        var parent = a.get_parent()
-        if parent is NumberCell:
-            new_sum += parent.value
+	for a in area.get_overlapping_areas():
+		var parent = a.get_parent()
+		if parent is NumberCell:
+			new_sum += parent.value
 
-    if new_sum != sum:
-        sum = new_sum
-        sum_changed.emit(sum)
+	if new_sum != sum:
+		sum = new_sum
+		sum_changed.emit(sum)
+
 
 func resize(rect: Rect2) -> void:
-    if size == rect.size and position == rect.position:
-        return
+	if size == rect.size and position == rect.position:
+		return
 
-    size = rect.size
-    position = rect.position
+	size = rect.size
+	position = rect.position
 
-    collider.shape.size = rect.size - Vector2(8, 8)
-    collider.position = rect.size / 2.
+	collider.shape.size = rect.size - Vector2(8, 8)
+	collider.position = rect.size / 2.
 
-    resize_sfx.play()
+	resize_sfx.play()
+
 
 func toggle(on: bool) -> void:
-    visible = on
-    if on:
-        resize_sfx.play()
-    else:
-        collider.shape.size = Vector2.ZERO
-        collider.global_position = Vector2.ZERO
+	visible = on
+	if on:
+		resize_sfx.play()
+	else:
+		collider.shape.size = Vector2.ZERO
+		collider.global_position = Vector2.ZERO
+
 
 func clear() -> int:
-    var amount: int = 0
+	var amount: int = 0
 
-    for a in area.get_overlapping_areas():
-        var parent = a.get_parent()
+	for a in area.get_overlapping_areas():
+		var parent = a.get_parent()
 
-        if not parent is NumberCell:
-            continue
-        if parent.value == 0:
-            continue
+		if not parent is NumberCell:
+			continue
+		if parent.value == 0:
+			continue
 
-        parent.remove()
-        amount += 1
+		parent.remove()
+		amount += 1
 
-    clear_sfx.play()
+	clear_sfx.play()
 
-    return amount
+	return amount
+
 
 func fail() -> void:
-    fail_sfx.play()
+	fail_sfx.play()
