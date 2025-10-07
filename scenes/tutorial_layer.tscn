@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ifyk7vp76sh"]
+
+[ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="1_vdwd3"]
+[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/Grid.gd" id="2_kfkh6"]
+[ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="3_ac24n"]
+[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="4_jgcd5"]
+
+[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button")]
+process_mode = 3
+layer = 4
+script = ExtResource("1_vdwd3")
+grid = NodePath("MarginContainer/Panel/HBoxContainer/CenterContainer/Control/Grid")
+quit_button = NodePath("MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer/Button")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Panel/HBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Grid" type="Node2D" parent="MarginContainer/Panel/HBoxContainer/CenterContainer/Control" node_paths=PackedStringArray("appear_timer")]
+script = ExtResource("2_kfkh6")
+inner_node = ExtResource("3_ac24n")
+appear_timer = NodePath("../../../../Timer")
+width = 4
+height = 4
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_jgcd5")
+theme_override_font_sizes/normal_font_size = 32
+text = "Select numbers that add up to 10.
+
+Find all possible turns. The game ends when there are no more valid turns."
+
+[node name="Button" type="Button" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Got it!"
+
+[node name="Timer" type="Timer" parent="MarginContainer/Panel"]
+wait_time = 0.05

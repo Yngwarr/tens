@@ -24,7 +24,7 @@
 [ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/PauseButton.gd" id="11_iwtml"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_754j2"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/Solver.gd" id="12_ntxpy"]
-[ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="14_754j2"]
+[ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_754j2"]
 [ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="20_jtnx0"]
 [ext_resource type="AudioStream" uid="uid://dhsfcanwnf5n0" path="res://sfx/kenney_iface/drop_003.ogg" id="20_yogje"]
 [ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="23_vdq03"]
@@ -713,47 +713,7 @@ text = "Quit to menu"
 script = ExtResource("6_2c0ui")
 next_scene_name = "res://scenes/MainMenu.tscn"
 
-[node name="TutorialLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("grid")]
-process_mode = 3
-layer = 4
-visible = false
-script = ExtResource("14_754j2")
-grid = NodePath("MarginContainer/Panel/Grid")
-
-[node name="Backdrop" type="ColorRect" parent="TutorialLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7529412)
-
-[node name="MarginContainer" type="MarginContainer" parent="TutorialLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="TutorialLayer/MarginContainer"]
-layout_mode = 2
-
-[node name="Grid" type="Node2D" parent="TutorialLayer/MarginContainer/Panel" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(232, 268)
-script = ExtResource("9_sd0hf")
-inner_node = ExtResource("9_7gv6k")
-front_layer = NodePath("../../../../FrontLayer")
-appear_timer = NodePath("../Timer")
-width = 4
-height = 4
-metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
-
-[node name="Timer" type="Timer" parent="TutorialLayer/MarginContainer/Panel"]
-wait_time = 0.05
+[node name="TutorialLayer" parent="." instance=ExtResource("14_754j2")]
 
 [node name="FrontLayer" type="CanvasLayer" parent="."]
 layer = 5
