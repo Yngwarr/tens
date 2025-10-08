@@ -715,6 +715,9 @@ next_scene_name = "res://scenes/MainMenu.tscn"
 
 [node name="TutorialLayer" parent="." instance=ExtResource("14_754j2")]
 
+[node name="Grid" parent="TutorialLayer/MarginContainer/Panel/HBoxContainer/CenterContainer/Control" index="0" node_paths=PackedStringArray("front_layer")]
+front_layer = NodePath("../../../../../../../FrontLayer")
+
 [node name="FrontLayer" type="CanvasLayer" parent="."]
 layer = 5
 follow_viewport_enabled = true
@@ -867,3 +870,4 @@ volume_db = 6.0
 bus = &"SFX"
 
 [editable path="Background"]
+[editable path="TutorialLayer"]

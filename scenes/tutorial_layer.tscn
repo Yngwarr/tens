@@ -1,16 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5ifyk7vp76sh"]
+[gd_scene load_steps=6 format=3 uid="uid://c5ifyk7vp76sh"]
 
 [ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="1_vdwd3"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/Grid.gd" id="2_kfkh6"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="3_ac24n"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="4_jgcd5"]
+[ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="5_kfkh6"]
 
-[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button")]
+[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button", "highlight")]
 process_mode = 3
 layer = 4
 script = ExtResource("1_vdwd3")
 grid = NodePath("MarginContainer/Panel/HBoxContainer/CenterContainer/Control/Grid")
 quit_button = NodePath("MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer/Button")
+highlight = NodePath("Highlight")
 
 [node name="Backdrop" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -83,3 +85,10 @@ text = "Got it!"
 
 [node name="Timer" type="Timer" parent="MarginContainer/Panel"]
 wait_time = 0.05
+
+[node name="Highlight" parent="." instance=ExtResource("5_kfkh6")]
+visible = false
+offset_left = 337.0
+offset_top = 324.0
+offset_right = 385.0
+offset_bottom = 372.0

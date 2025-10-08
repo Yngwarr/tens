@@ -1,9 +1,12 @@
 class_name Tutorial
 extends CanvasLayer
 
+const GRID_TIMEOUT := .5
+
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
+@export var highlight: Highlight
 
 
 func _ready() -> void:
@@ -11,6 +14,11 @@ func _ready() -> void:
 		queue_free()
 	else:
 		quit_button.pressed.connect(close)
+		grid.highlight_changed.connect(on_highlight_changed)
+		grid.grabbed.connect(on_grabbed)
+		grid.released.connect(on_released)
+		grid.fully_appeared.connect(on_grid_appeared)
+
 		get_tree().paused = true
 		grid.appear()
 
@@ -18,3 +26,60 @@ func _ready() -> void:
 func close() -> void:
 	queue_free()
 	get_tree().paused = false
+
+
+func on_highlight_changed(rect: Rect2) -> void:
+	highlight.resize(rect)
+
+
+func on_grabbed() -> void:
+	highlight.toggle(true)
+
+
+func on_released() -> void:
+	highlight.toggle(false)
+	highlight.clear()
+
+
+func on_grid_appeared() -> void:
+	quit_button.grab_focus()
+
+	await get_tree().create_timer(1).timeout
+	await select_cells([5, 6])
+
+	for x in [5, 6]:
+		grid.get_child(x).remove()
+
+	await get_tree().create_timer(1).timeout
+	await select_cells([9, 10, 11])
+
+	for x in [9, 10, 11]:
+		grid.get_child(x).remove()
+
+	await get_tree().create_timer(1).timeout
+	await select_cells([0, 5, 9])
+
+	for x in [0, 1, 4, 8]:
+		grid.get_child(x).remove()
+
+	await get_tree().create_timer(1).timeout
+
+
+func select_cells(cell_nums: Array[int]) -> void:
+	if len(cell_nums) == 0:
+		push_error("tried selecting an empty array of cell_nums")
+		return
+
+	var n: int = cell_nums.pop_front()
+	var cell: NumberCell = grid.get_child(n)
+	cell.on_pressed()
+
+	await get_tree().create_timer(GRID_TIMEOUT).timeout
+
+	while not cell_nums.is_empty():
+		n = cell_nums.pop_front()
+		cell = grid.get_child(n)
+		cell.on_moved()
+		await get_tree().create_timer(GRID_TIMEOUT).timeout
+
+	grid.on_released()

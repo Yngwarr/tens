@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://beuhw1og8dasw"]
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_efhjy"]
-[ext_resource type="Script" path="res://src/Highlight.gd" id="2_86qa4"]
+[ext_resource type="Script" uid="uid://btaanxwed51pu" path="res://src/Highlight.gd" id="2_86qa4"]
 [ext_resource type="AudioStream" uid="uid://jhqiujjg8nj5" path="res://sfx/kenney_iface/pluck_001.ogg" id="5_ptglk"]
 [ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="6_5ef4h"]
 [ext_resource type="AudioStream" uid="uid://yio5igb1uhi5" path="res://sfx/kenney_iface/click_001.ogg" id="7_ln5do"]
@@ -33,7 +33,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ks2s0")
-debug_color = Color(0.730705, 0.233905, 1, 0.42)
+debug_color = Color(0.9058386, 0.00013457358, 0.74701256, 0.41960785)
 
 [node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_5ef4h")
