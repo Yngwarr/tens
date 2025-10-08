@@ -714,6 +714,7 @@ script = ExtResource("6_2c0ui")
 next_scene_name = "res://scenes/MainMenu.tscn"
 
 [node name="TutorialLayer" parent="." node_paths=PackedStringArray("front_layer") instance=ExtResource("14_754j2")]
+visible = false
 front_layer = NodePath("../FrontLayer")
 
 [node name="Grid" parent="TutorialLayer/MarginContainer/Panel/HBoxContainer/CenterContainer/Control" index="0" node_paths=PackedStringArray("front_layer")]

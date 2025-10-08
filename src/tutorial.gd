@@ -21,10 +21,12 @@ const BOARD: Array[int] = [
 
 
 func _ready() -> void:
-	if not visible:
+	if Storage.tutorial_watched:
 		Pause.manual_override = false
 		queue_free()
 	else:
+		Storage.tutorial_watched = true
+		show()
 		quit_button.pressed.connect(close)
 		grid.highlight_changed.connect(on_highlight_changed)
 		grid.grabbed.connect(on_grabbed)
