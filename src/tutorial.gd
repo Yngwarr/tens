@@ -11,6 +11,9 @@ const BOARD: Array[int] = [
 	9, 9, 9, 9
 ]
 
+@export_group("External")
+@export var front_layer: CanvasLayer
+
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
@@ -34,6 +37,9 @@ func _ready() -> void:
 
 
 func close() -> void:
+	for i in front_layer.get_child_count():
+		front_layer.get_child(i).queue_free()
+
 	queue_free()
 	Pause.manual_override = false
 	get_tree().paused = false
