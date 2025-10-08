@@ -3,6 +3,9 @@ extends Panel
 
 signal sum_changed(sum: int)
 
+@export var silent := false
+
+@export_group("Internal")
 @export var area: Area2D
 @export var collider: CollisionShape2D
 @export var resize_sfx: AudioStreamPlayer
@@ -35,13 +38,13 @@ func resize(rect: Rect2) -> void:
 	collider.shape.size = rect.size - Vector2(8, 8)
 	collider.position = rect.size / 2.
 
-	resize_sfx.play()
+	play_sfx(resize_sfx)
 
 
 func toggle(on: bool) -> void:
 	visible = on
 	if on:
-		resize_sfx.play()
+		play_sfx(resize_sfx)
 	else:
 		collider.shape.size = Vector2.ZERO
 		collider.global_position = Vector2.ZERO
@@ -61,10 +64,17 @@ func clear() -> int:
 		parent.remove()
 		amount += 1
 
-	clear_sfx.play()
+	play_sfx(clear_sfx)
 
 	return amount
 
 
 func fail() -> void:
-	fail_sfx.play()
+	play_sfx(fail_sfx)
+
+
+func play_sfx(effect: AudioStreamPlayer) -> void:
+	if silent:
+		return
+
+	effect.play()

@@ -74,7 +74,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("4_jgcd5")
 theme_override_font_sizes/normal_font_size = 32
-text = "Select numbers that add up to 10.
+bbcode_enabled = true
+text = "Select numbers that add up to [color=lime]10[/color]!
 
 Find all possible turns. The game ends when there are no more valid turns."
 
@@ -91,3 +92,4 @@ offset_left = 337.0
 offset_top = 324.0
 offset_right = 385.0
 offset_bottom = 372.0
+silent = true

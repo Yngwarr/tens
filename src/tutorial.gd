@@ -1,7 +1,7 @@
 class_name Tutorial
 extends CanvasLayer
 
-const GRID_TIMEOUT := .5
+const GRID_TIMEOUT := .2
 
 const BOARD_SIZE := Vector2i(4, 4)
 const BOARD: Array[int] = [
@@ -100,5 +100,7 @@ func select_cells(cell_nums: Array[int]) -> void:
 		cell = grid.get_child(n)
 		cell.on_moved()
 		await get_tree().create_timer(GRID_TIMEOUT).timeout
+
+	await get_tree().create_timer(1).timeout
 
 	grid.on_released()
