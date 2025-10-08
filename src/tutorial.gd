@@ -3,6 +3,14 @@ extends CanvasLayer
 
 const GRID_TIMEOUT := .5
 
+const BOARD_SIZE := Vector2i(4, 4)
+const BOARD: Array[int] = [
+	1, 3, 9, 9,
+	2, 4, 6, 9,
+	4, 5, 3, 2,
+	9, 9, 9, 9
+]
+
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
@@ -11,6 +19,7 @@ const GRID_TIMEOUT := .5
 
 func _ready() -> void:
 	if not visible:
+		Pause.manual_override = false
 		queue_free()
 	else:
 		quit_button.pressed.connect(close)
@@ -19,12 +28,14 @@ func _ready() -> void:
 		grid.released.connect(on_released)
 		grid.fully_appeared.connect(on_grid_appeared)
 
+		Pause.manual_override = true
 		get_tree().paused = true
 		grid.appear()
 
 
 func close() -> void:
 	queue_free()
+	Pause.manual_override = false
 	get_tree().paused = false
 
 
@@ -44,25 +55,33 @@ func on_released() -> void:
 func on_grid_appeared() -> void:
 	quit_button.grab_focus()
 
-	await get_tree().create_timer(1).timeout
-	await select_cells([5, 6])
+	while true:
+		await get_tree().create_timer(1).timeout
+		await select_cells([5, 6])
 
-	for x in [5, 6]:
-		grid.get_child(x).remove()
+		for x in [5, 6]:
+			grid.get_child(x).remove()
 
-	await get_tree().create_timer(1).timeout
-	await select_cells([9, 10, 11])
+		await get_tree().create_timer(1).timeout
+		await select_cells([9, 10, 11])
 
-	for x in [9, 10, 11]:
-		grid.get_child(x).remove()
+		for x in [9, 10, 11]:
+			grid.get_child(x).remove()
 
-	await get_tree().create_timer(1).timeout
-	await select_cells([0, 5, 9])
+		await get_tree().create_timer(1).timeout
+		await select_cells([0, 5, 9])
 
-	for x in [0, 1, 4, 8]:
-		grid.get_child(x).remove()
+		for x in [0, 1, 4, 8]:
+			grid.get_child(x).remove()
 
-	await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1).timeout
+
+		grid.fall_apart()
+
+		await get_tree().create_timer(1).timeout
+
+		for i in grid.get_child_count():
+			grid.get_child(i).reset(BOARD[i])
 
 
 func select_cells(cell_nums: Array[int]) -> void:

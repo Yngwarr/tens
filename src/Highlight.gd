@@ -50,7 +50,6 @@ func toggle(on: bool) -> void:
 func clear() -> int:
 	var amount: int = 0
 
-	print(area.get_overlapping_areas())
 	for a in area.get_overlapping_areas():
 		var parent = a.get_parent()
 

@@ -4,10 +4,15 @@ extends Node
 ## Must have [code]process_mode == PROCESS_MODE_WHEN_PAUSED[/code].
 @export var pause_screen: PauseMenu
 
+static var manual_override := false
+
 var to_drop_next := false
 
 
 func _process(_delta: float) -> void:
+	if manual_override:
+		return
+
 	if Input.is_action_just_pressed("game_pause"):
 		if get_tree().paused:
 			unpause(false)

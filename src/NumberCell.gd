@@ -113,3 +113,14 @@ func appear() -> void:
 		return
 
 	anim.play(&"appear")
+
+
+func reset(p_value: int) -> void:
+	velocity = Vector2.ZERO
+	set_value(p_value)
+
+	front_layer.remove_child(view)
+	add_child(view)
+
+	view.position = Vector2.ZERO
+	unbounce()

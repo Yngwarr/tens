@@ -11,8 +11,10 @@ signal fully_appeared
 @export var front_layer: CanvasLayer
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
-@export var width: int = 10
-@export var height: int = 10
+@export var tutorial_board: bool = false
+
+var width: int = 10
+var height: int = 10
 
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
@@ -21,6 +23,10 @@ var is_held := false
 
 
 func _ready() -> void:
+	if tutorial_board:
+		width = Tutorial.BOARD_SIZE.x
+		height = Tutorial.BOARD_SIZE.y
+
 	var step := Game.CELL_SIZE
 
 	for y in range(height):
@@ -30,7 +36,11 @@ func _ready() -> void:
 			node.position.y = step * (y + .5) - step * height / 2.
 			node.front_layer = front_layer
 			add_child(node)
-			node.set_value(randi_range(1, Game.TARGET_SUM - 1))
+
+			if tutorial_board:
+				node.set_value(Tutorial.BOARD[y * width + x])
+			else:
+				node.set_value(randi_range(1, Game.TARGET_SUM - 1))
 
 			if not Engine.is_editor_hint():
 				node.pressed.connect(on_cell_pressed)

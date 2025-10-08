@@ -55,8 +55,7 @@ layout_mode = 2
 script = ExtResource("2_kfkh6")
 inner_node = ExtResource("3_ac24n")
 appear_timer = NodePath("../../../../Timer")
-width = 4
-height = 4
+tutorial_board = true
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
