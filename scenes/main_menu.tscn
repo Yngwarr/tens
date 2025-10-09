@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://cbplqxkaqi83r"]
 
-[ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_62wd7"]
-[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
-[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="2_eahdg"]
-[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_67860"]
-[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="3_pto1d"]
-[ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/start_game_button.gd" id="4_iyc1n"]
-[ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/quit_button.gd" id="4_kgmp6"]
-[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_7la6k"]
-[ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
-[ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="8_rqins"]
+[ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
+[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
+[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_flqon"]
+[ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/start_game_button.gd" id="4_rcqid"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="5_1ajci"]
+[ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/quit_button.gd" id="6_7b55j"]
+[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="7_5pajh"]
+[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_j7ex8"]
+[ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="9_a8gd2"]
+[ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105
@@ -100,10 +100,10 @@ _data = {
 }
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
-script = ExtResource("1_62wd7")
+script = ExtResource("1_5dd4i")
 first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/Start")
 
-[node name="Background" parent="." instance=ExtResource("2_0hy48")]
+[node name="Background" parent="." instance=ExtResource("2_lgwnu")]
 
 [node name="ColorRect" parent="Background" index="1"]
 visible = false
@@ -123,7 +123,7 @@ theme_override_constants/margin_top = 100
 
 [node name="Title" type="Label" parent="Menu/Container/TitleMargin"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_67860")
+theme_override_fonts/font = ExtResource("3_flqon")
 text = "Tens!"
 label_settings = SubResource("LabelSettings_8bkd4")
 horizontal_alignment = 1
@@ -142,38 +142,38 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Start"
-script = ExtResource("4_iyc1n")
-next_scene_name = "res://scenes/Game.tscn"
+script = ExtResource("4_rcqid")
+next_scene_name = "uid://csahdmph2aji4"
 anim = NodePath("../../../../../AnimationPlayer")
 
 [node name="Stats" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Stats"
-script = ExtResource("3_pto1d")
+script = ExtResource("5_1ajci")
 popup = NodePath("../../../../../StatsWindow")
 
 [node name="Options" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Options"
-script = ExtResource("3_pto1d")
+script = ExtResource("5_1ajci")
 popup = NodePath("../../../../../OptionsWindow")
 
 [node name="Credits" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Credits"
-script = ExtResource("3_pto1d")
+script = ExtResource("5_1ajci")
 popup = NodePath("../../../../../CreditsWindow")
 
 [node name="Quit" type="Button" parent="Menu/Container/MenuMargin/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Quit"
-script = ExtResource("4_kgmp6")
+script = ExtResource("6_7b55j")
 
-[node name="OptionsWindow" parent="." instance=ExtResource("2_eahdg")]
+[node name="OptionsWindow" parent="." instance=ExtResource("7_5pajh")]
 visible = false
 
 [node name="CreditsWindow" type="PopupPanel" parent="."]
@@ -182,7 +182,7 @@ initial_position = 2
 size = Vector2i(365, 325)
 borderless = false
 content_scale_mode = 1
-theme_override_styles/panel = ExtResource("8_7la6k")
+theme_override_styles/panel = ExtResource("8_j7ex8")
 
 [node name="CreditsLabel" type="RichTextLabel" parent="CreditsWindow"]
 offset_left = 10.0
@@ -214,8 +214,8 @@ initial_position = 2
 size = Vector2i(241, 117)
 borderless = false
 content_scale_mode = 1
-theme_override_styles/panel = ExtResource("8_7la6k")
-script = ExtResource("8_rqins")
+theme_override_styles/panel = ExtResource("8_j7ex8")
+script = ExtResource("9_a8gd2")
 label_container = NodePath("MarginContainer/LabelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
@@ -240,7 +240,7 @@ libraries = {
 }
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_e02lm")
+stream = ExtResource("10_hstxw")
 volume_db = -3.0
 autoplay = true
 bus = &"SFX"

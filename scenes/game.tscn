@@ -1,34 +1,34 @@
 [gd_scene load_steps=39 format=3 uid="uid://csahdmph2aji4"]
 
-[ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_wmfvw"]
-[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_cmwjy"]
-[ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="2_xdcds"]
-[ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_c6kah"]
-[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="3_j5m3f"]
-[ext_resource type="Shader" uid="uid://cjkfy3s4f7nyv" path="res://shaders/blur.gdshader" id="3_tg1ur"]
-[ext_resource type="Texture2D" uid="uid://jqlgv5tccfia" path="res://img/hint-button/pressed.png" id="4_3pnvk"]
-[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="5_k0seo"]
-[ext_resource type="Texture2D" uid="uid://dudsl5pvigssi" path="res://img/hint-button/hover.png" id="5_tffks"]
-[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="6_2c0ui"]
-[ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/button-mask.png" id="6_tlvfk"]
-[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="7_vbbfo"]
-[ext_resource type="Script" uid="uid://bfh4sfjmjr14" path="res://src/pause.gd" id="8_cpxey"]
-[ext_resource type="Texture2D" uid="uid://dsy0a7u04vdc4" path="res://img/pause-button/normal.png" id="8_lnq1p"]
-[ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="8_lyls7"]
-[ext_resource type="Texture2D" uid="uid://fmv7ccnf2r30" path="res://img/pause-button/pressed.png" id="9_3lx4o"]
-[ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="9_7gv6k"]
-[ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="9_20cip"]
-[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="9_sd0hf"]
-[ext_resource type="Texture2D" uid="uid://blcjkpdtpofj3" path="res://img/pause-button/hover.png" id="10_a76yp"]
-[ext_resource type="PackedScene" uid="uid://bbmiblmihgxla" path="res://scenes/Hint.tscn" id="10_ra2ve"]
-[ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/pause_button.gd" id="11_iwtml"]
-[ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_754j2"]
-[ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="12_ntxpy"]
-[ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_754j2"]
-[ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="20_jtnx0"]
-[ext_resource type="AudioStream" uid="uid://dhsfcanwnf5n0" path="res://sfx/kenney_iface/drop_003.ogg" id="20_yogje"]
-[ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="23_vdq03"]
-[ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="24_55bac"]
+[ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
+[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
+[ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_qouja"]
+[ext_resource type="Texture2D" uid="uid://jqlgv5tccfia" path="res://img/hint-button/pressed.png" id="4_wljb1"]
+[ext_resource type="Texture2D" uid="uid://dudsl5pvigssi" path="res://img/hint-button/hover.png" id="5_v2yb1"]
+[ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/button-mask.png" id="6_js0lu"]
+[ext_resource type="Texture2D" uid="uid://dsy0a7u04vdc4" path="res://img/pause-button/normal.png" id="7_gxtfn"]
+[ext_resource type="Texture2D" uid="uid://fmv7ccnf2r30" path="res://img/pause-button/pressed.png" id="8_twgab"]
+[ext_resource type="Texture2D" uid="uid://blcjkpdtpofj3" path="res://img/pause-button/hover.png" id="9_02fa5"]
+[ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/pause_button.gd" id="10_nepv3"]
+[ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
+[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="12_m4url"]
+[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
+[ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
+[ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="15_05nbr"]
+[ext_resource type="Shader" uid="uid://cjkfy3s4f7nyv" path="res://shaders/blur.gdshader" id="16_0sl42"]
+[ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="17_oaba0"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="18_458eo"]
+[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
+[ext_resource type="Script" uid="uid://bfh4sfjmjr14" path="res://src/pause.gd" id="20_fedci"]
+[ext_resource type="PackedScene" uid="uid://bbmiblmihgxla" path="res://scenes/hint.tscn" id="21_8qswn"]
+[ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="22_rm0al"]
+[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="23_i4re6"]
+[ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="24_pf7vy"]
+[ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="25_o8ni1"]
+[ext_resource type="AudioStream" uid="uid://sip788ays8k2" path="res://sfx/kenney_iface/click_002.ogg" id="26_3hbvx"]
+[ext_resource type="AudioStream" uid="uid://dhsfcanwnf5n0" path="res://sfx/kenney_iface/drop_003.ogg" id="27_q8j3a"]
+[ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="28_ms3bu"]
+[ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_g214j"]
 action = &"game_hint"
@@ -38,13 +38,13 @@ pressed = true
 events = [SubResource("InputEventAction_g214j")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kasj"]
-font = ExtResource("7_vbbfo")
+font = ExtResource("12_m4url")
 font_size = 200
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v63bu"]
-shader = ExtResource("3_tg1ur")
+shader = ExtResource("16_0sl42")
 shader_parameter/directions = 32.0
 shader_parameter/quality = 8.0
 shader_parameter/size = 10.0
@@ -534,7 +534,7 @@ _data = {
 }
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player")]
-script = ExtResource("1_wmfvw")
+script = ExtResource("1_suyxu")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
 highlight = NodePath("Highlight")
@@ -552,7 +552,7 @@ hint_sound = NodePath("HintSound")
 game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 
-[node name="Background" parent="." instance=ExtResource("2_cmwjy")]
+[node name="Background" parent="." instance=ExtResource("2_sgl2t")]
 follow_viewport_enabled = true
 
 [node name="ColorRect" parent="Background" index="1"]
@@ -574,10 +574,10 @@ tooltip_text = "Show hint."
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("3_c6kah")
-texture_pressed = ExtResource("4_3pnvk")
-texture_hover = ExtResource("5_tffks")
-texture_click_mask = ExtResource("6_tlvfk")
+texture_normal = ExtResource("3_qouja")
+texture_pressed = ExtResource("4_wljb1")
+texture_hover = ExtResource("5_v2yb1")
+texture_click_mask = ExtResource("6_js0lu")
 
 [node name="Pause" type="TextureButton" parent="HUD"]
 anchors_preset = 3
@@ -595,13 +595,13 @@ tooltip_text = "Show hint."
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("8_lnq1p")
-texture_pressed = ExtResource("9_3lx4o")
-texture_hover = ExtResource("10_a76yp")
-texture_click_mask = ExtResource("6_tlvfk")
-script = ExtResource("11_iwtml")
+texture_normal = ExtResource("7_gxtfn")
+texture_pressed = ExtResource("8_twgab")
+texture_hover = ExtResource("9_02fa5")
+texture_click_mask = ExtResource("6_js0lu")
+script = ExtResource("10_nepv3")
 
-[node name="SumLabel" parent="HUD" instance=ExtResource("12_754j2")]
+[node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0
 offset_right = -38.0
 
@@ -617,7 +617,7 @@ layout_mode = 2
 [node name="ScoreLabel" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_vbbfo")
+theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 32
 text = "Score: "
 horizontal_alignment = 1
@@ -626,7 +626,7 @@ metadata/_edit_lock_ = true
 [node name="Score" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_vbbfo")
+theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
@@ -656,7 +656,7 @@ offset_top = 117.0
 offset_right = -2.0
 offset_bottom = 198.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("7_vbbfo")
+theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 64
 text = "You have scored"
 horizontal_alignment = 1
@@ -679,7 +679,7 @@ anchor_right = 1.0
 offset_top = 390.0
 offset_bottom = 471.00012
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("7_vbbfo")
+theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 64
 text = "points"
 horizontal_alignment = 1
@@ -704,16 +704,16 @@ layout_mode = 2
 [node name="TryAgain" type="Button" parent="GameOverLayer/MenuMargin/Menu"]
 layout_mode = 2
 text = "Try Again"
-script = ExtResource("6_2c0ui")
-next_scene_name = "res://scenes/Game.tscn"
+script = ExtResource("13_8ool0")
+next_scene_name = "uid://csahdmph2aji4"
 
 [node name="QuitToMenu" type="Button" parent="GameOverLayer/MenuMargin/Menu"]
 layout_mode = 2
 text = "Quit to menu"
-script = ExtResource("6_2c0ui")
-next_scene_name = "res://scenes/MainMenu.tscn"
+script = ExtResource("13_8ool0")
+next_scene_name = "uid://cbplqxkaqi83r"
 
-[node name="TutorialLayer" parent="." node_paths=PackedStringArray("front_layer") instance=ExtResource("14_754j2")]
+[node name="TutorialLayer" parent="." node_paths=PackedStringArray("front_layer") instance=ExtResource("14_pr1ej")]
 visible = false
 front_layer = NodePath("../FrontLayer")
 
@@ -728,7 +728,7 @@ follow_viewport_enabled = true
 process_mode = 2
 layer = 5
 visible = false
-script = ExtResource("2_xdcds")
+script = ExtResource("15_05nbr")
 resume_button = NodePath("Container/MenuMargin/Menu/Resume")
 options_menu = NodePath("OptionsWindow")
 
@@ -739,7 +739,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_lyls7")
+texture = ExtResource("17_oaba0")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
 anchors_preset = 15
@@ -767,7 +767,7 @@ theme_override_constants/margin_top = 100
 
 [node name="Title" type="Label" parent="PauseMenu/Container/TitleMargin"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_vbbfo")
+theme_override_fonts/font = ExtResource("12_m4url")
 text = "Paused"
 label_settings = SubResource("LabelSettings_sgf64")
 horizontal_alignment = 1
@@ -790,17 +790,17 @@ text = "Resume"
 [node name="Options" type="Button" parent="PauseMenu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
 layout_mode = 2
 text = "Options"
-script = ExtResource("5_k0seo")
+script = ExtResource("18_458eo")
 popup = NodePath("../../../../OptionsWindow")
 
 [node name="QuitToMenu" type="Button" parent="PauseMenu/Container/MenuMargin/Menu" node_paths=PackedStringArray("confirm_dialog")]
 layout_mode = 2
 text = "Quit to menu"
-script = ExtResource("6_2c0ui")
-next_scene_name = "res://scenes/MainMenu.tscn"
+script = ExtResource("13_8ool0")
+next_scene_name = "uid://cbplqxkaqi83r"
 confirm_dialog = NodePath("../../../../ConfirmQuit")
 
-[node name="OptionsWindow" parent="PauseMenu" instance=ExtResource("3_j5m3f")]
+[node name="OptionsWindow" parent="PauseMenu" instance=ExtResource("19_h3rex")]
 visible = false
 
 [node name="ConfirmQuit" type="ConfirmationDialog" parent="PauseMenu"]
@@ -816,20 +816,20 @@ cancel_button_text = "No"
 
 [node name="Pause" type="Node" parent="." node_paths=PackedStringArray("pause_screen")]
 process_mode = 3
-script = ExtResource("8_cpxey")
+script = ExtResource("20_fedci")
 pause_screen = NodePath("../PauseMenu")
 
-[node name="Hint" parent="." instance=ExtResource("10_ra2ve")]
+[node name="Hint" parent="." instance=ExtResource("21_8qswn")]
 visible = false
 modulate = Color(0.0705882, 1, 0.537255, 1)
 
-[node name="Highlight" parent="." instance=ExtResource("9_20cip")]
+[node name="Highlight" parent="." instance=ExtResource("22_rm0al")]
 visible = false
 
 [node name="Grid" type="Node2D" parent="." node_paths=PackedStringArray("front_layer", "appear_timer", "appear_sound")]
 position = Vector2(576, 324)
-script = ExtResource("9_sd0hf")
-inner_node = ExtResource("9_7gv6k")
+script = ExtResource("23_i4re6")
+inner_node = ExtResource("24_pf7vy")
 front_layer = NodePath("../FrontLayer")
 appear_timer = NodePath("../AppearTimer")
 appear_sound = NodePath("../AppearSound")
@@ -839,7 +839,7 @@ metadata/_edit_lock_ = true
 wait_time = 0.05
 
 [node name="Solver" type="Node" parent="." node_paths=PackedStringArray("grid")]
-script = ExtResource("12_ntxpy")
+script = ExtResource("25_o8ni1")
 grid = NodePath("../Grid")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -848,26 +848,26 @@ libraries = {
 }
 
 [node name="AppearSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_jtnx0")
+stream = ExtResource("26_3hbvx")
 volume_db = 9.0
 pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="HintSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_yogje")
+stream = ExtResource("27_q8j3a")
 volume_db = 4.0
 pitch_scale = 0.6
 bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("23_vdq03")
+stream = ExtResource("28_ms3bu")
 volume_db = 6.0
 autoplay = true
 bus = &"Music"
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_55bac")
+stream = ExtResource("29_7ixpq")
 volume_db = 6.0
 bus = &"SFX"
 
