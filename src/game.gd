@@ -33,7 +33,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	pause_menu.modal_open.connect(pause_ctl.drop_next)
 	pause_menu.resume_pressed.connect(pause_ctl.unpause)
 	grid.highlight_changed.connect(highlight.resize)
 	grid.grabbed.connect(on_grabbed)

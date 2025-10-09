@@ -22,7 +22,6 @@ const BOARD: Array[int] = [
 
 func _ready() -> void:
 	if Storage.tutorial_watched:
-		Pause.manual_override = false
 		queue_free()
 	else:
 		Storage.tutorial_watched = true
@@ -33,7 +32,6 @@ func _ready() -> void:
 		grid.released.connect(on_released)
 		grid.fully_appeared.connect(on_grid_appeared)
 
-		Pause.manual_override = true
 		get_tree().paused = true
 		grid.appear()
 
@@ -43,7 +41,6 @@ func close() -> void:
 		front_layer.get_child(i).queue_free()
 
 	queue_free()
-	Pause.manual_override = false
 	get_tree().paused = false
 
 
