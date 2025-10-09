@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://cbplqxkaqi83r"]
 
-[ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/MainMenu.gd" id="1_62wd7"]
+[ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_62wd7"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/Background.tscn" id="2_0hy48"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/OptionsWindow.tscn" id="2_eahdg"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_67860"]
-[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/ShowPopupButton.gd" id="3_pto1d"]
-[ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/StartGameButton.gd" id="4_iyc1n"]
-[ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/QuitButton.gd" id="4_kgmp6"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="3_pto1d"]
+[ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/start_game_button.gd" id="4_iyc1n"]
+[ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/quit_button.gd" id="4_kgmp6"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_7la6k"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="8_e02lm"]
-[ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/StatsWindow.gd" id="8_rqins"]
+[ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="8_rqins"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font_size = 105

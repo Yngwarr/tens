@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbmiblmihgxla"]
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_jypex"]
-[ext_resource type="Script" path="res://src/Hint.gd" id="2_wlpsf"]
+[ext_resource type="Script" uid="uid://cj7ttrwrw3boe" path="res://src/hint.gd" id="2_wlpsf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
 texture = ExtResource("1_jypex")

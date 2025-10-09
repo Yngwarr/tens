@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp02anwflcyv8"]
 
-[ext_resource type="Script" uid="uid://cmvm8kwol0v66" path="res://src/UI/OptionsWindow.gd" id="1_08yxq"]
+[ext_resource type="Script" uid="uid://cmvm8kwol0v66" path="res://src/UI/options_window.gd" id="1_08yxq"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="1_ngda6"]
-[ext_resource type="Script" uid="uid://vko4v8n10wc6" path="res://src/UI/ShowSumButton.gd" id="2_yqcwl"]
+[ext_resource type="Script" uid="uid://vko4v8n10wc6" path="res://src/UI/show_sum_button.gd" id="2_yqcwl"]
 
 [node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container", "show_sum")]
 oversampling_override = 1.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5ifyk7vp76sh"]
 
 [ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="1_vdwd3"]
-[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/Grid.gd" id="2_kfkh6"]
+[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="2_kfkh6"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/NumberCell.tscn" id="3_ac24n"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="4_jgcd5"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/Highlight.tscn" id="5_kfkh6"]
