@@ -1,22 +1,19 @@
-[gd_scene load_steps=43 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=39 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="3_426vi"]
-[ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="4_naigu"]
-[ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="5_m1oc7"]
-[ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/button-mask.png" id="6_js0lu"]
-[ext_resource type="BitMap" uid="uid://clsps5usm1ocf" path="res://img/common/button_mask.png" id="6_kbe8o"]
-[ext_resource type="Texture2D" uid="uid://kcjrr7kl50ny" path="res://img/common/icons/icon_hint.svg" id="7_7f8l2"]
-[ext_resource type="Texture2D" uid="uid://dsy0a7u04vdc4" path="res://img/pause-button/normal.png" id="7_gxtfn"]
-[ext_resource type="Texture2D" uid="uid://jtfl1hpipg0m" path="res://img/common/hint_counter.svg" id="8_cxum0"]
-[ext_resource type="Texture2D" uid="uid://fmv7ccnf2r30" path="res://img/pause-button/pressed.png" id="8_twgab"]
-[ext_resource type="LabelSettings" uid="uid://cnmhhrl0r8yd5" path="res://label settings/hint_counter.tres" id="9_1fiys"]
-[ext_resource type="Texture2D" uid="uid://blcjkpdtpofj3" path="res://img/pause-button/hover.png" id="9_02fa5"]
+[ext_resource type="PackedScene" uid="uid://bkoqy044j052o" path="res://scenes/button_hint.tscn" id="3_0bq3a"]
+[ext_resource type="Texture2D" uid="uid://dgx8kq7wk6uh8" path="res://img/frame_field.svg" id="3_754j2"]
+[ext_resource type="PackedScene" uid="uid://cfrwxfctipdp6" path="res://scenes/HUD_button_pause.tscn" id="5_0bq3a"]
+[ext_resource type="PackedScene" uid="uid://doj2d2pugy8kx" path="res://scenes/HUD_button_gallery.tscn" id="7_754j2"]
+[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="8_i4jil"]
 [ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/pause_button.gd" id="10_nepv3"]
+[ext_resource type="LabelSettings" uid="uid://dix3odl5wyvig" path="res://label settings/score_label.tres" id="11_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
+[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="12_i4jil"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="12_m4url"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
+[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
 [ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="15_05nbr"]
 [ext_resource type="Shader" uid="uid://cjkfy3s4f7nyv" path="res://shaders/blur.gdshader" id="16_0sl42"]
@@ -34,17 +31,16 @@
 [ext_resource type="AudioStream" uid="uid://cdkonrw42goff" path="res://sfx/tens.ogg" id="28_ms3bu"]
 [ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_g214j"]
-action = &"game_hint"
-pressed = true
+[sub_resource type="LabelSettings" id="LabelSettings_1gdd5"]
+font = ExtResource("12_i4jil")
+font_size = 98
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Shortcut" id="Shortcut_uxviy"]
-events = [SubResource("InputEventAction_g214j")]
-
-[sub_resource type="LabelSettings" id="LabelSettings_5kasj"]
-font = ExtResource("12_m4url")
-font_size = 200
-outline_size = 8
+[sub_resource type="LabelSettings" id="LabelSettings_426vi"]
+font = ExtResource("13_jai3c")
+font_size = 50
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v63bu"]
@@ -73,14 +69,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HUD/Hint:position")
+tracks/1/path = NodePath("HUD/HintButton:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1000)]
+"values": [Vector2(1500, 223)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -145,19 +141,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("GameOverLayer/LowLabel:position")
+tracks/7/path = NodePath("GameOverLayer/HiLabel:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 390)]
+"values": [Vector2(0, 117)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("GameOverLayer/LowLabel:modulate")
+tracks/8/path = NodePath("GameOverLayer/HiLabel:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -169,86 +165,98 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("GameOverLayer/HiLabel:position")
+tracks/9/path = NodePath("GameOverLayer/MenuMargin:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 117)]
+"values": [Vector2(0, 498)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("GameOverLayer/HiLabel:modulate")
+tracks/10/path = NodePath("GameOverLayer:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("GameOverLayer/MenuMargin:position")
+tracks/11/path = NodePath("GameOverSound:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 498)]
+"update": 1,
+"values": [false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("GameOverLayer:visible")
+tracks/12/path = NodePath("HUD/SumLabel:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(-300, 236)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("GameOverSound:playing")
+tracks/13/path = NodePath("Background/FieldFrame:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("HUD/Pause:position")
+tracks/14/path = NodePath("HUD/PauseButton:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1500, 528)]
+"values": [Vector2(1055.0007, 0)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("HUD/SumLabel:position")
+tracks/15/path = NodePath("HUD/GalleryButton:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-300, 263)]
+"values": [Vector2(1055.0007, 551)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("HUD/SoundButton:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 551)]
 }
 
 [sub_resource type="Animation" id="Animation_6obku"]
@@ -298,14 +306,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HUD/Hint:position")
+tracks/3/path = NodePath("HUD/HintButton:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1022, 286), Vector2(2000, 286)]
+"values": [Vector2(929, 223), Vector2(1237, 223)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -346,19 +354,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("GameOverLayer/LowLabel:position")
+tracks/7/path = NodePath("GameOverLayer/HiLabel:position")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(1.3, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 490), Vector2(0, 390)]
+"values": [Vector2(0, -200), Vector2(0, 117)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("GameOverLayer/LowLabel:modulate")
+tracks/8/path = NodePath("GameOverLayer/HiLabel:modulate")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -370,86 +378,98 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("GameOverLayer/HiLabel:position")
+tracks/9/path = NodePath("GameOverLayer/MenuMargin:position")
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.3, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -200), Vector2(0, 117)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("GameOverLayer/HiLabel:modulate")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(1.3, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("GameOverLayer/MenuMargin:position")
-tracks/11/interp = 2
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(1.3, 2, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 700), Vector2(0, 700), Vector2(0, 498)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("GameOverLayer:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("GameOverLayer:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("GameOverSound:playing")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = false
+tracks/11/path = NodePath("GameOverSound:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HUD/SumLabel:position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.6667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 236), Vector2(-300, 236)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Background/FieldFrame:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("HUD/Pause:position")
-tracks/14/interp = 2
+tracks/14/path = NodePath("HUD/PauseButton:position")
+tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.666667),
+"times": PackedFloat32Array(0, 0.66933876),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1022, 528), Vector2(2000, 528)]
+"values": [Vector2(1055.0007, 0), Vector2(1255, 0)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("HUD/SumLabel:position")
-tracks/15/interp = 2
+tracks/15/path = NodePath("HUD/GalleryButton:position")
+tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.6667),
+"times": PackedFloat32Array(0, 0.66933876),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 263), Vector2(-300, 263)]
+"values": [Vector2(1055.0007, 551), Vector2(1255, 551)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("HUD/SoundButton:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.66933876),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 551), Vector2(-200, 551)]
 }
 
 [sub_resource type="Animation" id="Animation_kp7j3"]
@@ -470,14 +490,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HUD/Hint:position")
+tracks/1/path = NodePath("HUD/HintButton:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1500, 258), Vector2(937, 258)]
+"values": [Vector2(1237, 223), Vector2(929, 223)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -508,26 +528,62 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HUD/Pause:position")
+tracks/4/path = NodePath("HUD/SumLabel:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1500, 528), Vector2(1022, 528)]
+"values": [Vector2(-300, 236), Vector2(0, 236)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("HUD/SumLabel:position")
-tracks/5/interp = 2
+tracks/5/path = NodePath("Background/FieldFrame:modulate")
+tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-300, 263), Vector2(0, 263)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD/PauseButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1255, 0), Vector2(1055.0007, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HUD/GalleryButton:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1255, 551), Vector2(1055.0007, 551)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HUD/SoundButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 551), Vector2(0, 551)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lb3xy"]
@@ -548,8 +604,8 @@ solver = NodePath("Solver")
 sum_label = NodePath("HUD/SumLabel")
 score_label = NodePath("HUD/CenterContainer/ScoreContainer/Score")
 final_score_label = NodePath("GameOverLayer/Score")
-hint_button = NodePath("HUD/Hint")
-pause_button = NodePath("HUD/Pause")
+hint_button = NodePath("HUD/HintButton")
+pause_button = NodePath("HUD/PauseButton")
 anim = NodePath("AnimationPlayer")
 protection_layer = NodePath("ProtectionLayer")
 hint_sound = NodePath("HintSound")
@@ -562,95 +618,63 @@ follow_viewport_enabled = true
 [node name="ColorRect" parent="Background" index="1"]
 scale = Vector2(1e-05, 1e-05)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="Hint" type="TextureButton" parent="HUD"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1152.0
-offset_top = 1000.0
-offset_right = -1002.0
-offset_bottom = 1150.0
-grow_horizontal = 0
-tooltip_text = "Show hint."
-keep_pressed_outside = true
-shortcut = SubResource("Shortcut_uxviy")
-shortcut_in_tooltip = false
-texture_normal = ExtResource("3_426vi")
-texture_pressed = ExtResource("4_naigu")
-texture_hover = ExtResource("5_m1oc7")
-texture_click_mask = ExtResource("6_kbe8o")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Icon" type="TextureRect" parent="HUD/Hint"]
-layout_mode = 1
+[node name="FieldFrame" type="NinePatchRect" parent="Background"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.5
-offset_right = 30.0
-offset_bottom = 31.5
+offset_left = -308.0
+offset_top = -307.5
+offset_right = 308.0
+offset_bottom = 307.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_7f8l2")
+texture = ExtResource("3_754j2")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
 
-[node name="Counter" type="TextureRect" parent="HUD/Hint"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -62.0
-offset_top = -60.0
-offset_right = -14.0
-offset_bottom = -11.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_cxum0")
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="Label" type="Label" parent="HUD/Hint/Counter"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 49.0
-offset_bottom = 45.0
-text = "5"
-label_settings = ExtResource("9_1fiys")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pause" type="TextureButton" parent="HUD"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
-offset_top = -120.0
-offset_right = 412.0017
-offset_bottom = -56.0
+offset_top = 223.0
+offset_right = 498.00122
+offset_bottom = 373.0
+
+[node name="PauseButton" parent="HUD" instance=ExtResource("5_0bq3a")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -96.99927
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 97.0
 grow_horizontal = 0
-grow_vertical = 0
-tooltip_text = "Show hint."
-keep_pressed_outside = true
-shortcut = SubResource("Shortcut_uxviy")
-shortcut_in_tooltip = false
-texture_normal = ExtResource("7_gxtfn")
-texture_pressed = ExtResource("8_twgab")
-texture_hover = ExtResource("9_02fa5")
-texture_click_mask = ExtResource("6_js0lu")
+grow_vertical = 1
 script = ExtResource("10_nepv3")
+
+[node name="GalleryButton" parent="HUD" instance=ExtResource("7_754j2")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.99927
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="SoundButton" parent="HUD" instance=ExtResource("8_i4jil")]
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0
+offset_top = -88.0
 offset_right = -38.0
+offset_bottom = 34.0
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD"]
 offset_top = 12.0
@@ -661,22 +685,13 @@ offset_bottom = 74.0
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("12_m4url")
-theme_override_font_sizes/font_size = 32
-text = "Score: "
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
 [node name="Score" type="Label" parent="HUD/CenterContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 32
 text = "0"
-horizontal_alignment = 1
+label_settings = ExtResource("11_0bq3a")
 metadata/_edit_lock_ = true
 
 [node name="ProtectionLayer" type="CanvasLayer" parent="."]
@@ -697,15 +712,19 @@ layer = 3
 visible = false
 
 [node name="HiLabel" type="Label" parent="GameOverLayer"]
-anchors_preset = 10
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_top = 117.0
-offset_right = -2.0
-offset_bottom = 198.0
+anchor_bottom = 0.5
+offset_top = -207.0
+offset_bottom = 110.5
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 64
-text = "You have scored"
+text = "Congratulations!
+"
+label_settings = SubResource("LabelSettings_1gdd5")
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="GameOverLayer"]
@@ -715,21 +734,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
-text = "182"
-label_settings = SubResource("LabelSettings_5kasj")
+text = "You scored 182 points"
+label_settings = SubResource("LabelSettings_426vi")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="LowLabel" type="Label" parent="GameOverLayer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 390.0
-offset_bottom = 471.00012
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("12_m4url")
-theme_override_font_sizes/font_size = 64
-text = "points"
-horizontal_alignment = 1
 
 [node name="MenuMargin" type="MarginContainer" parent="GameOverLayer"]
 anchors_preset = 12
@@ -737,7 +745,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 8.000061
+offset_bottom = 8.000366
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ch8movp8s5p"
-path="res://.godot/imported/pressed.png-8220cd05578c72e4c25821bc2fca33f7.ctex"
+uid="uid://lnpqpl0gbxoi"
+path="res://.godot/imported/play_press.svg-e85fad9371514618a00cb47b9e510e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/music-button/pressed.png"
-dest_files=["res://.godot/imported/pressed.png-8220cd05578c72e4c25821bc2fca33f7.ctex"]
+source_file="res://img/menu/play_press.svg"
+dest_files=["res://.godot/imported/play_press.svg-e85fad9371514618a00cb47b9e510e89.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

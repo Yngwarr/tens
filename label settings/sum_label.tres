@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4aoubmkrf8e8"]
+
+[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="1_xolw0"]
+
+[resource]
+font = ExtResource("1_xolw0")
+font_size = 72
+outline_size = 20
+outline_color = Color(0.67058825, 0, 0, 1)

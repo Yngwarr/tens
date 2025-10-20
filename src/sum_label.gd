@@ -9,14 +9,14 @@ var default_font_color: Color
 
 
 func _ready() -> void:
-	default_font_color = view.label_settings.font_color
+	default_font_color = view.label_settings.outline_color
 
 
 func update_text(value: int) -> void:
 	var is_target := value == Game.TARGET_SUM
 
 	view.text = ("%d!" % value) if is_target else str(value)
-	view.label_settings.font_color = Color.LIME if is_target else default_font_color
+	view.label_settings.outline_color = Color.FOREST_GREEN if is_target else default_font_color
 
 	if is_target:
 		anim.play(&"bounce")

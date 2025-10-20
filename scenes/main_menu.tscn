@@ -1,18 +1,39 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=27 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="3_flqon"]
 [ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/start_game_button.gd" id="4_rcqid"]
 [ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="5_1ajci"]
+[ext_resource type="StyleBox" uid="uid://f6ihr1lkrmb0" path="res://styleboxes/button_hover.stylebox" id="5_a8gd2"]
+[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="6_5pajh"]
 [ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/quit_button.gd" id="6_7b55j"]
+[ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="6_a8gd2"]
+[ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="6_hstxw"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="7_5pajh"]
+[ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="7_8egab"]
+[ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="8_a8gd2"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_j7ex8"]
 [ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="9_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="9_hstxw"]
+[ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="10_8egab"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
+[ext_resource type="Texture2D" uid="uid://bg0tvc3m5wgeb" path="res://img/common/icons/icon_palette.svg" id="11_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://dptlcgbvr6iff" path="res://img/common/icons/icon_tutorial.svg" id="14_8egab"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
-font_size = 105
+font = ExtResource("6_5pajh")
+font_size = 145
+outline_size = 35
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8egab"]
+
+[sub_resource type="Theme" id="Theme_a8gd2"]
+Button/styles/focus = SubResource("StyleBoxEmpty_8egab")
+Button/styles/hover = ExtResource("5_a8gd2")
+Button/styles/normal = ExtResource("6_hstxw")
+Button/styles/pressed = ExtResource("6_a8gd2")
 
 [sub_resource type="Animation" id="Animation_vlt1r"]
 length = 0.001
@@ -38,12 +59,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [100]
+"values": [75]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Menu/Container/MenuMargin:theme_override_constants/margin_bottom")
+tracks/2/path = NodePath("Menu/Container/CenterMenu:theme_override_constants/margin_bottom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -78,12 +99,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [100, -120]
+"values": [75, -200]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Menu/Container/MenuMargin:theme_override_constants/margin_bottom")
+tracks/2/path = NodePath("Menu/Container/CenterMenu:theme_override_constants/margin_bottom")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -101,7 +122,7 @@ _data = {
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
 script = ExtResource("1_5dd4i")
-first_to_focus = NodePath("Menu/Container/MenuMargin/Menu/Start")
+first_to_focus = NodePath("Menu/Start")
 
 [node name="Background" parent="." instance=ExtResource("2_lgwnu")]
 
@@ -119,7 +140,7 @@ grow_vertical = 2
 
 [node name="TitleMargin" type="MarginContainer" parent="Menu/Container"]
 layout_mode = 2
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 75
 
 [node name="Title" type="Label" parent="Menu/Container/TitleMargin"]
 layout_mode = 2
@@ -128,50 +149,145 @@ text = "Tens!"
 label_settings = SubResource("LabelSettings_8bkd4")
 horizontal_alignment = 1
 
-[node name="MenuMargin" type="MarginContainer" parent="Menu/Container"]
+[node name="CenterMenu" type="CenterContainer" parent="Menu/Container"]
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_right = 400
-theme_override_constants/margin_bottom = 100
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Menu" type="VBoxContainer" parent="Menu/Container/MenuMargin"]
-layout_mode = 2
-
-[node name="Start" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("anim")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Start"
+[node name="Start" type="Button" parent="Menu" node_paths=PackedStringArray("anim")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -48.0
+offset_right = 170.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_a8gd2")
+text = " "
+icon_alignment = 1
 script = ExtResource("4_rcqid")
 next_scene_name = "uid://csahdmph2aji4"
-anim = NodePath("../../../../../AnimationPlayer")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Stats" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Stats"
-script = ExtResource("5_1ajci")
-popup = NodePath("../../../../../StatsWindow")
+[node name="TextureRect" type="TextureRect" parent="Menu/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -27.5
+offset_right = 30.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_8egab")
 
-[node name="Options" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Options"
-script = ExtResource("5_1ajci")
-popup = NodePath("../../../../../OptionsWindow")
+[node name="Gallery" type="TextureButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = 81.0
+offset_right = -1.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_a8gd2")
+texture_pressed = ExtResource("9_hstxw")
+texture_hover = ExtResource("10_8egab")
+stretch_mode = 5
 
-[node name="Credits" type="Button" parent="Menu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Credits"
-script = ExtResource("5_1ajci")
-popup = NodePath("../../../../../CreditsWindow")
+[node name="Icon" type="TextureRect" parent="Menu/Gallery"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.500015
+offset_top = -43.5
+offset_right = 41.50009
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_gw5y6")
 
-[node name="Quit" type="Button" parent="Menu/Container/MenuMargin/Menu"]
-layout_mode = 2
+[node name="Tutorial" type="TextureButton" parent="Menu"]
+offset_left = 577.0
+offset_top = 405.0
+offset_right = 770.0
+offset_bottom = 598.0
+texture_normal = ExtResource("8_a8gd2")
+texture_pressed = ExtResource("9_hstxw")
+texture_hover = ExtResource("10_8egab")
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="Menu/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.49997
+offset_top = -34.5
+offset_right = 20.50003
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_8egab")
+stretch_mode = 5
+
+[node name="Quit" type="Button" parent="Menu"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -51.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 28
 text = "Quit"
 script = ExtResource("6_7b55j")
+
+[node name="Options" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 28
+text = "Options"
+script = ExtResource("5_1ajci")
+popup = NodePath("../../OptionsWindow")
+
+[node name="Stats" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
+offset_right = 75.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 28
+text = "Stats"
+script = ExtResource("5_1ajci")
+popup = NodePath("../../StatsWindow")
+
+[node name="Credits" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
+offset_top = 597.0
+offset_right = 104.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 28
+text = "Credits"
+script = ExtResource("5_1ajci")
+popup = NodePath("../../CreditsWindow")
 
 [node name="OptionsWindow" parent="." instance=ExtResource("7_5pajh")]
 visible = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj2d2pugy8kx"]
+
+[ext_resource type="PackedScene" uid="uid://6p84w5cf1n6i" path="res://scenes/HUD_button_small.tscn" id="1_ql45r"]
+[ext_resource type="Texture2D" uid="uid://bg0tvc3m5wgeb" path="res://img/common/icons/icon_palette.svg" id="2_msk88"]
+
+[node name="Button" instance=ExtResource("1_ql45r")]
+
+[node name="Icon" parent="." index="0"]
+offset_left = -18.5
+offset_top = -18.5
+offset_right = 18.5
+offset_bottom = 18.5
+texture = ExtResource("2_msk88")
