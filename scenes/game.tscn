@@ -1,13 +1,17 @@
-[gd_scene load_steps=39 format=3 uid="uid://csahdmph2aji4"]
+[gd_scene load_steps=43 format=3 uid="uid://csahdmph2aji4"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://dfun7mqa0ddnt" path="res://img/hint-button/normal.png" id="3_qouja"]
-[ext_resource type="Texture2D" uid="uid://jqlgv5tccfia" path="res://img/hint-button/pressed.png" id="4_wljb1"]
-[ext_resource type="Texture2D" uid="uid://dudsl5pvigssi" path="res://img/hint-button/hover.png" id="5_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="3_426vi"]
+[ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="4_naigu"]
+[ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="5_m1oc7"]
 [ext_resource type="BitMap" uid="uid://d33kao8le76ot" path="res://img/button-mask.png" id="6_js0lu"]
+[ext_resource type="BitMap" uid="uid://clsps5usm1ocf" path="res://img/common/button_mask.png" id="6_kbe8o"]
+[ext_resource type="Texture2D" uid="uid://kcjrr7kl50ny" path="res://img/common/icons/icon_hint.svg" id="7_7f8l2"]
 [ext_resource type="Texture2D" uid="uid://dsy0a7u04vdc4" path="res://img/pause-button/normal.png" id="7_gxtfn"]
+[ext_resource type="Texture2D" uid="uid://jtfl1hpipg0m" path="res://img/common/hint_counter.svg" id="8_cxum0"]
 [ext_resource type="Texture2D" uid="uid://fmv7ccnf2r30" path="res://img/pause-button/pressed.png" id="8_twgab"]
+[ext_resource type="LabelSettings" uid="uid://cnmhhrl0r8yd5" path="res://label settings/hint_counter.tres" id="9_1fiys"]
 [ext_resource type="Texture2D" uid="uid://blcjkpdtpofj3" path="res://img/pause-button/hover.png" id="9_02fa5"]
 [ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/pause_button.gd" id="10_nepv3"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
@@ -473,7 +477,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1500, 286), Vector2(1022, 286)]
+"values": [Vector2(1500, 258), Vector2(937, 258)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -567,17 +571,60 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
 offset_top = 1000.0
-offset_right = -1087.998
-offset_bottom = 1064.0
+offset_right = -1002.0
+offset_bottom = 1150.0
 grow_horizontal = 0
 tooltip_text = "Show hint."
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("3_qouja")
-texture_pressed = ExtResource("4_wljb1")
-texture_hover = ExtResource("5_v2yb1")
-texture_click_mask = ExtResource("6_js0lu")
+texture_normal = ExtResource("3_426vi")
+texture_pressed = ExtResource("4_naigu")
+texture_hover = ExtResource("5_m1oc7")
+texture_click_mask = ExtResource("6_kbe8o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="HUD/Hint"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -31.5
+offset_right = 30.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_7f8l2")
+
+[node name="Counter" type="TextureRect" parent="HUD/Hint"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -60.0
+offset_right = -14.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_cxum0")
+
+[node name="Label" type="Label" parent="HUD/Hint/Counter"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 45.0
+text = "5"
+label_settings = ExtResource("9_1fiys")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pause" type="TextureButton" parent="HUD"]
 anchors_preset = 3
@@ -587,7 +634,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 348.0
 offset_top = -120.0
-offset_right = 412.00195
+offset_right = 412.0017
 offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0

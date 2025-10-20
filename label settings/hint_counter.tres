@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cnmhhrl0r8yd5"]
+
+[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="1_v6v2l"]
+
+[resource]
+font = ExtResource("1_v6v2l")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
