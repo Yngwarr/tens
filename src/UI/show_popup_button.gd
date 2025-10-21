@@ -1,4 +1,4 @@
-extends Button
+extends BaseButton
 
 ## This button shows a [PopupPanel] you can provide by setting [member popup].
 

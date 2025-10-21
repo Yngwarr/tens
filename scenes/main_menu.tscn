@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://dynfnpw0lmyyy" path="res://src/UI/quit_button.gd" id="6_7b55j"]
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="6_a8gd2"]
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="6_hstxw"]
-[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="7_5pajh"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="7_8egab"]
 [ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="8_a8gd2"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_j7ex8"]
@@ -20,6 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
 [ext_resource type="Texture2D" uid="uid://bg0tvc3m5wgeb" path="res://img/common/icons/icon_palette.svg" id="11_gw5y6"]
 [ext_resource type="Texture2D" uid="uid://dptlcgbvr6iff" path="res://img/common/icons/icon_tutorial.svg" id="14_8egab"]
+[ext_resource type="PackedScene" uid="uid://d21ft8cjmcf0j" path="res://scenes/HUD_button_quit.tscn" id="15_gw5y6"]
+[ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD_button_stats.tscn" id="17_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD_button_credits.tscn" id="18_gw5y6"]
+[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="18_svtp6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font = ExtResource("6_5pajh")
@@ -246,53 +249,44 @@ grow_vertical = 2
 texture = ExtResource("14_8egab")
 stretch_mode = 5
 
-[node name="Quit" type="Button" parent="Menu"]
+[node name="Quit" parent="Menu" instance=ExtResource("15_gw5y6")]
 anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -141.0
-offset_top = -51.0
+offset_left = -96.99927
+offset_right = 0.0
 grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 28
-text = "Quit"
 script = ExtResource("6_7b55j")
 
-[node name="Options" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -125.0
-offset_bottom = 51.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 28
-text = "Options"
-script = ExtResource("5_1ajci")
-popup = NodePath("../../OptionsWindow")
-
-[node name="Stats" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
-offset_right = 75.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 28
-text = "Stats"
+[node name="Stats" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("17_1dfpl")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 97.0
+grow_vertical = 1
 script = ExtResource("5_1ajci")
 popup = NodePath("../../StatsWindow")
 
-[node name="Credits" type="Button" parent="Menu" node_paths=PackedStringArray("popup")]
-offset_top = 597.0
-offset_right = 104.0
-offset_bottom = 648.0
-theme_override_font_sizes/font_size = 28
-text = "Credits"
+[node name="Sound" parent="Menu" instance=ExtResource("18_svtp6")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -96.99927
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Credits" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("18_gw5y6")]
 script = ExtResource("5_1ajci")
 popup = NodePath("../../CreditsWindow")
 
-[node name="OptionsWindow" parent="." instance=ExtResource("7_5pajh")]
-visible = false
-
 [node name="CreditsWindow" type="PopupPanel" parent="."]
+oversampling_override = 1.0
 title = "Credits"
 initial_position = 2
 size = Vector2i(365, 325)
@@ -346,9 +340,6 @@ theme_override_constants/margin_bottom = 16
 
 [node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
 layout_mode = 2
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

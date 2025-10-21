@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 ## The only purpose of this button is to close the game.
 

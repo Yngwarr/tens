@@ -232,7 +232,7 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1055.0007, 0)]
+"values": [Vector2(1255, 0)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -244,7 +244,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1055.0007, 551)]
+"values": [Vector2(1255, 551)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -256,7 +256,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 551)]
+"values": [Vector2(-200, 551)]
 }
 
 [sub_resource type="Animation" id="Animation_6obku"]
@@ -643,7 +643,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 498.00122
+offset_right = 498.0016
 offset_bottom = 373.0
 
 [node name="PauseButton" parent="HUD" instance=ExtResource("5_0bq3a")]
@@ -652,9 +652,9 @@ anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-offset_left = -96.99927
+offset_left = 103.0
 offset_top = 0.0
-offset_right = 0.0
+offset_right = 199.99927
 offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
@@ -664,11 +664,13 @@ script = ExtResource("10_nepv3")
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -96.99927
-offset_right = 0.0
+offset_left = 103.0
+offset_right = 199.99927
 grow_horizontal = 0
 
 [node name="SoundButton" parent="HUD" instance=ExtResource("8_i4jil")]
+offset_left = -200.0
+offset_right = -103.00073
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0
@@ -717,7 +719,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
-offset_bottom = 110.5
+offset_bottom = 110.49994
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_m4url")
@@ -859,9 +861,10 @@ confirm_dialog = NodePath("../../../../ConfirmQuit")
 visible = false
 
 [node name="ConfirmQuit" type="ConfirmationDialog" parent="PauseMenu"]
+oversampling_override = 1.0
 title = ""
 initial_position = 2
-size = Vector2i(289, 105)
+size = Vector2i(289, 136)
 unresizable = true
 popup_window = true
 ok_button_text = "Yes"
