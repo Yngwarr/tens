@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6p84w5cf1n6i"]
+[gd_scene load_steps=6 format=3 uid="uid://6p84w5cf1n6i"]
 
 [ext_resource type="Texture2D" uid="uid://ct4bcaa8c08os" path="res://img/common/button_small_normal.svg" id="1_8b81x"]
 [ext_resource type="Texture2D" uid="uid://41whxvtlntoa" path="res://img/common/button_small_pressed.svg" id="2_kjaaq"]
 [ext_resource type="Texture2D" uid="uid://cvarshh7kq74w" path="res://img/common/button_small_hovered.svg" id="3_3k3au"]
+[ext_resource type="Texture2D" uid="uid://bk006gptgae2s" path="res://img/common/button_small_disabled.svg" id="4_2rntb"]
 [ext_resource type="BitMap" uid="uid://c3sd16rnqnc86" path="res://img/common/button_small_mask.svg" id="4_cbnfq"]
 
 [node name="Button" type="TextureButton"]
@@ -16,6 +17,7 @@ keep_pressed_outside = true
 texture_normal = ExtResource("1_8b81x")
 texture_pressed = ExtResource("2_kjaaq")
 texture_hover = ExtResource("3_3k3au")
+texture_disabled = ExtResource("4_2rntb")
 texture_click_mask = ExtResource("4_cbnfq")
 ignore_texture_size = true
 stretch_mode = 5

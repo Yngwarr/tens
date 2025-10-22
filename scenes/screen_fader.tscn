@@ -13,6 +13,7 @@ shader_parameter/size = 10.0
 layer = 5
 
 [node name="BackgroundBlur" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_6iv5h")
 anchors_preset = 15
 anchor_right = 1.0

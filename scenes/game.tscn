@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://da0s2ffnv2u2d"]
+[gd_scene load_steps=35 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -679,6 +679,7 @@ offset_right = 199.99927
 offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
+texture_disabled = null
 script = ExtResource("10_nepv3")
 
 [node name="GalleryButton" parent="HUD" instance=ExtResource("7_754j2")]
@@ -692,12 +693,14 @@ grow_horizontal = 0
 [node name="SoundButton" parent="HUD" instance=ExtResource("8_i4jil")]
 offset_left = -200.0
 offset_right = -103.00073
+texture_disabled = null
 
 [node name="MusicButton" parent="HUD" instance=ExtResource("9_754j2")]
 offset_left = 97.0
 offset_top = 2.0
 offset_right = 193.99927
 offset_bottom = 99.0
+texture_disabled = null
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0

@@ -51,6 +51,7 @@ grow_vertical = 2
 texture = ExtResource("5_7gf6f")
 
 [node name="Counter" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
