@@ -665,7 +665,6 @@ offset_left = 348.0
 offset_top = 223.0
 offset_right = 498.0016
 offset_bottom = 373.0
-tooltip_text = ""
 
 [node name="PauseButton" parent="HUD" instance=ExtResource("5_0bq3a")]
 anchors_preset = 1
@@ -679,7 +678,6 @@ offset_right = 199.99927
 offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
-tooltip_text = ""
 script = ExtResource("10_nepv3")
 
 [node name="GalleryButton" parent="HUD" instance=ExtResource("7_754j2")]
@@ -689,12 +687,10 @@ anchor_right = 1.0
 offset_left = 103.0
 offset_right = 199.99927
 grow_horizontal = 0
-tooltip_text = ""
 
 [node name="SoundButton" parent="HUD" instance=ExtResource("8_i4jil")]
 offset_left = -200.0
 offset_right = -103.00073
-tooltip_text = ""
 
 [node name="MusicButton" parent="HUD" instance=ExtResource("9_754j2")]
 offset_left = 97.0
@@ -800,7 +796,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "Try Again"
 script = ExtResource("13_8ool0")
-next_scene_name = "uid://csahdmph2aji4"
+next_scene_name = "uid://da0s2ffnv2u2d"
 
 [node name="QuitToMenu" type="Button" parent="GameOverLayer/MenuMargin/Menu"]
 layout_mode = 2

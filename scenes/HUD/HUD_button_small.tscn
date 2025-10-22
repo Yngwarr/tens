@@ -1,16 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6p84w5cf1n6i"]
+[gd_scene load_steps=5 format=3 uid="uid://6p84w5cf1n6i"]
 
 [ext_resource type="Texture2D" uid="uid://ct4bcaa8c08os" path="res://img/common/button_small_normal.svg" id="1_8b81x"]
 [ext_resource type="Texture2D" uid="uid://41whxvtlntoa" path="res://img/common/button_small_pressed.svg" id="2_kjaaq"]
 [ext_resource type="Texture2D" uid="uid://cvarshh7kq74w" path="res://img/common/button_small_hovered.svg" id="3_3k3au"]
 [ext_resource type="BitMap" uid="uid://c3sd16rnqnc86" path="res://img/common/button_small_mask.svg" id="4_cbnfq"]
-
-[sub_resource type="InputEventAction" id="InputEventAction_g214j"]
-action = &"game_hint"
-pressed = true
-
-[sub_resource type="Shortcut" id="Shortcut_uxviy"]
-events = [SubResource("InputEventAction_g214j")]
 
 [node name="Button" type="TextureButton"]
 anchors_preset = 2
@@ -19,10 +12,7 @@ anchor_bottom = 1.0
 offset_top = -97.0
 offset_right = 96.99927
 grow_vertical = 0
-tooltip_text = "Show hint."
 keep_pressed_outside = true
-shortcut = SubResource("Shortcut_uxviy")
-shortcut_in_tooltip = false
 texture_normal = ExtResource("1_8b81x")
 texture_pressed = ExtResource("2_kjaaq")
 texture_hover = ExtResource("3_3k3au")

@@ -25,7 +25,6 @@ offset_top = 1000.0
 offset_right = -1002.0
 offset_bottom = 1150.0
 grow_horizontal = 0
-tooltip_text = "Show hint."
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
 shortcut_in_tooltip = false

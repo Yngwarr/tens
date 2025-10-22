@@ -266,7 +266,6 @@ offset_right = 0.0
 offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
-tooltip_text = ""
 script = ExtResource("6_7b55j")
 
 [node name="Stats" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("17_1dfpl")]
@@ -276,12 +275,10 @@ anchor_right = 1.0
 offset_left = -96.99927
 offset_right = 0.0
 grow_horizontal = 0
-tooltip_text = ""
 script = ExtResource("5_1ajci")
 popup = NodePath("../../StatsWindow")
 
 [node name="Sound" parent="Menu" instance=ExtResource("18_svtp6")]
-tooltip_text = ""
 
 [node name="Music" parent="Menu" instance=ExtResource("20_qywvv")]
 offset_left = 97.0
@@ -294,7 +291,6 @@ anchor_bottom = 0.0
 offset_top = 0.0
 offset_bottom = 97.0
 grow_vertical = 1
-tooltip_text = ""
 script = ExtResource("5_1ajci")
 popup = NodePath("../../CreditsWindow")
 
