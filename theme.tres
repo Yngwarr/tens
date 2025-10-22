@@ -57,7 +57,10 @@ expand_margin_bottom = 20.0
 content_margin_top = 20.0
 
 [resource]
-AcceptDialog/styles/panel = ExtResource("9_ttqs8")
+AcceptDialog/constants/close_h_offset = 58
+AcceptDialog/constants/close_v_offset = 0
+AcceptDialog/icons/close = ExtResource("10_6cw85")
+AcceptDialog/icons/close_pressed = ExtResource("10_6cw85")
 Button/colors/font_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
 Button/colors/font_disabled_color = Color(0.39689007, 0.39688888, 0.39688927, 1)
 Button/colors/font_focus_color = Color(0.27058825, 0.27058825, 0.27058825, 1)

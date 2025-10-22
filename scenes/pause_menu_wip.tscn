@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://cso0dql1gi141"]
+
+[ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="1_5d2l8"]
+[ext_resource type="PackedScene" uid="uid://bvekhf2u4f7m0" path="res://scenes/button_home_small.tscn" id="2_1s2dm"]
+[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_v4r4p"]
+[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="4_1s2dm"]
+[ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/close_button.tscn" id="4_88e76"]
+[ext_resource type="PackedScene" uid="uid://b0qxbbgugkllp" path="res://scenes/button_tutorial_small.tscn" id="4_v4r4p"]
+[ext_resource type="Theme" uid="uid://kg42ikejce6b" path="res://theme.tres" id="6_v4r4p"]
+
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("resume_button", "options_menu")]
+process_mode = 2
+layer = 5
+script = ExtResource("1_5d2l8")
+resume_button = NodePath("Panel/CloseButton")
+options_menu = NodePath("OptionsWindow")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -102.0
+offset_right = 135.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitToMenu" parent="Panel" instance=ExtResource("2_1s2dm")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -38.0
+offset_right = 121.0
+offset_bottom = 59.0
+grow_vertical = 2
+script = ExtResource("3_v4r4p")
+
+[node name="TutorialButton" parent="Panel" instance=ExtResource("4_v4r4p")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -124.99997
+offset_top = -38.0
+offset_right = -28.000702
+offset_bottom = 59.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("4_88e76")]
+layout_mode = 1
+offset_left = -60.0
+offset_top = 5.0
+offset_right = 20.000061
+offset_bottom = 65.00003
+scale = Vector2(0.8, 0.8)
+
+[node name="OptionsWindow" parent="." instance=ExtResource("4_1s2dm")]
+visible = false
+
+[node name="ConfirmQuit" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = ""
+initial_position = 2
+size = Vector2i(311, 276)
+unresizable = true
+popup_window = true
+theme = ExtResource("6_v4r4p")
+ok_button_text = "Yes"
+dialog_text = "Do you want to quit to main menu?"
+dialog_autowrap = true
+cancel_button_text = "No"
