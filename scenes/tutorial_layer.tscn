@@ -1,31 +1,291 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5ifyk7vp76sh"]
+[gd_scene load_steps=19 format=3 uid="uid://c5ifyk7vp76sh"]
 
 [ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="1_vdwd3"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="2_kfkh6"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="3_ac24n"]
-[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="4_jgcd5"]
+[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="4_ac24n"]
+[ext_resource type="Texture2D" uid="uid://ccodkj57vbuuh" path="res://img/tutorial_hand.svg" id="4_co0ni"]
+[ext_resource type="Texture2D" uid="uid://cfgv6oa2m45gb" path="res://img/common/line_separator.svg" id="5_co0ni"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="5_kfkh6"]
+[ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="6_csij0"]
+[ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/close_button.tscn" id="7_csij0"]
 
-[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button", "highlight")]
+[sub_resource type="Animation" id="Animation_6bjvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(305, 240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_csij0"]
+resource_name = "tutorial_1"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.08726646259971647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(305, 240), Vector2(423, 289)]
+}
+
+[sub_resource type="Animation" id="Animation_n3hcv"]
+resource_name = "tutorial_move_to_2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2959331),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(423, 289), Vector2(306, 316)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2959331),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7rt4y"]
+resource_name = "tutorial_2"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(306, 316), Vector2(494, 357)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.08726646]
+}
+
+[sub_resource type="Animation" id="Animation_dcy8m"]
+resource_name = "tutorial_move_to_3"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(494, 357), Vector2(234, 169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_borc6"]
+resource_name = "tutorial_3"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(234, 169), Vector2(348, 361)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.08726646]
+}
+
+[sub_resource type="Animation" id="Animation_70y8n"]
+resource_name = "tutorial_appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(305, 280), Vector2(305, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_66k15"]
+resource_name = "tutorial_disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(348, 361), Vector2(400, 400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.08726646259971647, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3hcv"]
+_data = {
+&"RESET": SubResource("Animation_6bjvu"),
+&"tutorial_1": SubResource("Animation_csij0"),
+&"tutorial_2": SubResource("Animation_7rt4y"),
+&"tutorial_3": SubResource("Animation_borc6"),
+&"tutorial_appear": SubResource("Animation_70y8n"),
+&"tutorial_disappear": SubResource("Animation_66k15"),
+&"tutorial_move_to_2": SubResource("Animation_n3hcv"),
+&"tutorial_move_to_3": SubResource("Animation_dcy8m")
+}
+
+[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button", "highlight", "anim")]
 process_mode = 3
 layer = 4
 script = ExtResource("1_vdwd3")
 grid = NodePath("MarginContainer/Panel/HBoxContainer/CenterContainer/Control/Grid")
-quit_button = NodePath("MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer/Button")
+quit_button = NodePath("MarginContainer/Panel/OkButton")
 highlight = NodePath("Highlight")
-
-[node name="Backdrop" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7529412)
+anim = NodePath("AnimationPlayer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 13.0
+offset_right = -67.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
@@ -36,11 +296,23 @@ theme_override_constants/margin_bottom = 50
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Title" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 29.0
+offset_right = 798.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 35
+text = "How to play?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -51,7 +323,17 @@ size_flags_horizontal = 3
 [node name="Control" type="Control" parent="MarginContainer/Panel/HBoxContainer/CenterContainer"]
 layout_mode = 2
 
+[node name="Frame" type="ColorRect" parent="MarginContainer/Panel/HBoxContainer/CenterContainer/Control"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -163.0
+offset_right = 156.0
+offset_bottom = 135.0
+color = Color(0.59607846, 0.6039216, 0.6862745, 1)
+
 [node name="Grid" type="Node2D" parent="MarginContainer/Panel/HBoxContainer/CenterContainer/Control" node_paths=PackedStringArray("appear_timer")]
+position = Vector2(5.95, -14.665)
+scale = Vector2(1.1, 1.1)
 script = ExtResource("2_kfkh6")
 inner_node = ExtResource("3_ac24n")
 appear_timer = NodePath("../../../../Timer")
@@ -61,9 +343,9 @@ metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_left = -30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -72,24 +354,80 @@ size_flags_horizontal = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("4_jgcd5")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_separation = -1
+theme_override_fonts/normal_font = ExtResource("4_ac24n")
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Select numbers that add up to [color=lime]10[/color]!
+text = "Select numbers that add 
+up to [color=lime]10[/color].
 
-Find all possible turns. The game ends when there are no more valid turns."
+You win when there are 
+no more valid turns left.
 
-[node name="Button" type="Button" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Got it!"
+Beat levels to unlock 
+new backgrounds!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OkButton" type="Button" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 401.0
+offset_right = 679.0
+offset_bottom = 477.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/OkButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -22.0
+offset_right = 32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_csij0")
+
+[node name="Separator" type="NinePatchRect" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 71.7
+offset_right = 800.0
+offset_bottom = 77.7
+texture = ExtResource("5_co0ni")
+patch_margin_left = 2
+patch_margin_right = 2
+
+[node name="CloseButton" parent="MarginContainer/Panel" instance=ExtResource("7_csij0")]
+layout_mode = 1
+offset_top = 5.0
+offset_bottom = 65.0
 
 [node name="Timer" type="Timer" parent="MarginContainer/Panel"]
 wait_time = 0.05
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n3hcv")
+}
+
 [node name="Highlight" parent="." instance=ExtResource("5_kfkh6")]
 visible = false
-offset_left = 337.0
-offset_top = 324.0
-offset_right = 385.0
-offset_bottom = 372.0
+offset_left = 307.0
+offset_top = 238.0
+offset_right = 307.0
+offset_bottom = 238.0
 silent = true
+
+[node name="Hand" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 305.0
+offset_top = 240.0
+offset_right = 404.00165
+offset_bottom = 356.00003
+pivot_offset = Vector2(88, 106)
+texture = ExtResource("4_co0ni")

@@ -18,6 +18,7 @@ const BOARD: Array[int] = [
 @export var grid: Grid
 @export var quit_button: Button
 @export var highlight: Highlight
+@export var anim: AnimationPlayer
 
 
 func _ready() -> void:
@@ -61,24 +62,31 @@ func on_grid_appeared() -> void:
 	quit_button.grab_focus()
 
 	while true:
+		anim.play("tutorial_appear")
 		await get_tree().create_timer(1).timeout
+		anim.play("tutorial_1")
 		await select_cells([5, 6])
 
 		for x in [5, 6]:
 			grid.get_child(x).remove()
 
+		anim.play("tutorial_move_to_2")
 		await get_tree().create_timer(1).timeout
+		anim.play("tutorial_2")
 		await select_cells([9, 10, 11])
 
 		for x in [9, 10, 11]:
 			grid.get_child(x).remove()
-
+			
+		anim.play("tutorial_move_to_3")
 		await get_tree().create_timer(1).timeout
+		anim.play("tutorial_3")
 		await select_cells([0, 5, 9])
 
 		for x in [0, 1, 4, 8]:
 			grid.get_child(x).remove()
-
+			
+		anim.play("tutorial_disappear")
 		await get_tree().create_timer(1).timeout
 
 		grid.fall_apart()

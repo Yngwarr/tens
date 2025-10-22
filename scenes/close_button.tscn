@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnuni85ppj5yd"]
+
+[ext_resource type="Texture2D" uid="uid://cnsxppbjwdl1l" path="res://img/common/close_button.svg" id="1_bkf2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jrnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3n1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7d44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pboxc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mkm4"]
+
+[sub_resource type="Theme" id="Theme_21uvq"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_8jrnc")
+Button/styles/focus = SubResource("StyleBoxEmpty_k3n1t")
+Button/styles/hover = SubResource("StyleBoxEmpty_c7d44")
+Button/styles/normal = SubResource("StyleBoxEmpty_pboxc")
+Button/styles/pressed = SubResource("StyleBoxEmpty_4mkm4")
+
+[node name="CloseButton" type="Button"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme = SubResource("Theme_21uvq")
+icon = ExtResource("1_bkf2v")

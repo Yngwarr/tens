@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://1mjc2dofpw38"]
+
+[ext_resource type="FontFile" uid="uid://bpimjof1viqji" path="res://fonts/Open_Sans/static/OpenSans-Bold.ttf" id="1_c1rog"]
+
+[resource]
+font = ExtResource("1_c1rog")
+font_size = 24
+outline_size = 2
+shadow_size = 10
+shadow_color = Color(0.501961, 0.501961, 0.501961, 1)

@@ -12,7 +12,6 @@
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="6_hstxw"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="7_8egab"]
 [ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="8_a8gd2"]
-[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="8_j7ex8"]
 [ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="9_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="9_hstxw"]
 [ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="10_8egab"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD_button_stats.tscn" id="17_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD_button_credits.tscn" id="18_gw5y6"]
 [ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="18_svtp6"]
+[ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font = ExtResource("6_5pajh")
@@ -256,6 +256,7 @@ anchor_right = 1.0
 offset_left = -96.99927
 offset_right = 0.0
 grow_horizontal = 0
+tooltip_text = ""
 script = ExtResource("6_7b55j")
 
 [node name="Stats" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("17_1dfpl")]
@@ -265,6 +266,7 @@ anchor_bottom = 0.0
 offset_top = 0.0
 offset_bottom = 97.0
 grow_vertical = 1
+tooltip_text = ""
 script = ExtResource("5_1ajci")
 popup = NodePath("../../StatsWindow")
 
@@ -280,10 +282,15 @@ offset_right = 0.0
 offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
+tooltip_text = ""
 
 [node name="Credits" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("18_gw5y6")]
+tooltip_text = ""
 script = ExtResource("5_1ajci")
 popup = NodePath("../../CreditsWindow")
+
+[node name="Fader" parent="." instance=ExtResource("21_1dfpl")]
+visible = false
 
 [node name="CreditsWindow" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -292,13 +299,25 @@ initial_position = 2
 size = Vector2i(365, 325)
 borderless = false
 content_scale_mode = 1
-theme_override_styles/panel = ExtResource("8_j7ex8")
+
+[node name="ColorRect" type="ColorRect" parent="CreditsWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 361.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
 
 [node name="CreditsLabel" type="RichTextLabel" parent="CreditsWindow"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 355.0
-offset_bottom = 315.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 361.0
+offset_bottom = 321.0
 bbcode_enabled = true
 text = "[center][b]Tens![/b][/center]
 
@@ -319,20 +338,20 @@ Inspired by [url=https://pancelor.itch.io/make-ten]Make Ten[/url] by pancelor an
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]
 auto_translate_mode = 1
+oversampling_override = 1.0
 title = "Stats"
 initial_position = 2
-size = Vector2i(241, 117)
+size = Vector2i(205, 117)
 borderless = false
 content_scale_mode = 1
-theme_override_styles/panel = ExtResource("8_j7ex8")
 script = ExtResource("9_a8gd2")
 label_container = NodePath("MarginContainer/LabelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 231.0
-offset_bottom = 119.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 342.0
+offset_bottom = 152.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16

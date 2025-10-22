@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://brr7toim5ndij" path="res://src/number_cell.gd" id="1_4guiy"]
 [ext_resource type="Texture2D" uid="uid://uhyr7asxs6rh" path="res://img/cell.png" id="2_6old5"]
 [ext_resource type="Texture2D" uid="uid://cvashcraq3yhv" path="res://img/frame.png" id="3_35xo7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_5ycem"]
-font_size = 24
-outline_size = 2
-shadow_size = 10
-shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
+[ext_resource type="LabelSettings" uid="uid://1mjc2dofpw38" path="res://label settings/number_cell.tres" id="4_hj7ko"]
 
 [sub_resource type="Animation" id="Animation_mwbh2"]
 length = 0.001
@@ -129,7 +124,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 theme_override_font_sizes/font_size = 24
 text = "6"
-label_settings = SubResource("LabelSettings_5ycem")
+label_settings = ExtResource("4_hj7ko")
 horizontal_alignment = 1
 vertical_alignment = 1
 
