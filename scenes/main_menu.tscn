@@ -18,11 +18,11 @@
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
 [ext_resource type="Texture2D" uid="uid://bg0tvc3m5wgeb" path="res://img/common/icons/icon_palette.svg" id="11_gw5y6"]
 [ext_resource type="Texture2D" uid="uid://dptlcgbvr6iff" path="res://img/common/icons/icon_tutorial.svg" id="14_8egab"]
-[ext_resource type="PackedScene" uid="uid://d21ft8cjmcf0j" path="res://scenes/HUD_button_quit.tscn" id="15_gw5y6"]
-[ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD_button_stats.tscn" id="17_1dfpl"]
-[ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD_button_credits.tscn" id="18_gw5y6"]
-[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="18_svtp6"]
-[ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD_button_music.tscn" id="20_qywvv"]
+[ext_resource type="PackedScene" uid="uid://d21ft8cjmcf0j" path="res://scenes/HUD/HUD_button_quit.tscn" id="15_gw5y6"]
+[ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD/HUD_button_stats.tscn" id="17_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD/HUD_button_credits.tscn" id="18_gw5y6"]
+[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD/HUD_button_sound.tscn" id="18_svtp6"]
+[ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD/HUD_button_music.tscn" id="20_qywvv"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 
@@ -178,7 +178,7 @@ theme = SubResource("Theme_a8gd2")
 text = " "
 icon_alignment = 1
 script = ExtResource("4_rcqid")
-next_scene_name = "uid://csahdmph2aji4"
+next_scene_name = "uid://da0s2ffnv2u2d"
 anim = NodePath("../../AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="Menu/Start"]

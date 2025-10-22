@@ -5,9 +5,6 @@ extends Control
 @export var view: Label
 @export var anim: AnimationPlayer
 
-var default_font_color: Color
-
-
 func _ready() -> void:
 	view.visible = false
 
