@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=32 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="18_svtp6"]
 [ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD_button_music.tscn" id="20_qywvv"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
+[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font = ExtResource("6_5pajh")
@@ -304,62 +305,48 @@ visible = false
 oversampling_override = 1.0
 title = "Credits"
 initial_position = 2
-size = Vector2i(365, 325)
+size = Vector2i(365, 398)
 borderless = false
+max_size = Vector2i(400, 400)
 content_scale_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="CreditsWindow"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 361.0
-offset_bottom = 321.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.501961)
-
 [node name="CreditsLabel" type="RichTextLabel" parent="CreditsWindow"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 361.0
-offset_bottom = 321.0
+offset_top = 20.0
+offset_right = 365.0
+offset_bottom = 398.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("23_3wgol")
 bbcode_enabled = true
-text = "[center][b]Tens![/b][/center]
-
-Brought to you by:
-[ul]
-[b]Yngvarr[/b] - code and music.
-[b]Syudzius[/b] - art and emotional support.
-[/ul]
+text = "Brought to you by Dial-Up Dino Games
 
 With use of these 3rd party assets:
 [ul]
-[url=https://virgil.excalidraw.com/]Font Virgil[/url] by Ellinor Rapp.
-[url=https://kenney.nl/assets/interface-sounds]Interface Sounds[/url] by Kenney.
+Font CherryBomb by The Cherry Bomb Project Authors (https://github.com/satsuyako/CherryBomb) 
+Font Capriola by Sorkin Type Co (www.sorkintype.com), with Reserved Font Name \"Capriola\". 
+Font Open Sans by The Open Sans Project Authors (https://github.com/googlefonts/opensans)
+Interface Sounds by Kenney.
 Ambience sound by Sound Spark LLC (part of GDC 2019 Game Audio Bundle).
 [/ul]
 
-Inspired by [url=https://pancelor.itch.io/make-ten]Make Ten[/url] by pancelor and [url=https://www.gamesaien.com/game/fruit_box_a/]Fruit Box[/url] by GameSaien."
+Inspired by Make Ten by pancelor and Fruit Box by GameSaien."
+fit_content = true
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]
 auto_translate_mode = 1
 oversampling_override = 1.0
 title = "Stats"
 initial_position = 2
-size = Vector2i(528, 442)
+size = Vector2i(320, 150)
 borderless = false
+max_size = Vector2i(600, 600)
 content_scale_mode = 1
 script = ExtResource("9_a8gd2")
 label_container = NodePath("MarginContainer/LabelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 524.0
-offset_bottom = 438.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 150.0
 
 [node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
 layout_mode = 2
