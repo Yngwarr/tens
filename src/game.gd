@@ -25,6 +25,7 @@ static var TARGET_SUM := 10
 @export var hint_sound: AudioStreamPlayer
 @export var game_over_sound: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
+@export var tutorial_layer: Tutorial
 
 var score: int = 0
 
@@ -32,6 +33,13 @@ var score: int = 0
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+
+	if Storage.tutorial_watched:
+		tutorial_layer.queue_free()
+	else:
+		Storage.tutorial_watched = true
+		get_tree().paused = true
+		tutorial_layer.show()
 
 	pause_menu.resume_pressed.connect(pause_ctl.unpause)
 	grid.highlight_changed.connect(highlight.resize)

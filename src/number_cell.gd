@@ -2,8 +2,8 @@
 class_name NumberCell
 extends Node2D
 
-signal pressed(target: NumberCell)
-signal moved_to(target: NumberCell)
+signal pressed(target: NumberCell, pretend: bool)
+signal moved_to(target: NumberCell, pretend: bool)
 
 @onready var frame: Sprite2D = $View/Cell/Frame
 @onready var cell: Sprite2D = $View/Cell
@@ -38,7 +38,11 @@ func _physics_process(delta: float) -> void:
 
 func on_area_entered(other: Area2D) -> void:
 	var parent := other.get_parent()
+
 	if not parent is Highlight:
+		return
+
+	if parent.silent:
 		return
 
 	bounce()
@@ -46,7 +50,11 @@ func on_area_entered(other: Area2D) -> void:
 
 func on_area_exited(other: Area2D) -> void:
 	var parent := other.get_parent()
+
 	if not parent is Highlight:
+		return
+
+	if parent.silent:
 		return
 
 	unbounce()
@@ -64,12 +72,12 @@ func on_input(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 			on_moved()
 
 
-func on_pressed() -> void:
-	pressed.emit(self)
+func on_pressed(pretend := false) -> void:
+	pressed.emit(self, pretend)
 
 
-func on_moved() -> void:
-	moved_to.emit(self)
+func on_moved(pretend := false) -> void:
+	moved_to.emit(self, pretend)
 
 
 func set_value(x: int) -> void:

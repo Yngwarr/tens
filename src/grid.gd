@@ -53,19 +53,38 @@ func _input(event: InputEvent) -> void:
 
 	if not event is InputEventMouseButton:
 		return
+
 	if event.pressed:
+		return
+
+	if tutorial_board:
 		return
 
 	on_released()
 
 
-func on_cell_pressed(cell: NumberCell) -> void:
+func on_cell_pressed(cell: NumberCell, pretend: bool) -> void:
+	if tutorial_board != pretend:
+		return
+
 	var pos := cell.global_position
 	first_point = pos
 	second_point = pos
 	is_held = true
 	update_highlight()
 	grabbed.emit()
+
+
+func on_cell_moved(cell: NumberCell, pretend: bool) -> void:
+	if tutorial_board != pretend:
+		return
+
+	if not is_held:
+		return
+
+	var pos := cell.global_position
+	second_point = pos
+	update_highlight()
 
 
 func on_released() -> void:
@@ -76,13 +95,12 @@ func on_released() -> void:
 	released.emit()
 
 
-func on_cell_moved(cell: NumberCell) -> void:
-	if not is_held:
-		return
+func set_front_layer(layer: CanvasLayer) -> void:
+	front_layer = layer
 
-	var pos := cell.global_position
-	second_point = pos
-	update_highlight()
+	for i in get_child_count():
+		var child: NumberCell = get_child(i)
+		child.front_layer = layer
 
 
 func update_highlight() -> void:
@@ -173,7 +191,7 @@ func finish_appearing() -> void:
 
 
 func duck() -> void:
-	for c in get_children():
+	for c: NumberCell in get_children():
 		c.bounce()
 
 

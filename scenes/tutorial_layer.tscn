@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cfgv6oa2m45gb" path="res://img/common/line_separator.svg" id="5_co0ni"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="5_kfkh6"]
 [ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="6_csij0"]
-[ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/close_button.tscn" id="7_csij0"]
+[ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/UI buttons/close_button.tscn" id="7_csij0"]
 
 [sub_resource type="Animation" id="Animation_6bjvu"]
 length = 0.001

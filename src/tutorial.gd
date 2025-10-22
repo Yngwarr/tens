@@ -11,9 +11,6 @@ const BOARD: Array[int] = [
 	9, 9, 9, 9
 ]
 
-@export_group("External")
-@export var front_layer: CanvasLayer
-
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
@@ -23,26 +20,19 @@ const BOARD: Array[int] = [
 
 
 func _ready() -> void:
-	if Storage.tutorial_watched:
-		queue_free()
-	else:
-		Storage.tutorial_watched = true
-		show()
-		quit_button.pressed.connect(close)
-		ok_button.pressed.connect(close)
-		grid.highlight_changed.connect(on_highlight_changed)
-		grid.grabbed.connect(on_grabbed)
-		grid.released.connect(on_released)
-		grid.fully_appeared.connect(on_grid_appeared)
+	grid.set_front_layer(self)
 
-		get_tree().paused = true
-		grid.appear()
+	quit_button.pressed.connect(close)
+	ok_button.pressed.connect(close)
+	grid.highlight_changed.connect(on_highlight_changed)
+	grid.grabbed.connect(on_grabbed)
+	grid.released.connect(on_released)
+	grid.fully_appeared.connect(on_grid_appeared)
+
+	grid.appear()
 
 
 func close() -> void:
-	for i in front_layer.get_child_count():
-		front_layer.get_child(i).queue_free()
-
 	queue_free()
 	get_tree().paused = false
 
@@ -57,7 +47,6 @@ func on_grabbed() -> void:
 
 func on_released() -> void:
 	highlight.toggle(false)
-	highlight.clear()
 
 
 func on_grid_appeared() -> void:
@@ -66,7 +55,7 @@ func on_grid_appeared() -> void:
 	while true:
 		anim.play("tutorial_appear")
 		await get_tree().create_timer(1).timeout
-		
+
 		anim.play("tutorial_1")
 		await select_cells([5, 6])
 
@@ -80,7 +69,7 @@ func on_grid_appeared() -> void:
 
 		for x in [9, 10, 11]:
 			grid.get_child(x).remove()
-			
+
 		anim.play("tutorial_move_to_3")
 		await get_tree().create_timer(1).timeout
 		anim.play("tutorial_3")
@@ -88,7 +77,7 @@ func on_grid_appeared() -> void:
 
 		for x in [0, 1, 4, 8]:
 			grid.get_child(x).remove()
-			
+
 		anim.play("tutorial_disappear")
 		await get_tree().create_timer(1).timeout
 
@@ -107,14 +96,14 @@ func select_cells(cell_nums: Array[int]) -> void:
 
 	var n: int = cell_nums.pop_front()
 	var cell: NumberCell = grid.get_child(n)
-	cell.on_pressed()
+	cell.on_pressed(true)
 
 	await get_tree().create_timer(GRID_TIMEOUT).timeout
 
 	while not cell_nums.is_empty():
 		n = cell_nums.pop_front()
 		cell = grid.get_child(n)
-		cell.on_moved()
+		cell.on_moved(true)
 		await get_tree().create_timer(GRID_TIMEOUT).timeout
 
 	await get_tree().create_timer(1).timeout
