@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=31 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD_button_stats.tscn" id="17_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD_button_credits.tscn" id="18_gw5y6"]
 [ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD_button_sound.tscn" id="18_svtp6"]
+[ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD_button_music.tscn" id="20_qywvv"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
@@ -123,9 +124,12 @@ _data = {
 &"hide": SubResource("Animation_v4ew3")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "credits_window", "stats_window", "fader")]
 script = ExtResource("1_5dd4i")
 first_to_focus = NodePath("Menu/Start")
+credits_window = NodePath("CreditsWindow")
+stats_window = NodePath("StatsWindow")
+fader = NodePath("Fader")
 
 [node name="Background" parent="." instance=ExtResource("2_lgwnu")]
 
@@ -250,27 +254,6 @@ texture = ExtResource("14_8egab")
 stretch_mode = 5
 
 [node name="Quit" parent="Menu" instance=ExtResource("15_gw5y6")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -96.99927
-offset_right = 0.0
-grow_horizontal = 0
-tooltip_text = ""
-script = ExtResource("6_7b55j")
-
-[node name="Stats" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("17_1dfpl")]
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 97.0
-grow_vertical = 1
-tooltip_text = ""
-script = ExtResource("5_1ajci")
-popup = NodePath("../../StatsWindow")
-
-[node name="Sound" parent="Menu" instance=ExtResource("18_svtp6")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_top = 0.0
@@ -283,8 +266,33 @@ offset_bottom = 97.0
 grow_horizontal = 0
 grow_vertical = 1
 tooltip_text = ""
+script = ExtResource("6_7b55j")
+
+[node name="Stats" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("17_1dfpl")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.99927
+offset_right = 0.0
+grow_horizontal = 0
+tooltip_text = ""
+script = ExtResource("5_1ajci")
+popup = NodePath("../../StatsWindow")
+
+[node name="Sound" parent="Menu" instance=ExtResource("18_svtp6")]
+tooltip_text = ""
+
+[node name="Music" parent="Menu" instance=ExtResource("20_qywvv")]
+offset_left = 97.0
+offset_right = 193.99927
 
 [node name="Credits" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("18_gw5y6")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 97.0
+grow_vertical = 1
 tooltip_text = ""
 script = ExtResource("5_1ajci")
 popup = NodePath("../../CreditsWindow")
@@ -341,7 +349,7 @@ auto_translate_mode = 1
 oversampling_override = 1.0
 title = "Stats"
 initial_position = 2
-size = Vector2i(205, 117)
+size = Vector2i(528, 442)
 borderless = false
 content_scale_mode = 1
 script = ExtResource("9_a8gd2")
@@ -350,12 +358,8 @@ label_container = NodePath("MarginContainer/LabelContainer")
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 342.0
-offset_bottom = 152.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+offset_right = 524.0
+offset_bottom = 438.0
 
 [node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
 layout_mode = 2

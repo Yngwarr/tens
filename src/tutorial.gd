@@ -17,6 +17,7 @@ const BOARD: Array[int] = [
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
+@export var ok_button: Button
 @export var highlight: Highlight
 @export var anim: AnimationPlayer
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 		Storage.tutorial_watched = true
 		show()
 		quit_button.pressed.connect(close)
+		ok_button.pressed.connect(close)
 		grid.highlight_changed.connect(on_highlight_changed)
 		grid.grabbed.connect(on_grabbed)
 		grid.released.connect(on_released)
@@ -64,6 +66,7 @@ func on_grid_appeared() -> void:
 	while true:
 		anim.play("tutorial_appear")
 		await get_tree().create_timer(1).timeout
+		
 		anim.play("tutorial_1")
 		await select_cells([5, 6])
 
