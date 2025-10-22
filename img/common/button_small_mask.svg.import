@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c3sd16rnqnc86"
+path="res://.godot/imported/button_small_mask.svg-12d9e45707972f8c4d898f54b76bf973.res"
+
+[deps]
+
+source_file="res://img/common/button_small_mask.svg"
+dest_files=["res://.godot/imported/button_small_mask.svg-12d9e45707972f8c4d898f54b76bf973.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
