@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5ifyk7vp76sh"]
+[gd_scene load_steps=24 format=3 uid="uid://c5ifyk7vp76sh"]
 
 [ext_resource type="Script" uid="uid://dww58prb36f2f" path="res://src/tutorial.gd" id="1_vdwd3"]
+[ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="2_6bjvu"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="2_kfkh6"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="3_ac24n"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="4_ac24n"]
@@ -9,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="5_kfkh6"]
 [ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="6_csij0"]
 [ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/UI buttons/close_button.tscn" id="7_csij0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bjvu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3hcv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rt4y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dcy8m"]
 
 [sub_resource type="Animation" id="Animation_6bjvu"]
 length = 0.001
@@ -329,35 +338,50 @@ _data = {
 &"tutorial_move_to_3": SubResource("Animation_dcy8m")
 }
 
-[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button", "ok_button", "highlight", "anim")]
+[node name="TutorialLayer" type="CanvasLayer" node_paths=PackedStringArray("grid", "quit_button", "ok_button", "highlight", "anim", "fader_button")]
 process_mode = 3
 layer = 4
 script = ExtResource("1_vdwd3")
-grid = NodePath("MarginContainer/Panel/HBoxContainer/CenterContainer/Control/Grid")
-quit_button = NodePath("MarginContainer/Panel/CloseButton")
-ok_button = NodePath("MarginContainer/Panel/OkButton")
+grid = NodePath("Container/Panel/HBoxContainer/CenterContainer/Control/Grid")
+quit_button = NodePath("Container/Panel/CloseButton")
+ok_button = NodePath("Container/Panel/OkButton")
 highlight = NodePath("Highlight")
 anim = NodePath("AnimationPlayer")
+fader_button = NodePath("Fader/BackdropButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Fader" parent="." instance=ExtResource("2_6bjvu")]
+layer = 3
+
+[node name="BackdropButton" type="Button" parent="Fader"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 65.0
-offset_top = 13.0
-offset_right = -67.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6bjvu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n3hcv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7rt4y")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dcy8m")
+action_mode = 0
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Container" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = -259.0
+offset_right = 410.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Container"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="MarginContainer/Panel"]
+[node name="Title" type="Label" parent="Container/Panel"]
 layout_mode = 0
 offset_left = 29.0
 offset_right = 798.0
@@ -367,7 +391,7 @@ text = "How to play?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,14 +401,14 @@ offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Panel/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Container/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control" type="Control" parent="MarginContainer/Panel/HBoxContainer/CenterContainer"]
+[node name="Control" type="Control" parent="Container/Panel/HBoxContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Frame" type="ColorRect" parent="MarginContainer/Panel/HBoxContainer/CenterContainer/Control"]
+[node name="Frame" type="ColorRect" parent="Container/Panel/HBoxContainer/CenterContainer/Control"]
 layout_mode = 0
 offset_left = -144.0
 offset_top = -163.0
@@ -392,7 +416,7 @@ offset_right = 156.0
 offset_bottom = 135.0
 color = Color(0.59607846, 0.6039216, 0.6862745, 1)
 
-[node name="Grid" type="Node2D" parent="MarginContainer/Panel/HBoxContainer/CenterContainer/Control" node_paths=PackedStringArray("appear_timer")]
+[node name="Grid" type="Node2D" parent="Container/Panel/HBoxContainer/CenterContainer/Control" node_paths=PackedStringArray("appear_timer")]
 position = Vector2(5.95, -14.665)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("2_kfkh6")
@@ -401,18 +425,18 @@ appear_timer = NodePath("../../../../Timer")
 tutorial_board = true
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = -30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/Panel/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Container/Panel/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -431,14 +455,14 @@ new backgrounds!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OkButton" type="Button" parent="MarginContainer/Panel"]
+[node name="OkButton" type="Button" parent="Container/Panel"]
 layout_mode = 0
 offset_left = 491.0
 offset_top = 401.0
 offset_right = 679.0
 offset_bottom = 477.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/OkButton"]
+[node name="TextureRect" type="TextureRect" parent="Container/Panel/OkButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -453,7 +477,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_csij0")
 
-[node name="Separator" type="NinePatchRect" parent="MarginContainer/Panel"]
+[node name="Separator" type="NinePatchRect" parent="Container/Panel"]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 71.7
@@ -463,12 +487,12 @@ texture = ExtResource("5_co0ni")
 patch_margin_left = 2
 patch_margin_right = 2
 
-[node name="CloseButton" parent="MarginContainer/Panel" instance=ExtResource("7_csij0")]
+[node name="CloseButton" parent="Container/Panel" instance=ExtResource("7_csij0")]
 layout_mode = 1
 offset_top = 5.0
 offset_bottom = 65.0
 
-[node name="Timer" type="Timer" parent="MarginContainer/Panel"]
+[node name="Timer" type="Timer" parent="Container/Panel"]
 wait_time = 0.05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

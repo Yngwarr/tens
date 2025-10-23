@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bdd7s7j7fkcop" path="res://scenes/HUD/HUD_big_tutorial_button.tscn" id="17_vr8o3"]
 [ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD/HUD_button_credits.tscn" id="18_gw5y6"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="22_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="26_1acrt"]
@@ -122,13 +123,14 @@ _data = {
 &"hide": SubResource("Animation_v4ew3")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "credits_window", "stats_window", "fader", "tutorial_button")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "credits_window", "stats_window", "fader", "tutorial_button", "options_window")]
 script = ExtResource("1_5dd4i")
 first_to_focus = NodePath("Menu/Start")
 credits_window = NodePath("CreditsWindow")
 stats_window = NodePath("StatsWindow")
 fader = NodePath("Fader")
 tutorial_button = NodePath("Menu/Tutorial")
+options_window = NodePath("OptionsWindow")
 tutorial_prefab = ExtResource("26_1acrt")
 
 [node name="Background" parent="." instance=ExtResource("2_lgwnu")]
@@ -248,7 +250,8 @@ texture_disabled = null
 script = ExtResource("5_1ajci")
 popup = NodePath("../../StatsWindow")
 
-[node name="Settings" parent="Menu" instance=ExtResource("22_vr8o3")]
+[node name="Settings" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("22_vr8o3")]
+popup = NodePath("../../OptionsWindow")
 
 [node name="Credits" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("18_gw5y6")]
 anchors_preset = 0
@@ -262,9 +265,7 @@ script = ExtResource("5_1ajci")
 popup = NodePath("../../CreditsWindow")
 
 [node name="Fader" parent="." instance=ExtResource("21_1dfpl")]
-visible = false
-
-[node name="TutorialLayer" parent="." instance=ExtResource("26_1acrt")]
+layer = 4
 visible = false
 
 [node name="CreditsWindow" type="PopupPanel" parent="."]
@@ -321,6 +322,9 @@ layout_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_rbhfu")
 }
+
+[node name="OptionsWindow" parent="." instance=ExtResource("22_1dfpl")]
+visible = false
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_hstxw")

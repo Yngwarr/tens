@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp02anwflcyv8"]
 
 [ext_resource type="Script" uid="uid://cmvm8kwol0v66" path="res://src/UI/options_window.gd" id="1_08yxq"]
-[ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="1_ngda6"]
-[ext_resource type="Script" uid="uid://vko4v8n10wc6" path="res://src/UI/show_sum_button.gd" id="2_yqcwl"]
+[ext_resource type="Texture2D" uid="uid://dyen6jyrp5awe" path="res://img/common/icons/icon_music.svg" id="2_i5hu1"]
+[ext_resource type="Texture2D" uid="uid://c0tmj1400xl57" path="res://img/common/icons/icon_SFX.svg" id="3_7eem4"]
 
-[node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container", "show_sum")]
+[node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container")]
 oversampling_override = 1.0
 title = "Options"
 initial_position = 2
@@ -12,31 +12,16 @@ size = Vector2i(265, 124)
 visible = true
 borderless = false
 content_scale_mode = 1
-theme_override_styles/panel = ExtResource("1_ngda6")
 script = ExtResource("1_08yxq")
-container = NodePath("VBoxContainer/SoundLevels/Container")
-show_sum = NodePath("VBoxContainer/ShowSum")
+container = NodePath("SoundLevels/Container")
+music_texture = ExtResource("2_i5hu1")
+sfx_texture = ExtResource("3_7eem4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 255.0
-offset_bottom = 114.0
+[node name="SoundLevels" type="VBoxContainer" parent="."]
+offset_top = 20.0
+offset_right = 265.0
+offset_bottom = 124.0
 
-[node name="SoundLevels" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Header" type="Label" parent="VBoxContainer/SoundLevels"]
-layout_mode = 2
-text = "Sound Levels"
-horizontal_alignment = 1
-
-[node name="Container" type="GridContainer" parent="VBoxContainer/SoundLevels"]
+[node name="Container" type="GridContainer" parent="SoundLevels"]
 layout_mode = 2
 columns = 2
-
-[node name="ShowSum" type="CheckButton" parent="VBoxContainer"]
-layout_mode = 2
-tooltip_text = "Show a sum of  selected numbers."
-text = "Show sum"
-script = ExtResource("2_yqcwl")

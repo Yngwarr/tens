@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=37 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="15_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="15_05nbr"]
-[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="18_458eo"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
 [ext_resource type="Script" uid="uid://bfh4sfjmjr14" path="res://src/pause.gd" id="20_fedci"]
 [ext_resource type="Theme" uid="uid://kg42ikejce6b" path="res://theme.tres" id="20_i4jil"]
@@ -585,7 +584,7 @@ _data = {
 &"start": SubResource("Animation_kp7j3")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "tutorial_layer")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pause_ctl", "pause_menu", "highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "tutorial_layer", "fader", "options_window")]
 script = ExtResource("1_suyxu")
 pause_ctl = NodePath("Pause")
 pause_menu = NodePath("PauseMenu")
@@ -604,6 +603,8 @@ hint_sound = NodePath("HintSound")
 game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 tutorial_layer = NodePath("TutorialLayer")
+fader = NodePath("Fader")
+options_window = NodePath("OptionsWindow")
 
 [node name="Background" parent="." instance=ExtResource("2_sgl2t")]
 follow_viewport_enabled = true
@@ -664,9 +665,10 @@ offset_right = -0.0007324219
 offset_bottom = 99.0
 grow_horizontal = 0
 
-[node name="SettingsButton" parent="HUD" instance=ExtResource("8_754j2")]
+[node name="SettingsButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("8_754j2")]
 offset_top = 2.0
 offset_bottom = 99.0
+popup = NodePath("../../OptionsWindow")
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0
@@ -786,7 +788,7 @@ layer = 5
 visible = false
 script = ExtResource("15_05nbr")
 resume_button = NodePath("Container/MenuMargin/Menu/Resume")
-options_menu = NodePath("OptionsWindow")
+options_menu = NodePath("../OptionsWindow")
 fader = NodePath("../Fader")
 pause_menu = NodePath("Container")
 
@@ -818,21 +820,12 @@ size_flags_vertical = 10
 layout_mode = 2
 text = "Resume"
 
-[node name="Options" type="Button" parent="PauseMenu/Container/MenuMargin/Menu" node_paths=PackedStringArray("popup")]
-layout_mode = 2
-text = "Options"
-script = ExtResource("18_458eo")
-popup = NodePath("../../../../OptionsWindow")
-
 [node name="QuitToMenu" type="Button" parent="PauseMenu/Container/MenuMargin/Menu" node_paths=PackedStringArray("confirm_dialog")]
 layout_mode = 2
 text = "Quit to menu"
 script = ExtResource("13_8ool0")
 next_scene_name = "uid://cbplqxkaqi83r"
 confirm_dialog = NodePath("../../../../ConfirmQuit")
-
-[node name="OptionsWindow" parent="PauseMenu" instance=ExtResource("19_h3rex")]
-visible = false
 
 [node name="ConfirmQuit" type="ConfirmationDialog" parent="PauseMenu"]
 oversampling_override = 1.0
@@ -851,6 +844,9 @@ cancel_button_text = "No"
 process_mode = 3
 script = ExtResource("20_fedci")
 pause_screen = NodePath("../PauseMenu")
+
+[node name="OptionsWindow" parent="." instance=ExtResource("19_h3rex")]
+visible = false
 
 [node name="Hint" parent="." instance=ExtResource("21_8qswn")]
 visible = false

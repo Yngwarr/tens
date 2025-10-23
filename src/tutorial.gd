@@ -17,6 +17,7 @@ const BOARD: Array[int] = [
 @export var ok_button: Button
 @export var highlight: Highlight
 @export var anim: AnimationPlayer
+@export var fader_button: Button
 
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 	quit_button.pressed.connect(close)
 	ok_button.pressed.connect(close)
+	fader_button.pressed.connect(close)
 	grid.highlight_changed.connect(on_highlight_changed)
 	grid.grabbed.connect(on_grabbed)
 	grid.released.connect(on_released)

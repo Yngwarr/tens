@@ -26,6 +26,8 @@ static var TARGET_SUM := 10
 @export var game_over_sound: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
 @export var tutorial_layer: Tutorial
+@export var fader: CanvasLayer
+@export var options_window: PopupPanel
 
 var score: int = 0
 
@@ -51,6 +53,8 @@ func _ready() -> void:
 	hint_button.pressed.connect(show_hint)
 	pause_button.pressed.connect(pause_ctl.pause)
 	Global.sum_toggled.connect(toggle_sum)
+	options_window.visibility_changed.connect(on_options_visibility)
+	tutorial_layer.visibility_changed.connect(on_tutorial_visibility)
 
 	toggle_sum(Global.show_sum)
 	anim.play(&"start")
@@ -117,3 +121,9 @@ func finish() -> void:
 func on_grid_appeared() -> void:
 	protection_layer.hide()
 	PokiSDK.gameplayStart()
+
+func on_options_visibility() -> void:
+	fader.visible = options_window.visible
+	
+func on_tutorial_visibility() -> void:
+	fader.visible = tutorial_layer.visible

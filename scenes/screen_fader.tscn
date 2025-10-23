@@ -1,26 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv0qgrrpyujxr"]
-
-[ext_resource type="Shader" uid="uid://cjkfy3s4f7nyv" path="res://shaders/blur.gdshader" id="1_vfc73"]
-[ext_resource type="Texture2D" uid="uid://bmetb0g61y3bv" path="res://icon.svg" id="2_ncxo3"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iv5h"]
-shader = ExtResource("1_vfc73")
-shader_parameter/directions = 32.0
-shader_parameter/quality = 8.0
-shader_parameter/size = 10.0
+[gd_scene format=3 uid="uid://cv0qgrrpyujxr"]
 
 [node name="Fader" type="CanvasLayer"]
 layer = 5
-
-[node name="BackgroundBlur" type="TextureRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_6iv5h")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_ncxo3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -28,5 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)

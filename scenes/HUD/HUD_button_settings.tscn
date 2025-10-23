@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8ew3k8c8lu41"]
+[gd_scene load_steps=4 format=3 uid="uid://c8ew3k8c8lu41"]
 
 [ext_resource type="PackedScene" uid="uid://6p84w5cf1n6i" path="res://scenes/HUD/HUD_button_small.tscn" id="1_0lgdn"]
+[ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="2_26wcm"]
 [ext_resource type="Texture2D" uid="uid://decsh32m5mspp" path="res://img/common/icons/icon_settings.svg" id="2_pd1nr"]
 
 [node name="Button" instance=ExtResource("1_0lgdn")]
+script = ExtResource("2_26wcm")
 
 [node name="Icon" parent="." index="0"]
 offset_left = -20.0

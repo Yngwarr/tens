@@ -1,12 +1,12 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://kg42ikejce6b"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://kg42ikejce6b"]
 
 [ext_resource type="StyleBox" uid="uid://bvarxeo5ibi88" path="res://theme/button_disabled.stylebox.tres" id="1_05tig"]
 [ext_resource type="StyleBox" uid="uid://8tpvxr4wuqae" path="res://theme/button_hover.stylebox.tres" id="2_110ce"]
 [ext_resource type="StyleBox" uid="uid://igcibdtfqin8" path="res://theme/button_normal.stylebox.tres" id="2_vj6dk"]
 [ext_resource type="StyleBox" uid="uid://c5h1v76ugrvng" path="res://theme/button_pressed.stylebox.tres" id="3_vj6dk"]
-[ext_resource type="Texture2D" uid="uid://bhaueanxsibqs" path="res://img/kenney-theme/slide_hangle.svg" id="6_mihib"]
-[ext_resource type="Texture2D" uid="uid://c4h7xs1yjcfjm" path="res://img/kenney-theme/slide_horizontal_grey.svg" id="7_ttqs8"]
+[ext_resource type="Texture2D" uid="uid://dyveb6o8rw2l5" path="res://img/icon_slider.svg" id="7_6cw85"]
 [ext_resource type="StyleBox" uid="uid://c817gjlswy5xw" path="res://theme/hslider_slider.stylebox.tres" id="7_yin2u"]
+[ext_resource type="Texture2D" uid="uid://cjvuycifogguo" path="res://img/slider_body.svg" id="8_504p6"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="9_ttqs8"]
 [ext_resource type="Texture2D" uid="uid://cnsxppbjwdl1l" path="res://img/common/close_button.svg" id="10_6cw85"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="10_wdt2l"]
@@ -34,22 +34,20 @@ texture_margin_bottom = 20.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_howt0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
-texture = ExtResource("7_ttqs8")
-texture_margin_left = 15.0
-texture_margin_top = 8.0
-texture_margin_right = 15.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yin2u"]
-load_path = "res://.godot/imported/slide_horizontal_grey.svg-8851c59ee86b019602b3eefb57ea3142.ctex"
+texture = ExtResource("8_504p6")
+texture_margin_left = 5.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
-texture = SubResource("CompressedTexture2D_yin2u")
-texture_margin_left = 15.0
-texture_margin_top = 8.0
-texture_margin_right = 15.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.6999892, 0.75063145, 0.99999946, 1)
+texture = ExtResource("8_504p6")
+texture_margin_left = 5.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_howt0"]
 texture = ExtResource("11_504p6")
@@ -93,9 +91,9 @@ CheckButton/styles/hover = SubResource("StyleBoxEmpty_wdt2l")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_6cw85")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_504p6")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_howt0")
-HSlider/icons/grabber = ExtResource("6_mihib")
-HSlider/icons/grabber_disabled = ExtResource("6_mihib")
-HSlider/icons/grabber_highlight = ExtResource("6_mihib")
+HSlider/icons/grabber = ExtResource("7_6cw85")
+HSlider/icons/grabber_disabled = ExtResource("7_6cw85")
+HSlider/icons/grabber_highlight = ExtResource("7_6cw85")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_mihib")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ttqs8")
 HSlider/styles/slider = ExtResource("7_yin2u")
