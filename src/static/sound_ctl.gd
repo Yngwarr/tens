@@ -34,5 +34,4 @@ static func set_volume(bus: int, volume: float) -> void:
 ## your effect buses to be adjustable by a player, that's why we only show
 ## Master and anything that sends to it (SFX and Music in the most cases).
 static func _showable_bus(bus_idx: int) -> bool:
-	return AudioServer.get_bus_name(bus_idx) == MASTER_NAME \
-			or AudioServer.get_bus_send(bus_idx) == MASTER_NAME
+	return AudioServer.get_bus_send(bus_idx) == MASTER_NAME
