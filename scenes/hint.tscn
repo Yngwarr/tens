@@ -14,6 +14,7 @@ texture_margin_bottom = 16.0
 modulate = Color(0.0705882, 0.305882, 0.537255, 1)
 offset_right = 48.0
 offset_bottom = 48.0
+pivot_offset = Vector2(24, 24)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o2sfh")
 script = ExtResource("2_wlpsf")

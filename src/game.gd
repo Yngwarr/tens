@@ -16,7 +16,7 @@ static var TARGET_SUM := 10
 @export var sum_label: SumLabel
 @export var score_label: Label
 @export var final_score_label: Label
-@export var hint_button: BaseButton
+@export var hint_button: HintButton
 @export var pause_button: BaseButton
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
@@ -25,6 +25,7 @@ static var TARGET_SUM := 10
 @export var music_player: AudioStreamPlayer
 @export var options_window: PopupPanel
 @export var confirm_window: PopupPanel
+@export var idle_timer: Timer
 
 @export_group("Prefabs")
 @export var tutorial_prefab: PackedScene
@@ -52,6 +53,7 @@ func _ready() -> void:
 	Global.sum_toggled.connect(toggle_sum)
 	options_window.visibility_changed.connect(on_options_visibility)
 	confirm_window.visibility_changed.connect(on_confirm_visibility)
+	idle_timer.timeout.connect(on_idle_timeout)
 
 	toggle_sum(Global.show_sum)
 	anim.play(&"start")
@@ -85,7 +87,12 @@ func on_released() -> void:
 
 	if highlight.sum == TARGET_SUM:
 		var amount_removed = highlight.clear()
+
 		update_score(score + amount_removed)
+		hint_button.calm_down()
+		idle_timer.stop()
+		idle_timer.start()
+
 		solver.read()
 	else:
 		highlight.fail()
@@ -94,11 +101,15 @@ func on_released() -> void:
 func show_hint() -> void:
 	if not solver.next_hint:
 		return
+
 	if hint.visible:
+		hint.bounce()
 		return
 
 	hint_sound.play()
 	hint.appear(solver.next_hint)
+	hint_button.calm_down()
+	idle_timer.stop()
 
 
 func finish() -> void:
@@ -123,6 +134,7 @@ func finish() -> void:
 func on_grid_appeared() -> void:
 	protection_layer.hide()
 	PokiSDK.gameplayStart()
+	idle_timer.start()
 
 
 func on_options_visibility() -> void:
@@ -131,3 +143,7 @@ func on_options_visibility() -> void:
 
 func on_confirm_visibility() -> void:
 	ScreenFader.visible = confirm_window.visible
+
+
+func on_idle_timeout() -> void:
+	hint_button.demand_attention()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
-[ext_resource type="PackedScene" uid="uid://bkoqy044j052o" path="res://scenes/UI buttons/button_hint.tscn" id="3_0bq3a"]
+[ext_resource type="PackedScene" uid="uid://bkoqy044j052o" path="res://scenes/UI buttons/hint_button.tscn" id="3_0bq3a"]
 [ext_resource type="Texture2D" uid="uid://dgx8kq7wk6uh8" path="res://img/frame_field.svg" id="3_754j2"]
 [ext_resource type="PackedScene" uid="uid://cfrwxfctipdp6" path="res://scenes/HUD/HUD_button_home.tscn" id="5_0bq3a"]
 [ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="6_i4jil"]
@@ -581,7 +581,7 @@ _data = {
 &"start": SubResource("Animation_kp7j3")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "options_window", "confirm_window")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "options_window", "confirm_window", "idle_timer")]
 script = ExtResource("1_suyxu")
 highlight = NodePath("Highlight")
 hint = NodePath("Hint")
@@ -599,6 +599,7 @@ game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 options_window = NodePath("OptionsWindow")
 confirm_window = NodePath("ConfirmQuit")
+idle_timer = NodePath("IdleTimer")
 tutorial_prefab = ExtResource("14_pr1ej")
 
 [node name="Background" parent="." instance=ExtResource("2_sgl2t")]
@@ -632,7 +633,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 498.00098
+offset_right = 498.00085
 offset_bottom = 373.0
 
 [node name="HomeButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("5_0bq3a")]
@@ -798,6 +799,10 @@ metadata/_edit_lock_ = true
 
 [node name="AppearTimer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
 
 [node name="Solver" type="Node" parent="." node_paths=PackedStringArray("grid")]
 script = ExtResource("25_o8ni1")

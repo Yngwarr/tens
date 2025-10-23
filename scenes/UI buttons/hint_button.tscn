@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkoqy044j052o"]
+[gd_scene load_steps=15 format=3 uid="uid://bkoqy044j052o"]
 
 [ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="1_1mm1c"]
 [ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="2_c8kof"]
 [ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="3_mbds1"]
 [ext_resource type="BitMap" uid="uid://clsps5usm1ocf" path="res://img/common/button_mask.png" id="4_w2chd"]
 [ext_resource type="Texture2D" uid="uid://kcjrr7kl50ny" path="res://img/common/icons/icon_hint.svg" id="5_7gf6f"]
+[ext_resource type="Script" uid="uid://c8pm24mxq4cku" path="res://src/hint_button.gd" id="5_wgemm"]
 [ext_resource type="Texture2D" uid="uid://jtfl1hpipg0m" path="res://img/common/hint_counter.svg" id="6_x44ky"]
 [ext_resource type="LabelSettings" uid="uid://cnmhhrl0r8yd5" path="res://label settings/hint_counter.tres" id="7_2apm8"]
 [ext_resource type="Texture2D" uid="uid://k08idkmo8gm8" path="res://img/common/icons/icon_play_ad.svg" id="8_evs2p"]
@@ -16,14 +17,76 @@ pressed = true
 [sub_resource type="Shortcut" id="Shortcut_uxviy"]
 events = [SubResource("InputEventAction_g214j")]
 
-[node name="Hint" type="TextureButton"]
+[sub_resource type="Animation" id="Animation_wgemm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q4h7s"]
+resource_name = "attention"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.13962634, 0.13962634, -0.13962634, 0.13962634, 0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv4kl"]
+_data = {
+&"RESET": SubResource("Animation_wgemm"),
+&"attention": SubResource("Animation_q4h7s")
+}
+
+[node name="HintButton" type="TextureButton" node_paths=PackedStringArray("anim")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
-offset_top = 1000.0
 offset_right = -1002.0
-offset_bottom = 1150.0
+offset_bottom = 150.0
 grow_horizontal = 0
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
@@ -34,6 +97,8 @@ texture_hover = ExtResource("3_mbds1")
 texture_click_mask = ExtResource("4_w2chd")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_wgemm")
+anim = NodePath("AnimationPlayer")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -48,6 +113,7 @@ offset_right = 30.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(5.66, 56.995)
 texture = ExtResource("5_7gf6f")
 
 [node name="Counter" type="TextureRect" parent="."]
@@ -92,3 +158,8 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_evs2p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wv4kl")
+}
