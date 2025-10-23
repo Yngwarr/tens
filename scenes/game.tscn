@@ -783,6 +783,7 @@ follow_viewport_enabled = true
 visible = false
 
 [node name="ConfirmQuit" parent="." instance=ExtResource("18_0bq3a")]
+visible = false
 
 [node name="OptionsWindow" parent="." instance=ExtResource("19_h3rex")]
 visible = false
