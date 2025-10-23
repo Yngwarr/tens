@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhaueanxsibqs"
-path="res://.godot/imported/slide_hangle.svg-88f25884bdc9f82fb4e3fef77716dcb3.ctex"
+uid="uid://dyveb6o8rw2l5"
+path="res://.godot/imported/icon_slider.svg-1bda9e81179a119f48ddce0a2bac8150.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/kenney-theme/slide_hangle.svg"
-dest_files=["res://.godot/imported/slide_hangle.svg-88f25884bdc9f82fb4e3fef77716dcb3.ctex"]
+source_file="res://img/icon_slider.svg"
+dest_files=["res://.godot/imported/icon_slider.svg-1bda9e81179a119f48ddce0a2bac8150.ctex"]
 
 [params]
 
