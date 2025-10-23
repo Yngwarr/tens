@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdd7s7j7fkcop"]
+
+[ext_resource type="PackedScene" uid="uid://cacr5uy6off2l" path="res://scenes/HUD/HUD_big_button.tscn" id="1_x6er3"]
+[ext_resource type="Texture2D" uid="uid://dptlcgbvr6iff" path="res://img/common/icons/icon_tutorial.svg" id="2_ha7q5"]
+
+[node name="Button" instance=ExtResource("1_x6er3")]
+
+[node name="Icon" parent="." index="0"]
+texture = ExtResource("2_ha7q5")

@@ -10,6 +10,7 @@ signal resume_pressed
 @export var resume_button: Button
 @export var options_menu: PopupPanel
 @export var fader: CanvasLayer
+@export var pause_menu: VBoxContainer
 
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func on_resume_pressed() -> void:
 
 
 func options_toggled() -> void:
+	pause_menu.visible = not options_menu.visible
 	if options_menu.visible:
 		return
 	modal_open.emit()

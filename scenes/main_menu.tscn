@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=29 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -11,21 +11,15 @@
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="6_a8gd2"]
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="6_hstxw"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="7_8egab"]
-[ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="8_a8gd2"]
 [ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="9_a8gd2"]
-[ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="9_hstxw"]
-[ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="10_8egab"]
 [ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
-[ext_resource type="Texture2D" uid="uid://bg0tvc3m5wgeb" path="res://img/common/icons/icon_palette.svg" id="11_gw5y6"]
-[ext_resource type="Texture2D" uid="uid://785sp4cvxjw5" path="res://img/common/button_disabled.svg" id="14_1a85y"]
-[ext_resource type="Texture2D" uid="uid://dptlcgbvr6iff" path="res://img/common/icons/icon_tutorial.svg" id="14_8egab"]
+[ext_resource type="PackedScene" uid="uid://q84fhqyj8w4s" path="res://scenes/HUD/HUD_big_button_gallery.tscn" id="11_svtp6"]
 [ext_resource type="PackedScene" uid="uid://d21ft8cjmcf0j" path="res://scenes/HUD/HUD_button_quit.tscn" id="15_gw5y6"]
-[ext_resource type="BitMap" uid="uid://clsps5usm1ocf" path="res://img/common/button_mask.png" id="15_hl5e0"]
 [ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD/HUD_button_stats.tscn" id="17_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://bdd7s7j7fkcop" path="res://scenes/HUD/HUD_big_tutorial_button.tscn" id="17_vr8o3"]
 [ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD/HUD_button_credits.tscn" id="18_gw5y6"]
-[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD/HUD_button_sound.tscn" id="18_svtp6"]
-[ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD/HUD_button_music.tscn" id="20_qywvv"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="21_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="26_1acrt"]
 
@@ -186,7 +180,7 @@ script = ExtResource("4_rcqid")
 next_scene_name = "uid://b4cdbeg0ebk56"
 anim = NodePath("../../AnimationPlayer")
 
-[node name="TextureRect" type="TextureRect" parent="Menu/Start"]
+[node name="Icon" type="TextureRect" parent="Menu/Start"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -201,7 +195,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_8egab")
 
-[node name="Gallery" type="TextureButton" parent="Menu"]
+[node name="Gallery" parent="Menu" instance=ExtResource("11_svtp6")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -213,54 +207,20 @@ offset_right = -1.0
 offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
-disabled = true
-texture_normal = ExtResource("8_a8gd2")
-texture_pressed = ExtResource("9_hstxw")
-texture_hover = ExtResource("10_8egab")
-texture_disabled = ExtResource("14_1a85y")
-texture_click_mask = ExtResource("15_hl5e0")
-stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="Menu/Gallery"]
-layout_mode = 1
+[node name="Tutorial" parent="Menu" instance=ExtResource("17_vr8o3")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.500015
-offset_top = -43.5
-offset_right = 41.50009
-offset_bottom = 36.5
+offset_left = 1.0
+offset_top = 81.0
+offset_right = 194.0
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_gw5y6")
-
-[node name="Tutorial" type="TextureButton" parent="Menu"]
-offset_left = 577.0
-offset_top = 405.0
-offset_right = 770.0
-offset_bottom = 598.0
-texture_normal = ExtResource("8_a8gd2")
-texture_pressed = ExtResource("9_hstxw")
-texture_hover = ExtResource("10_8egab")
-stretch_mode = 5
-
-[node name="Icon" type="TextureRect" parent="Menu/Tutorial"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.49997
-offset_top = -34.5
-offset_right = 20.50003
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_8egab")
-stretch_mode = 5
+texture_disabled = null
 
 [node name="Quit" parent="Menu" instance=ExtResource("15_gw5y6")]
 anchors_preset = 1
@@ -288,13 +248,7 @@ texture_disabled = null
 script = ExtResource("5_1ajci")
 popup = NodePath("../../StatsWindow")
 
-[node name="Sound" parent="Menu" instance=ExtResource("18_svtp6")]
-texture_disabled = null
-
-[node name="Music" parent="Menu" instance=ExtResource("20_qywvv")]
-offset_left = 97.0
-offset_right = 193.99927
-texture_disabled = null
+[node name="Settings" parent="Menu" instance=ExtResource("22_vr8o3")]
 
 [node name="Credits" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("18_gw5y6")]
 anchors_preset = 0

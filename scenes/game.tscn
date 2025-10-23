@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=38 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -6,20 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://dgx8kq7wk6uh8" path="res://img/frame_field.svg" id="3_754j2"]
 [ext_resource type="PackedScene" uid="uid://cfrwxfctipdp6" path="res://scenes/HUD/HUD_button_pause.tscn" id="5_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://doj2d2pugy8kx" path="res://scenes/HUD/HUD_button_gallery.tscn" id="7_754j2"]
-[ext_resource type="PackedScene" uid="uid://ciw7csx7glror" path="res://scenes/HUD/HUD_button_sound.tscn" id="8_i4jil"]
-[ext_resource type="PackedScene" uid="uid://bjt0k6ntqqqmp" path="res://scenes/HUD/HUD_button_music.tscn" id="9_754j2"]
+[ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="8_754j2"]
 [ext_resource type="Script" uid="uid://c6r8yr32sxkgs" path="res://src/pause_button.gd" id="10_nepv3"]
 [ext_resource type="LabelSettings" uid="uid://dix3odl5wyvig" path="res://label settings/score_label.tres" id="11_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
 [ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="12_i4jil"]
 [ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="12_m4url"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
+[ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
 [ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="15_0bq3a"]
+[ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="Script" uid="uid://bwt8ammicphob" path="res://src/UI/pause_menu.gd" id="15_05nbr"]
 [ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="18_458eo"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
 [ext_resource type="Script" uid="uid://bfh4sfjmjr14" path="res://src/pause.gd" id="20_fedci"]
+[ext_resource type="Theme" uid="uid://kg42ikejce6b" path="res://theme.tres" id="20_i4jil"]
 [ext_resource type="PackedScene" uid="uid://bbmiblmihgxla" path="res://scenes/hint.tscn" id="21_8qswn"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="22_rm0al"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="23_i4re6"]
@@ -34,6 +36,12 @@
 font = ExtResource("12_i4jil")
 font_size = 98
 outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_754j2"]
+font = ExtResource("12_i4jil")
+font_size = 60
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_xhhx8"]
@@ -228,31 +236,19 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1255, 551)]
+"values": [Vector2(1055, 650)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("HUD/SoundButton:position")
+tracks/16/path = NodePath("HUD/SettingsButton:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-200, 551)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("HUD/MusicButton:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(97, 650)]
+"values": [Vector2(0, 650)]
 }
 
 [sub_resource type="Animation" id="Animation_6obku"]
@@ -381,7 +377,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(1.3, 2, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 700), Vector2(0, 700), Vector2(0, 498)]
+"values": [Vector2(0, 700), Vector2(0, 700), Vector2(0, 400)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -397,7 +393,7 @@ tracks/10/keys = {
 }
 tracks/11/type = "value"
 tracks/11/imported = false
-tracks/11/enabled = false
+tracks/11/enabled = true
 tracks/11/path = NodePath("GameOverSound:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
@@ -438,7 +434,7 @@ tracks/14/path = NodePath("HUD/PauseButton:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.66933876),
+"times": PackedFloat32Array(0, 0.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1055, 0), Vector2(1055, -100)]
@@ -450,7 +446,7 @@ tracks/15/path = NodePath("HUD/GalleryButton:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.66933876),
+"times": PackedFloat32Array(0, 0.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1055, 551), Vector2(1055, 650)]
@@ -458,26 +454,14 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("HUD/SoundButton:position")
+tracks/16/path = NodePath("HUD/SettingsButton:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.66933876),
+"times": PackedFloat32Array(0, 0.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 551), Vector2(0, 650)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("HUD/MusicButton:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.67),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(97, 551), Vector2(97, 650)]
 }
 
 [sub_resource type="Animation" id="Animation_kp7j3"]
@@ -584,7 +568,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("HUD/SoundButton:position")
+tracks/8/path = NodePath("HUD/SettingsButton:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -592,18 +576,6 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 650), Vector2(0, 551)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("HUD/MusicButton:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(97, 650), Vector2(97, 551)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lb3xy"]
@@ -664,7 +636,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 498.0016
+offset_right = 498.00098
 offset_bottom = 373.0
 
 [node name="PauseButton" parent="HUD" instance=ExtResource("5_0bq3a")]
@@ -686,21 +658,15 @@ script = ExtResource("10_nepv3")
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 103.0
-offset_right = 199.99927
+offset_left = -97.0
+offset_top = 2.0
+offset_right = -0.0007324219
+offset_bottom = 99.0
 grow_horizontal = 0
 
-[node name="SoundButton" parent="HUD" instance=ExtResource("8_i4jil")]
-offset_left = -200.0
-offset_right = -103.00073
-texture_disabled = null
-
-[node name="MusicButton" parent="HUD" instance=ExtResource("9_754j2")]
-offset_left = 97.0
+[node name="SettingsButton" parent="HUD" instance=ExtResource("8_754j2")]
 offset_top = 2.0
-offset_right = 193.99927
 offset_bottom = 99.0
-texture_disabled = null
 
 [node name="SumLabel" parent="HUD" instance=ExtResource("11_7025r")]
 offset_left = -300.0
@@ -748,13 +714,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
-offset_bottom = 110.49988
+offset_bottom = 110.499756
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_m4url")
 theme_override_font_sizes/font_size = 64
-text = "Congratulations!
-"
+text = "Congratulations!"
 label_settings = SubResource("LabelSettings_1gdd5")
 horizontal_alignment = 1
 
@@ -766,7 +731,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
 text = "You scored 182 points"
-label_settings = ExtResource("11_0bq3a")
+label_settings = SubResource("LabelSettings_754j2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -777,34 +742,31 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 20.0
+offset_bottom = 19.999878
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 
 [node name="Menu" type="HBoxContainer" parent="GameOverLayer/MenuMargin"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -245.0
-offset_top = -56.0
-offset_right = 245.0
-offset_bottom = 56.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -193.0
+offset_right = 195.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="TryAgain" type="Button" parent="GameOverLayer/MenuMargin/Menu"]
+[node name="Retry" parent="GameOverLayer/MenuMargin/Menu" instance=ExtResource("13_jai3c")]
 layout_mode = 2
-text = "Try Again"
 script = ExtResource("13_8ool0")
-next_scene_name = "uid://da0s2ffnv2u2d"
+next_scene_name = "uid://b4cdbeg0ebk56"
 
-[node name="QuitToMenu" type="Button" parent="GameOverLayer/MenuMargin/Menu"]
+[node name="Quit" parent="GameOverLayer/MenuMargin/Menu" instance=ExtResource("15_1gdd5")]
 layout_mode = 2
-text = "Quit to menu"
 script = ExtResource("13_8ool0")
 next_scene_name = "uid://cbplqxkaqi83r"
 
@@ -818,7 +780,7 @@ follow_viewport_enabled = true
 [node name="Fader" parent="." instance=ExtResource("15_0bq3a")]
 visible = false
 
-[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu", "fader")]
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu", "fader", "pause_menu")]
 process_mode = 2
 layer = 5
 visible = false
@@ -826,6 +788,7 @@ script = ExtResource("15_05nbr")
 resume_button = NodePath("Container/MenuMargin/Menu/Resume")
 options_menu = NodePath("OptionsWindow")
 fader = NodePath("../Fader")
+pause_menu = NodePath("Container")
 
 [node name="Container" type="VBoxContainer" parent="PauseMenu"]
 anchors_preset = 8
@@ -875,9 +838,10 @@ visible = false
 oversampling_override = 1.0
 title = ""
 initial_position = 2
-size = Vector2i(289, 136)
+size = Vector2i(554, 250)
 unresizable = true
 popup_window = true
+theme = ExtResource("20_i4jil")
 ok_button_text = "Yes"
 dialog_text = "Do you want to quit to main menu?"
 dialog_autowrap = true

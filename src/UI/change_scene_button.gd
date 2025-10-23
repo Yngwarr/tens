@@ -1,4 +1,4 @@
-extends Button
+extends BaseButton
 
 ## A button to change your scene. Can be used both to switch and to reload a
 ## scene.

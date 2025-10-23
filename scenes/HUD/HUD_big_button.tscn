@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cacr5uy6off2l"]
+
+[ext_resource type="Texture2D" uid="uid://ckaavr546hds" path="res://img/common/button_normal.svg" id="1_qjqw0"]
+[ext_resource type="Texture2D" uid="uid://cjr868c10b1u3" path="res://img/common/button_pressed.svg" id="2_fcol8"]
+[ext_resource type="Texture2D" uid="uid://cchy32t5j7e3e" path="res://img/common/button_hovered.svg" id="3_fh223"]
+[ext_resource type="Texture2D" uid="uid://785sp4cvxjw5" path="res://img/common/button_disabled.svg" id="4_fcol8"]
+
+[node name="Button" type="TextureButton"]
+texture_normal = ExtResource("1_qjqw0")
+texture_pressed = ExtResource("2_fcol8")
+texture_hover = ExtResource("3_fh223")
+texture_disabled = ExtResource("4_fcol8")
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.49997
+offset_top = -34.5
+offset_right = 20.50003
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
