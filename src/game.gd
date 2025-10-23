@@ -50,22 +50,16 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
-	Global.sum_toggled.connect(toggle_sum)
 	options_window.visibility_changed.connect(on_options_visibility)
 	confirm_window.visibility_changed.connect(on_confirm_visibility)
 	idle_timer.timeout.connect(on_idle_timeout)
 
-	toggle_sum(Global.show_sum)
 	anim.play(&"start")
 
 
 func _process(_delta: float) -> void:
 	if OS.has_feature("editor_runtime") and Input.is_action_just_pressed("cheat_finish"):
 		finish()
-
-
-func toggle_sum(on: bool) -> void:
-	sum_label.visible = on
 
 
 func update_sum(value: int) -> void:
