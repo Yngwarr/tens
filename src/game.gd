@@ -28,6 +28,7 @@ static var TARGET_SUM := 10
 @export var tutorial_layer: Tutorial
 @export var fader: CanvasLayer
 @export var options_window: PopupPanel
+@export var confirm_window: PopupPanel
 
 var score: int = 0
 
@@ -43,7 +44,6 @@ func _ready() -> void:
 		get_tree().paused = true
 		tutorial_layer.show()
 
-	pause_menu.resume_pressed.connect(pause_ctl.unpause)
 	grid.highlight_changed.connect(highlight.resize)
 	grid.grabbed.connect(on_grabbed)
 	grid.released.connect(on_released)
@@ -51,14 +51,17 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
-	pause_button.pressed.connect(pause_ctl.pause)
 	Global.sum_toggled.connect(toggle_sum)
 	options_window.visibility_changed.connect(on_options_visibility)
 	tutorial_layer.visibility_changed.connect(on_tutorial_visibility)
+	confirm_window.visibility_changed.connect(on_confirm_visibility)
 
 	toggle_sum(Global.show_sum)
 	anim.play(&"start")
 
+func _process(_delta: float) -> void:
+	if OS.has_feature("editor_runtime") and Input.is_action_just_pressed("cheat_finish"):
+		finish()
 
 func toggle_sum(on: bool) -> void:
 	sum_label.visible = on
@@ -127,3 +130,6 @@ func on_options_visibility() -> void:
 	
 func on_tutorial_visibility() -> void:
 	fader.visible = tutorial_layer.visible
+
+func on_confirm_visibility() -> void:
+	fader.visible = confirm_window.visible
