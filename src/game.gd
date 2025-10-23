@@ -9,8 +9,6 @@ extends Node2D
 static var CELL_SIZE := 60
 static var TARGET_SUM := 10
 
-@export var pause_ctl: Pause
-@export var pause_menu: PauseMenu
 @export var highlight: Highlight
 @export var hint: Hint
 @export var grid: Grid
@@ -127,7 +125,7 @@ func on_grid_appeared() -> void:
 
 func on_options_visibility() -> void:
 	fader.visible = options_window.visible
-	
+
 func on_tutorial_visibility() -> void:
 	fader.visible = tutorial_layer.visible
 
