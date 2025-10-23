@@ -183,7 +183,7 @@ theme = SubResource("Theme_a8gd2")
 text = " "
 icon_alignment = 1
 script = ExtResource("4_rcqid")
-next_scene_name = "uid://da0s2ffnv2u2d"
+next_scene_name = "uid://b4cdbeg0ebk56"
 anim = NodePath("../../AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="Menu/Start"]

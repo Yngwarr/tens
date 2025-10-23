@@ -818,13 +818,14 @@ follow_viewport_enabled = true
 [node name="Fader" parent="." instance=ExtResource("15_0bq3a")]
 visible = false
 
-[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu")]
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("resume_button", "options_menu", "fader")]
 process_mode = 2
 layer = 5
 visible = false
 script = ExtResource("15_05nbr")
 resume_button = NodePath("Container/MenuMargin/Menu/Resume")
 options_menu = NodePath("OptionsWindow")
+fader = NodePath("../Fader")
 
 [node name="Container" type="VBoxContainer" parent="PauseMenu"]
 anchors_preset = 8

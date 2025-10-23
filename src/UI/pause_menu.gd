@@ -9,6 +9,7 @@ signal resume_pressed
 
 @export var resume_button: Button
 @export var options_menu: PopupPanel
+@export var fader: CanvasLayer
 
 
 func _ready() -> void:
@@ -29,9 +30,11 @@ func options_toggled() -> void:
 
 
 func pause() -> void:
+	fader.visible = true
 	show()
 	resume_button.grab_focus()
 
 
 func unpause() -> void:
+	fader.visible = false
 	hide()
