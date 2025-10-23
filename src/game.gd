@@ -24,7 +24,6 @@ static var TARGET_SUM := 10
 @export var game_over_sound: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
 @export var tutorial_layer: Tutorial
-@export var fader: CanvasLayer
 @export var options_window: PopupPanel
 @export var confirm_window: PopupPanel
 
@@ -124,10 +123,10 @@ func on_grid_appeared() -> void:
 	PokiSDK.gameplayStart()
 
 func on_options_visibility() -> void:
-	fader.visible = options_window.visible
+	ScreenFader.visible = options_window.visible
 
 func on_tutorial_visibility() -> void:
-	fader.visible = tutorial_layer.visible
+	ScreenFader.visible = tutorial_layer.visible
 
 func on_confirm_visibility() -> void:
-	fader.visible = confirm_window.visible
+	ScreenFader.visible = confirm_window.visible

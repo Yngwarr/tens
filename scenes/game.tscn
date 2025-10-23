@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=34 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
-[ext_resource type="PackedScene" uid="uid://cv0qgrrpyujxr" path="res://scenes/screen_fader.tscn" id="15_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
@@ -582,7 +581,7 @@ _data = {
 &"start": SubResource("Animation_kp7j3")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "tutorial_layer", "fader", "options_window", "confirm_window")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "tutorial_layer", "options_window", "confirm_window")]
 script = ExtResource("1_suyxu")
 highlight = NodePath("Highlight")
 hint = NodePath("Hint")
@@ -599,7 +598,6 @@ hint_sound = NodePath("HintSound")
 game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 tutorial_layer = NodePath("TutorialLayer")
-fader = NodePath("Fader")
 options_window = NodePath("OptionsWindow")
 confirm_window = NodePath("ConfirmQuit")
 
@@ -776,11 +774,8 @@ next_scene_name = "uid://cbplqxkaqi83r"
 visible = false
 
 [node name="FrontLayer" type="CanvasLayer" parent="."]
-layer = 5
+layer = 7
 follow_viewport_enabled = true
-
-[node name="Fader" parent="." instance=ExtResource("15_0bq3a")]
-visible = false
 
 [node name="ConfirmQuit" parent="." instance=ExtResource("18_0bq3a")]
 visible = false

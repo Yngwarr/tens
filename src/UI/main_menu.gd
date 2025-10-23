@@ -7,7 +7,6 @@ extends Node2D
 @export var first_to_focus: Control
 @export var credits_window: PopupPanel
 @export var stats_window: PopupPanel
-@export var fader: CanvasLayer
 @export var tutorial_button: BaseButton
 @export var options_window: PopupPanel
 
@@ -27,11 +26,11 @@ func _ready() -> void:
 
 
 func on_credits_visibility() -> void:
-	fader.visible = credits_window.visible
+	ScreenFader.visible = credits_window.visible
 
 
 func on_stats_visibility() -> void:
-	fader.visible = stats_window.visible
+	ScreenFader.visible = stats_window.visible
 
 
 func on_show_tutorial() -> void:
@@ -39,4 +38,4 @@ func on_show_tutorial() -> void:
 	add_child(tutorial)
 
 func on_options_visibility() -> void:
-	fader.visible = options_window.visible
+	ScreenFader.visible = options_window.visible

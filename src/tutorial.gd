@@ -32,9 +32,11 @@ func _ready() -> void:
 	grid.fully_appeared.connect(on_grid_appeared)
 
 	grid.appear()
+	ScreenFader.show()
 
 
 func close() -> void:
+	ScreenFader.hide()
 	queue_free()
 	get_tree().paused = false
 

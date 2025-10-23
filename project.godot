@@ -21,6 +21,7 @@ config/windows_native_icon="res://img/icon/icon.ico"
 
 Global="*res://src/global.gd"
 PokiSDK="*res://addons/poki-sdk/pokisdk.gd"
+ScreenFader="*res://scenes/screen_fader.tscn"
 
 [display]
 

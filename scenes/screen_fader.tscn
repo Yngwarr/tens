@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cv0qgrrpyujxr"]
 
-[node name="Fader" type="CanvasLayer"]
+[node name="ScreenFader" type="CanvasLayer"]
 layer = 5
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
