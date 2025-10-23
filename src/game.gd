@@ -23,9 +23,11 @@ static var TARGET_SUM := 10
 @export var hint_sound: AudioStreamPlayer
 @export var game_over_sound: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
-@export var tutorial_layer: Tutorial
 @export var options_window: PopupPanel
 @export var confirm_window: PopupPanel
+
+@export_group("Prefabs")
+@export var tutorial_prefab: PackedScene
 
 var score: int = 0
 
@@ -34,12 +36,11 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if Storage.tutorial_watched:
-		tutorial_layer.queue_free()
-	else:
+	if not Storage.tutorial_watched:
+		var tutorial := tutorial_prefab.instantiate()
+		add_child(tutorial)
 		Storage.tutorial_watched = true
 		get_tree().paused = true
-		tutorial_layer.show()
 
 	grid.highlight_changed.connect(highlight.resize)
 	grid.grabbed.connect(on_grabbed)
@@ -50,15 +51,16 @@ func _ready() -> void:
 	hint_button.pressed.connect(show_hint)
 	Global.sum_toggled.connect(toggle_sum)
 	options_window.visibility_changed.connect(on_options_visibility)
-	tutorial_layer.visibility_changed.connect(on_tutorial_visibility)
 	confirm_window.visibility_changed.connect(on_confirm_visibility)
 
 	toggle_sum(Global.show_sum)
 	anim.play(&"start")
 
+
 func _process(_delta: float) -> void:
 	if OS.has_feature("editor_runtime") and Input.is_action_just_pressed("cheat_finish"):
 		finish()
+
 
 func toggle_sum(on: bool) -> void:
 	sum_label.visible = on
@@ -122,11 +124,10 @@ func on_grid_appeared() -> void:
 	protection_layer.hide()
 	PokiSDK.gameplayStart()
 
+
 func on_options_visibility() -> void:
 	ScreenFader.visible = options_window.visible
 
-func on_tutorial_visibility() -> void:
-	ScreenFader.visible = tutorial_layer.visible
 
 func on_confirm_visibility() -> void:
 	ScreenFader.visible = confirm_window.visible

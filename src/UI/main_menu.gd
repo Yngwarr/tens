@@ -10,7 +10,7 @@ extends Node2D
 @export var tutorial_button: BaseButton
 @export var options_window: PopupPanel
 
-@export_group("Prefab")
+@export_group("Prefabs")
 @export var tutorial_prefab: PackedScene
 
 
@@ -24,6 +24,8 @@ func _ready() -> void:
 	tutorial_button.pressed.connect(on_show_tutorial)
 	options_window.visibility_changed.connect(on_options_visibility)
 
+	ScreenFader.hide()
+
 
 func on_credits_visibility() -> void:
 	ScreenFader.visible = credits_window.visible
@@ -36,6 +38,7 @@ func on_stats_visibility() -> void:
 func on_show_tutorial() -> void:
 	var tutorial := tutorial_prefab.instantiate()
 	add_child(tutorial)
+
 
 func on_options_visibility() -> void:
 	ScreenFader.visible = options_window.visible
