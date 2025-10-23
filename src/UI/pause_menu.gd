@@ -4,31 +4,21 @@ extends CanvasLayer
 ## Your average pause menu you can use to rage quit the game, go outside and
 ## touch some grass.
 
-signal modal_open
 signal resume_pressed
 
 @export var resume_button: Button
-@export var options_menu: PopupPanel
 @export var fader: CanvasLayer
 @export var pause_menu: VBoxContainer
 
 
 func _ready() -> void:
 	resume_button.pressed.connect(on_resume_pressed)
-	options_menu.visibility_changed.connect(options_toggled)
 
 	resume_button.grab_focus()
 
 
 func on_resume_pressed() -> void:
 	resume_pressed.emit()
-
-
-func options_toggled() -> void:
-	pause_menu.visible = not options_menu.visible
-	if options_menu.visible:
-		return
-	modal_open.emit()
 
 
 func pause() -> void:
