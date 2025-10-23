@@ -12,9 +12,7 @@ var sliders: Array[VolumeSlider] = []
 func _ready() -> void:
 	visibility_changed.connect(on_toggle)
 	for bus in SoundCtl.adjustable_sound_buses():
-		if bus == 0:
-			pass
-		else:
+		if bus != 0:
 			sliders.append(add_bus_ctl(bus))
 
 func on_toggle() -> void:

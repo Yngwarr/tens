@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk78ih4kqau4u"]
+
+[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="1_hojkm"]
+[ext_resource type="Script" uid="uid://cbpjel154egih" path="res://src/confirm_quit.gd" id="1_ipjnj"]
+[ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_jo6th"]
+[ext_resource type="Texture2D" uid="uid://v08y1sw3ipj6" path="res://img/common/Cross.svg" id="4_h041j"]
+
+[node name="ConfirmQuit" type="PopupPanel" node_paths=PackedStringArray("button_no")]
+oversampling_override = 1.0
+title = "Return to main menu?"
+initial_position = 2
+size = Vector2i(440, 180)
+visible = true
+borderless = false
+script = ExtResource("1_ipjnj")
+button_no = NodePath("VBoxContainer/HBoxContainer/ButtonNo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 20.0
+offset_right = 440.0
+offset_bottom = 180.0
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Your game won't be saved."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ButtonYes" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 90)
+layout_mode = 2
+script = ExtResource("1_hojkm")
+next_scene_name = "uid://cbplqxkaqi83r"
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/ButtonYes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -22.5
+offset_right = 28.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jo6th")
+
+[node name="ButtonNo" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 90)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/ButtonNo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -20.5
+offset_right = 20.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_h041j")
+stretch_mode = 5
