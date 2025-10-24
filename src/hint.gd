@@ -1,6 +1,7 @@
 class_name Hint
 extends Panel
 
+@export var bounce_sfx: AudioStreamPlayer
 enum TweenDir { LEFT, RIGHT, UP, DOWN }
 
 var initial_scale: Vector2
@@ -48,6 +49,7 @@ func disappear() -> void:
 
 
 func bounce() -> void:
+	bounce_sfx.play()
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(self, "scale", Vector2(1.1, 1.1), .25)
 	tween.tween_property(self, "scale", initial_scale, .25)

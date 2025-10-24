@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbmiblmihgxla"]
+[gd_scene load_steps=5 format=3 uid="uid://bbmiblmihgxla"]
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_jypex"]
 [ext_resource type="Script" uid="uid://cj7ttrwrw3boe" path="res://src/hint.gd" id="2_wlpsf"]
+[ext_resource type="AudioStream" uid="uid://bjpkhwpqkugfc" path="res://sfx/new/mouse-click-290204.mp3" id="3_w3r4f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
 texture = ExtResource("1_jypex")
@@ -10,7 +11,7 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
-[node name="Hint" type="Panel"]
+[node name="Hint" type="Panel" node_paths=PackedStringArray("bounce_sfx")]
 modulate = Color(0.0705882, 0.305882, 0.537255, 1)
 offset_right = 48.0
 offset_bottom = 48.0
@@ -18,3 +19,8 @@ pivot_offset = Vector2(24, 24)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o2sfh")
 script = ExtResource("2_wlpsf")
+bounce_sfx = NodePath("Bounce")
+
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w3r4f")
+bus = &"SFX"
