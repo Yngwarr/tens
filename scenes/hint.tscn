@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_jypex"]
 [ext_resource type="Script" uid="uid://cj7ttrwrw3boe" path="res://src/hint.gd" id="2_wlpsf"]
-[ext_resource type="AudioStream" uid="uid://br0nqallxltqy" path="res://sfx/new/789790__quatricise__pop-1.wav" id="3_w3r4f"]
+[ext_resource type="AudioStream" uid="uid://bjpkhwpqkugfc" path="res://sfx/new/mouse-click-290204.mp3" id="3_w3r4f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
 texture = ExtResource("1_jypex")

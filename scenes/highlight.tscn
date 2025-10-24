@@ -34,6 +34,8 @@ shape = SubResource("RectangleShape2D_ks2s0")
 debug_color = Color(0.9058386, 0.00013457358, 0.74701256, 0.41960785)
 
 [node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="ClearPlayer" type="AudioStreamPlayer" parent="."]

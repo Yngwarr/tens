@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="24_pf7vy"]
 [ext_resource type="AudioStream" uid="uid://b03cav24hdc21" path="res://sfx/new/194796__jim-ph__vintage-keyboard-2.wav" id="24_qnb83"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="25_o8ni1"]
-[ext_resource type="AudioStream" uid="uid://bjpkhwpqkugfc" path="res://sfx/new/mouse-click-290204.mp3" id="25_qnb83"]
+[ext_resource type="AudioStream" uid="uid://br0nqallxltqy" path="res://sfx/new/789790__quatricise__pop-1.wav" id="25_qnb83"]
 [ext_resource type="AudioStream" uid="uid://b5f1o5drvlpe4" path="res://sfx/new/Isolated.mp3" id="26_qnb83"]
 [ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
 
