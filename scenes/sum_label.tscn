@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cokef7akh8gj"]
 
-[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="1_34bnt"]
+[ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="1_34bnt"]
 [ext_resource type="Script" uid="uid://dgmortl3jhsdi" path="res://src/sum_label.gd" id="1_ntdrc"]
 [ext_resource type="LabelSettings" uid="uid://b4aoubmkrf8e8" path="res://label settings/sum_label.tres" id="3_d80a2"]
 

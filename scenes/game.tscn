@@ -11,7 +11,7 @@
 [ext_resource type="LabelSettings" uid="uid://dix3odl5wyvig" path="res://label settings/score_label.tres" id="11_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
 [ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="12_i4jil"]
-[ext_resource type="FontFile" uid="uid://f2i43irlym15" path="res://fonts/Virgil.woff2" id="12_m4url"]
+[ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="12_m4url"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
