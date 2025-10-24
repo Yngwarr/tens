@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD/HUD_button_stats.tscn" id="17_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://bdd7s7j7fkcop" path="res://scenes/HUD/HUD_big_tutorial_button.tscn" id="17_vr8o3"]
 [ext_resource type="PackedScene" uid="uid://b8e3sejncfwpl" path="res://scenes/HUD/HUD_button_credits.tscn" id="18_gw5y6"]
+[ext_resource type="Theme" uid="uid://kg42ikejce6b" path="res://theme.tres" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="22_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
@@ -386,31 +387,35 @@ popup = NodePath("../../CreditsWindow")
 oversampling_override = 1.0
 title = "Credits"
 initial_position = 2
-size = Vector2i(365, 398)
+size = Vector2i(360, 335)
 borderless = false
-max_size = Vector2i(400, 400)
+max_size = Vector2i(680, 400)
 content_scale_mode = 1
 
 [node name="CreditsLabel" type="RichTextLabel" parent="CreditsWindow"]
 offset_top = 20.0
-offset_right = 365.0
-offset_bottom = 398.0
+offset_right = 360.0
+offset_bottom = 335.0
+theme = ExtResource("19_1dfpl")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("23_3wgol")
 bbcode_enabled = true
 text = "Brought to you by Dial-Up Dino Games
+
+Inspired by Make Ten by pancelor and Fruit Box by GameSaien.
 
 With use of these 3rd party assets:
 [ul]
 Font CherryBomb by The Cherry Bomb Project Authors (https://github.com/satsuyako/CherryBomb) 
 Font Capriola by Sorkin Type Co (www.sorkintype.com), with Reserved Font Name \"Capriola\". 
 Font Open Sans by The Open Sans Project Authors (https://github.com/googlefonts/opensans)
-Interface Sounds by Kenney.
 Ambience sound by Sound Spark LLC (part of GDC 2019 Game Audio Bundle).
-[/ul]
-
-Inspired by Make Ten by pancelor and Fruit Box by GameSaien."
-fit_content = true
+Isolated by Kevin MacLeod (incompetech.com)
+Mouse click Sound Effect by Matthew Vakalyuk from Pixabay (https://pixabay.com/sound-effects/mouse-click-290204/)
+Vintage Keyboard 2 by jim-ph from Freesound (https://freesound.org/people/jim-ph/sounds/194796/)
+Domino_sfx_putOnBoard by poenia from Freesound (https://freesound.org/people/poenia/sounds/745030/)
+Pop 1 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
+[/ul]"
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]
 auto_translate_mode = 1
