@@ -415,6 +415,7 @@ Mouse click Sound Effect by Matthew Vakalyuk from Pixabay (https://pixabay.com/s
 Vintage Keyboard 2 by jim-ph from Freesound (https://freesound.org/people/jim-ph/sounds/194796/)
 Domino_sfx_putOnBoard by poenia from Freesound (https://freesound.org/people/poenia/sounds/745030/)
 Pop 1 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
+COMPUTER_MOUSE_SCROLL.WAV by dansotak from Freesound (https://freesound.org/people/dansotak/sounds/137402/)
 [/ul]"
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]

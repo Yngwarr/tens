@@ -23,4 +23,5 @@ bounce_sfx = NodePath("Bounce")
 
 [node name="Bounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w3r4f")
+volume_db = -10.0
 bus = &"SFX"
