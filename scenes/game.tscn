@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="22_rm0al"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="23_i4re6"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="24_pf7vy"]
-[ext_resource type="AudioStream" uid="uid://b03cav24hdc21" path="res://sfx/new/194796__jim-ph__vintage-keyboard-2.wav" id="24_qnb83"]
+[ext_resource type="AudioStream" uid="uid://c5oli4tc3qpp7" path="res://sfx/new/137402__dansotak__computer_mouse_scroll_edited.wav" id="24_qnb83"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="25_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://br0nqallxltqy" path="res://sfx/new/789790__quatricise__pop-1.wav" id="25_qnb83"]
 [ext_resource type="AudioStream" uid="uid://b5f1o5drvlpe4" path="res://sfx/new/Isolated.mp3" id="26_qnb83"]
@@ -806,7 +806,6 @@ libraries = {
 [node name="AppearSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_qnb83")
 volume_db = -5.0
-pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="HintSound" type="AudioStreamPlayer" parent="."]

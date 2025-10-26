@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://beuhw1og8dasw"]
+[gd_scene load_steps=8 format=3 uid="uid://beuhw1og8dasw"]
 
 [ext_resource type="Texture2D" uid="uid://cd4ekqotmppqf" path="res://img/highlight.png" id="1_efhjy"]
 [ext_resource type="Script" uid="uid://btaanxwed51pu" path="res://src/highlight.gd" id="2_86qa4"]
 [ext_resource type="AudioStream" uid="uid://c5oli4tc3qpp7" path="res://sfx/new/137402__dansotak__computer_mouse_scroll_edited.wav" id="3_xu2pl"]
+[ext_resource type="AudioStream" uid="uid://b03cav24hdc21" path="res://sfx/new/194796__jim-ph__vintage-keyboard-2.wav" id="4_0f6sw"]
 [ext_resource type="AudioStream" uid="uid://cyprjs3rkxi44" path="res://sfx/new/745030__poenia__domino_sfx_putonboard.wav" id="5_0f6sw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sfh"]
@@ -40,7 +41,7 @@ volume_db = -5.0
 bus = &"SFX"
 
 [node name="ClearPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_0f6sw")
+stream = ExtResource("4_0f6sw")
 volume_db = -5.0
 bus = &"SFX"
 
