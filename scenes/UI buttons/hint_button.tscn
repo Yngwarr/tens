@@ -117,7 +117,6 @@ pivot_offset = Vector2(5.66, 56.995)
 texture = ExtResource("5_7gf6f")
 
 [node name="Counter" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -133,18 +132,18 @@ grow_vertical = 0
 texture = ExtResource("6_x44ky")
 
 [node name="Label" type="Label" parent="Counter"]
-visible = false
 layout_mode = 0
 offset_left = 1.0
-offset_top = 1.0
+offset_top = -1.0
 offset_right = 49.0
-offset_bottom = 45.0
-text = "5"
+offset_bottom = 43.0
+text = "∞"
 label_settings = ExtResource("7_2apm8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Counter"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

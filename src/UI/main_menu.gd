@@ -7,7 +7,7 @@ extends Node2D
 @export var first_to_focus: Control
 @export var credits_window: PopupPanel
 @export var stats_window: PopupPanel
-@export var tutorial_button: BaseButton
+#@export var tutorial_button: BaseButton
 @export var options_window: PopupPanel
 
 @export_group("Prefabs")
@@ -21,7 +21,7 @@ func _ready() -> void:
 
 	credits_window.visibility_changed.connect(on_credits_visibility)
 	stats_window.visibility_changed.connect(on_stats_visibility)
-	tutorial_button.pressed.connect(on_show_tutorial)
+	#tutorial_button.pressed.connect(on_show_tutorial)
 	options_window.visibility_changed.connect(on_options_visibility)
 
 	ScreenFader.hide()
@@ -35,9 +35,9 @@ func on_stats_visibility() -> void:
 	ScreenFader.visible = stats_window.visible
 
 
-func on_show_tutorial() -> void:
-	var tutorial := tutorial_prefab.instantiate()
-	add_child(tutorial)
+#func on_show_tutorial() -> void:
+#	var tutorial := tutorial_prefab.instantiate()
+#	add_child(tutorial)
 
 
 func on_options_visibility() -> void:

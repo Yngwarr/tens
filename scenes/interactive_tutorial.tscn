@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm4rtw3mwedhd"]
+
+[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="1_arlv2"]
+[ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://scenes/interactive_tutorial.gd" id="1_y1csx"]
+[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
+[ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="4_q3s5m"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_y1csx")
+
+[node name="Background" parent="." instance=ExtResource("1_arlv2")]
+
+[node name="ButtonSkip" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 90)
+offset_left = 933.0
+offset_top = 534.0
+offset_right = 1133.0
+offset_bottom = 624.0
+script = ExtResource("3_q3s5m")
+next_scene_name = "uid://b4cdbeg0ebk56"
+
+[node name="Icon" type="TextureRect" parent="ButtonSkip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_q3s5m")
+stretch_mode = 5
+
+[node name="Icon2" type="TextureRect" parent="ButtonSkip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -15.0
+offset_right = 43.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_q3s5m")
+stretch_mode = 5
