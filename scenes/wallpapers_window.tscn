@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4faipnlrmqot"]
+
+[ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]
+
+[node name="WallpaperWindow" type="PopupPanel"]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(680, 400)
+visible = true
+borderless = false
+max_size = Vector2i(680, 400)
+content_scale_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r2k4a")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Previous" type="TextureRect" parent="Panel/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.53333336)
+layout_mode = 2
+texture = ExtResource("5_urf01")
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "1"
+horizontal_alignment = 1
+
+[node name="Next" type="TextureRect" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_urf01")
+stretch_mode = 5
