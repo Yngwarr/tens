@@ -1,25 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=11 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="1_arlv2"]
-[ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://scenes/interactive_tutorial.gd" id="1_y1csx"]
+[ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="4_q3s5m"]
+[ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="5_m62rh"]
+[ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="6_j53so"]
+[ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="7_7dnq6"]
+[ext_resource type="Texture2D" uid="uid://ccodkj57vbuuh" path="res://img/tutorial_hand.svg" id="8_37dtq"]
 
-[node name="Tutorial" type="Node2D"]
+[sub_resource type="Animation" id="Animation_j53so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j53so"]
+_data = {
+&"RESET": SubResource("Animation_j53so")
+}
+
+[node name="Tutorial" type="Node2D" node_paths=PackedStringArray("grid", "highlight", "anim")]
 script = ExtResource("1_y1csx")
+grid = NodePath("Control/BoxContainer/Grid")
+highlight = NodePath("Highlight")
+anim = NodePath("AnimationPlayer")
 
 [node name="Background" parent="." instance=ExtResource("1_arlv2")]
 
-[node name="ButtonSkip" type="Button" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 651.0
+
+[node name="ButtonSkip" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0.6117647)
 custom_minimum_size = Vector2(200, 90)
-offset_left = 933.0
-offset_top = 534.0
-offset_right = 1133.0
-offset_bottom = 624.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 12.0
+offset_right = 68.0
+offset_bottom = 102.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 0
+size_flags_vertical = 4
 script = ExtResource("3_q3s5m")
 next_scene_name = "uid://b4cdbeg0ebk56"
 
-[node name="Icon" type="TextureRect" parent="ButtonSkip"]
+[node name="Icon1" type="TextureRect" parent="Control/ButtonSkip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +77,7 @@ grow_vertical = 2
 texture = ExtResource("4_q3s5m")
 stretch_mode = 5
 
-[node name="Icon2" type="TextureRect" parent="ButtonSkip"]
+[node name="Icon2" type="TextureRect" parent="Control/ButtonSkip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,3 +92,47 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_q3s5m")
 stretch_mode = 5
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="ColorRect" parent="Control/BoxContainer"]
+layout_mode = 2
+color = Color(0.59607846, 0.6039216, 0.6862745, 1)
+
+[node name="Grid" type="Node2D" parent="Control/BoxContainer"]
+position = Vector2(5.95, -14.665)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+inner_node = ExtResource("6_j53so")
+tutorial_board = true
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j53so")
+}
+
+[node name="Highlight" parent="." instance=ExtResource("7_7dnq6")]
+visible = false
+offset_left = 307.0
+offset_top = 238.0
+offset_right = 307.0
+offset_bottom = 238.0
+silent = true
+
+[node name="Hand" type="TextureRect" parent="."]
+visible = false
+offset_left = 173.0
+offset_top = 241.0
+offset_right = 272.00156
+offset_bottom = 357.0001
+pivot_offset = Vector2(88, 106)
+texture = ExtResource("8_37dtq")
