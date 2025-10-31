@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4faipnlrmqot"]
+[gd_scene load_steps=9 format=3 uid="uid://b4faipnlrmqot"]
 
+[ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="1_214t8"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_214t8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ems35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7mul"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urf01"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tfxw"]
+
 [node name="WallpaperWindow" type="PopupPanel"]
 oversampling_override = 1.0
+title = "Wallpapers"
 initial_position = 2
-size = Vector2i(680, 400)
+size = Vector2i(800, 450)
 visible = true
 borderless = false
-max_size = Vector2i(680, 400)
+max_size = Vector2i(800, 500)
 content_scale_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
@@ -22,41 +34,93 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r2k4a")
 
+[node name="StarCount" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[img]img/wallpapers-window/star_black.svg[/img] 4
+"
+horizontal_alignment = 1
+
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -62.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = -160.0
+offset_right = 379.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="WallpaperElement" parent="Panel/GridContainer" instance=ExtResource("1_214t8")]
+layout_mode = 2
+
+[node name="PagesContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -67.0
+offset_top = -68.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Previous" type="TextureRect" parent="Panel/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.53333336)
+[node name="Previous" type="TextureRect" parent="Panel/PagesContainer"]
 layout_mode = 2
 texture = ExtResource("5_urf01")
 stretch_mode = 5
 flip_h = true
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+[node name="PrevButton" type="Button" parent="Panel/PagesContainer/Previous"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.291
+anchor_right = 1.0
+anchor_bottom = 0.70900005
+offset_top = -0.026000977
+offset_right = 3.0
+offset_bottom = 0.025997162
+theme_override_styles/normal = SubResource("StyleBoxEmpty_214t8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ems35")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c7mul")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_urf01")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3tfxw")
+
+[node name="PageLabel" type="Label" parent="Panel/PagesContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "1"
 horizontal_alignment = 1
 
-[node name="Next" type="TextureRect" parent="Panel/HBoxContainer"]
+[node name="Next" type="TextureRect" parent="Panel/PagesContainer"]
 layout_mode = 2
 texture = ExtResource("5_urf01")
 stretch_mode = 5
+
+[node name="NextButton" type="Button" parent="Panel/PagesContainer/Next"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.256
+anchor_right = 1.0
+anchor_bottom = 0.73300004
+offset_left = -2.0
+offset_top = -0.016000748
+offset_bottom = -0.038002014
+theme_override_styles/normal = SubResource("StyleBoxEmpty_214t8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ems35")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c7mul")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_urf01")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3tfxw")

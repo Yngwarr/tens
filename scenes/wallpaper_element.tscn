@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyw0aeundfs1h"]
+
+[ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
+[ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg.png" id="1_xy84k"]
+[ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
+[ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_acg2m"]
+
+[node name="WallpaperElement" type="BoxContainer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="FrameNormal" type="NinePatchRect" parent="Control"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 238.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+texture = ExtResource("1_2vecg")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 10
+
+[node name="Texture" type="TextureRect" parent="Control/FrameNormal"]
+custom_minimum_size = Vector2(236, 132)
+layout_mode = 0
+offset_left = -2.0
+offset_right = 234.0
+offset_bottom = 132.0
+texture = ExtResource("1_xy84k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FrameSelected" type="NinePatchRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 242.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xy84k")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 10
+
+[node name="Check" type="TextureRect" parent="Control/FrameSelected"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -55.0
+offset_right = 14.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+localize_numeral_system = false
+texture = ExtResource("3_acg2m")
+
+[node name="LockedContainer" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_right = 239.0
+offset_bottom = 133.0
+
+[node name="Locked" type="TextureRect" parent="Control/LockedContainer"]
+modulate = Color(0, 0, 0, 0.5568628)
+layout_mode = 0
+offset_left = 3.0
+offset_right = 240.0
+offset_bottom = 132.0
+texture = ExtResource("1_2vecg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/LockedContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0040001
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 0.04399109
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[img]img/wallpapers-window/star_white.svg[/img] 5"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kqhjsj0dh57m"
-path="res://.godot/imported/frame_selected.svg-c06c0c07dbb034cf6c7de25b8dd0c13c.ctex"
+uid="uid://b40hxrjgv3y0u"
+path="res://.godot/imported/art_mask.svg-e33c179e0ad26bb03f894e846486419c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/cosmetics-window/frame_selected.svg"
-dest_files=["res://.godot/imported/frame_selected.svg-c06c0c07dbb034cf6c7de25b8dd0c13c.ctex"]
+source_file="res://img/wallpapers-window/art_mask.svg"
+dest_files=["res://.godot/imported/art_mask.svg-e33c179e0ad26bb03f894e846486419c.ctex"]
 
 [params]
 

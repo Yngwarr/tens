@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40hxrjgv3y0u"
-path="res://.godot/imported/art_mask.svg-3fe71a4a4d9ce50a6777d823be914234.ctex"
+uid="uid://0a5xn4pytpoo"
+path="res://.godot/imported/star_white.svg-919e554a93578d0d6fd6df67893bf3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/cosmetics-window/art_mask.svg"
-dest_files=["res://.godot/imported/art_mask.svg-3fe71a4a4d9ce50a6777d823be914234.ctex"]
+source_file="res://img/wallpapers-window/star_white.svg"
+dest_files=["res://.godot/imported/star_white.svg-919e554a93578d0d6fd6df67893bf3dd.ctex"]
 
 [params]
 
