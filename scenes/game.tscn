@@ -819,10 +819,12 @@ bus = &"SFX"
 
 [node name="HintSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_suyxu")
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="SumSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_qnb83")
+volume_db = -6.0
 bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

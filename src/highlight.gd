@@ -13,6 +13,11 @@ signal sum_changed(sum: int)
 @export var fail_sfx: AudioStreamPlayer
 
 var sum: int = 0
+var resize_base_pitch: float
+
+
+func _ready() -> void:
+	resize_base_pitch = resize_sfx.pitch_scale
 
 
 func _physics_process(_delta: float) -> void:
@@ -38,12 +43,14 @@ func resize(rect: Rect2) -> void:
 	collider.shape.size = rect.size - Vector2(8, 8)
 	collider.position = rect.size / 2.
 
+	resize_sfx.pitch_scale = Tools.random_pitch(resize_base_pitch, .1)
 	play_sfx(resize_sfx)
 
 
 func toggle(on: bool) -> void:
 	visible = on
 	if on:
+		resize_sfx.pitch_scale = Tools.random_pitch(resize_base_pitch, .1)
 		play_sfx(resize_sfx)
 	else:
 		collider.shape.size = Vector2.ZERO

@@ -21,8 +21,13 @@ var second_point := Vector2.ZERO
 var appear_step: int = 0
 var is_held := false
 
+var appear_base_pitch: float
+
 
 func _ready() -> void:
+	if appear_sound:
+		appear_base_pitch = appear_sound.pitch_scale
+
 	if tutorial_board:
 		width = Tutorial.BOARD_SIZE.x
 		height = Tutorial.BOARD_SIZE.y
@@ -152,8 +157,7 @@ func appear_corner() -> void:
 		get_child(x + y * width).appear()
 
 	appear_step += 1
-	if appear_sound:
-		appear_sound.play()
+	play_appear_sound()
 
 
 func appear_down() -> void:
@@ -168,8 +172,7 @@ func appear_down() -> void:
 		get_child(i).appear()
 
 	appear_step += 1
-	if appear_sound:
-		appear_sound.play()
+	play_appear_sound()
 
 
 func appear_left() -> void:
@@ -181,8 +184,7 @@ func appear_left() -> void:
 		get_child(i).appear()
 
 	appear_step += 1
-	if appear_sound:
-		appear_sound.play()
+	play_appear_sound()
 
 
 func finish_appearing() -> void:
@@ -198,3 +200,10 @@ func duck() -> void:
 func fall_apart() -> void:
 	for c in get_children():
 		c.remove()
+
+func play_appear_sound() -> void:
+	if not appear_sound:
+		return
+
+	appear_sound.pitch_scale = Tools.random_pitch(appear_base_pitch, .1)
+	appear_sound.play()

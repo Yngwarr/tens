@@ -14,3 +14,13 @@ static func try_connect(p_signal: Signal, p_func: Callable) -> void:
 static func try_disconnect(p_signal: Signal, p_func: Callable) -> void:
 	if p_signal.is_connected(p_func):
 		p_signal.disconnect(p_func)
+
+
+static func eerp(a: float, b: float, t: float) -> float:
+	return a * exp(t * log(b / a))
+
+
+static func random_pitch(base: float, offset := .1) -> float:
+	assert(offset <= base)
+
+	return eerp(base - offset, base + offset, randf())

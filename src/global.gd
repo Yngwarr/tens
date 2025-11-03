@@ -12,5 +12,3 @@ func _ready() -> void:
 
 	for n in wallpaper_names:
 		wallpaper_textures.push_back(load(WALLPAPER_FOLDER + n))
-
-	print(wallpaper_textures)
