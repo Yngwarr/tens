@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4faipnlrmqot"]
 
 [ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="1_214t8"]
-[ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/spawn_wallpaper_element.gd" id="1_ems35"]
+[ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/spawn_wallpaper_grid.gd" id="1_ems35"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]

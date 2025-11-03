@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyw0aeundfs1h"]
+[gd_scene load_steps=6 format=3 uid="uid://cyw0aeundfs1h"]
 
 [ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
+[ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg.png" id="1_xy84k"]
 [ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
 [ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_acg2m"]
 
-[node name="WallpaperElement" type="BoxContainer"]
+[node name="WallpaperElement" type="BoxContainer" node_paths=PackedStringArray("art")]
+script = ExtResource("1_acg2m")
+art = NodePath("Control/FrameNormal/Texture")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
