@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=31 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="22_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
-[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="25_1acrt"]
 [ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpapers_window.tscn" id="25_3wgol"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="26_1acrt"]
 
@@ -245,13 +244,14 @@ _data = {
 &"hide": SubResource("Animation_v4ew3")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "credits_window", "stats_window", "options_window", "wallpaper_window")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("first_to_focus", "credits_window", "stats_window", "options_window", "wallpaper_window", "tutorial_button")]
 script = ExtResource("1_5dd4i")
 first_to_focus = NodePath("Menu/Start")
 credits_window = NodePath("CreditsWindow")
 stats_window = NodePath("StatsWindow")
 options_window = NodePath("OptionsWindow")
 wallpaper_window = NodePath("WallpaperWindow")
+tutorial_button = NodePath("Menu/Tutorial")
 tutorial_prefab = ExtResource("26_1acrt")
 
 [node name="Background" parent="." instance=ExtResource("2_lgwnu")]
@@ -347,8 +347,6 @@ offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_disabled = null
-script = ExtResource("25_1acrt")
-next_scene_name = "uid://cm4rtw3mwedhd"
 
 [node name="Quit" parent="Menu" instance=ExtResource("15_gw5y6")]
 anchors_preset = 1
