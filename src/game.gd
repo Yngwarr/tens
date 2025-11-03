@@ -26,6 +26,7 @@ static var TARGET_SUM := 10
 @export var options_window: PopupPanel
 @export var confirm_window: PopupPanel
 @export var idle_timer: Timer
+@export var wallpaper_window: PopupPanel
 
 @export_group("Prefabs")
 @export var tutorial_prefab: PackedScene
@@ -53,6 +54,7 @@ func _ready() -> void:
 	options_window.visibility_changed.connect(on_options_visibility)
 	confirm_window.visibility_changed.connect(on_confirm_visibility)
 	idle_timer.timeout.connect(on_idle_timeout)
+	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 
 	anim.play(&"start")
 
@@ -141,3 +143,6 @@ func on_confirm_visibility() -> void:
 
 func on_idle_timeout() -> void:
 	hint_button.demand_attention()
+
+func on_wallpaper_visibility() -> void:
+	ScreenFader.visible = wallpaper_window.visible

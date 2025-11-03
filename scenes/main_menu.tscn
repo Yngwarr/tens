@@ -116,7 +116,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Menu/Gallery:position")
+tracks/6/path = NodePath("Menu/Wallpaper:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -216,7 +216,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Menu/Gallery:position")
+tracks/6/path = NodePath("Menu/Wallpaper:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -318,7 +318,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_8egab")
 
-[node name="Gallery" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("11_svtp6")]
+[node name="Wallpaper" parent="Menu" node_paths=PackedStringArray("popup") instance=ExtResource("11_svtp6")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
