@@ -4,6 +4,7 @@ extends Control
 @export_group("Internal")
 @export var view: Label
 @export var anim: AnimationPlayer
+@export var sound: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -26,5 +27,6 @@ func update_text(value: int) -> void:
 
 	if is_target:
 		anim.play(&"bounce")
+		sound.play()
 	else:
 		anim.play(&"RESET")
