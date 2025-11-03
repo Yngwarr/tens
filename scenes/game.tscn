@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
-[ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpapers_window.tscn" id="19_sww3w"]
+[ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpaper_window.tscn" id="19_sww3w"]
 [ext_resource type="PackedScene" uid="uid://bbmiblmihgxla" path="res://scenes/hint.tscn" id="21_8qswn"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="22_rm0al"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="23_i4re6"]

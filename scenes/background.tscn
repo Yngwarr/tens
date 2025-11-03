@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0dr1lbayxhmb"]
 
-[ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg.png" id="1_l0v4c"]
+[ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg1.png" id="1_l0v4c"]
 
 [node name="Background" type="CanvasLayer"]
 layer = -1

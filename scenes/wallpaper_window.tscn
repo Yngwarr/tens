@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4faipnlrmqot"]
 
-[ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="1_214t8"]
-[ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/spawn_wallpaper_grid.gd" id="1_ems35"]
+[ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/wallpaper_window.gd" id="1_4sei8"]
+[ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="2_f7wgg"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]
@@ -16,7 +16,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tfxw"]
 
-[node name="WallpaperWindow" type="PopupPanel"]
+[node name="WallpaperWindow" type="PopupPanel" node_paths=PackedStringArray("button_container")]
 oversampling_override = 1.0
 title = "Wallpapers"
 initial_position = 2
@@ -25,6 +25,9 @@ visible = true
 borderless = false
 max_size = Vector2i(800, 500)
 content_scale_mode = 1
+script = ExtResource("1_4sei8")
+button_container = NodePath("Panel/GridContainer")
+grid_element = ExtResource("2_f7wgg")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -62,8 +65,6 @@ grow_vertical = 2
 theme_override_constants/h_separation = 260
 theme_override_constants/v_separation = 150
 columns = 3
-script = ExtResource("1_ems35")
-grid_element = ExtResource("1_214t8")
 
 [node name="PagesContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
