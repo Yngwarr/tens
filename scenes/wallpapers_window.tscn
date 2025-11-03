@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4faipnlrmqot"]
+[gd_scene load_steps=10 format=3 uid="uid://b4faipnlrmqot"]
 
 [ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="1_214t8"]
+[ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/spawn_wallpaper_element.gd" id="1_ems35"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]
@@ -54,16 +55,15 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -379.0
 offset_top = -160.0
-offset_right = 379.0
+offset_right = 383.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 25
-theme_override_constants/v_separation = 25
+theme_override_constants/h_separation = 260
+theme_override_constants/v_separation = 150
 columns = 3
-
-[node name="WallpaperElement" parent="Panel/GridContainer" instance=ExtResource("1_214t8")]
-layout_mode = 2
+script = ExtResource("1_ems35")
+grid_element = ExtResource("1_214t8")
 
 [node name="PagesContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
