@@ -62,8 +62,8 @@ offset_right = 383.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 260
-theme_override_constants/v_separation = 150
+theme_override_constants/h_separation = 183
+theme_override_constants/v_separation = 107
 columns = 3
 
 [node name="PagesContainer" type="HBoxContainer" parent="Panel"]

@@ -27,7 +27,8 @@ func spawn_element(index: int) -> void:
 	assert(grid_element != null)
 
 	var wallpaper := grid_element.instantiate()
-	wallpaper.init(Global.wallpaper_textures[index])
+	if not Engine.is_editor_hint():
+		wallpaper.init(Global.wallpaper_textures[index])
 	button_container.add_child(wallpaper)
 
 

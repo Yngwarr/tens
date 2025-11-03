@@ -2,28 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
 [ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
-[ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg1.png" id="1_xy84k"]
+[ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg00.png" id="1_xy84k"]
 [ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
 [ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_acg2m"]
 
-[node name="WallpaperElement" type="BoxContainer" node_paths=PackedStringArray("art")]
+[node name="WallpaperElement" type="Button" node_paths=PackedStringArray("art")]
+offset_right = 232.0
+offset_bottom = 131.0
+flat = true
 script = ExtResource("1_acg2m")
-art = NodePath("Control/FrameNormal/Texture")
+art = NodePath("FrameNormal/Texture")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 2
-
-[node name="FrameNormal" type="NinePatchRect" parent="Control"]
+[node name="FrameNormal" type="NinePatchRect" parent="."]
 clip_children = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = 238.0
-offset_bottom = 132.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 130.0
 localize_numeral_system = false
 texture = ExtResource("1_2vecg")
 patch_margin_left = 20
@@ -31,7 +25,7 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 10
 
-[node name="Texture" type="TextureRect" parent="Control/FrameNormal"]
+[node name="Texture" type="TextureRect" parent="FrameNormal"]
 custom_minimum_size = Vector2(236, 132)
 layout_mode = 0
 offset_left = -2.0
@@ -41,10 +35,9 @@ texture = ExtResource("1_xy84k")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="FrameSelected" type="NinePatchRect" parent="Control"]
+[node name="FrameSelected" type="NinePatchRect" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
@@ -58,7 +51,7 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 10
 
-[node name="Check" type="TextureRect" parent="Control/FrameSelected"]
+[node name="Check" type="TextureRect" parent="FrameSelected"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -74,13 +67,13 @@ grow_vertical = 0
 localize_numeral_system = false
 texture = ExtResource("3_acg2m")
 
-[node name="LockedContainer" type="Control" parent="Control"]
+[node name="LockedContainer" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 239.0
 offset_bottom = 133.0
 
-[node name="Locked" type="TextureRect" parent="Control/LockedContainer"]
+[node name="Locked" type="TextureRect" parent="LockedContainer"]
 modulate = Color(0, 0, 0, 0.5568628)
 layout_mode = 0
 offset_left = 3.0
@@ -88,7 +81,7 @@ offset_right = 240.0
 offset_bottom = 132.0
 texture = ExtResource("1_2vecg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/LockedContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="LockedContainer"]
 visible = false
 layout_mode = 1
 anchors_preset = -1

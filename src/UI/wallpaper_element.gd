@@ -1,5 +1,5 @@
 class_name WallpaperElement
-extends BoxContainer
+extends Button
 
 @export_group("Internal")
 @export var art: TextureRect
