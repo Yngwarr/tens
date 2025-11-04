@@ -1,6 +1,8 @@
 class_name WallpaperElement
 extends Control
 
+signal wallpaper_changed(texture: Texture2D)
+
 @export_group("Internal")
 @export var art: TextureRect
 @export var selected: NinePatchRect
@@ -11,6 +13,9 @@ extends Control
 var star_count = 6
 var stars_needed = 5
 
+
+func _ready() -> void:
+	pressed.connect(func(): wallpaper_changed.emit(art.texture))
 
 func init(texture: Texture2D) -> void:
 	art.texture = texture

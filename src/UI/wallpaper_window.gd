@@ -2,6 +2,8 @@
 class_name WallpaperWindow
 extends PopupPanel
 
+signal wallpaper_changed(texture: Texture2D)
+
 const PAGE_SIZE: int = 6
 
 @export_group("Internal")
@@ -26,9 +28,10 @@ func spawn_element(index: int) -> void:
 	assert(button_container != null)
 	assert(grid_element != null)
 
-	var wallpaper := grid_element.instantiate()
+	var wallpaper: WallpaperElement = grid_element.instantiate()
 	if not Engine.is_editor_hint():
 		wallpaper.init(Global.wallpaper_textures[index])
+		wallpaper.wallpaper_changed.connect(func(t): wallpaper_changed.emit(t))
 	button_container.add_child(wallpaper)
 
 
