@@ -15,9 +15,11 @@ initial_velocity_max = 321.53
 gravity = Vector3(0, 98, 0)
 
 [node name="Confetti" type="GPUParticles2D"]
+emitting = false
 amount = 50
 texture = ExtResource("1_xjk0n")
-lifetime = 8.0
+lifetime = 6.0
+one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qouja")
