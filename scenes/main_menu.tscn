@@ -423,6 +423,7 @@ Domino_sfx_putOnBoard by poenia from Freesound (https://freesound.org/people/poe
 COMPUTER_MOUSE_SCROLL.WAV by dansotak from Freesound (https://freesound.org/people/dansotak/sounds/137402/)
 Pop 1 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
 Pop 4 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
+Firecracker Explosion by unfa from Freesound (https://freesound.org/people/unfa/sounds/609588/)
 [/ul]"
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=38 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://5knj0y11uatt" path="res://scenes/confetti.tscn" id="13_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
-[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="14_qouja"]
+[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="14_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
@@ -30,11 +30,18 @@
 [ext_resource type="AudioStream" uid="uid://b5f1o5drvlpe4" path="res://sfx/new/Isolated.mp3" id="26_qnb83"]
 [ext_resource type="AudioStream" uid="uid://cb4lhj1opeg6g" path="res://sfx/new/789793__quatricise__pop-4.wav" id="26_suyxu"]
 [ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
+[ext_resource type="AudioStream" uid="uid://cu1j51je5c6tl" path="res://sfx/new/609588__unfa__firecracker-explosion_edited.wav" id="31_qouja"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qouja"]
+font = ExtResource("14_sgl2t")
+font_size = 100
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_754j2"]
-font = ExtResource("14_qouja")
-font_size = 40
-outline_size = 10
+font = ExtResource("14_sgl2t")
+font_size = 50
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_xhhx8"]
@@ -501,7 +508,7 @@ tracks/17/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"times": PackedFloat32Array(0, 2.6333334, 3.5333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -513,7 +520,7 @@ tracks/18/path = NodePath("GameOverLayer/ConfettiRed:emitting")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"times": PackedFloat32Array(0, 2.6333334, 3.5333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -525,7 +532,7 @@ tracks/19/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"times": PackedFloat32Array(0, 2.6333334, 3.5333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -537,10 +544,24 @@ tracks/20/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"times": PackedFloat32Array(0, 2.6333334, 3.5333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("GameOverConfetti")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(2.6333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_kp7j3"]
@@ -717,7 +738,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 497.99988
+offset_right = 498.0011
 offset_bottom = 373.0
 
 [node name="HomeButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("5_0bq3a")]
@@ -796,41 +817,38 @@ visible = false
 
 [node name="ConfettiYellow" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(607, 201)
+position = Vector2(579, 233)
 emitting = false
 
 [node name="ConfettiRed" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(607, 201)
+position = Vector2(579, 233)
 emitting = false
 
 [node name="ConfettiBlue" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(0, 0.39999986, 1, 1)
-position = Vector2(607, 201)
+position = Vector2(579, 233)
 emitting = false
 
 [node name="ConfettiGreen" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(0.23333335, 1, 0, 1)
-position = Vector2(607, 201)
+position = Vector2(579, 233)
 emitting = false
 
-[node name="HiLabel" type="RichTextLabel" parent="GameOverLayer"]
+[node name="HiLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
 offset_right = 1.0
-offset_bottom = -61.00006
+offset_bottom = -61.999878
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "[wave amp=100.0 freq=2.0]Congratulations![/wave]
-"
+text = "Congratulations!"
+label_settings = SubResource("LabelSettings_qouja")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -838,8 +856,8 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -15.0
-offset_bottom = -15.0
+offset_top = 235.0
+offset_bottom = -270.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
@@ -855,7 +873,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 19.999878
+offset_bottom = 19.999512
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -956,6 +974,11 @@ parameters/looping = true
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_7ixpq")
 volume_db = 1.0
+bus = &"SFX"
+
+[node name="GameOverConfetti" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_qouja")
+volume_db = -5.0
 bus = &"SFX"
 
 [editable path="Background"]

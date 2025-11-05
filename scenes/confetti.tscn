@@ -6,17 +6,18 @@
 particle_flag_rotate_y = true
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(500, 2, 1)
+emission_box_extents = Vector3(400, 2, 1)
 angle_min = -46.69999
 angle_max = 165.70001
 direction = Vector3(0, -1, 0)
-initial_velocity_min = 44.239998
-initial_velocity_max = 203.54
+initial_velocity_min = 117.99
+initial_velocity_max = 321.53
 gravity = Vector3(0, 98, 0)
 
 [node name="Confetti" type="GPUParticles2D"]
-amount = 20
+amount = 50
 texture = ExtResource("1_xjk0n")
-lifetime = 4.0
+lifetime = 8.0
 speed_scale = 2.0
+explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qouja")

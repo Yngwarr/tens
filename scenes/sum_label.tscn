@@ -49,7 +49,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ntdrc"]
 resource_name = "bounce"
-length = 0.1667
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -69,10 +69,10 @@ tracks/1/path = NodePath("Particles:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d80a2"]
@@ -96,13 +96,15 @@ anim = NodePath("AnimationPlayer")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 modulate = Color(0.31666672, 1, 0, 1)
-position = Vector2(120, 68)
+position = Vector2(131, 68)
 emitting = false
-amount = 5
+amount = 10
 texture = ExtResource("2_5sqa4")
-lifetime = 0.5
-one_shot = true
+lifetime = 0.4
+speed_scale = 1.5
 explosiveness = 1.0
+use_fixed_seed = true
+seed = 123
 process_material = SubResource("ParticleProcessMaterial_reic5")
 
 [node name="View" type="Label" parent="."]
@@ -121,7 +123,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_34bnt")
 theme_override_font_sizes/font_size = 32
-text = "0"
+text = "10!"
 label_settings = ExtResource("3_d80a2")
 horizontal_alignment = 1
 vertical_alignment = 1
