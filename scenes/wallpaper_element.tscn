@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyw0aeundfs1h"]
+[gd_scene load_steps=14 format=3 uid="uid://cyw0aeundfs1h"]
 
 [ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
 [ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
@@ -6,12 +6,64 @@
 [ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
 [ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_acg2m"]
 
-[node name="WallpaperElement" type="Button" node_paths=PackedStringArray("art")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acg2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8eun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eb7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8534s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4xrk"]
+
+[sub_resource type="Animation" id="Animation_acg2m"]
+resource_name = "bounce"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameLocked/RichTextLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r8eun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameLocked/RichTextLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1eb7c"]
+_data = {
+&"RESET": SubResource("Animation_r8eun"),
+&"bounce": SubResource("Animation_acg2m")
+}
+
+[node name="WallpaperElement" type="Control" node_paths=PackedStringArray("art", "selected", "locked", "button", "anim")]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 232.0
 offset_bottom = 131.0
-flat = true
 script = ExtResource("1_acg2m")
 art = NodePath("FrameNormal/Texture")
+selected = NodePath("FrameSelected")
+locked = NodePath("FrameLocked")
+button = NodePath("Button")
+anim = NodePath("AnimationPlayer")
 
 [node name="FrameNormal" type="NinePatchRect" parent="."]
 clip_children = 2
@@ -63,7 +115,6 @@ localize_numeral_system = false
 texture = ExtResource("3_acg2m")
 
 [node name="FrameLocked" type="NinePatchRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 0.5019608)
 layout_mode = 1
 offset_right = 232.0
@@ -81,13 +132,29 @@ anchors_preset = -1
 anchor_right = 1.0040001
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = -1.0
+offset_top = 40.0
 offset_right = -0.92800903
-offset_bottom = -1.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(117, 28)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "[img]img/wallpapers-window/star_white.svg[/img] 5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 233.0
+offset_bottom = 130.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_acg2m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r8eun")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1eb7c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8534s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s4xrk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1eb7c")
+}

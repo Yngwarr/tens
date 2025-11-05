@@ -57,13 +57,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -379.0
-offset_top = -160.0
+offset_top = -159.0
 offset_right = 383.0
-offset_bottom = 154.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 183
-theme_override_constants/v_separation = 107
+theme_override_constants/h_separation = 264
+theme_override_constants/v_separation = 182
 columns = 3
 
 [node name="PagesContainer" type="HBoxContainer" parent="Panel"]
