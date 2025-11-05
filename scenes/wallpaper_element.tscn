@@ -15,7 +15,7 @@ art = NodePath("FrameNormal/Texture")
 
 [node name="FrameNormal" type="NinePatchRect" parent="."]
 clip_children = 2
-layout_mode = 0
+layout_mode = 1
 offset_right = 232.0
 offset_bottom = 130.0
 localize_numeral_system = false
@@ -37,14 +37,9 @@ stretch_mode = 5
 
 [node name="FrameSelected" type="NinePatchRect" parent="."]
 visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 242.0
-offset_bottom = 134.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 1
+offset_right = 232.0
+offset_bottom = 132.0
 texture = ExtResource("2_xy84k")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -67,28 +62,28 @@ grow_vertical = 0
 localize_numeral_system = false
 texture = ExtResource("3_acg2m")
 
-[node name="LockedContainer" type="Control" parent="."]
+[node name="FrameLocked" type="NinePatchRect" parent="."]
 visible = false
-anchors_preset = 0
-offset_right = 239.0
-offset_bottom = 133.0
-
-[node name="Locked" type="TextureRect" parent="LockedContainer"]
-modulate = Color(0, 0, 0, 0.5568628)
-layout_mode = 0
-offset_left = 3.0
-offset_right = 240.0
-offset_bottom = 132.0
+self_modulate = Color(0, 0, 0, 0.5019608)
+layout_mode = 1
+offset_right = 232.0
+offset_bottom = 130.0
+localize_numeral_system = false
 texture = ExtResource("1_2vecg")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="LockedContainer"]
-visible = false
+[node name="RichTextLabel" type="RichTextLabel" parent="FrameLocked"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0040001
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 0.04399109
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -0.92800903
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
