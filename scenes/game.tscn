@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=37 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="12_m4url"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
+[ext_resource type="PackedScene" uid="uid://5knj0y11uatt" path="res://scenes/confetti.tscn" id="13_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
@@ -236,10 +237,58 @@ tracks/15/keys = {
 "update": 0,
 "values": [Vector2(0, 650)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("GameOverLayer/ConfettiRed:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6obku"]
 resource_name = "game_over"
-length = 2.3
+length = 3.6
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -451,6 +500,54 @@ tracks/16/keys = {
 "method": &"play"
 }]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("GameOverLayer/ConfettiRed:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 2.2666667, 3.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_kp7j3"]
 resource_name = "start"
@@ -626,7 +723,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 498.0011
+offset_right = 497.99927
 offset_bottom = 373.0
 
 [node name="HomeButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("5_0bq3a")]
@@ -703,13 +800,34 @@ metadata/_edit_lock_ = true
 layer = 3
 visible = false
 
+[node name="ConfettiYellow" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(607, -37)
+emitting = false
+
+[node name="ConfettiRed" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(607, -37)
+emitting = false
+
+[node name="ConfettiBlue" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+modulate = Color(0, 0.39999986, 1, 1)
+position = Vector2(607, -37)
+emitting = false
+
+[node name="ConfettiGreen" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+modulate = Color(0.23333335, 1, 0, 1)
+position = Vector2(607, -37)
+emitting = false
+
 [node name="HiLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
-offset_bottom = 110.49954
+offset_right = 1.0
+offset_bottom = 110.49988
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_m4url")
