@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0dr1lbayxhmb"]
+[gd_scene load_steps=3 format=3 uid="uid://d0dr1lbayxhmb"]
 
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg00.png" id="1_l0v4c"]
+[ext_resource type="Script" uid="uid://don8fkkfhxwtb" path="res://src/background.gd" id="1_y0upk"]
 
-[node name="Background" type="CanvasLayer"]
+[node name="Background" type="CanvasLayer" node_paths=PackedStringArray("bg_rect")]
 layer = -2
+script = ExtResource("1_y0upk")
+bg_rect = NodePath("bg")
 
 [node name="bg" type="TextureRect" parent="."]
 anchors_preset = 15
