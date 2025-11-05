@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=36 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_sgl2t"]
@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="8_754j2"]
 [ext_resource type="LabelSettings" uid="uid://dix3odl5wyvig" path="res://label settings/score_label.tres" id="11_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="11_7025r"]
-[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="12_i4jil"]
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="12_m4url"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="13_8ool0"]
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://5knj0y11uatt" path="res://scenes/confetti.tscn" id="13_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
+[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="14_qouja"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
@@ -31,14 +31,8 @@
 [ext_resource type="AudioStream" uid="uid://cb4lhj1opeg6g" path="res://sfx/new/789793__quatricise__pop-4.wav" id="26_suyxu"]
 [ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1gdd5"]
-font = ExtResource("12_i4jil")
-font_size = 98
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_754j2"]
-font = ExtResource("12_i4jil")
+font = ExtResource("14_qouja")
 font_size = 60
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
@@ -820,21 +814,26 @@ modulate = Color(0.23333335, 1, 0, 1)
 position = Vector2(607, -37)
 emitting = false
 
-[node name="HiLabel" type="Label" parent="GameOverLayer"]
+[node name="HiLabel" type="RichTextLabel" parent="GameOverLayer"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
 offset_right = 1.0
-offset_bottom = 110.49988
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_m4url")
-theme_override_font_sizes/font_size = 64
-text = "Congratulations!"
-label_settings = SubResource("LabelSettings_1gdd5")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("14_qouja")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[wave amp=100.0 freq=2.0]Congratulations![/wave]
+"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Score" type="Label" parent="GameOverLayer"]
 anchors_preset = 15
