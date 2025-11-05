@@ -1,7 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
-[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="2_lgwnu"]
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="3_flqon"]
 [ext_resource type="Script" uid="uid://c26y8m07e306n" path="res://src/UI/start_game_button.gd" id="4_rcqid"]
 [ext_resource type="Script" uid="uid://clx3qj3yts62k" path="res://src/UI/show_popup_button.gd" id="5_1ajci"]
@@ -254,11 +253,6 @@ wallpaper_window = NodePath("WallpaperWindow")
 tutorial_button = NodePath("Menu/Tutorial")
 tutorial_prefab = ExtResource("26_1acrt")
 
-[node name="Background" parent="." instance=ExtResource("2_lgwnu")]
-
-[node name="ColorRect" parent="Background" index="1"]
-visible = false
-
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="Container" type="VBoxContainer" parent="Menu"]
@@ -462,5 +456,3 @@ stream = ExtResource("10_hstxw")
 volume_db = -3.0
 autoplay = true
 bus = &"SFX"
-
-[editable path="Background"]

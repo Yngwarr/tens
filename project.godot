@@ -22,6 +22,7 @@ config/windows_native_icon="res://img/icon/icon.ico"
 Global="*res://src/global.gd"
 PokiSDK="*res://addons/poki-sdk/pokisdk.gd"
 ScreenFader="*res://scenes/screen_fader.tscn"
+Background="*res://scenes/background.tscn"
 
 [display]
 
@@ -64,4 +65,4 @@ cheat_finish={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.376471, 0.607843, 0.752941, 1)
+environment/defaults/default_clear_color=Color(0.145, 0.23441665, 0.29, 1)

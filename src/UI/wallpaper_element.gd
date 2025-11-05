@@ -15,23 +15,21 @@ var stars_needed = 5
 
 
 func _ready() -> void:
-	pressed.connect(func(): wallpaper_changed.emit(art.texture))
-
-func init(texture: Texture2D) -> void:
-	art.texture = texture
-
-func _ready() -> void:
 	button.pressed.connect(on_wallpaper_pressed)
 	if star_count <= stars_needed:
 		locked.visible = true
 	else:
 		locked.visible = false
 
+
+func init(texture: Texture2D) -> void:
+	art.texture = texture
+
+
 func on_wallpaper_pressed() -> void:
+	wallpaper_changed.emit(art.texture)
+
 	if star_count >= stars_needed:
-		if selected.visible == true:
-			selected.visible = false
-		else:
-			selected.visible = true
+		selected.visible = not selected.visible
 	else:
 		anim.play("bounce")
