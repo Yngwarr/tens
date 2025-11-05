@@ -9,11 +9,14 @@ emission_shape = 3
 emission_box_extents = Vector3(500, 2, 1)
 angle_min = -46.69999
 angle_max = 165.70001
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 44.239998
+initial_velocity_max = 203.54
 gravity = Vector3(0, 98, 0)
 
 [node name="Confetti" type="GPUParticles2D"]
 amount = 20
 texture = ExtResource("1_xjk0n")
 lifetime = 4.0
-speed_scale = 1.75
+speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_qouja")
