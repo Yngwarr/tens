@@ -25,6 +25,7 @@ func on_wallpaper_changed(texture: Texture2D) -> void:
 	update_selected(texture)
 	wallpaper_changed.emit(texture)
 
+
 func on_visibility_changed() -> void:
 	if visible:
 		update_selected(Background.get_texture())
