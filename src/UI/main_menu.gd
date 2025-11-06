@@ -18,6 +18,9 @@ extends Node2D
 func _ready() -> void:
 	ConfigCtl.load_config()
 	Stats.read_stats()
+
+	Background.change_bg(Global.wallpaper_textures[ConfigCtl.get_pref(&"background")])
+
 	first_to_focus.grab_focus()
 
 	credits_window.visibility_changed.connect(on_credits_visibility)
@@ -31,15 +34,19 @@ func _ready() -> void:
 func on_credits_visibility() -> void:
 	ScreenFader.visible = credits_window.visible
 
+
 func on_stats_visibility() -> void:
 	ScreenFader.visible = stats_window.visible
 
+
 func on_options_visibility() -> void:
 	ScreenFader.visible = options_window.visible
-	
+
+
 func on_wallpaper_visibility() -> void:
 	ScreenFader.visible = wallpaper_window.visible
-	
+
+
 func on_show_tutorial() -> void:
 	var tutorial := tutorial_prefab.instantiate()
 	add_child(tutorial)

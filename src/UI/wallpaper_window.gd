@@ -2,8 +2,6 @@
 class_name WallpaperWindow
 extends PopupPanel
 
-signal wallpaper_changed(texture: Texture2D)
-
 const PAGE_SIZE: int = 6
 
 var page_index := 0
@@ -29,10 +27,12 @@ func _ready() -> void:
 	close_button.pressed.connect(close_button_pressed)
 
 
-func on_wallpaper_changed(texture: Texture2D) -> void:
+func on_wallpaper_changed(index: int) -> void:
+	var texture := Global.wallpaper_textures[index]
+
 	Background.change_bg(texture)
 	update_selected(texture)
-	wallpaper_changed.emit(texture)
+	ConfigCtl.set_pref(&"background", index)
 
 
 func on_visibility_changed() -> void:
@@ -61,7 +61,7 @@ func spawn_element(index: int) -> void:
 	var wallpaper: WallpaperElement = grid_element.instantiate()
 
 	if not Engine.is_editor_hint():
-		wallpaper.init(Global.wallpaper_textures[index], Global.wallpaper_cost(index))
+		wallpaper.init(index, Global.wallpaper_cost(index))
 		wallpaper.wallpaper_changed.connect(on_wallpaper_changed)
 
 	button_container.add_child(wallpaper)
