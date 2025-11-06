@@ -25,15 +25,15 @@ var star_count := 5
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		visibility_changed.connect(on_visibility_changed)
+		
 	prev_button.pressed.connect(prev_button_pressed)
 	next_button.pressed.connect(next_button_pressed)
 	close_button.pressed.connect(close_button_pressed)
-	
-
-	
+		
 	update_buttons()
 	update_page_label()
 	spawn_page()
+	
 	star_label.text = str(star_count)
 
 
@@ -81,6 +81,7 @@ func update_selected(texture: Texture2D) -> void:
 		var button: WallpaperElement = button_container.get_child(i)
 		button.set_selected(button.get_texture() == texture)
 
+
 func update_buttons() -> void:
 	var page_count = ceili(len(Global.wallpaper_textures)/6.)
 	var max_page_index = page_count - 1
@@ -88,15 +89,19 @@ func update_buttons() -> void:
 	if page_index == 0:
 		prev_button.disabled = true
 		next_button.disabled = false
+		
 	elif page_index == max_page_index:
 		prev_button.disabled = false
 		next_button.disabled = true
+		
 	else:
 		prev_button.disabled = false
 		next_button.disabled = false
 
+
 func update_page_label() -> void:
 	page_label.text = str(page_index + 1)
+
 
 func prev_button_pressed() -> void:
 	page_index = page_index - 1
@@ -104,11 +109,13 @@ func prev_button_pressed() -> void:
 	update_buttons()
 	spawn_page()
 	
+	
 func next_button_pressed() -> void:
 	page_index = page_index + 1
 	update_page_label()
 	update_buttons()
 	spawn_page()
+
 
 func close_button_pressed() -> void:
 	hide()
