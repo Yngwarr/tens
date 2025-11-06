@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyw0aeundfs1h"]
+[gd_scene load_steps=13 format=3 uid="uid://cyw0aeundfs1h"]
 
-[ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
 [ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg00.png" id="1_xy84k"]
-[ext_resource type="Texture2D" uid="uid://b67wqma04gj6h" path="res://img/wallpapers-window/art_mask 2.png" id="2_acg2m"]
+[ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="2_acg2m"]
 [ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acg2m"]
@@ -108,7 +107,7 @@ layout_mode = 1
 offset_right = 232.0
 offset_bottom = 130.0
 localize_numeral_system = false
-texture = ExtResource("1_2vecg")
+texture = ExtResource("2_acg2m")
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
