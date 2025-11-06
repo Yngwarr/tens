@@ -28,10 +28,6 @@ func _ready() -> void:
 	next_button.pressed.connect(next_button_pressed)
 	close_button.pressed.connect(close_button_pressed)
 
-	update_buttons()
-	update_page_label()
-	spawn_page()
-
 
 func on_wallpaper_changed(texture: Texture2D) -> void:
 	Background.change_bg(texture)
@@ -40,10 +36,14 @@ func on_wallpaper_changed(texture: Texture2D) -> void:
 
 
 func on_visibility_changed() -> void:
-	star_label.text = str(Stats.get_stat("games_played"))
+	if not visible:
+		return
 
-	if visible:
-		update_selected(Background.get_texture())
+	star_label.text = str(Stats.get_stat("games_played"))
+	spawn_page()
+	update_buttons()
+	update_page_label()
+	update_selected(Background.get_texture())
 
 
 func spawn_page() -> void:
