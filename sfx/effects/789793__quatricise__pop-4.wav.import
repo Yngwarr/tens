@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cb4lhj1opeg6g"
-path="res://.godot/imported/789793__quatricise__pop-4.wav-ff8ece7976c43fdfb91896c8b47d1cca.sample"
+path="res://.godot/imported/789793__quatricise__pop-4.wav-79828004714566a4e470007bd9eea5be.sample"
 
 [deps]
 
-source_file="res://sfx/new/789793__quatricise__pop-4.wav"
-dest_files=["res://.godot/imported/789793__quatricise__pop-4.wav-ff8ece7976c43fdfb91896c8b47d1cca.sample"]
+source_file="res://sfx/effects/789793__quatricise__pop-4.wav"
+dest_files=["res://.godot/imported/789793__quatricise__pop-4.wav-79828004714566a4e470007bd9eea5be.sample"]
 
 [params]
 
