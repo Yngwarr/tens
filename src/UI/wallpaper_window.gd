@@ -6,15 +6,17 @@ signal wallpaper_changed(texture: Texture2D)
 
 const PAGE_SIZE: int = 6
 
+
 var page_index := 0
-var star_count := 10
+var star_count := 5
 
 @export_group("Internal")
 @export var button_container: GridContainer
 @export var prev_button: TextureButton
 @export var next_button: TextureButton
 @export var page_label: Label
-@export var star_label: RichTextLabel
+@export var star_label: Label
+@export var close_button: Button
 
 @export_group("Prefabs")
 @export var grid_element: PackedScene
@@ -25,10 +27,14 @@ func _ready() -> void:
 		visibility_changed.connect(on_visibility_changed)
 	prev_button.pressed.connect(prev_button_pressed)
 	next_button.pressed.connect(next_button_pressed)
+	close_button.pressed.connect(close_button_pressed)
+	
+
+	
 	update_buttons()
 	update_page_label()
 	spawn_page()
-	star_label.text = "[img]img/wallpapers-window/star_black.svg[/img]" + str(star_count)
+	star_label.text = str(star_count)
 
 
 func on_wallpaper_changed(texture: Texture2D) -> void:
@@ -103,3 +109,6 @@ func next_button_pressed() -> void:
 	update_page_label()
 	update_buttons()
 	spawn_page()
+
+func close_button_pressed() -> void:
+	hide()

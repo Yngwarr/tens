@@ -1,49 +1,110 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4faipnlrmqot"]
+[gd_scene load_steps=10 format=3 uid="uid://b4faipnlrmqot"]
 
 [ext_resource type="Script" uid="uid://8tyb4pka5khs" path="res://src/UI/wallpaper_window.gd" id="1_4sei8"]
+[ext_resource type="Theme" uid="uid://cbrtj71ppqojd" path="res://theme_empty_border.tres" id="1_dpd3b"]
 [ext_resource type="PackedScene" uid="uid://cyw0aeundfs1h" path="res://scenes/wallpaper_element.tscn" id="2_f7wgg"]
+[ext_resource type="Texture2D" uid="uid://brogd5gj08xgl" path="res://img/wallpapers-window/star_black.svg" id="4_hjpop"]
 [ext_resource type="Texture2D" uid="uid://duuhutitgtsrg" path="res://img/common/arrow_disabled.svg" id="4_r8rbb"]
+[ext_resource type="Texture2D" uid="uid://cfgv6oa2m45gb" path="res://img/common/line_separator.svg" id="4_tcp4t"]
+[ext_resource type="PackedScene" uid="uid://cnuni85ppj5yd" path="res://scenes/UI buttons/close_button.tscn" id="5_hjpop"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="5_urf01"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2k4a"]
 
-[node name="WallpaperWindow" type="PopupPanel" node_paths=PackedStringArray("button_container", "prev_button", "next_button", "page_label", "star_label")]
+[node name="WallpaperWindow" type="PopupPanel" node_paths=PackedStringArray("button_container", "prev_button", "next_button", "page_label", "star_label", "close_button")]
 oversampling_override = 1.0
-title = "Wallpapers"
 initial_position = 2
-size = Vector2i(800, 450)
+size = Vector2i(825, 500)
 visible = true
 borderless = false
-max_size = Vector2i(800, 500)
+max_size = Vector2i(825, 515)
 content_scale_mode = 1
+theme = ExtResource("1_dpd3b")
 script = ExtResource("1_4sei8")
 button_container = NodePath("Panel/GridContainer")
 prev_button = NodePath("Panel/PagesContainer/PrevButton")
 next_button = NodePath("Panel/PagesContainer/NextButton")
 page_label = NodePath("Panel/PagesContainer/PageLabel")
-star_label = NodePath("Panel/StarCount")
+star_label = NodePath("Panel/HBoxContainer/StarCount")
+close_button = NodePath("Panel/CloseButton")
 grid_element = ExtResource("2_f7wgg")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 20.0
 offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r2k4a")
 
-[node name="StarCount" type="RichTextLabel" parent="Panel"]
+[node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 21.0
-offset_right = -19.0
-offset_bottom = 44.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.5
+offset_top = -10.0
+offset_right = 185.50012
+offset_bottom = 43.0
 grow_horizontal = 2
-bbcode_enabled = true
-text = "[img]img/wallpapers-window/star_black.svg[/img]10"
+theme_override_font_sizes/font_size = 35
+text = "Wallpapers"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -9.0
+offset_right = 84.0
+offset_bottom = 42.0
+theme_override_constants/separation = 5
+
+[node name="Star" type="TextureRect" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_hjpop")
+stretch_mode = 5
+
+[node name="StarCount" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "10"
+vertical_alignment = 1
+
+[node name="SeparatorTop" type="NinePatchRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -385.5
+offset_top = 43.0
+offset_right = 384.5
+offset_bottom = 49.0
+grow_horizontal = 2
+texture = ExtResource("4_tcp4t")
+patch_margin_left = 2
+patch_margin_right = 2
+
+[node name="SeparatorBottom" type="NinePatchRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -385.5
+offset_top = -65.0
+offset_right = 384.5
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_tcp4t")
+patch_margin_left = 2
+patch_margin_right = 2
 
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 1
@@ -52,14 +113,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -379.0
+offset_left = -382.5
 offset_top = -159.0
-offset_right = 383.0
-offset_bottom = 155.0
+offset_right = 383.5
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 264
-theme_override_constants/v_separation = 182
+theme_override_constants/v_separation = 165
 columns = 3
 
 [node name="PagesContainer" type="HBoxContainer" parent="Panel"]
@@ -68,8 +129,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -68.0
-offset_bottom = 18.0
+offset_left = -4.0
+offset_top = -64.0
+offset_right = 14.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
@@ -88,7 +151,7 @@ flip_h = true
 [node name="PageLabel" type="Label" parent="Panel/PagesContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "1"
 horizontal_alignment = 1
 
@@ -99,3 +162,11 @@ texture_normal = ExtResource("5_urf01")
 texture_pressed = ExtResource("5_urf01")
 texture_hover = ExtResource("5_urf01")
 texture_disabled = ExtResource("4_r8rbb")
+
+[node name="CloseButton" parent="Panel" instance=ExtResource("5_hjpop")]
+layout_mode = 1
+offset_left = -64.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 50.0
+scale = Vector2(0.9, 0.9)
