@@ -6,9 +6,7 @@ signal wallpaper_changed(texture: Texture2D)
 
 const PAGE_SIZE: int = 6
 
-
 var page_index := 0
-var star_count := 5
 
 @export_group("Internal")
 @export var button_container: GridContainer
@@ -33,8 +31,6 @@ func _ready() -> void:
 	update_buttons()
 	update_page_label()
 	spawn_page()
-	
-	star_label.text = str(star_count)
 
 
 func on_wallpaper_changed(texture: Texture2D) -> void:
@@ -44,6 +40,8 @@ func on_wallpaper_changed(texture: Texture2D) -> void:
 
 
 func on_visibility_changed() -> void:
+	star_label.text = str(Stats.get_stat("games_played"))
+	
 	if visible:
 		update_selected(Background.get_texture())
 
