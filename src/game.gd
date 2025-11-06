@@ -85,11 +85,14 @@ func on_released() -> void:
 		var amount_removed = highlight.clear()
 
 		update_score(score + amount_removed)
+		sum_label.play_effect()
+		
 		hint_button.calm_down()
 		idle_timer.stop()
 		idle_timer.start()
 
 		solver.read()
+
 	else:
 		highlight.fail()
 

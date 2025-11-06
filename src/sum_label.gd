@@ -5,6 +5,7 @@ extends Control
 @export var view: Label
 @export var anim: AnimationPlayer
 @export var sound: AudioStreamPlayer
+@export var particles: GPUParticles2D
 
 var base_pitch: float
 
@@ -33,3 +34,6 @@ func update_text(value: int) -> void:
 		sound.play()
 	else:
 		anim.play(&"RESET")
+
+func play_effect() -> void:
+	particles.emitting = true
