@@ -60,7 +60,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if OS.has_feature("editor_runtime") and Input.is_action_just_pressed("cheat_finish"):
+	if OS.has_feature(&"editor_runtime") and Input.is_action_just_pressed(&"cheat_finish"):
 		finish()
 
 
@@ -86,7 +86,7 @@ func on_released() -> void:
 
 		update_score(score + amount_removed)
 		sum_label.play_effect()
-		
+
 		hint_button.calm_down()
 		idle_timer.stop()
 		idle_timer.start()
@@ -146,6 +146,7 @@ func on_confirm_visibility() -> void:
 
 func on_idle_timeout() -> void:
 	hint_button.demand_attention()
+
 
 func on_wallpaper_visibility() -> void:
 	ScreenFader.visible = wallpaper_window.visible

@@ -23,11 +23,11 @@ var page_index := 0
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		visibility_changed.connect(on_visibility_changed)
-		
+
 	prev_button.pressed.connect(prev_button_pressed)
 	next_button.pressed.connect(next_button_pressed)
 	close_button.pressed.connect(close_button_pressed)
-		
+
 	update_buttons()
 	update_page_label()
 	spawn_page()
@@ -41,7 +41,7 @@ func on_wallpaper_changed(texture: Texture2D) -> void:
 
 func on_visibility_changed() -> void:
 	star_label.text = str(Stats.get_stat("games_played"))
-	
+
 	if visible:
 		update_selected(Background.get_texture())
 
@@ -50,10 +50,8 @@ func spawn_page() -> void:
 	clear()
 
 	for i in PAGE_SIZE:
-		if i + page_index*PAGE_SIZE < len(Global.wallpaper_textures):
-			spawn_element(i + page_index*PAGE_SIZE)
-		else:
-			pass
+		if i + page_index * PAGE_SIZE < len(Global.wallpaper_textures):
+			spawn_element(i + page_index * PAGE_SIZE)
 
 
 func spawn_element(index: int) -> void:
@@ -61,9 +59,12 @@ func spawn_element(index: int) -> void:
 	assert(grid_element != null)
 
 	var wallpaper: WallpaperElement = grid_element.instantiate()
+
 	if not Engine.is_editor_hint():
-		wallpaper.init(Global.wallpaper_textures[index])
+		wallpaper.init(Global.wallpaper_textures[index], Global.wallpaper_cost(index))
+		print("f(%d) = %d" % [index, Global.wallpaper_cost(index)])
 		wallpaper.wallpaper_changed.connect(on_wallpaper_changed)
+
 	button_container.add_child(wallpaper)
 
 
@@ -81,20 +82,11 @@ func update_selected(texture: Texture2D) -> void:
 
 
 func update_buttons() -> void:
-	var page_count = ceili(len(Global.wallpaper_textures)/6.)
+	var page_count = ceili(len(Global.wallpaper_textures) / 6.)
 	var max_page_index = page_count - 1
-	
-	if page_index == 0:
-		prev_button.disabled = true
-		next_button.disabled = false
-		
-	elif page_index == max_page_index:
-		prev_button.disabled = false
-		next_button.disabled = true
-		
-	else:
-		prev_button.disabled = false
-		next_button.disabled = false
+
+	prev_button.disabled = page_index == 0
+	next_button.disabled = page_index == max_page_index
 
 
 func update_page_label() -> void:
@@ -106,8 +98,8 @@ func prev_button_pressed() -> void:
 	update_page_label()
 	update_buttons()
 	spawn_page()
-	
-	
+
+
 func next_button_pressed() -> void:
 	page_index = page_index + 1
 	update_page_label()

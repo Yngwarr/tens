@@ -11,7 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="6_hstxw"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="7_8egab"]
 [ext_resource type="Script" uid="uid://bwlo32hpck3s4" path="res://src/UI/stats_window.gd" id="9_a8gd2"]
-[ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/ambience.ogg" id="10_hstxw"]
+[ext_resource type="AudioStream" uid="uid://blnyamwvq4tpa" path="res://sfx/bgm/ambience.ogg" id="10_hstxw"]
 [ext_resource type="PackedScene" uid="uid://q84fhqyj8w4s" path="res://scenes/HUD/HUD_big_button_gallery.tscn" id="11_svtp6"]
 [ext_resource type="PackedScene" uid="uid://d21ft8cjmcf0j" path="res://scenes/HUD/HUD_button_quit.tscn" id="15_gw5y6"]
 [ext_resource type="PackedScene" uid="uid://dkmpcjsd7f81h" path="res://scenes/HUD/HUD_button_stats.tscn" id="17_1dfpl"]

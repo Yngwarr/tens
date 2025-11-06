@@ -9,29 +9,31 @@ signal wallpaper_changed(texture: Texture2D)
 @export var locked: TextureRect
 @export var button: Button
 @export var anim: AnimationPlayer
+@export var cost_label: Label
 
-var star_count = 6
-var stars_needed = 5
+var cost: int
 
 
 func _ready() -> void:
 	button.pressed.connect(on_wallpaper_pressed)
 
-	if star_count <= stars_needed:
+
+func init(texture: Texture2D, p_cost: int) -> void:
+	art.texture = texture
+	cost = p_cost
+	cost_label.text = str(cost)
+
+	if Stats.get_stat(&"games_played") < cost:
 		locked.visible = true
 	else:
 		locked.visible = false
 
 
-func init(texture: Texture2D) -> void:
-	art.texture = texture
-
-
 func on_wallpaper_pressed() -> void:
-	wallpaper_changed.emit(art.texture)
-
-	if star_count < stars_needed:
+	if Stats.get_stat(&"games_played") < cost:
 		anim.play("bounce")
+	else:
+		wallpaper_changed.emit(art.texture)
 
 
 func get_texture() -> Texture2D:

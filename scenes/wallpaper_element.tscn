@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyw0aeundfs1h"]
+[gd_scene load_steps=14 format=3 uid="uid://cyw0aeundfs1h"]
 
 [ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg00.png" id="1_xy84k"]
 [ext_resource type="Texture2D" uid="uid://c7h4yf32y7poo" path="res://img/wallpapers-window/art_mask.svg" id="2_acg2m"]
 [ext_resource type="Texture2D" uid="uid://dpiy0vnfxx7up" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
+[ext_resource type="Texture2D" uid="uid://0a5xn4pytpoo" path="res://img/wallpapers-window/star_white.svg" id="5_acg2m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acg2m"]
 
@@ -20,7 +21,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FrameLocked/RichTextLabel:scale")
+tracks/0/path = NodePath("FrameLocked/CenterContainer:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,14 +37,14 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FrameLocked/RichTextLabel:scale")
-tracks/0/interp = 1
+tracks/0/path = NodePath("FrameLocked/CenterContainer:scale")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.23333333),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1eb7c"]
@@ -52,7 +53,7 @@ _data = {
 &"bounce": SubResource("Animation_acg2m")
 }
 
-[node name="WallpaperElement" type="Control" node_paths=PackedStringArray("art", "selected", "locked", "button", "anim")]
+[node name="WallpaperElement" type="Control" node_paths=PackedStringArray("art", "selected", "locked", "button", "anim", "cost_label")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 236.0
@@ -63,6 +64,7 @@ selected = NodePath("FrameSelected")
 locked = NodePath("FrameLocked")
 button = NodePath("Button")
 anim = NodePath("AnimationPlayer")
+cost_label = NodePath("FrameLocked/CenterContainer/HBoxContainer/StarCount")
 
 [node name="FrameNormal" type="TextureRect" parent="."]
 clip_children = 2
@@ -92,7 +94,6 @@ offset_bottom = 132.0
 texture = ExtResource("2_xy84k")
 
 [node name="FrameLocked" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 0.5019608)
 layout_mode = 1
 offset_right = 236.0
@@ -100,22 +101,30 @@ offset_bottom = 132.0
 localize_numeral_system = false
 texture = ExtResource("2_acg2m")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="FrameLocked"]
+[node name="CenterContainer" type="CenterContainer" parent="FrameLocked"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0040001
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 40.0
-offset_right = -0.92800903
-offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(117, 28)
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-bbcode_enabled = true
-text = "[img]img/wallpapers-window/star_white.svg[/img] 5"
-horizontal_alignment = 1
+pivot_offset = Vector2(118, 66)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FrameLocked/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Star" type="TextureRect" parent="FrameLocked/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_acg2m")
+stretch_mode = 5
+
+[node name="StarCount" type="Label" parent="FrameLocked/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "10"
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
