@@ -5,8 +5,8 @@ signal wallpaper_changed(texture: Texture2D)
 
 @export_group("Internal")
 @export var art: TextureRect
-@export var selected: NinePatchRect
-@export var locked: NinePatchRect
+@export var selected: TextureRect
+@export var locked: TextureRect
 @export var button: Button
 @export var anim: AnimationPlayer
 
