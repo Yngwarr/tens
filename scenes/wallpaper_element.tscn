@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b40hxrjgv3y0u" path="res://img/wallpapers-window/art_mask.svg" id="1_2vecg"]
 [ext_resource type="Script" uid="uid://cx05cg7x7roui" path="res://src/UI/wallpaper_element.gd" id="1_acg2m"]
 [ext_resource type="Texture2D" uid="uid://br8avg7b3dgtr" path="res://img/backgrounds/bg00.png" id="1_xy84k"]
+[ext_resource type="Texture2D" uid="uid://b67wqma04gj6h" path="res://img/wallpapers-window/art_mask 2.png" id="2_acg2m"]
 [ext_resource type="Texture2D" uid="uid://kqhjsj0dh57m" path="res://img/wallpapers-window/frame_selected.svg" id="2_xy84k"]
-[ext_resource type="Texture2D" uid="uid://do7qjhlu14eqh" path="res://img/common/check.svg" id="3_acg2m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acg2m"]
 
@@ -71,18 +71,19 @@ layout_mode = 1
 offset_right = 232.0
 offset_bottom = 130.0
 localize_numeral_system = false
-texture = ExtResource("1_2vecg")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
+texture = ExtResource("2_acg2m")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="Texture" type="TextureRect" parent="FrameNormal"]
 custom_minimum_size = Vector2(236, 132)
 layout_mode = 0
-offset_left = -2.0
-offset_right = 234.0
-offset_bottom = 132.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 235.0
+offset_bottom = 131.0
 texture = ExtResource("1_xy84k")
 expand_mode = 1
 stretch_mode = 5
@@ -90,31 +91,18 @@ stretch_mode = 5
 [node name="FrameSelected" type="NinePatchRect" parent="."]
 visible = false
 layout_mode = 1
-offset_right = 232.0
-offset_bottom = 132.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 234.0
+offset_bottom = 134.0
 texture = ExtResource("2_xy84k")
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 10
 
-[node name="Check" type="TextureRect" parent="FrameSelected"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -39.0
-offset_top = -55.0
-offset_right = 14.0
-offset_bottom = -10.0
-grow_horizontal = 0
-grow_vertical = 0
-localize_numeral_system = false
-texture = ExtResource("3_acg2m")
-
 [node name="FrameLocked" type="NinePatchRect" parent="."]
+visible = false
 self_modulate = Color(0, 0, 0, 0.5019608)
 layout_mode = 1
 offset_right = 232.0
@@ -146,7 +134,8 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 233.0
+offset_left = -1.0
+offset_right = 232.0
 offset_bottom = 130.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_acg2m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r8eun")

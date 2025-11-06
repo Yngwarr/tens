@@ -6,10 +6,8 @@ signal wallpaper_changed(texture: Texture2D)
 
 const PAGE_SIZE: int = 6
 
-var page_index = 0
-var page_count = 3
-var star_count = 10
-var max_page_index = page_count - 1
+var page_index := 0
+var star_count := 10
 
 @export_group("Internal")
 @export var button_container: GridContainer
@@ -27,11 +25,11 @@ func _ready() -> void:
 		visibility_changed.connect(on_visibility_changed)
 	prev_button.pressed.connect(prev_button_pressed)
 	next_button.pressed.connect(next_button_pressed)
-	
 	update_buttons()
 	update_page_label()
 	spawn_page()
 	star_label.text = "[img]img/wallpapers-window/star_black.svg[/img]" + str(star_count)
+
 
 func on_wallpaper_changed(texture: Texture2D) -> void:
 	Background.change_bg(texture)
@@ -48,7 +46,10 @@ func spawn_page() -> void:
 	clear()
 
 	for i in PAGE_SIZE:
-		spawn_element(i)
+		if i + page_index*PAGE_SIZE < len(Global.wallpaper_textures):
+			spawn_element(i + page_index*PAGE_SIZE)
+		else:
+			pass
 
 
 func spawn_element(index: int) -> void:
@@ -75,6 +76,9 @@ func update_selected(texture: Texture2D) -> void:
 		button.set_selected(button.get_texture() == texture)
 
 func update_buttons() -> void:
+	var page_count = ceili(len(Global.wallpaper_textures)/6.)
+	var max_page_index = page_count - 1
+	
 	if page_index == 0:
 		prev_button.disabled = true
 		next_button.disabled = false
@@ -92,8 +96,10 @@ func prev_button_pressed() -> void:
 	page_index = page_index - 1
 	update_page_label()
 	update_buttons()
+	spawn_page()
 	
 func next_button_pressed() -> void:
 	page_index = page_index + 1
 	update_page_label()
 	update_buttons()
+	spawn_page()
