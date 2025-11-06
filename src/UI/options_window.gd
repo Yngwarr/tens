@@ -9,11 +9,13 @@ extends PopupPanel
 
 var sliders: Array[VolumeSlider] = []
 
+
 func _ready() -> void:
 	visibility_changed.connect(on_toggle)
 	for bus in SoundCtl.adjustable_sound_buses():
 		if bus != 0:
 			sliders.append(add_bus_ctl(bus))
+
 
 func on_toggle() -> void:
 	if not visible:
@@ -23,8 +25,8 @@ func on_toggle() -> void:
 	for s in sliders:
 		s.update_value()
 
-
 	sliders[0].grab_focus()
+
 
 ## Adds bus control to the window.
 func add_bus_ctl(bus_idx: int) -> VolumeSlider:
@@ -35,10 +37,10 @@ func add_bus_ctl(bus_idx: int) -> VolumeSlider:
 		rect.texture = music_texture
 	else:
 		rect.texture = sfx_texture
-	
+
 	var slider := VolumeSlider.new(bus_idx)
 
-	container.add_child(rect)	
+	container.add_child(rect)
 	container.add_child(slider)
 
 	return slider

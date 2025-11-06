@@ -62,7 +62,6 @@ func spawn_element(index: int) -> void:
 
 	if not Engine.is_editor_hint():
 		wallpaper.init(Global.wallpaper_textures[index], Global.wallpaper_cost(index))
-		print("f(%d) = %d" % [index, Global.wallpaper_cost(index)])
 		wallpaper.wallpaper_changed.connect(on_wallpaper_changed)
 
 	button_container.add_child(wallpaper)
