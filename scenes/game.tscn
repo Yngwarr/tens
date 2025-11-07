@@ -369,7 +369,7 @@ tracks/24/keys = {
 
 [sub_resource type="Animation" id="Animation_6obku"]
 resource_name = "game_over"
-length = 7.5
+length = 6.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -526,7 +526,7 @@ tracks/12/path = NodePath("HUD/WallpaperButton:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.86, 1.5, 2.2666667, 2.4333336, 4.033333, 4.3666663),
+"times": PackedFloat32Array(0.86, 1.5, 4.133333, 4.3, 5, 5.3333335),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1055, 551), Vector2(1055, 650), Vector2(1055, 650), Vector2(1055, 551), Vector2(1055, 551), Vector2(1055, 650)]
@@ -564,7 +564,7 @@ tracks/15/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 2.1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -576,7 +576,7 @@ tracks/16/path = NodePath("GameOverLayer/ConfettiRed:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0, 2.1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -588,7 +588,7 @@ tracks/17/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 2.1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -600,7 +600,7 @@ tracks/18/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 2.1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -612,7 +612,7 @@ tracks/19/path = NodePath("GameOverConfetti")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(2.1),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -626,7 +626,7 @@ tracks/20/path = NodePath("GameOverLayer/Path2D/PathFollow2D/Star:self_modulate"
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(2.5666666, 2.9, 3.7999997, 3.9333334),
+"times": PackedFloat32Array(2.7, 3.0333335, 4.866667, 5.0000005),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -638,7 +638,7 @@ tracks/21/path = NodePath("GameOverLayer/Path2D/PathFollow2D:progress_ratio")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(3.0666666, 3.8999996),
+"times": PackedFloat32Array(4.366667, 4.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -650,7 +650,7 @@ tracks/22/path = NodePath("GameOverLayer/Path2D/PathFollow2D/StarParticles:emitt
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0.0333333, 2.8666663, 3.8999996),
+"times": PackedFloat32Array(0.0333333, 3.1666667, 4.9666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, true]
@@ -662,10 +662,10 @@ tracks/23/path = NodePath("GameOverLayer/Path2D/PathFollow2D/Star:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(2.7, 2.9, 3.0666666, 3.8999996),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(2.8333337, 3.0333335, 3.2, 4.366667, 4.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(0.5, 0.5)]
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -674,7 +674,7 @@ tracks/24/path = NodePath("HUD/WallpaperButton:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(3.8999996, 3.933333, 3.9999995),
+"times": PackedFloat32Array(4.866667, 4.9, 4.9666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
@@ -686,7 +686,7 @@ tracks/25/path = NodePath("GameOverLayer/Path2D/PathFollow2D/Star:rotation")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0, 2.5666666, 3.0666666, 3.8999996),
+"times": PackedFloat32Array(0, 2.7, 4.366667, 4.9666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [-0.49741885, 0.1954768762233647, 0.1954768762233647, 5.370378108386553]
@@ -698,7 +698,7 @@ tracks/26/path = NodePath("GameOverStarAppear")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(2.8666668),
+"times": PackedFloat32Array(3.1333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -712,7 +712,7 @@ tracks/27/path = NodePath("GameOverStarDisappear")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(3.8999996),
+"times": PackedFloat32Array(4.9333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -916,7 +916,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 497.99976
+offset_right = 498.00098
 offset_bottom = 373.0
 
 [node name="HomeButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("5_0bq3a")]
@@ -1017,7 +1017,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
 offset_right = 1.0
-offset_bottom = -61.999878
+offset_bottom = -61.99951
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1085,7 +1085,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 19.999207
+offset_bottom = 19.999023
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -1195,6 +1195,8 @@ bus = &"SFX"
 
 [node name="GameOverStarAppear" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_suyxu")
+bus = &"SFX"
 
 [node name="GameOverStarDisappear" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("34_js0lu")
+bus = &"SFX"
