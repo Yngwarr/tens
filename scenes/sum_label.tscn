@@ -1,24 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cokef7akh8gj"]
+[gd_scene load_steps=8 format=3 uid="uid://cokef7akh8gj"]
 
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="1_34bnt"]
 [ext_resource type="Script" uid="uid://dgmortl3jhsdi" path="res://src/sum_label.gd" id="1_ntdrc"]
 [ext_resource type="Texture2D" uid="uid://bu1wafdol4nb1" path="res://img/particle.png" id="2_5sqa4"]
 [ext_resource type="LabelSettings" uid="uid://b4aoubmkrf8e8" path="res://label settings/sum_label.tres" id="3_d80a2"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_reic5"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(4, 4, 1)
-angle_min = -67.99999
-angle_max = 174.20001
-direction = Vector3(0, -1, 0)
-spread = 180.0
-initial_velocity_min = 165.2
-initial_velocity_max = 209.44
-gravity = Vector3(0, 98, 0)
-scale_min = 0.29999998
-scale_max = 0.5
 
 [sub_resource type="Animation" id="Animation_d80a2"]
 length = 0.001
@@ -71,19 +56,23 @@ view = NodePath("View")
 anim = NodePath("AnimationPlayer")
 particles = NodePath("Particles")
 
-[node name="Particles" type="GPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="."]
 modulate = Color(0.1254902, 1, 0, 1)
-position = Vector2(131, 68)
+position = Vector2(128, 68)
 emitting = false
-amount = 10
+amount = 6
 texture = ExtResource("2_5sqa4")
-lifetime = 0.4
+lifetime = 0.5
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
-use_fixed_seed = true
-seed = 123
-process_material = SubResource("ParticleProcessMaterial_reic5")
+particle_flag_align_y = true
+direction = Vector2(1, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+angle_max = 40.0
 
 [node name="View" type="Label" parent="."]
 layout_mode = 1

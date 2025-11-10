@@ -5,7 +5,7 @@ extends Control
 @export var view: Label
 @export var anim: AnimationPlayer
 @export var sound: AudioStreamPlayer
-@export var particles: GPUParticles2D
+@export var particles: CPUParticles2D
 
 var base_pitch: float
 
