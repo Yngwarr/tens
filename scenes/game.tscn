@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=41 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://bkoqy044j052o" path="res://scenes/UI buttons/hint_button.tscn" id="3_0bq3a"]
@@ -51,18 +51,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 24, 28, -105.48313, -62.88806, 105.48313, 62.88806, 414, 37, 0, 0, 0, 0, 555, 246)
 }
 point_count = 3
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_js0lu"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 180.0
-initial_velocity_min = 86.39
-initial_velocity_max = 151.83
-angular_velocity_min = 3.7699838
-angular_velocity_max = 86.69998
-gravity = Vector3(0, 98, 0)
-scale_min = 0.5
 
 [sub_resource type="Animation" id="Animation_xhhx8"]
 length = 0.001
@@ -916,7 +904,7 @@ follow_viewport_enabled = true
 [node name="HintButton" parent="HUD" instance=ExtResource("3_0bq3a")]
 offset_left = 348.0
 offset_top = 223.0
-offset_right = 498.00098
+offset_right = 498.00085
 offset_bottom = 373.0
 
 [node name="HomeButton" parent="HUD" node_paths=PackedStringArray("popup") instance=ExtResource("5_0bq3a")]
@@ -996,19 +984,23 @@ visible = false
 
 [node name="ConfettiYellow" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(579, 233)
+position = Vector2(579, 200)
+emitting = false
 
 [node name="ConfettiRed" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(579, 233)
+position = Vector2(579, 200)
+emitting = false
 
 [node name="ConfettiBlue" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(0, 0.39999986, 1, 1)
-position = Vector2(579, 233)
+position = Vector2(579, 200)
+emitting = false
 
 [node name="ConfettiGreen" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
 modulate = Color(0.23333335, 1, 0, 1)
-position = Vector2(579, 233)
+position = Vector2(579, 200)
+emitting = false
 
 [node name="HiLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 14
@@ -1017,7 +1009,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -207.0
 offset_right = 1.0
-offset_bottom = -61.99951
+offset_bottom = -61.999542
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1049,7 +1041,7 @@ curve = SubResource("Curve2D_v2yb1")
 position = Vector2(24, 28)
 rotation = -0.18718472
 
-[node name="StarParticles" type="GPUParticles2D" parent="GameOverLayer/Path2D/PathFollow2D"]
+[node name="StarParticles" type="CPUParticles2D" parent="GameOverLayer/Path2D/PathFollow2D"]
 scale = Vector2(1.0000001, 1.0000001)
 emitting = false
 amount = 10
@@ -1058,8 +1050,12 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
 use_fixed_seed = true
-seed = 1
-process_material = SubResource("ParticleProcessMaterial_js0lu")
+seed = 9
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 86.0
+initial_velocity_max = 150.0
 
 [node name="Star" type="TextureRect" parent="GameOverLayer/Path2D/PathFollow2D"]
 self_modulate = Color(1, 1, 1, 0)
@@ -1085,7 +1081,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_bottom = 19.999023
+offset_bottom = 19.999146
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3

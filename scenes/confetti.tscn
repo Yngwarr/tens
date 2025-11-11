@@ -1,25 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://5knj0y11uatt"]
+[gd_scene load_steps=2 format=3 uid="uid://5knj0y11uatt"]
 
 [ext_resource type="Texture2D" uid="uid://csjtehs442ao8" path="res://img/confetti.png" id="1_xjk0n"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qouja"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(400, 2, 1)
-angle_min = -46.69999
-angle_max = 165.70001
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 117.99
-initial_velocity_max = 321.53
-gravity = Vector3(0, 98, 0)
-
-[node name="Confetti" type="GPUParticles2D"]
-emitting = false
+[node name="Confetti" type="CPUParticles2D"]
 amount = 50
 texture = ExtResource("1_xjk0n")
-lifetime = 20.0
+lifetime = 10.0
 one_shot = true
-speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_qouja")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 50)
+direction = Vector2(0, -1)
+initial_velocity_min = 500.0
+initial_velocity_max = 600.0
+angular_velocity_max = 489.72
