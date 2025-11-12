@@ -12,7 +12,7 @@ signal shareable_url_ready(url)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if not OS.has_feature("web"):
+	if not OS.has_feature("poki"):
 		return
 
 	sdk_handle = JavaScriptBridge.get_interface("PokiSDK")
@@ -48,6 +48,7 @@ func gameplayStop():
 func commercialBreak():
 	if not OS.has_feature("poki"):
 		print("simulating commercialBreak()")
+		on_commercial_break({})
 		return
 
 	if not sdk_handle:
@@ -59,12 +60,14 @@ func commercialBreak():
 
 func on_commercial_break(args):
 	print("Commercial break done!")
-	emit_signal("commercial_break_done", args[0])
+	print(args)
+	commercial_break_done.emit(args)
 
 
 func rewardedBreak():
 	if not OS.has_feature("poki"):
 		print("simulating rewardedBreak()")
+		on_reward_break({})
 		return
 
 	if not sdk_handle:
@@ -76,7 +79,8 @@ func rewardedBreak():
 
 func on_reward_break(args):
 	print("Reward break done!")
-	emit_signal("rewarded_break_done", args[0])
+	print(args)
+	rewarded_break_done.emit(args)
 
 
 func shareableURL(obj: Dictionary):
@@ -93,7 +97,7 @@ func shareableURL(obj: Dictionary):
 
 
 func on_shareable_url(url):
-	emit_signal("shareable_url_ready", url[0])
+	shareable_url_ready.emit(url)
 
 
 func isAdBlocked():

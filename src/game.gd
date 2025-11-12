@@ -62,6 +62,7 @@ func _ready() -> void:
 	idle_timer.timeout.connect(on_idle_timeout)
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 	tutorial_button.pressed.connect(on_show_tutorial)
+	PokiSDK.rewarded_break_done.connect(on_rewarded_end)
 
 	hint_button.update_label(hint_count)
 	anim.play(&"start")
@@ -105,45 +106,6 @@ func on_released() -> void:
 		highlight.fail()
 
 
-func show_hint() -> void:
-	if not solver.next_hint:
-		return
-
-	if hint.visible:
-		hint.bounce()
-		return
-
-	if hint_count > 0:
-		hint_count -= 1
-	else:
-		hint_count = 5
-
-	hint_sound.play()
-	hint.appear(solver.next_hint)
-	hint_button.update_label(hint_count)
-	hint_button.calm_down()
-	idle_timer.stop()
-
-
-func finish() -> void:
-	PokiSDK.gameplayStop()
-
-	Stats.increase_stat(&"games_played", 1)
-	Stats.increase_stat(&"total_score", score)
-
-	if Stats.get_stat(&"best_score") < score:
-		Stats.set_stat(&"best_score", score)
-		# TODO add an effect for the new record
-
-	Stats.write_stats()
-
-	music_player.stop()
-	game_over_sound.play()
-	final_score_label.text = "You scored " + str(score) + " points"
-	protection_layer.show()
-	anim.play(&"game_over")
-
-
 func on_grid_appeared() -> void:
 	protection_layer.hide()
 	PokiSDK.gameplayStart()
@@ -169,3 +131,47 @@ func on_wallpaper_visibility() -> void:
 func on_show_tutorial() -> void:
 	var tutorial := tutorial_prefab.instantiate()
 	add_child(tutorial)
+
+
+func on_rewarded_end(_args) -> void:
+	hint_count = REWARDED_AD_HINTS
+	hint_button.update_label(hint_count)
+
+
+func show_hint() -> void:
+	if not solver.next_hint:
+		return
+
+	if hint.visible:
+		hint.bounce()
+		return
+
+	if hint_count > 0:
+		hint_count -= 1
+		hint_sound.play()
+		hint.appear(solver.next_hint)
+		hint_button.update_label(hint_count)
+		hint_button.calm_down()
+		idle_timer.stop()
+	else:
+		PokiSDK.rewardedBreak()
+
+
+
+func finish() -> void:
+	PokiSDK.gameplayStop()
+
+	Stats.increase_stat(&"games_played", 1)
+	Stats.increase_stat(&"total_score", score)
+
+	if Stats.get_stat(&"best_score") < score:
+		Stats.set_stat(&"best_score", score)
+		# TODO add an effect for the new record
+
+	Stats.write_stats()
+
+	music_player.stop()
+	game_over_sound.play()
+	final_score_label.text = "You scored " + str(score) + " points"
+	protection_layer.show()
+	anim.play(&"game_over")
