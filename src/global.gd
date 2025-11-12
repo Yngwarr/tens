@@ -3,6 +3,9 @@ extends Node
 
 const WALLPAPER_FOLDER := "res://img/backgrounds/"
 
+const DEFAULT_HINT_COUNT: int = 5
+const REWARDED_AD_HINTS: int = 5
+
 var wallpaper_textures: Array[Texture2D]
 
 

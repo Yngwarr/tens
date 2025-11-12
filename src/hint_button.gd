@@ -3,10 +3,10 @@ extends TextureButton
 
 @export var anim: AnimationPlayer
 @export var hint_label: Label
-@export var ad_label: TextureRect
+@export var ad_icon: TextureRect
 @export var button: TextureButton
 
-var hint_count := 5
+var hint_count := Global.DEFAULT_HINT_COUNT
 
 
 func _ready() -> void:
@@ -23,23 +23,23 @@ func calm_down() -> void:
 
 
 func update_label() -> void:
-	if hint_count > 0:
-		ad_label.visible = false
+	var show_icon := hint_count == 0
+
+	ad_icon.visible = show_icon
+	hint_label.visible = not show_icon
+
+	if not show_icon:
 		hint_label.text = str(hint_count)
-		hint_label.visible = true
-	else:
-		hint_label.visible = false
-		ad_label.visible = true
 
 
 func show_ad() -> void:
-	hint_count = 5
+	hint_count = Global.REWARDED_AD_HINTS
 
 
 func on_button_pressed() -> void:
 	if hint_count > 0:
-		hint_count = hint_count - 1
-		update_label()
+		hint_count -= 1
 	else:
 		show_ad()
-		update_label()
+
+	update_label()
