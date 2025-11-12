@@ -5,8 +5,10 @@ var _cb_commercial_break
 var _cb_reward_break
 var _cb_shareable_url
 
-signal commercial_break_done(response)
-signal rewarded_break_done(response)
+signal ad_started
+signal ad_ended
+signal commercial_break_ended(response)
+signal rewarded_break_ended(success: bool)
 signal shareable_url_ready(url)
 
 
@@ -55,32 +57,35 @@ func commercialBreak():
 		push_warning("PokiSDK is not initialized, no commercial break")
 		return
 
+	ad_started.emit()
 	sdk_handle.commercialBreak().then(_cb_commercial_break)
 
 
 func on_commercial_break(args):
 	print("Commercial break done!")
 	print(args)
-	commercial_break_done.emit(args)
+	ad_ended.emit()
+	commercial_break_ended.emit(args)
 
 
 func rewardedBreak():
 	if not OS.has_feature("poki"):
 		print("simulating rewardedBreak()")
-		on_reward_break({})
+		on_reward_break([true])
 		return
 
 	if not sdk_handle:
 		push_warning("PokiSDK is not initialized, no rewarded break")
 		return
 
+	ad_started.emit()
 	sdk_handle.rewardedBreak().then(_cb_reward_break)
 
 
-func on_reward_break(args):
+func on_reward_break(args: Array):
 	print("Reward break done!")
-	print(args)
-	rewarded_break_done.emit(args)
+	ad_ended.emit()
+	rewarded_break_ended.emit(args[0])
 
 
 func shareableURL(obj: Dictionary):

@@ -34,6 +34,10 @@ static func set_volume(bus: int, volume: float) -> void:
 	AudioServer.set_bus_mute(bus, volume == MIN_VOLUME)
 
 
+static func set_mute(on: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(MASTER_NAME), on)
+
+
 ## Should the audio bus be accessible from the window? You don't want to show
 ## your effect buses to be adjustable by a player, that's why we only show
 ## Master and anything that sends to it (SFX and Music in the most cases).

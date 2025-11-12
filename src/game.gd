@@ -62,7 +62,10 @@ func _ready() -> void:
 	idle_timer.timeout.connect(on_idle_timeout)
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 	tutorial_button.pressed.connect(on_show_tutorial)
-	PokiSDK.rewarded_break_done.connect(on_rewarded_end)
+
+	PokiSDK.rewarded_break_ended.connect(on_rewarded_ended)
+	PokiSDK.ad_started.connect(on_ad_started)
+	PokiSDK.ad_ended.connect(on_ad_ended)
 
 	hint_button.update_label(hint_count)
 	anim.play(&"start")
@@ -133,7 +136,18 @@ func on_show_tutorial() -> void:
 	add_child(tutorial)
 
 
-func on_rewarded_end(_args) -> void:
+func on_ad_started() -> void:
+	SoundCtl.set_mute(true)
+
+
+func on_ad_ended() -> void:
+	SoundCtl.set_mute(false)
+
+
+func on_rewarded_ended(success: bool) -> void:
+	if not success:
+		return
+
 	hint_count = REWARDED_AD_HINTS
 	hint_button.update_label(hint_count)
 
@@ -155,7 +169,6 @@ func show_hint() -> void:
 		idle_timer.stop()
 	else:
 		PokiSDK.rewardedBreak()
-
 
 
 func finish() -> void:
