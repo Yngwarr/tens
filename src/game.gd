@@ -6,9 +6,13 @@ extends Node2D
 ## where your dreams come true! Adjust to your likings and may the code be with
 ## you.
 
+const DEFAULT_HINT_COUNT: int = 5
+const REWARDED_AD_HINTS: int = 5
+
 static var CELL_SIZE := 58
 static var TARGET_SUM := 10
 
+@export_group("Internal")
 @export var highlight: Highlight
 @export var hint: Hint
 @export var grid: Grid
@@ -33,6 +37,7 @@ static var TARGET_SUM := 10
 @export var tutorial_prefab: PackedScene
 
 var score: int = 0
+var hint_count := DEFAULT_HINT_COUNT
 
 
 func _ready() -> void:
@@ -58,6 +63,7 @@ func _ready() -> void:
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 	tutorial_button.pressed.connect(on_show_tutorial)
 
+	hint_button.update_label(hint_count)
 	anim.play(&"start")
 
 
@@ -107,8 +113,14 @@ func show_hint() -> void:
 		hint.bounce()
 		return
 
+	if hint_count > 0:
+		hint_count -= 1
+	else:
+		hint_count = 5
+
 	hint_sound.play()
 	hint.appear(solver.next_hint)
+	hint_button.update_label(hint_count)
 	hint_button.calm_down()
 	idle_timer.stop()
 
