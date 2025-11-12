@@ -8,10 +8,11 @@ extends TextureButton
 
 var hint_count := 5
 
+
 func _ready() -> void:
 	update_label()
 	button.pressed.connect(on_button_pressed)
-	
+
 
 func demand_attention() -> void:
 	anim.play(&"attention")
@@ -19,7 +20,7 @@ func demand_attention() -> void:
 
 func calm_down() -> void:
 	anim.play(&"RESET")
-	
+
 
 func update_label() -> void:
 	if hint_count > 0:
@@ -28,7 +29,7 @@ func update_label() -> void:
 		hint_label.visible = true
 	else:
 		hint_label.visible = false
-		ad_label.visible = true 
+		ad_label.visible = true
 
 
 func show_ad() -> void:
@@ -39,7 +40,6 @@ func on_button_pressed() -> void:
 	if hint_count > 0:
 		hint_count = hint_count - 1
 		update_label()
-	else: 
+	else:
 		show_ad()
 		update_label()
-	
