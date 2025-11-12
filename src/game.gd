@@ -25,8 +25,8 @@ static var TARGET_SUM := 10
 @export var music_player: AudioStreamPlayer
 @export var options_window: PopupPanel
 @export var confirm_window: PopupPanel
-@export var idle_timer: Timer
 @export var wallpaper_window: PopupPanel
+@export var idle_timer: Timer
 @export var tutorial_button: TextureButton
 
 @export_group("Prefabs")
@@ -152,7 +152,8 @@ func on_idle_timeout() -> void:
 
 func on_wallpaper_visibility() -> void:
 	ScreenFader.visible = wallpaper_window.visible
-	
+
+
 func on_show_tutorial() -> void:
 	var tutorial := tutorial_prefab.instantiate()
 	add_child(tutorial)
