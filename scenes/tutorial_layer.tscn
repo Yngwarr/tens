@@ -416,9 +416,10 @@ color = Color(0.59607846, 0.6039216, 0.6862745, 1)
 position = Vector2(5.95, -14.665)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("2_kfkh6")
+interactive = false
+board_name = 1
 inner_node = ExtResource("3_ac24n")
 appear_timer = NodePath("../../../../Timer")
-tutorial_board = true
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="MarginContainer" type="MarginContainer" parent="Container/Panel/HBoxContainer"]

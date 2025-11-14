@@ -3,14 +3,6 @@ extends CanvasLayer
 
 const GRID_TIMEOUT := .2
 
-const BOARD_SIZE := Vector2i(4, 4)
-const BOARD: Array[int] = [
-	1, 3, 9, 9,
-	2, 4, 6, 9,
-	4, 5, 3, 2,
-	9, 9, 9, 9
-]
-
 @export_group("Internal")
 @export var grid: Grid
 @export var quit_button: Button
@@ -18,6 +10,8 @@ const BOARD: Array[int] = [
 @export var highlight: Highlight
 @export var anim: AnimationPlayer
 @export var fader_button: Button
+
+var board := Boards.get_board(Boards.Name.TUTORIAL)
 
 
 func _ready() -> void:
@@ -90,7 +84,7 @@ func on_grid_appeared() -> void:
 		await get_tree().create_timer(1).timeout
 
 		for i in grid.get_child_count():
-			grid.get_child(i).reset(BOARD[i])
+			grid.get_child(i).reset(board.data[i])
 
 
 func select_cells(cell_nums: Array[int]) -> void:

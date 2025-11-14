@@ -7,7 +7,8 @@ signal grabbed
 signal released
 signal fully_appeared
 
-@export var tutorial_board: bool = false
+@export var interactive: bool = true
+@export var board_name: Boards.Name = Boards.Name.RANDOM
 
 @export_group("Prefabs")
 @export var inner_node: PackedScene
@@ -17,8 +18,8 @@ signal fully_appeared
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
 
-var width: int = 10
-var height: int = 10
+var width: int
+var height: int
 
 var first_point := Vector2.ZERO
 var second_point := Vector2.ZERO
@@ -32,9 +33,10 @@ func _ready() -> void:
 	if appear_sound:
 		appear_base_pitch = appear_sound.pitch_scale
 
-	if tutorial_board:
-		width = Tutorial.BOARD_SIZE.x
-		height = Tutorial.BOARD_SIZE.y
+	var board := Boards.get_board(board_name)
+
+	width = board.size.x
+	height = board.size.y
 
 	var step := Game.CELL_SIZE
 
@@ -46,10 +48,10 @@ func _ready() -> void:
 			node.front_layer = front_layer
 			add_child(node)
 
-			if tutorial_board:
-				node.set_value(Tutorial.BOARD[y * width + x])
-			else:
+			if Boards.is_random(board_name):
 				node.set_value(randi_range(1, Game.TARGET_SUM - 1))
+			else:
+				node.set_value(board.data[y * width + x])
 
 			if not Engine.is_editor_hint():
 				node.pressed.connect(on_cell_pressed)
@@ -66,14 +68,14 @@ func _input(event: InputEvent) -> void:
 	if event.pressed:
 		return
 
-	if tutorial_board:
+	if not interactive:
 		return
 
 	on_released()
 
 
 func on_cell_pressed(cell: NumberCell, pretend: bool) -> void:
-	if tutorial_board != pretend:
+	if interactive == pretend:
 		return
 
 	var pos := cell.global_position
@@ -85,7 +87,7 @@ func on_cell_pressed(cell: NumberCell, pretend: bool) -> void:
 
 
 func on_cell_moved(cell: NumberCell, pretend: bool) -> void:
-	if tutorial_board != pretend:
+	if interactive == pretend:
 		return
 
 	if not is_held:

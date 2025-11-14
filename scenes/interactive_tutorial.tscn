@@ -108,7 +108,7 @@ color = Color(0.59607846, 0.6039216, 0.6862745, 1)
 position = Vector2(5.95, -14.665)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
-tutorial_board = true
+board_name = 2
 inner_node = ExtResource("6_j53so")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
