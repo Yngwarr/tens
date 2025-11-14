@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 
 	for a in area.get_overlapping_areas():
 		var parent = a.get_parent()
-		if parent is NumberCell:
+		if parent is NumberCell and parent.visible:
 			new_sum += parent.value
 
 	if new_sum != sum:
@@ -64,6 +64,8 @@ func clear() -> int:
 		var parent = a.get_parent()
 
 		if not parent is NumberCell:
+			continue
+		if not parent.visible:
 			continue
 		if parent.value == 0:
 			continue

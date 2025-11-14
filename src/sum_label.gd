@@ -1,17 +1,22 @@
 class_name SumLabel
 extends Control
 
+@export_group("External")
+@export var sound: AudioStreamPlayer
+
 @export_group("Internal")
 @export var view: Label
 @export var anim: AnimationPlayer
-@export var sound: AudioStreamPlayer
 @export var particles: CPUParticles2D
 
 var base_pitch: float
 
+
 func _ready() -> void:
 	view.visible = false
-	base_pitch = sound.pitch_scale
+
+	if sound:
+		base_pitch = sound.pitch_scale
 
 
 func update_text(value: int) -> void:
@@ -30,10 +35,12 @@ func update_text(value: int) -> void:
 
 	if is_target:
 		anim.play(&"bounce")
-		sound.pitch_scale = Tools.random_pitch(base_pitch)
-		sound.play()
+		if sound:
+			sound.pitch_scale = Tools.random_pitch(base_pitch)
+			sound.play()
 	else:
 		anim.play(&"RESET")
+
 
 func play_effect() -> void:
 	particles.emitting = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=16 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://f6ihr1lkrmb0" path="res://styleboxes/button_hover.stylebox" id="8_ax6wd"]
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="9_olgnm"]
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="10_pp5rf"]
+[ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_ax6wd"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="12_j0uj6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l0ufw"]
@@ -25,9 +26,11 @@ Button/styles/hover = ExtResource("8_ax6wd")
 Button/styles/normal = ExtResource("9_olgnm")
 Button/styles/pressed = ExtResource("10_pp5rf")
 
-[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages")]
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label")]
 script = ExtResource("1_y1csx")
-stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2")]
+stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2"), NodePath("Layer/Stage3"), NodePath("Layer/Stage4")]
+highlight = NodePath("Layer/Highlight")
+sum_label = NodePath("Layer/SumLabel")
 
 [node name="Layer" type="CanvasLayer" parent="."]
 
@@ -127,7 +130,7 @@ appear_timer = NodePath("../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="Grid2" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(545, 321)
+position = Vector2(568, 325)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 3
@@ -283,3 +286,17 @@ offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_j0uj6")
+
+[node name="SumLabel" parent="Layer" instance=ExtResource("12_ax6wd")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -202.0
+offset_right = 131.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
