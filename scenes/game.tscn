@@ -878,7 +878,7 @@ _data = {
 &"start": SubResource("Animation_kp7j3")
 }
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "options_window", "confirm_window", "idle_timer", "wallpaper_window", "tutorial_button")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("highlight", "hint", "grid", "solver", "sum_label", "score_label", "final_score_label", "hint_button", "pause_button", "anim", "protection_layer", "hint_sound", "game_over_sound", "music_player", "options_window", "confirm_window", "wallpaper_window", "idle_timer", "tutorial_button")]
 script = ExtResource("1_suyxu")
 highlight = NodePath("Highlight")
 hint = NodePath("Hint")
@@ -896,8 +896,8 @@ game_over_sound = NodePath("GameOverSound")
 music_player = NodePath("MusicPlayer")
 options_window = NodePath("OptionsWindow")
 confirm_window = NodePath("ConfirmQuit")
-idle_timer = NodePath("IdleTimer")
 wallpaper_window = NodePath("WallpaperWindow")
+idle_timer = NodePath("IdleTimer")
 tutorial_button = NodePath("HUD/TutorialButton")
 tutorial_prefab = ExtResource("14_pr1ej")
 

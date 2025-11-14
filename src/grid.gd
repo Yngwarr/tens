@@ -7,11 +7,15 @@ signal grabbed
 signal released
 signal fully_appeared
 
+@export var tutorial_board: bool = false
+
+@export_group("Prefabs")
 @export var inner_node: PackedScene
+
+@export_group("External")
 @export var front_layer: CanvasLayer
 @export var appear_timer: Timer
 @export var appear_sound: AudioStreamPlayer
-@export var tutorial_board: bool = false
 
 var width: int = 10
 var height: int = 10
@@ -200,6 +204,7 @@ func duck() -> void:
 func fall_apart() -> void:
 	for c in get_children():
 		c.remove()
+
 
 func play_appear_sound() -> void:
 	if not appear_sound:
