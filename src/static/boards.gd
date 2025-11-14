@@ -20,8 +20,8 @@ static var bs: Dictionary[Name, BoardData] = {
 		4, 5, 3, 2,
 		9, 9, 9, 9
 	]),
-	Name.PAGE_1_1: BoardData.new(Vector2i(1, 2), [6, 4]),
-	Name.PAGE_1_2: BoardData.new(Vector2i(1, 3), [2, 7, 1]),
+	Name.PAGE_1_1: BoardData.new(Vector2i(2, 1), [6, 4]),
+	Name.PAGE_1_2: BoardData.new(Vector2i(3, 1), [2, 7, 1]),
 	Name.PAGE_1_3: BoardData.new(Vector2i(2, 2), [1, 2, 5, 2]),
 	Name.PAGE_2: BoardData.new(Vector2i(3, 3), [
 		0, 0, 5,
@@ -34,6 +34,7 @@ static var bs: Dictionary[Name, BoardData] = {
 		5, 4, 5
 	])
 }
+
 
 static func is_random(name: Name) -> bool:
 	return get_board(name).data.is_empty()

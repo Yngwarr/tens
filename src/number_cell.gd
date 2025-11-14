@@ -82,6 +82,11 @@ func on_moved(pretend := false) -> void:
 
 func set_value(x: int) -> void:
 	value = x
+
+	if value == 0:
+		view.visible = false
+		return
+
 	label.text = str(value)
 	label.modulate = Palette.color(value)
 	frame.modulate = Palette.color(value)

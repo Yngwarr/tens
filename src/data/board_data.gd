@@ -10,3 +10,7 @@ func _init(p_size: Vector2i = Vector2i.ZERO, p_data: Array[int] = []) -> void:
 
 	size = p_size
 	data = p_data
+
+
+func _to_string() -> String:
+	return "BoardData: (%d, %d)" % [size.x, size.y]

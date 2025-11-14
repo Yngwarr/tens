@@ -7,6 +7,8 @@ signal grabbed
 signal released
 signal fully_appeared
 
+@export_tool_button("Reload", "Reload") var reload_button = setup_board
+
 @export var interactive: bool = true
 @export var board_name: Boards.Name = Boards.Name.RANDOM
 
@@ -33,12 +35,34 @@ func _ready() -> void:
 	if appear_sound:
 		appear_base_pitch = appear_sound.pitch_scale
 
+	setup_board()
+
+
+func _input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	if not event is InputEventMouseButton:
+		return
+
+	if event.pressed:
+		return
+
+	if not interactive:
+		return
+
+	on_released()
+
+
+func setup_board() -> void:
 	var board := Boards.get_board(board_name)
 
 	width = board.size.x
 	height = board.size.y
 
 	var step := Game.CELL_SIZE
+
+	clear()
 
 	for y in range(height):
 		for x in range(width):
@@ -58,20 +82,9 @@ func _ready() -> void:
 				node.moved_to.connect(on_cell_moved)
 
 
-func _input(event: InputEvent) -> void:
-	if Engine.is_editor_hint():
-		return
-
-	if not event is InputEventMouseButton:
-		return
-
-	if event.pressed:
-		return
-
-	if not interactive:
-		return
-
-	on_released()
+func clear() -> void:
+	for i in get_child_count():
+		get_child(i).queue_free()
 
 
 func on_cell_pressed(cell: NumberCell, pretend: bool) -> void:

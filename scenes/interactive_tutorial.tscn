@@ -1,56 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=15 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="4_q3s5m"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="5_m62rh"]
+[ext_resource type="Script" uid="uid://dkh4nnoiermy4" path="res://src/tutorial_stage.gd" id="5_p5g2e"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="6_j53so"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="7_7dnq6"]
-[ext_resource type="Texture2D" uid="uid://ccodkj57vbuuh" path="res://img/tutorial_hand.svg" id="8_37dtq"]
+[ext_resource type="StyleBox" uid="uid://f6ihr1lkrmb0" path="res://styleboxes/button_hover.stylebox" id="8_ax6wd"]
+[ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="9_olgnm"]
+[ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="10_pp5rf"]
+[ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="12_j0uj6"]
 
-[sub_resource type="Animation" id="Animation_j53so"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hand:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_l0ufw"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j53so"]
-_data = {
-&"RESET": SubResource("Animation_j53so")
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8egab"]
 
-[node name="Tutorial" type="Node2D" node_paths=PackedStringArray("grid", "highlight", "anim")]
+[sub_resource type="Theme" id="Theme_wjrhv"]
+Button/styles/focus = SubResource("StyleBoxEmpty_8egab")
+Button/styles/hover = ExtResource("8_ax6wd")
+Button/styles/normal = ExtResource("9_olgnm")
+Button/styles/pressed = ExtResource("10_pp5rf")
+
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages")]
 script = ExtResource("1_y1csx")
-grid = NodePath("Control/BoxContainer/Grid")
-highlight = NodePath("Highlight")
-anim = NodePath("AnimationPlayer")
+stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2")]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 651.0
+[node name="Layer" type="CanvasLayer" parent="."]
 
-[node name="ButtonSkip" type="Button" parent="Control"]
+[node name="ButtonSkip" type="Button" parent="Layer"]
 modulate = Color(1, 1, 1, 0.6117647)
 custom_minimum_size = Vector2(200, 90)
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -132.0
-offset_top = 12.0
-offset_right = 68.0
-offset_bottom = 102.0
+offset_left = -173.0
+offset_top = 29.0
+offset_right = 27.0
+offset_bottom = 119.0
 grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 0
@@ -58,7 +48,7 @@ size_flags_vertical = 4
 script = ExtResource("3_q3s5m")
 next_scene_name = "uid://b4cdbeg0ebk56"
 
-[node name="Icon1" type="TextureRect" parent="Control/ButtonSkip"]
+[node name="Icon1" type="TextureRect" parent="Layer/ButtonSkip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,8 +63,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_q3s5m")
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
-[node name="Icon2" type="TextureRect" parent="Control/ButtonSkip"]
+[node name="Icon2" type="TextureRect" parent="Layer/ButtonSkip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,47 +80,206 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_q3s5m")
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
-[node name="BoxContainer" type="BoxContainer" parent="Control"]
+[node name="Highlight" parent="Layer" instance=ExtResource("7_7dnq6")]
+visible = false
+
+[node name="Stage1" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+script = ExtResource("5_p5g2e")
+grids = [NodePath("Grid"), NodePath("Grid2"), NodePath("Grid3")]
+highlight = NodePath("../Highlight")
+
+[node name="Label" type="Label" parent="Layer/Stage1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 382.5
+offset_top = 80.0
+offset_right = 769.5
+offset_bottom = 121.0
+grow_horizontal = 2
+text = "This game is about tens."
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Layer/Stage1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 302.0
+offset_top = 160.0
+offset_right = 850.0
+offset_bottom = 201.0
+grow_horizontal = 2
+text = "Select numbers that sum up to 10."
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Grid" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(224.99998, 323)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 2
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../..")
+appear_timer = NodePath("../AppearTimer")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="Grid2" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(545, 321)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 3
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../..")
+appear_timer = NodePath("../AppearTimer2")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="Grid3" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(885, 316)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 4
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../..")
+appear_timer = NodePath("../AppearTimer3")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="AppearTimer" type="Timer" parent="Layer/Stage1"]
+wait_time = 0.05
+
+[node name="AppearTimer2" type="Timer" parent="Layer/Stage1"]
+wait_time = 0.05
+
+[node name="AppearTimer3" type="Timer" parent="Layer/Stage1"]
+wait_time = 0.05
+
+[node name="Stage2" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+visible = false
+script = ExtResource("5_p5g2e")
+grids = [NodePath("Grid")]
+highlight = NodePath("../Highlight")
+
+[node name="Label" type="Label" parent="Layer/Stage2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 139.0
+offset_top = 120.0
+offset_right = 1013.0
+offset_bottom = 161.0
+grow_horizontal = 2
+text = "Sometimes you need to clear some space to make ten."
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Grid" type="Node2D" parent="Layer/Stage2" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(545, 321)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 5
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../..")
+appear_timer = NodePath("../AppearTimer")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="AppearTimer" type="Timer" parent="Layer/Stage2"]
+wait_time = 0.05
+
+[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+visible = false
+script = ExtResource("5_p5g2e")
+grids = [NodePath("Grid")]
+highlight = NodePath("../Highlight")
+
+[node name="Label" type="Label" parent="Layer/Stage3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 139.0
+offset_top = 120.0
+offset_right = 1013.0
+offset_bottom = 161.0
+grow_horizontal = 2
+text = "The game ends when there are no more tens to make."
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Grid" type="Node2D" parent="Layer/Stage3" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(545, 321)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 6
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../..")
+appear_timer = NodePath("../AppearTimer")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="AppearTimer" type="Timer" parent="Layer/Stage3"]
+wait_time = 0.05
+
+[node name="Stage4" type="Node2D" parent="Layer" node_paths=PackedStringArray("highlight")]
+visible = false
+script = ExtResource("5_p5g2e")
+highlight = NodePath("../Highlight")
+
+[node name="Label" type="Label" parent="Layer/Stage4"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 139.0
+offset_top = 120.0
+offset_right = 1013.0
+offset_bottom = 161.0
+grow_horizontal = 2
+text = "Try to get the highest score with the squares you got."
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Layer/Stage4"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 139.0
+offset_top = 192.0
+offset_right = 1013.0
+offset_bottom = 233.0
+grow_horizontal = 2
+text = "Good luck!"
+label_settings = SubResource("LabelSettings_l0ufw")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="Layer/Stage4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 468.0
+offset_top = 317.0
+offset_right = 705.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(118.5, 68)
+theme = SubResource("Theme_wjrhv")
+text = " "
+icon_alignment = 1
+script = ExtResource("3_q3s5m")
+next_scene_name = "uid://b4cdbeg0ebk56"
+
+[node name="Icon" type="TextureRect" parent="Layer/Stage4/Start"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -27.5
+offset_right = 30.5
+offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Frame" type="ColorRect" parent="Control/BoxContainer"]
-layout_mode = 2
-color = Color(0.59607846, 0.6039216, 0.6862745, 1)
-
-[node name="Grid" type="Node2D" parent="Control/BoxContainer"]
-position = Vector2(5.95, -14.665)
-scale = Vector2(1.1, 1.1)
-script = ExtResource("5_m62rh")
-board_name = 2
-inner_node = ExtResource("6_j53so")
-metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_j53so")
-}
-
-[node name="Highlight" parent="." instance=ExtResource("7_7dnq6")]
-visible = false
-offset_left = 307.0
-offset_top = 238.0
-offset_right = 307.0
-offset_bottom = 238.0
-silent = true
-
-[node name="Hand" type="TextureRect" parent="."]
-visible = false
-offset_left = 173.0
-offset_top = 241.0
-offset_right = 272.00156
-offset_bottom = 357.0001
-pivot_offset = Vector2(88, 106)
-texture = ExtResource("8_37dtq")
+texture = ExtResource("12_j0uj6")
