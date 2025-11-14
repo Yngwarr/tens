@@ -1,3 +1,4 @@
+class_name InteractiveTutorial
 extends Node2D
 
 @export var grid: Grid

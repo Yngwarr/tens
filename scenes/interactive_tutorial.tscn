@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=10 format=3 uid="uid://cm4rtw3mwedhd"]
 
-[ext_resource type="PackedScene" uid="uid://d0dr1lbayxhmb" path="res://scenes/background.tscn" id="1_arlv2"]
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="4_q3s5m"]
@@ -34,8 +33,6 @@ script = ExtResource("1_y1csx")
 grid = NodePath("Control/BoxContainer/Grid")
 highlight = NodePath("Highlight")
 anim = NodePath("AnimationPlayer")
-
-[node name="Background" parent="." instance=ExtResource("1_arlv2")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -111,8 +108,8 @@ color = Color(0.59607846, 0.6039216, 0.6862745, 1)
 position = Vector2(5.95, -14.665)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
-inner_node = ExtResource("6_j53so")
 tutorial_board = true
+inner_node = ExtResource("6_j53so")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
