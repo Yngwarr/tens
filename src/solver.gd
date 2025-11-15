@@ -8,6 +8,7 @@ signal none_left
 var hints: Array[Vector4i]
 var next_hint: Vector4
 
+
 func _ready() -> void:
 	read()
 	# print_num_on(0, 0)
@@ -20,7 +21,8 @@ func _ready() -> void:
 	# print_sum(0, 0, 1, 1)
 	# print_sum(0, 0, 2, 2)
 
-func read() -> void:
+## returns the number of tens left
+func read() -> int:
 	hints.clear()
 	next_hint = Vector4.ZERO
 
@@ -32,10 +34,15 @@ func read() -> void:
 						hints.push_back(Vector4i(x0, y0, x1, y1))
 
 	print("%s tens left" % len(hints))
-	if len(hints) == 0:
+	var tens_amount := len(hints)
+
+	if tens_amount == 0:
 		none_left.emit()
 	else:
 		next_hint = optimize_hint(hints.pick_random())
+
+	return tens_amount
+
 
 # x,y -> z,y
 #         |
@@ -66,6 +73,7 @@ func optimize_hint(hint: Vector4i) -> Vector4:
 
 	return hint_to_global(x, y, z, w)
 
+
 func is_ten(x0: int, y0: int, x1: int, y1: int) -> bool:
 	var sum: int = 0
 
@@ -77,6 +85,7 @@ func is_ten(x0: int, y0: int, x1: int, y1: int) -> bool:
 
 	return sum == 10
 
+
 func rect_sum(x0: int, y0: int, x1: int, y1: int) -> int:
 	var sum: int = 0
 
@@ -86,19 +95,24 @@ func rect_sum(x0: int, y0: int, x1: int, y1: int) -> int:
 
 	return sum
 
+
 func cell_on(x: int, y: int) -> NumberCell:
 	return grid.get_child(x + y * grid.width)
 
+
 func num_on(x: int, y: int) -> int:
 	return cell_on(x, y).value
+
 
 func hint_to_global(x0: int, y0: int, x1: int, y1: int) -> Vector4:
 	var first_point := cell_on(x0, y0).global_position
 	var second_point := cell_on(x1, y1).global_position
 	return Vector4(first_point.x, first_point.y, second_point.x, second_point.y)
 
+
 func print_num_on(x: int, y: int) -> void:
 	print("num_on(%s, %s) = %s" % [x, y, num_on(x, y)])
+
 
 func print_sum(x0: int, y0: int, x1: int, y1: int) -> void:
 	print("rect_sum(%s, %s, %s, %s) = %s" % [x0, y0, x1, y1, rect_sum(x0, y0, x1, y1)])

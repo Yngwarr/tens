@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=17 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="6_j53so"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="7_7dnq6"]
 [ext_resource type="StyleBox" uid="uid://f6ihr1lkrmb0" path="res://styleboxes/button_hover.stylebox" id="8_ax6wd"]
+[ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="8_olgnm"]
 [ext_resource type="StyleBox" uid="uid://bq8axlmn8fwrr" path="res://styleboxes/button_normal.stylebox" id="9_olgnm"]
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="10_pp5rf"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_ax6wd"]
@@ -190,11 +191,12 @@ metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 [node name="AppearTimer" type="Timer" parent="Layer/Stage2"]
 wait_time = 0.05
 
-[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight", "solver")]
 visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid")]
 highlight = NodePath("../Highlight")
+solver = NodePath("Solver")
 
 [node name="Label" type="Label" parent="Layer/Stage3"]
 anchors_preset = 5
@@ -222,6 +224,11 @@ metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 [node name="AppearTimer" type="Timer" parent="Layer/Stage3"]
 wait_time = 0.05
 
+[node name="Solver" type="Node" parent="Layer/Stage3" node_paths=PackedStringArray("grid")]
+script = ExtResource("8_olgnm")
+grid = NodePath("../Grid")
+metadata/_custom_type_script = "uid://wofk0nojyk7r"
+
 [node name="Stage4" type="Node2D" parent="Layer" node_paths=PackedStringArray("highlight")]
 visible = false
 script = ExtResource("5_p5g2e")
@@ -236,7 +243,7 @@ offset_top = 120.0
 offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
-text = "Try to get the highest score with the squares you got."
+text = "Try to get the highest score with the numbers you got."
 label_settings = SubResource("LabelSettings_l0ufw")
 horizontal_alignment = 1
 

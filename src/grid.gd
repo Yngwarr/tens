@@ -4,7 +4,7 @@ extends Node2D
 
 signal highlight_changed(rect: Rect2)
 signal grabbed
-signal released
+signal released(grid: Grid)
 signal fully_appeared
 
 @export_tool_button("Reload", "Reload") var reload_button = setup_board
@@ -116,7 +116,7 @@ func on_released() -> void:
 		return
 
 	is_held = false
-	released.emit()
+	released.emit(self)
 
 
 func set_front_layer(layer: CanvasLayer) -> void:
@@ -227,3 +227,12 @@ func play_appear_sound() -> void:
 
 	appear_sound.pitch_scale = Tools.random_pitch(appear_base_pitch, .1)
 	appear_sound.play()
+
+
+func is_empty() -> bool:
+	for i in get_child_count():
+		var cell = get_child(i) as NumberCell
+		if cell.value > 0:
+			return false
+
+	return true

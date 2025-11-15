@@ -89,7 +89,7 @@ func on_grabbed() -> void:
 	highlight.toggle(true)
 
 
-func on_released() -> void:
+func on_released(_grid: Grid) -> void:
 	highlight.toggle(false)
 	hint.disappear()
 
@@ -104,7 +104,6 @@ func on_released() -> void:
 		idle_timer.start()
 
 		solver.read()
-
 	else:
 		highlight.fail()
 

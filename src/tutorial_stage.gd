@@ -1,9 +1,14 @@
 class_name TutorialStage
 extends Node2D
 
+signal complete(index: int)
+
 @export_group("Internal")
 @export var grids: Array[Grid]
 @export var highlight: Highlight
+@export var solver: Solver
+
+var index: int
 
 
 func _ready() -> void:
@@ -13,6 +18,10 @@ func _ready() -> void:
 	visibility_changed.connect(on_visibility_changed)
 
 
+func init(p_index: int) -> void:
+	index = p_index
+
+
 func on_visibility_changed() -> void:
 	if not visible:
 		return
@@ -20,7 +29,29 @@ func on_visibility_changed() -> void:
 	for grid in grids:
 		grid.highlight_changed.connect(highlight.resize)
 		grid.grabbed.connect(func(): highlight.toggle(true))
-		grid.released.connect(func(): highlight.toggle(false))
+		grid.released.connect(on_release)
 
 		grid.appear()
 		await grid.fully_appeared
+
+
+func on_release(_grid: Grid) -> void:
+	highlight.toggle(false)
+
+	if highlight.sum == Game.TARGET_SUM:
+		highlight.clear()
+		check_complete()
+
+
+func check_complete() -> void:
+	if solver:
+		if solver.read() == 0:
+			complete.emit(index)
+
+		return
+
+	for grid in grids:
+		if not grid.is_empty():
+			return
+
+	complete.emit(index)
