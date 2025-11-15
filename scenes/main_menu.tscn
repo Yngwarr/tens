@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=29 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="3_flqon"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 [ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpaper_window.tscn" id="25_3wgol"]
-[ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="26_1acrt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
 font = ExtResource("6_5pajh")
@@ -299,7 +298,7 @@ stats_window = NodePath("StatsWindow")
 options_window = NodePath("OptionsWindow")
 wallpaper_window = NodePath("WallpaperWindow")
 tutorial_button = NodePath("Menu/Tutorial")
-tutorial_prefab = ExtResource("26_1acrt")
+tutorial_scene_name = "uid://cm4rtw3mwedhd"
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
@@ -343,7 +342,8 @@ theme = SubResource("Theme_a8gd2")
 text = " "
 icon_alignment = 1
 script = ExtResource("4_rcqid")
-next_scene_name = "uid://b4cdbeg0ebk56"
+game_scene_name = "uid://b4cdbeg0ebk56"
+tutorial_scene_name = "uid://cm4rtw3mwedhd"
 anim = NodePath("../../AnimationPlayer")
 
 [node name="Icon" type="TextureRect" parent="Menu/Start"]

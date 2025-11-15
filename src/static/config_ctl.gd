@@ -9,14 +9,14 @@ const CONFIG_FILE: StringName = &"user://config.ini"
 const SOUND_VOLUME: StringName = &"SoundVolume"
 const PREFS: StringName = &"Prefs"
 
-static var prefs := {background = 0}
+static var prefs := {background = 0, show_tutorial = true}
 
 
-static func get_pref(pref_name: StringName) -> int:
+static func get_pref(pref_name: StringName) -> Variant:
 	return prefs[pref_name]
 
 
-static func set_pref(pref_name: StringName, value: int) -> void:
+static func set_pref(pref_name: StringName, value: Variant) -> void:
 	prefs[pref_name] = value
 	update_config()
 
@@ -41,7 +41,8 @@ static func load_config() -> void:
 
 	# prefs
 	for x in prefs:
-		prefs[x] = config.get_value(PREFS, x, 0)
+		var new_pref = config.get_value(PREFS, x)
+		prefs[x] = prefs[x] if new_pref == null else new_pref
 
 
 ## Actualizes values and stores them in the global config file. Opens a file if

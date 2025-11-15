@@ -10,16 +10,17 @@ extends Node2D
 @export var options_window: PopupPanel
 @export var wallpaper_window: PopupPanel
 @export var tutorial_button: BaseButton
-
-@export_group("Prefabs")
-@export var tutorial_prefab: PackedScene
-
+@export_file("*.tscn") var tutorial_scene_name: String
 
 func _ready() -> void:
+	if OS.has_feature(&"editor_runtime"):
+		print("User data is located at %s" % OS.get_data_dir())
+
 	ConfigCtl.load_config()
 	Stats.read_stats()
 
-	Background.change_bg(Global.wallpaper_textures[ConfigCtl.get_pref(&"background")])
+	var bg_index: int = ConfigCtl.get_pref(&"background")
+	Background.change_bg(Global.wallpaper_textures[bg_index])
 
 	first_to_focus.grab_focus()
 
@@ -48,5 +49,4 @@ func on_wallpaper_visibility() -> void:
 
 
 func on_show_tutorial() -> void:
-	var tutorial := tutorial_prefab.instantiate()
-	add_child(tutorial)
+	get_tree().change_scene_to_file(tutorial_scene_name)

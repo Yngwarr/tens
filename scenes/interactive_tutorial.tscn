@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="5_m62rh"]
 [ext_resource type="Script" uid="uid://dkh4nnoiermy4" path="res://src/tutorial_stage.gd" id="5_p5g2e"]
 [ext_resource type="PackedScene" uid="uid://mbbrk257a4oj" path="res://scenes/number_cell.tscn" id="6_j53so"]
+[ext_resource type="LabelSettings" uid="uid://c546frtxf0me6" path="res://theme/interactive_tutorial.labelsettings.tres" id="6_pp5rf"]
 [ext_resource type="PackedScene" uid="uid://beuhw1og8dasw" path="res://scenes/highlight.tscn" id="7_7dnq6"]
 [ext_resource type="StyleBox" uid="uid://f6ihr1lkrmb0" path="res://styleboxes/button_hover.stylebox" id="8_ax6wd"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="8_olgnm"]
@@ -13,11 +14,6 @@
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="10_pp5rf"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_ax6wd"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="12_j0uj6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_l0ufw"]
-font_size = 32
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8egab"]
 
@@ -90,6 +86,7 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="Stage1" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid"), NodePath("Grid2"), NodePath("Grid3")]
 highlight = NodePath("../Highlight")
@@ -104,7 +101,7 @@ offset_right = 769.5
 offset_bottom = 121.0
 grow_horizontal = 2
 text = "This game is about tens."
-label_settings = SubResource("LabelSettings_l0ufw")
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Layer/Stage1"]
@@ -117,11 +114,38 @@ offset_right = 850.0
 offset_bottom = 201.0
 grow_horizontal = 2
 text = "Select numbers that sum up to 10."
-label_settings = SubResource("LabelSettings_l0ufw")
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
+[node name="Background1" type="ColorRect" parent="Layer/Stage1"]
+z_index = -1
+offset_left = 223.0
+offset_top = 291.0
+offset_right = 353.0
+offset_bottom = 357.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Background2" type="ColorRect" parent="Layer/Stage1"]
+z_index = -1
+offset_left = 479.0
+offset_top = 291.0
+offset_right = 673.0
+offset_bottom = 357.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Background3" type="ColorRect" parent="Layer/Stage1"]
+z_index = -1
+offset_left = 799.0
+offset_top = 259.0
+offset_right = 929.0
+offset_bottom = 389.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
 [node name="Grid" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(224.99998, 323)
+position = Vector2(288, 324)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 2
@@ -131,7 +155,7 @@ appear_timer = NodePath("../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="Grid2" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(568, 325)
+position = Vector2(576, 324)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 3
@@ -141,7 +165,7 @@ appear_timer = NodePath("../AppearTimer2")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="Grid3" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(885, 316)
+position = Vector2(864, 324)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 4
@@ -160,7 +184,6 @@ wait_time = 0.05
 wait_time = 0.05
 
 [node name="Stage2" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
-visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid")]
 highlight = NodePath("../Highlight")
@@ -174,12 +197,21 @@ offset_top = 120.0
 offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
-text = "Sometimes you need to clear some space to make ten."
-label_settings = SubResource("LabelSettings_l0ufw")
+text = "Sometimes making ten opens new opportunities."
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
+[node name="Background" type="ColorRect" parent="Layer/Stage2"]
+z_index = -1
+offset_left = 479.0
+offset_top = 228.0
+offset_right = 673.0
+offset_bottom = 420.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
 [node name="Grid" type="Node2D" parent="Layer/Stage2" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(545, 321)
+position = Vector2(576, 324)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 5
@@ -208,11 +240,20 @@ offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
 text = "The game ends when there are no more tens to make."
-label_settings = SubResource("LabelSettings_l0ufw")
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
+[node name="Background" type="ColorRect" parent="Layer/Stage3"]
+z_index = -1
+offset_left = 479.0
+offset_top = 228.0
+offset_right = 673.0
+offset_bottom = 420.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
 [node name="Grid" type="Node2D" parent="Layer/Stage3" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(545, 321)
+position = Vector2(576, 324)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 6
@@ -244,7 +285,7 @@ offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
 text = "Try to get the highest score with the numbers you got."
-label_settings = SubResource("LabelSettings_l0ufw")
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Layer/Stage4"]
@@ -257,7 +298,7 @@ offset_right = 1013.0
 offset_bottom = 233.0
 grow_horizontal = 2
 text = "Good luck!"
-label_settings = SubResource("LabelSettings_l0ufw")
+label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="Layer/Stage4"]

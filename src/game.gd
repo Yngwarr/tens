@@ -44,12 +44,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if not Storage.tutorial_watched:
-		var tutorial := tutorial_prefab.instantiate()
-		add_child(tutorial)
-		Storage.tutorial_watched = true
-		get_tree().paused = true
-
 	grid.highlight_changed.connect(highlight.resize)
 	grid.grabbed.connect(on_grabbed)
 	grid.released.connect(on_released)

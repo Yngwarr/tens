@@ -96,7 +96,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
-size = Vector2(60, 60)
+size = Vector2(58, 58)
 
 [node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view", "anim")]
 script = ExtResource("1_4guiy")
