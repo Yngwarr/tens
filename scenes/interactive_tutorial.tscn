@@ -114,7 +114,7 @@ offset_top = 160.0
 offset_right = 850.0
 offset_bottom = 201.0
 grow_horizontal = 2
-text = "Select numbers that sum up to 10."
+text = "Hold and drag to select numbers that sum up to 10."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
