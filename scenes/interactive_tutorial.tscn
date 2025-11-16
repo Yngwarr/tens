@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=19 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
@@ -14,6 +14,8 @@
 [ext_resource type="StyleBox" uid="uid://dcmqiaccx8khd" path="res://styleboxes/button_pressed.stylebox" id="10_pp5rf"]
 [ext_resource type="PackedScene" uid="uid://cokef7akh8gj" path="res://scenes/sum_label.tscn" id="12_ax6wd"]
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="12_j0uj6"]
+[ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="15_j0uj6"]
+[ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="15_uuc1u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8egab"]
 
@@ -86,7 +88,6 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="Stage1" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
-visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid"), NodePath("Grid2"), NodePath("Grid3")]
 highlight = NodePath("../Highlight")
@@ -184,6 +185,7 @@ wait_time = 0.05
 wait_time = 0.05
 
 [node name="Stage2" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid")]
 highlight = NodePath("../Highlight")
@@ -348,3 +350,9 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+
+[node name="OptionsWindow" parent="Layer" instance=ExtResource("15_j0uj6")]
+visible = false
+
+[node name="Settings" parent="Layer" node_paths=PackedStringArray("popup") instance=ExtResource("15_uuc1u")]
+popup = NodePath("../OptionsWindow")
