@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=20 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
 [ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://brsdikco47afs" path="res://img/menu/main_play_icon.svg" id="12_j0uj6"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="15_j0uj6"]
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="15_uuc1u"]
+[ext_resource type="PackedScene" uid="uid://comtkoxqecryt" path="res://scenes/tutorial_hand.tscn" id="17_wjrhv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8egab"]
 
@@ -25,11 +26,12 @@ Button/styles/hover = ExtResource("8_ax6wd")
 Button/styles/normal = ExtResource("9_olgnm")
 Button/styles/pressed = ExtResource("10_pp5rf")
 
-[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label")]
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand")]
 script = ExtResource("1_y1csx")
 stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2"), NodePath("Layer/Stage3"), NodePath("Layer/Stage4")]
 highlight = NodePath("Layer/Highlight")
 sum_label = NodePath("Layer/SumLabel")
+hand = NodePath("Layer/TutorialHand")
 
 [node name="Layer" type="CanvasLayer" parent="."]
 
@@ -336,6 +338,8 @@ offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_j0uj6")
+
+[node name="TutorialHand" parent="Layer" instance=ExtResource("17_wjrhv")]
 
 [node name="SumLabel" parent="Layer" instance=ExtResource("12_ax6wd")]
 anchors_preset = 7

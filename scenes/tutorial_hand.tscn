@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://comtkoxqecryt"]
+
+[ext_resource type="Texture2D" uid="uid://ccodkj57vbuuh" path="res://img/tutorial_hand.svg" id="1_qgo65"]
+[ext_resource type="Script" uid="uid://q55upcj3oya7" path="res://src/tutorial_hand.gd" id="2_fcv2t"]
+
+[node name="TutorialHand" type="Sprite2D"]
+texture = ExtResource("1_qgo65")
+centered = false
+script = ExtResource("2_fcv2t")

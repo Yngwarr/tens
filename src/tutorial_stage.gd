@@ -9,6 +9,7 @@ signal complete(index: int)
 @export var solver: Solver
 
 var index: int
+var hand: TutorialHand
 
 
 func _ready() -> void:
@@ -18,8 +19,9 @@ func _ready() -> void:
 	visibility_changed.connect(on_visibility_changed)
 
 
-func init(p_index: int) -> void:
+func init(p_index: int, p_hand: TutorialHand) -> void:
 	index = p_index
+	hand = p_hand
 
 
 func on_visibility_changed() -> void:
@@ -33,6 +35,10 @@ func on_visibility_changed() -> void:
 
 		grid.appear()
 		await grid.fully_appeared
+
+	var p0: Vector2 = grids[0].get_child(0).global_position
+	var p1: Vector2 = grids[0].get_child(1).global_position
+	hand.drag(p0, p1)
 
 
 func on_release(_grid: Grid) -> void:

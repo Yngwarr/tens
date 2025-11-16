@@ -5,6 +5,7 @@ extends Node2D
 @export var stages: Array[TutorialStage]
 @export var highlight: Highlight
 @export var sum_label: SumLabel
+@export var hand: TutorialHand
 
 
 func _ready() -> void:
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 	for i in len(stages):
 		var stage := stages[i]
-		stage.init(i)
+		stage.init(i, hand)
 		stage.complete.connect(on_stage_complete)
 
 
