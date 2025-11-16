@@ -340,6 +340,7 @@ grow_vertical = 2
 texture = ExtResource("12_j0uj6")
 
 [node name="TutorialHand" parent="Layer" instance=ExtResource("17_wjrhv")]
+visible = false
 
 [node name="SumLabel" parent="Layer" instance=ExtResource("12_ax6wd")]
 anchors_preset = 7

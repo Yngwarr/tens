@@ -36,10 +36,6 @@ func on_visibility_changed() -> void:
 		grid.appear()
 		await grid.fully_appeared
 
-	var p0: Vector2 = grids[0].get_child(0).global_position
-	var p1: Vector2 = grids[0].get_child(1).global_position
-	hand.drag(p0, p1)
-
 
 func on_release(_grid: Grid) -> void:
 	highlight.toggle(false)
