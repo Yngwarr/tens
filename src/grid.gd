@@ -128,34 +128,37 @@ func set_front_layer(layer: CanvasLayer) -> void:
 
 
 func update_highlight() -> void:
+	var rect := get_highlight_rect(first_point, second_point)
+	highlight_changed.emit(rect)
+
+
+func get_highlight_rect(p0: Vector2, p1: Vector2) -> Rect2:
 	var left_point: Vector2
 	var right_point: Vector2
 
-	if first_point.x <= second_point.x && first_point.y <= second_point.y:
+	if p0.x <= p1.x && p0.y <= p1.y:
 		# print("2")
-		left_point = first_point
-		right_point = second_point
-	elif first_point.x > second_point.x && first_point.y <= second_point.y:
+		left_point = p0
+		right_point = p1
+	elif p0.x > p1.x && p0.y <= p1.y:
 		# print("3")
-		left_point = Vector2(second_point.x, first_point.y)
-		right_point = Vector2(first_point.x, second_point.y)
-	elif first_point.x <= second_point.x && first_point.y > second_point.y:
+		left_point = Vector2(p1.x, p0.y)
+		right_point = Vector2(p0.x, p1.y)
+	elif p0.x <= p1.x && p0.y > p1.y:
 		# print("1")
-		left_point = Vector2(first_point.x, second_point.y)
-		right_point = Vector2(second_point.x, first_point.y)
+		left_point = Vector2(p0.x, p1.y)
+		right_point = Vector2(p1.x, p0.y)
 	else:
 		# print("4")
-		left_point = second_point
-		right_point = first_point
+		left_point = p1
+		right_point = p0
 
 	var x := left_point.x - Game.CELL_SIZE / 2.
 	var y := left_point.y - Game.CELL_SIZE / 2.
 	var w := right_point.x + Game.CELL_SIZE / 2. - x
 	var h := right_point.y + Game.CELL_SIZE / 2. - y
 
-	var rect := Rect2(x, y, abs(w), abs(h))
-
-	highlight_changed.emit(rect)
+	return Rect2(x, y, abs(w), abs(h))
 
 
 func appear() -> void:
