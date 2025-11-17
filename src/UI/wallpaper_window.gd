@@ -43,7 +43,6 @@ func on_visibility_changed() -> void:
 	spawn_page()
 	update_buttons()
 	update_page_label()
-	update_selected(Background.get_texture())
 
 
 func spawn_page() -> void:
@@ -52,6 +51,8 @@ func spawn_page() -> void:
 	for i in PAGE_SIZE:
 		if i + page_index * PAGE_SIZE < len(Global.wallpaper_textures):
 			spawn_element(i + page_index * PAGE_SIZE)
+	
+	update_selected(Background.get_texture())
 
 
 func spawn_element(index: int) -> void:
