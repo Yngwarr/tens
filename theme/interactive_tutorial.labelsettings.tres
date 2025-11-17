@@ -4,3 +4,6 @@
 font_size = 32
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
