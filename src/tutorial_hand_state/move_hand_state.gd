@@ -7,10 +7,11 @@ var tween: Tween
 var start_scale: Vector2
 var start_rotation: float
 
+
 func setup(opts: Dictionary[String, Variant]) -> void:
 	super(opts)
 
-	if opts.has('hidden_state'):
+	if opts.has("hidden_state"):
 		hidden_state = opts.hidden_state
 
 	start_scale = hand.scale
@@ -22,26 +23,34 @@ func enter() -> void:
 
 	var current_move := hand.next_move()
 
+	if current_move == Vector4.ZERO:
+		transition(hidden_state)
+		return
+
 	hand.modulate = Color.TRANSPARENT
 	hand.scale = start_scale
 	hand.rotation_degrees = start_rotation
-	hand.global_position = current_move.from
+	hand.global_position = Vector2(current_move.x, current_move.y)
 	hand.show()
 
 	tween = hand.get_tree().create_tween()
-	tween.tween_property(hand, "modulate", Color.WHITE, .5)
+	tween.tween_property(hand, "modulate", Color.WHITE, .2)
 	tween.tween_property(hand, "rotation_degrees", start_rotation - 10, .5)
 	tween.parallel().tween_property(hand, "scale", start_scale * .8, .5)
-	tween.tween_property(hand, "global_position", current_move.to, 1)
+	tween.tween_property(hand, "global_position", Vector2(current_move.z, current_move.w), 1)
 	tween.tween_property(hand, "rotation_degrees", start_rotation, .5)
 	tween.parallel().tween_property(hand, "scale", start_scale, .5)
 	tween.tween_callback(on_tween_done)
 
+
 func exit() -> void:
 	super()
 
+	if hand.modulate == Color.TRANSPARENT:
+		return
+
 	tween = hand.get_tree().create_tween()
-	tween.tween_property(hand, "modulate", Color.TRANSPARENT, .5)
+	tween.tween_property(hand, "modulate", Color.TRANSPARENT, .2)
 
 
 func on_player_turn() -> void:

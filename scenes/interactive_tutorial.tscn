@@ -26,13 +26,14 @@ Button/styles/hover = ExtResource("8_ax6wd")
 Button/styles/normal = ExtResource("9_olgnm")
 Button/styles/pressed = ExtResource("10_pp5rf")
 
-[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand", "solver")]
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand", "solver", "skip_button")]
 script = ExtResource("1_y1csx")
 stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2"), NodePath("Layer/Stage3"), NodePath("Layer/Stage4")]
 highlight = NodePath("Layer/Highlight")
 sum_label = NodePath("Layer/SumLabel")
 hand = NodePath("Layer/TutorialHand")
 solver = NodePath("Layer/Stage3/Solver")
+skip_button = NodePath("Layer/ButtonSkip")
 
 [node name="Solver" type="Node" parent="."]
 script = ExtResource("8_olgnm")

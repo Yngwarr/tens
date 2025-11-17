@@ -18,14 +18,14 @@ func setup(opts: Dictionary[String, Variant]) -> void:
 func enter() -> void:
 	super()
 
-	hand.cooldown_timer.timeout.connect(on_timeout)
+	Tools.try_connect(hand.cooldown_timer.timeout, on_timeout)
 	hand.cooldown_timer.start(cooldown)
 
 
 func exit() -> void:
 	super()
 
-	hand.cooldown_timer.timeout.disconnect(on_timeout)
+	Tools.try_disconnect(hand.cooldown_timer.timeout, on_timeout)
 
 
 func on_player_turn() -> void:

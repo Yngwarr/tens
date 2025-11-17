@@ -43,6 +43,7 @@ func on_release(_grid: Grid) -> void:
 
 	if highlight.sum == Game.TARGET_SUM:
 		highlight.clear()
+		hand.on_player_turn()
 		check_complete()
 
 
