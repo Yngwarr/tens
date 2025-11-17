@@ -26,12 +26,17 @@ Button/styles/hover = ExtResource("8_ax6wd")
 Button/styles/normal = ExtResource("9_olgnm")
 Button/styles/pressed = ExtResource("10_pp5rf")
 
-[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand")]
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand", "solver")]
 script = ExtResource("1_y1csx")
 stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2"), NodePath("Layer/Stage3"), NodePath("Layer/Stage4")]
 highlight = NodePath("Layer/Highlight")
 sum_label = NodePath("Layer/SumLabel")
 hand = NodePath("Layer/TutorialHand")
+solver = NodePath("Layer/Stage3/Solver")
+
+[node name="Solver" type="Node" parent="."]
+script = ExtResource("8_olgnm")
+metadata/_custom_type_script = "uid://wofk0nojyk7r"
 
 [node name="Layer" type="CanvasLayer" parent="."]
 
@@ -227,12 +232,11 @@ metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 [node name="AppearTimer" type="Timer" parent="Layer/Stage2"]
 wait_time = 0.05
 
-[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight", "solver")]
+[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
 visible = false
 script = ExtResource("5_p5g2e")
 grids = [NodePath("Grid")]
 highlight = NodePath("../Highlight")
-solver = NodePath("Solver")
 
 [node name="Label" type="Label" parent="Layer/Stage3"]
 anchors_preset = 5

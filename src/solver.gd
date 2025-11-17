@@ -10,7 +10,9 @@ var next_hint: Vector4
 
 
 func _ready() -> void:
-	read()
+	if grid:
+		read()
+
 	# print_num_on(0, 0)
 	# print_num_on(1, 0)
 	# print_num_on(0, 1)
