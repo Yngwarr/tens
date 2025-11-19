@@ -6,8 +6,8 @@
 [node name="Button" instance=ExtResource("1_ql45r")]
 
 [node name="Icon" parent="." index="0"]
-offset_left = -18.5
-offset_top = -18.5
-offset_right = 18.5
-offset_bottom = 18.5
+offset_left = -24.499634
+offset_top = -24.5
+offset_right = 24.500366
+offset_bottom = 23.5
 texture = ExtResource("2_msk88")

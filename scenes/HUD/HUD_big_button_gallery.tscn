@@ -7,8 +7,8 @@
 disabled = true
 
 [node name="Icon" parent="." index="0"]
-offset_left = -35.5
-offset_top = -43.5
-offset_right = 41.5
-offset_bottom = 36.5
+offset_left = -48.5
+offset_top = -49.5
+offset_right = 46.5
+offset_bottom = 49.5
 texture = ExtResource("2_0kjdq")
