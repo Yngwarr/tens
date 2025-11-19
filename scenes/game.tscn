@@ -29,9 +29,9 @@
 [ext_resource type="AudioStream" uid="uid://c5oli4tc3qpp7" path="res://sfx/effects/137402__dansotak__computer_mouse_scroll_edited.wav" id="24_qnb83"]
 [ext_resource type="Script" uid="uid://wofk0nojyk7r" path="res://src/solver.gd" id="25_o8ni1"]
 [ext_resource type="AudioStream" uid="uid://br0nqallxltqy" path="res://sfx/effects/789790__quatricise__pop-1.wav" id="25_qnb83"]
-[ext_resource type="AudioStream" uid="uid://b5f1o5drvlpe4" path="res://sfx/bgm/Isolated.mp3" id="26_qnb83"]
 [ext_resource type="AudioStream" uid="uid://cb4lhj1opeg6g" path="res://sfx/effects/789793__quatricise__pop-4.wav" id="26_suyxu"]
 [ext_resource type="AudioStream" uid="uid://buayj7vc7ky8c" path="res://sfx/tens-final.ogg" id="29_7ixpq"]
+[ext_resource type="AudioStream" uid="uid://eis0bxp0s0pj" path="res://sfx/bgm/Past Sadness.mp3" id="31_js0lu"]
 [ext_resource type="AudioStream" uid="uid://cu1j51je5c6tl" path="res://sfx/effects/609588__unfa__firecracker-explosion_edited.wav" id="31_qouja"]
 [ext_resource type="AudioStream" uid="uid://cyprjs3rkxi44" path="res://sfx/effects/745030__poenia__domino_sfx_putonboard.wav" id="34_js0lu"]
 
@@ -1224,7 +1224,7 @@ bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("26_qnb83")
+stream = ExtResource("31_js0lu")
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
