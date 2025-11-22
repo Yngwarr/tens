@@ -81,13 +81,9 @@ _data = {
 }
 
 [node name="HintButton" type="TextureButton" node_paths=PackedStringArray("anim", "hint_label", "ad_icon", "button")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1152.0
-offset_right = -1002.0
+offset_right = 150.0
 offset_bottom = 150.0
-grow_horizontal = 0
+pivot_offset = Vector2(75, 75)
 keep_pressed_outside = true
 shortcut = SubResource("Shortcut_uxviy")
 shortcut_in_tooltip = false

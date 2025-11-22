@@ -24,3 +24,7 @@ static func random_pitch(base: float, offset := .1) -> float:
 	assert(offset <= base)
 
 	return eerp(base - offset, base + offset, randf())
+
+
+static func get_window_size(node: Node) -> Vector2:
+	return node.get_viewport().get_visible_rect().size

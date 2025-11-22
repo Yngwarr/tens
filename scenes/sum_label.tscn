@@ -44,13 +44,7 @@ _data = {
 
 [node name="SumLabel" type="Control" node_paths=PackedStringArray("view", "anim", "particles")]
 layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -61.0
-offset_right = 262.0
-offset_bottom = 61.0
-grow_vertical = 2
+anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_ntdrc")
 view = NodePath("View")
@@ -59,7 +53,6 @@ particles = NodePath("Particles")
 
 [node name="Particles" type="CPUParticles2D" parent="."]
 modulate = Color(0.1254902, 1, 0, 1)
-position = Vector2(128, 68)
 emitting = false
 amount = 10
 texture = ExtResource("2_5sqa4")
