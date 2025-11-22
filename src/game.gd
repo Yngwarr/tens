@@ -191,8 +191,16 @@ func adjust_for_window_size(size: Vector2) -> void:
 	var is_portrait := size.y > size.x
 	var diff: float = abs(size.y - size.x)
 	var hint_offset := Vector2(
-		diff / 4 + 20 + hint_button.size.x / 2 if diff / 2 > hint_button.size.x else hint_button.size.x,
-		diff / 4 + 20 + hint_button.size.y / 2 if diff / 2 > hint_button.size.y else hint_button.size.y
+		(
+			diff / 4 + 20 + hint_button.size.x / 2
+			if diff / 2 > hint_button.size.x
+			else hint_button.size.x
+		),
+		(
+			diff / 4 + 20 + hint_button.size.y / 2
+			if diff / 2 > hint_button.size.y
+			else hint_button.size.y
+		)
 	)
 	var sum_offset := diff / 4 + 20
 
@@ -200,15 +208,11 @@ func adjust_for_window_size(size: Vector2) -> void:
 
 	if is_portrait:
 		hint_button.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_BOTTOM)
-		hint_button.position = Vector2(
-			size.x / 2 - hint_button.size.x / 2, size.y - hint_offset.y
-		)
+		hint_button.position = Vector2(size.x / 2 - hint_button.size.x / 2, size.y - hint_offset.y)
 		sum_label.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_TOP)
 		sum_label.position = Vector2(size.x / 2 - sum_label.size.x / 2, sum_offset)
 	else:
 		hint_button.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_RIGHT)
-		hint_button.position = Vector2(
-			size.x - hint_offset.x, size.y / 2 - hint_button.size.y / 2
-		)
+		hint_button.position = Vector2(size.x - hint_offset.x, size.y / 2 - hint_button.size.y / 2)
 		sum_label.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_BOTTOM)
 		sum_label.position = Vector2(sum_offset, size.y / 2 - sum_label.size.y / 2)
