@@ -41,8 +41,6 @@ var hint_count := DEFAULT_HINT_COUNT
 
 
 func _ready() -> void:
-	DisplayServer.window_set_size(Vector2i(960, 720))
-
 	if Engine.is_editor_hint():
 		return
 
