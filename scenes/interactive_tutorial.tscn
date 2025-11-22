@@ -112,7 +112,7 @@ offset_top = 80.0
 offset_right = 769.5
 offset_bottom = 121.0
 grow_horizontal = 2
-text = "This game is about tens."
+text = "Connect numbers that add up to 10."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -125,39 +125,39 @@ offset_top = 160.0
 offset_right = 850.0
 offset_bottom = 201.0
 grow_horizontal = 2
-text = "Hold and drag to select numbers that sum up to 10."
+text = "Tap and drag to select them."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Background1" type="ColorRect" parent="Layer/Stage1"]
 z_index = -1
 offset_left = 223.0
-offset_top = 291.0
+offset_top = 309.0
 offset_right = 353.0
-offset_bottom = 357.0
+offset_bottom = 375.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
 [node name="Background2" type="ColorRect" parent="Layer/Stage1"]
 z_index = -1
 offset_left = 479.0
-offset_top = 291.0
+offset_top = 309.0
 offset_right = 673.0
-offset_bottom = 357.0
+offset_bottom = 375.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
 [node name="Background3" type="ColorRect" parent="Layer/Stage1"]
 z_index = -1
 offset_left = 799.0
-offset_top = 259.0
+offset_top = 277.0
 offset_right = 929.0
-offset_bottom = 389.0
+offset_bottom = 407.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
 [node name="Grid" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(288, 324)
+position = Vector2(288, 342)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 2
@@ -167,7 +167,7 @@ appear_timer = NodePath("../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="Grid2" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(576, 324)
+position = Vector2(576, 342)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 3
@@ -177,7 +177,7 @@ appear_timer = NodePath("../AppearTimer2")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="Grid3" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(864, 324)
+position = Vector2(864, 342)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 4
@@ -210,7 +210,7 @@ offset_top = 120.0
 offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
-text = "Sometimes making ten opens new opportunities."
+text = "Each 10 you make can open up new moves."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -251,7 +251,7 @@ offset_top = 120.0
 offset_right = 1013.0
 offset_bottom = 161.0
 grow_horizontal = 2
-text = "The game ends when there are no more tens to make."
+text = "You win when there's no way to make another 10."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -292,11 +292,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 139.0
-offset_top = 120.0
+offset_top = 174.0
 offset_right = 1013.0
-offset_bottom = 161.0
+offset_bottom = 227.0
 grow_horizontal = 2
-text = "Try to get the highest score with the numbers you got."
+text = "Now go for your highest score."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -305,9 +305,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 139.0
-offset_top = 192.0
+offset_top = 246.0
 offset_right = 1013.0
-offset_bottom = 233.0
+offset_bottom = 299.0
 grow_horizontal = 2
 text = "Good luck!"
 label_settings = ExtResource("6_pp5rf")
