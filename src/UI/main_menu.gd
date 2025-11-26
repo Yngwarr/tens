@@ -85,8 +85,8 @@ func hide_everything() -> void:
 
 	for el in elements_leaving_up:
 		tween.tween_property(el, "position:y", el.position.y - 100, HIDE_TIME)
-		tween.tween_property(el, "modulate", Color.TRANSPARENT, HIDE_TIME)
+		tween.tween_property(el, "modulate:a", 0, HIDE_TIME)
 
 	for el in elements_leaving_down:
 		tween.tween_property(el, "position:y", el.position.y + 100, HIDE_TIME)
-		tween.tween_property(el, "modulate", Color.TRANSPARENT, HIDE_TIME)
+		tween.tween_property(el, "modulate:a", 0, HIDE_TIME)

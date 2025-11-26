@@ -22,6 +22,9 @@ static var TARGET_SUM := 10
 @export var final_score_label: Label
 @export var hint_button: HintButton
 @export var pause_button: BaseButton
+@export var tutorial_button: TextureButton
+@export var wallpaper_button: BaseButton
+@export var star_path: Path2D
 @export var anim: AnimationPlayer
 @export var protection_layer: CanvasLayer
 @export var hint_sound: AudioStreamPlayer
@@ -31,7 +34,6 @@ static var TARGET_SUM := 10
 @export var confirm_window: PopupPanel
 @export var wallpaper_window: PopupPanel
 @export var idle_timer: Timer
-@export var tutorial_button: TextureButton
 
 @export_group("Prefabs")
 @export var tutorial_prefab: PackedScene
@@ -214,3 +216,11 @@ func adjust_for_window_size(size: Vector2) -> void:
 		hint_button.position = Vector2(size.x - hint_offset.x, size.y / 2 - hint_button.size.y / 2)
 		sum_label.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_BOTTOM)
 		sum_label.position = Vector2(sum_offset, size.y / 2 - sum_label.size.y / 2)
+
+
+func move_wallpaper_button() -> void:
+	var local_dest := star_path.curve.get_point_position(star_path.curve.point_count - 1)
+	var global_dest := star_path.to_global(local_dest) - wallpaper_button.size / 2
+
+	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(wallpaper_button, "position", global_dest, 2.0)
