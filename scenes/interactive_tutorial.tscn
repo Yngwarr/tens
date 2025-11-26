@@ -98,92 +98,157 @@ metadata/_edit_lock_ = true
 [node name="Highlight" parent="Layer" instance=ExtResource("7_7dnq6")]
 visible = false
 
-[node name="Stage1" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+[node name="Stage1" type="Control" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_p5g2e")
-grids = [NodePath("Grid"), NodePath("Grid2"), NodePath("Grid3")]
+grids = [NodePath("Control1/Background1/Grid"), NodePath("Control2/Background2/Grid2"), NodePath("Control3/Background3/Grid3")]
 highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage1"]
-anchors_preset = 5
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 382.5
-offset_top = 80.0
-offset_right = 769.5
-offset_bottom = 121.0
+anchor_bottom = 0.5
+offset_left = -333.0
+offset_top = -258.0
+offset_right = 333.0
+offset_bottom = -211.0
 grow_horizontal = 2
+grow_vertical = 2
 text = "Connect numbers that add up to 10."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Layer/Stage1"]
-anchors_preset = 5
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 302.0
-offset_top = 160.0
-offset_right = 850.0
-offset_bottom = 201.0
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -208.0
+offset_right = 274.0
+offset_bottom = -161.0
 grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 text = "Tap and drag to select them."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
-[node name="Background1" type="ColorRect" parent="Layer/Stage1"]
+[node name="Control2" type="Control" parent="Layer/Stage1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -50.0
+offset_right = 97.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background2" type="ColorRect" parent="Layer/Stage1/Control2"]
 z_index = -1
-offset_left = 223.0
-offset_top = 309.0
-offset_right = 353.0
-offset_bottom = 375.0
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 193.0
+offset_bottom = 65.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Background2" type="ColorRect" parent="Layer/Stage1"]
-z_index = -1
-offset_left = 479.0
-offset_top = 309.0
-offset_right = 673.0
-offset_bottom = 375.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0.501961)
-
-[node name="Background3" type="ColorRect" parent="Layer/Stage1"]
-z_index = -1
-offset_left = 799.0
-offset_top = 277.0
-offset_right = 929.0
-offset_bottom = 407.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0.501961)
-
-[node name="Grid" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(288, 342)
-scale = Vector2(1.1, 1.1)
-script = ExtResource("5_m62rh")
-board_name = 2
-inner_node = ExtResource("6_j53so")
-front_layer = NodePath("../..")
-appear_timer = NodePath("../AppearTimer")
-metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
-
-[node name="Grid2" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(576, 342)
+[node name="Grid2" type="Node2D" parent="Layer/Stage1/Control2/Background2" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(97, 33)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 3
 inner_node = ExtResource("6_j53so")
-front_layer = NodePath("../..")
-appear_timer = NodePath("../AppearTimer2")
+front_layer = NodePath("../../../..")
+appear_timer = NodePath("../../../AppearTimer2")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
-[node name="Grid3" type="Node2D" parent="Layer/Stage1" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(864, 342)
+[node name="Control3" type="Control" parent="Layer/Stage1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 197.0
+offset_top = -83.0
+offset_right = 327.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background3" type="ColorRect" parent="Layer/Stage1/Control3"]
+z_index = -1
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 130.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Grid3" type="Node2D" parent="Layer/Stage1/Control3/Background3" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(65, 65)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 4
 inner_node = ExtResource("6_j53so")
-front_layer = NodePath("../..")
-appear_timer = NodePath("../AppearTimer3")
+front_layer = NodePath("../../../..")
+appear_timer = NodePath("../../../AppearTimer3")
+metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
+
+[node name="Control1" type="Control" parent="Layer/Stage1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -19.0
+offset_right = -317.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background1" type="ColorRect" parent="Layer/Stage1/Control1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_right = 130.0
+offset_bottom = 33.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Grid" type="Node2D" parent="Layer/Stage1/Control1/Background1" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(65, 33.5)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("5_m62rh")
+board_name = 2
+inner_node = ExtResource("6_j53so")
+front_layer = NodePath("../../../..")
+appear_timer = NodePath("../../../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="AppearTimer" type="Timer" parent="Layer/Stage1"]
@@ -195,83 +260,153 @@ wait_time = 0.05
 [node name="AppearTimer3" type="Timer" parent="Layer/Stage1"]
 wait_time = 0.05
 
-[node name="Stage2" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+[node name="Stage2" type="Control" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_p5g2e")
-grids = [NodePath("Grid")]
+grids = [NodePath("Control/Background/Grid")]
 highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage2"]
-anchors_preset = 5
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 139.0
-offset_top = 120.0
-offset_right = 1013.0
-offset_bottom = 161.0
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = -258.0
+offset_right = 323.0
+offset_bottom = -161.0
 grow_horizontal = 2
+grow_vertical = 2
 text = "Each 10 you make can open up new moves."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Background" type="ColorRect" parent="Layer/Stage2"]
+[node name="Control" type="Control" parent="Layer/Stage2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -121.0
+offset_right = 94.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="Layer/Stage2/Control"]
 z_index = -1
-offset_left = 479.0
-offset_top = 228.0
-offset_right = 673.0
-offset_bottom = 420.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -96.0
+offset_right = 97.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Grid" type="Node2D" parent="Layer/Stage2" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(576, 324)
+[node name="Grid" type="Node2D" parent="Layer/Stage2/Control/Background" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(97, 96.5)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 5
 inner_node = ExtResource("6_j53so")
-front_layer = NodePath("../..")
-appear_timer = NodePath("../AppearTimer")
+front_layer = NodePath("../../../..")
+appear_timer = NodePath("../../../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="AppearTimer" type="Timer" parent="Layer/Stage2"]
 wait_time = 0.05
 
-[node name="Stage3" type="Node2D" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+[node name="Stage3" type="Control" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_p5g2e")
-grids = [NodePath("Grid")]
+grids = [NodePath("Control/Background/Grid")]
 highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage3"]
-anchors_preset = 5
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 139.0
-offset_top = 120.0
-offset_right = 1013.0
-offset_bottom = 161.0
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -258.0
+offset_right = 283.0
+offset_bottom = -161.0
 grow_horizontal = 2
+grow_vertical = 2
 text = "You win when there's no way to make another 10."
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Background" type="ColorRect" parent="Layer/Stage3"]
+[node name="Control" type="Control" parent="Layer/Stage3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -121.0
+offset_right = 94.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="Layer/Stage3/Control"]
 z_index = -1
-offset_left = 479.0
-offset_top = 228.0
-offset_right = 673.0
-offset_bottom = 420.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -96.0
+offset_right = 97.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Grid" type="Node2D" parent="Layer/Stage3" node_paths=PackedStringArray("front_layer", "appear_timer")]
-position = Vector2(576, 324)
+[node name="Grid" type="Node2D" parent="Layer/Stage3/Control/Background" node_paths=PackedStringArray("front_layer", "appear_timer")]
+position = Vector2(97, 96.5)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("5_m62rh")
 board_name = 6
 inner_node = ExtResource("6_j53so")
-front_layer = NodePath("../..")
-appear_timer = NodePath("../AppearTimer")
+front_layer = NodePath("../../../..")
+appear_timer = NodePath("../../../AppearTimer")
 metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 
 [node name="AppearTimer" type="Timer" parent="Layer/Stage3"]
@@ -279,50 +414,66 @@ wait_time = 0.05
 
 [node name="Solver" type="Node" parent="Layer/Stage3" node_paths=PackedStringArray("grid")]
 script = ExtResource("8_olgnm")
-grid = NodePath("../Grid")
+grid = NodePath("../Control/Background/Grid")
 metadata/_custom_type_script = "uid://wofk0nojyk7r"
 
-[node name="Stage4" type="Node2D" parent="Layer" node_paths=PackedStringArray("highlight")]
+[node name="Stage4" type="Control" parent="Layer" node_paths=PackedStringArray("highlight")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_p5g2e")
 highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage4"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 139.0
-offset_top = 174.0
-offset_right = 1013.0
-offset_bottom = 227.0
-grow_horizontal = 2
-text = "Now go for your highest score."
-label_settings = ExtResource("6_pp5rf")
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Layer/Stage4"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 139.0
-offset_top = 246.0
-offset_right = 1013.0
-offset_bottom = 299.0
-grow_horizontal = 2
-text = "Good luck!"
-label_settings = ExtResource("6_pp5rf")
-horizontal_alignment = 1
-
-[node name="Start" type="Button" parent="Layer/Stage4"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 468.0
-offset_top = 317.0
-offset_right = 705.0
-offset_bottom = 453.0
+offset_left = -361.0
+offset_top = -144.0
+offset_right = 359.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Now go for your highest score."
+label_settings = ExtResource("6_pp5rf")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Layer/Stage4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = 98.0
+offset_right = 360.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Good luck!"
+label_settings = ExtResource("6_pp5rf")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="Layer/Stage4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -68.0
+offset_right = 118.5
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(118.5, 68)
@@ -351,17 +502,17 @@ texture = ExtResource("12_j0uj6")
 visible = false
 
 [node name="SumLabel" parent="Layer" instance=ExtResource("12_ax6wd")]
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -131.0
-offset_top = -202.0
+offset_top = 109.0
 offset_right = 131.0
-offset_bottom = -80.0
+offset_bottom = 231.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_vertical = 8
 
 [node name="OptionsWindow" parent="Layer" instance=ExtResource("15_j0uj6")]

@@ -1,5 +1,5 @@
 class_name TutorialStage
-extends Node2D
+extends Control
 
 signal complete(index: int)
 

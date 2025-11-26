@@ -71,6 +71,7 @@ clip_children = 2
 layout_mode = 1
 offset_right = 236.0
 offset_bottom = 132.0
+scale = Vector2(0.9, 0.9)
 localize_numeral_system = false
 texture = ExtResource("2_acg2m")
 
@@ -91,6 +92,7 @@ visible = false
 layout_mode = 1
 offset_right = 236.0
 offset_bottom = 132.0
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_xy84k")
 
 [node name="FrameLocked" type="TextureRect" parent="."]
@@ -98,6 +100,7 @@ self_modulate = Color(0, 0, 0, 0.5019608)
 layout_mode = 1
 offset_right = 236.0
 offset_bottom = 132.0
+scale = Vector2(0.9, 0.9)
 localize_numeral_system = false
 texture = ExtResource("2_acg2m")
 
@@ -129,8 +132,8 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 236.0
-offset_bottom = 132.0
+offset_right = 212.0
+offset_bottom = 119.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_acg2m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r8eun")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1eb7c")
