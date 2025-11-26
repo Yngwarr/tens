@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
 		return
 	if view.position.y >= 2000:
+		view.hide()
 		return
 
 	view.position += velocity * delta * 20
@@ -136,4 +137,5 @@ func reset(p_value: int) -> void:
 	add_child(view)
 
 	view.position = Vector2.ZERO
+	view.show()
 	unbounce()
