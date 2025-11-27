@@ -6,9 +6,9 @@
 
 [node name="ConfirmQuit" type="PopupPanel" node_paths=PackedStringArray("button_no", "button_yes")]
 oversampling_override = 1.0
-title = "Return to main menu?"
+title = "QUIT_TITLE"
 initial_position = 2
-size = Vector2i(440, 180)
+size = Vector2i(600, 180)
 visible = true
 borderless = false
 script = ExtResource("1_ipjnj")
@@ -18,13 +18,13 @@ button_yes = NodePath("VBoxContainer/HBoxContainer/ButtonYes")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_top = 20.0
-offset_right = 440.0
+offset_right = 600.0
 offset_bottom = 180.0
 
 [node name="Description" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "Your game won't be saved."
+text = "QUIT_WARNING"
 horizontal_alignment = 1
 vertical_alignment = 1
 
