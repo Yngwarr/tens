@@ -9,13 +9,21 @@ var wallpaper_textures: Array[Texture2D]
 
 
 func _ready() -> void:
-	get_viewport().size_changed.connect(on_size_changed)
+	ConfigCtl.load_config()
+	Stats.read_stats()
 
 	var wallpaper_names := ResourceLoader.list_directory(WALLPAPER_FOLDER)
 	wallpaper_names.sort()
 
 	for n in wallpaper_names:
 		wallpaper_textures.push_back(load(WALLPAPER_FOLDER + n))
+
+	var bg_index: int = ConfigCtl.get_pref(&"background")
+	Background.change_bg(Global.wallpaper_textures[bg_index])
+
+	set_locale(ConfigCtl.get_pref(&"locale"))
+
+	get_viewport().size_changed.connect(on_size_changed)
 
 
 func wallpaper_cost(idx: int) -> int:
@@ -30,3 +38,11 @@ func wallpaper_cost(idx: int) -> int:
 
 func on_size_changed() -> void:
 	window_size_changed.emit(Tools.get_window_size(self))
+
+
+func set_locale(locale: String) -> void:
+	if locale == ConfigCtl.LOCALE_SYSTEM:
+		var preferred_locale = OS.get_locale_language()
+		TranslationServer.set_locale(preferred_locale)
+	else:
+		TranslationServer.set_locale(locale)

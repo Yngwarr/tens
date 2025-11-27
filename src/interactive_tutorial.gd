@@ -18,6 +18,7 @@ func _ready() -> void:
 	for i in len(stages):
 		var stage := stages[i]
 		stage.init(i, hand, solver)
+		stage.visible = i == 0
 		stage.complete.connect(on_stage_complete)
 
 	hand.init(get_hand_move)
@@ -33,7 +34,7 @@ func on_stage_complete(index: int) -> void:
 		var tween := get_tree().create_tween()
 		tween.tween_property(skip_button, "modulate", Color.TRANSPARENT, .2)
 		tween.parallel().tween_property(
-			skip_button, "position", skip_button.position + Vector2.UP * 100, .2
+			skip_button, "position", skip_button.position + Vector2.DOWN * 100, .2
 		)
 
 

@@ -99,7 +99,6 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="Stage1" type="Control" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,38 +110,26 @@ script = ExtResource("5_p5g2e")
 grids = [NodePath("Control1/Background1/Grid"), NodePath("Control2/Background2/Grid2"), NodePath("Control3/Background3/Grid3")]
 highlight = NodePath("../Highlight")
 
-[node name="Label" type="Label" parent="Layer/Stage1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Layer/Stage1"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -333.0
-offset_top = -258.0
-offset_right = 333.0
-offset_bottom = -211.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 309.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Connect numbers that add up to 10."
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="Layer/Stage1/VBoxContainer"]
+layout_mode = 2
+text = "TUTORIAL_STAGE_1_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Layer/Stage1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -274.0
-offset_top = -208.0
-offset_right = 274.0
-offset_bottom = -161.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label2" type="Label" parent="Layer/Stage1/VBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
-text = "Tap and drag to select them."
+text = "TUTORIAL_STAGE_1_2"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -281,20 +268,17 @@ script = ExtResource("5_p5g2e")
 grids = [NodePath("Control/Background/Grid")]
 highlight = NodePath("../Highlight")
 
-[node name="Label" type="Label" parent="Layer/Stage2"]
+[node name="CenterContainer" type="CenterContainer" parent="Layer/Stage2"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = -258.0
-offset_right = 323.0
-offset_bottom = -161.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Each 10 you make can open up new moves."
+
+[node name="Label" type="Label" parent="Layer/Stage2/CenterContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+text = "TUTORIAL_STAGE_2_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -359,20 +343,17 @@ script = ExtResource("5_p5g2e")
 grids = [NodePath("Control/Background/Grid")]
 highlight = NodePath("../Highlight")
 
-[node name="Label" type="Label" parent="Layer/Stage3"]
+[node name="CenterContainer" type="CenterContainer" parent="Layer/Stage3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -258.0
-offset_right = 283.0
-offset_bottom = -161.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 238.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "You win when there's no way to make another 10."
+
+[node name="Label" type="Label" parent="Layer/Stage3/CenterContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+text = "TUTORIAL_STAGE_3_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -430,6 +411,7 @@ grid = NodePath("../Control/Background/Grid")
 metadata/_custom_type_script = "uid://wofk0nojyk7r"
 
 [node name="Stage4" type="Control" parent="Layer" node_paths=PackedStringArray("highlight")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -442,35 +424,29 @@ highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage4"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -361.0
-offset_top = -144.0
-offset_right = 359.0
-offset_bottom = -91.0
+offset_top = -143.5
+offset_bottom = -96.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Now go for your highest score."
+text = "TUTORIAL_STAGE_4_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Layer/Stage4"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -359.0
-offset_top = 98.0
-offset_right = 360.0
-offset_bottom = 179.0
+offset_top = 96.5
+offset_bottom = 143.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Good luck!"
+text = "TUTORIAL_STAGE_4_2"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
 
@@ -521,9 +497,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -131.0
-offset_top = 109.0
+offset_top = 141.0
 offset_right = 131.0
-offset_bottom = 231.0
+offset_bottom = 263.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8

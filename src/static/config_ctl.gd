@@ -9,7 +9,9 @@ const CONFIG_FILE: StringName = &"user://config.ini"
 const SOUND_VOLUME: StringName = &"SoundVolume"
 const PREFS: StringName = &"Prefs"
 
-static var prefs := {background = 0, show_tutorial = true}
+const LOCALE_SYSTEM := "system"
+
+static var prefs := {background = 0, show_tutorial = true, locale = LOCALE_SYSTEM}
 
 
 static func get_pref(pref_name: StringName) -> Variant:

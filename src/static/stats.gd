@@ -6,9 +6,9 @@ const STATS_FILE := &"user://stats.ini"
 const STATS_SECTION := &"Stats"
 
 static var data := {
-	games_played = {name = "Games played", value = 0},
-	best_score = {name = "Best score", value = 0},
-	total_score = {name = "Total points scored", value = 0}
+	games_played = {name = "STATS_GAMES", value = 0},
+	best_score = {name = "STATS_BEST", value = 0},
+	total_score = {name = "STATS_TOTAL", value = 0}
 }
 
 

@@ -50,4 +50,4 @@ func render_stats() -> void:
 
 
 func stat_to_string(stat: Dictionary) -> String:
-	return "%s: %s" % [stat.name, stat.value]
+	return "%s: %s" % [tr(stat.name), stat.value]

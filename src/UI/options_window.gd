@@ -8,13 +8,19 @@ extends PopupPanel
 @export var sfx_texture: Texture2D
 
 var sliders: Array[VolumeSlider] = []
+var locales: PackedStringArray = []
 
 
 func _ready() -> void:
 	visibility_changed.connect(on_toggle)
+
+	locales = TranslationServer.get_loaded_locales()
+
 	for bus in SoundCtl.adjustable_sound_buses():
 		if bus != 0:
 			sliders.append(add_bus_ctl(bus))
+
+	add_locale_dropdown()
 
 
 func on_toggle() -> void:
@@ -44,3 +50,31 @@ func add_bus_ctl(bus_idx: int) -> VolumeSlider:
 	container.add_child(slider)
 
 	return slider
+
+
+func add_locale_dropdown() -> void:
+	var dropdown := OptionButton.new()
+	dropdown.add_item("System")
+
+	var current_locale: String = ConfigCtl.get_pref(&"locale")
+
+	for locale in locales:
+		dropdown.add_item(TranslationServer.get_language_name(locale))
+
+		if locale == current_locale:
+			dropdown.select(dropdown.item_count - 1)
+
+	dropdown.item_selected.connect(on_locale_selected)
+
+	var rect := TextureRect.new()
+	rect.texture = music_texture
+
+	container.add_child(rect)
+	container.add_child(dropdown)
+
+
+func on_locale_selected(index: int) -> void:
+	var locale = ConfigCtl.LOCALE_SYSTEM if index == 0 else locales[index - 1]
+
+	Global.set_locale(locale)
+	ConfigCtl.set_pref(&"locale", locale)

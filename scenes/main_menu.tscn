@@ -234,42 +234,47 @@ popup = NodePath("../../CreditsWindow")
 
 [node name="CreditsWindow" type="PopupPanel" parent="."]
 oversampling_override = 1.0
-title = "Credits"
+title = "CREDITS_TITLE"
 initial_position = 2
-size = Vector2i(320, 360)
+size = Vector2i(435, 405)
 borderless = false
-max_size = Vector2i(320, 360)
 content_scale_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsWindow"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_top = 20.0
-offset_right = 320.0
-offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label1" type="Label" parent="CreditsWindow/VBoxContainer"]
-custom_minimum_size = Vector2(320, 50)
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsWindow/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Label1" type="Label" parent="CreditsWindow/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Brought to you by Dial-Up Dino Games."
+text = "CREDITS_LABEL_1"
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="CreditsWindow/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
+[node name="Label2" type="Label" parent="CreditsWindow/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Inspired by Make Ten by pancelor and Fruit Box by GameSaien."
-vertical_alignment = 1
+text = "CREDITS_LABEL_2"
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="CreditsWindow/VBoxContainer"]
-custom_minimum_size = Vector2(300, 40)
+[node name="Label3" type="Label" parent="CreditsWindow/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "With use of these 3rd party assets:"
-vertical_alignment = 1
+text = "CREDITS_LABEL_3"
 autowrap_mode = 3
 
-[node name="Label4" type="RichTextLabel" parent="CreditsWindow/VBoxContainer"]
+[node name="Label4" type="RichTextLabel" parent="CreditsWindow/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 185)
 layout_mode = 2
 theme = ExtResource("19_1dfpl")
@@ -291,11 +296,13 @@ Pop 1 by quatricise from Freesound (https://freesound.org/people/quatricise/soun
 Pop 4 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
 Firecracker Explosion by unfa from Freesound (https://freesound.org/people/unfa/sounds/609588/)
 [/ul]"
+fit_content = true
+scroll_active = false
 
 [node name="StatsWindow" type="PopupPanel" parent="." node_paths=PackedStringArray("label_container")]
 auto_translate_mode = 1
 oversampling_override = 1.0
-title = "Stats"
+title = "STATS_TITLE"
 initial_position = 2
 size = Vector2i(320, 150)
 borderless = false
@@ -319,7 +326,6 @@ libraries = {
 
 [node name="OptionsWindow" parent="." instance=ExtResource("22_1dfpl")]
 visible = false
-max_size = Vector2i(265, 124)
 
 [node name="WallpaperWindow" parent="." instance=ExtResource("25_3wgol")]
 visible = false

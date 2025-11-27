@@ -6,22 +6,19 @@
 
 [node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container")]
 oversampling_override = 1.0
-title = "Options"
+title = "SETTINGS_TITLE"
 initial_position = 2
-size = Vector2i(265, 124)
+size = Vector2i(265, 266)
 visible = true
 borderless = false
 content_scale_mode = 1
 script = ExtResource("1_08yxq")
-container = NodePath("SoundLevels/Container")
+container = NodePath("Container")
 music_texture = ExtResource("2_i5hu1")
 sfx_texture = ExtResource("3_7eem4")
 
-[node name="SoundLevels" type="VBoxContainer" parent="."]
+[node name="Container" type="GridContainer" parent="."]
 offset_top = 20.0
 offset_right = 265.0
-offset_bottom = 124.0
-
-[node name="Container" type="GridContainer" parent="SoundLevels"]
-layout_mode = 2
+offset_bottom = 266.0
 columns = 2
