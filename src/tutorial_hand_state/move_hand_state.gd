@@ -33,6 +33,7 @@ func enter() -> void:
 	hand.global_position = Vector2(current_move.x, current_move.y)
 	hand.show()
 
+	# 2.2 seconds
 	tween = hand.get_tree().create_tween()
 	tween.tween_property(hand, "modulate", Color.WHITE, .2)
 	tween.tween_property(hand, "rotation_degrees", start_rotation - 10, .5)

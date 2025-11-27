@@ -8,10 +8,11 @@ const GRID_TIMEOUT := .2
 @export var quit_button: Button
 @export var ok_button: Button
 @export var highlight: Highlight
-@export var anim: AnimationPlayer
 @export var fader_button: Button
+@export var tutorial_hand: TutorialHand
 
 var board := Boards.get_board(Boards.Name.TUTORIAL)
+var hand_move := Vector4.ZERO
 
 
 func _ready() -> void:
@@ -25,8 +26,14 @@ func _ready() -> void:
 	grid.released.connect(on_released)
 	grid.fully_appeared.connect(on_grid_appeared)
 
+	if tutorial_hand:
+		tutorial_hand.init(hand_next_move)
 	grid.appear()
 	ScreenFader.show()
+
+
+func hand_next_move() -> Vector4:
+	return hand_move
 
 
 func close() -> void:
@@ -51,32 +58,27 @@ func on_grid_appeared() -> void:
 	quit_button.grab_focus()
 
 	while true:
-		anim.play("tutorial_appear")
-		await get_tree().create_timer(1).timeout
-
-		anim.play("tutorial_1")
+		await get_tree().create_timer(1.4).timeout
+		hand_move = make_move(5, 6)
 		await select_cells([5, 6])
 
 		for x in [5, 6]:
 			grid.get_child(x).remove()
 
-		anim.play("tutorial_move_to_2")
 		await get_tree().create_timer(1).timeout
-		anim.play("tutorial_2")
+		hand_move = make_move(9, 11)
 		await select_cells([9, 10, 11])
 
 		for x in [9, 10, 11]:
 			grid.get_child(x).remove()
 
-		anim.play("tutorial_move_to_3")
 		await get_tree().create_timer(1).timeout
-		anim.play("tutorial_3")
+		hand_move = make_move(0, 9)
 		await select_cells([0, 5, 9])
 
 		for x in [0, 1, 4, 8]:
 			grid.get_child(x).remove()
 
-		anim.play("tutorial_disappear")
 		await get_tree().create_timer(1).timeout
 
 		grid.fall_apart()
@@ -85,6 +87,12 @@ func on_grid_appeared() -> void:
 
 		for i in grid.get_child_count():
 			grid.get_child(i).reset(board.data[i])
+
+
+func make_move(from_idx: int, to_idx: int) -> Vector4:
+	var from := (grid.get_child(from_idx) as Node2D).global_position
+	var to := (grid.get_child(to_idx) as Node2D).global_position
+	return Vector4(from.x, from.y, to.x, to.y)
 
 
 func select_cells(cell_nums: Array[int]) -> void:
