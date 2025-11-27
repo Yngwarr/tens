@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cr4hxvscmaerw"
+
+[deps]
+
+files=["res://locales/Tens_locales.en.translation", "res://locales/Tens_locales.ru.translation", "res://locales/Tens_locales.es.translation"]
+
+source_file="res://locales/Tens_locales.csv"
+dest_files=["res://locales/Tens_locales.en.translation", "res://locales/Tens_locales.ru.translation", "res://locales/Tens_locales.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

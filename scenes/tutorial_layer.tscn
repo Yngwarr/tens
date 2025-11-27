@@ -107,31 +107,46 @@ metadata/_custom_type_script = "uid://bv0im7p3jfxj7"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = -30
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/Panel/HBoxContainer/RightContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Container/Panel/HBoxContainer/RightContainer/VBoxContainer"]
+[node name="Step1" type="RichTextLabel" parent="Container/Panel/HBoxContainer/RightContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/paragraph_separation = -1
 theme_override_fonts/normal_font = ExtResource("4_ac24n")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "Select numbers that add 
-up to [color=forest_green]10[/color]!
-
-You win when there are 
-no more valid turns left.
-
-Beat levels to unlock 
-new backgrounds!"
+up to [color=forest_green]10[/color]!"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Step2" type="Label" parent="Container/Panel/HBoxContainer/RightContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "You win when there are no more valid turns left."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Step3" type="Label" parent="Container/Panel/HBoxContainer/RightContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Beat levels to unlock new backgrounds!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="OkButton" type="Button" parent="Container/Panel"]
 layout_mode = 1

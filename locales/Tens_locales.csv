@@ -1,0 +1,23 @@
+key,en,ru,es
+SETTINGS_TITLE,Settings,Настройки,Settings
+WALLPAPERS_TITLE,Wallpapers,Обои,Wallpapers
+CREDITS_TITLE,Credits,Титры,Credits
+CREDITS_LABEL_1,Brought to you by Dial-Up Dino Games.,Сделано Dial-Up Dino Games,Brought to you by Dial-Up Dino Games.
+CREDITS_LABEL_2,Inspired by Make Ten by pancelor and Fruit Box by GameSaien.,"Вдохновлено играми Make Ten от pancelor, и Fruit Box от GameSaien",Inspired by Make Ten by pancelor and Fruit Box by GameSaien.
+CREDITS_LABEL_3,With use of these 3rd party assets:,С использованием сторонних ассетов:,With use of these 3rd party assets:
+STATS_TITLE,Statistics,Статистика,Statistics
+STATS_GAMES,Games played:,Сыграно игр:,Games played:
+STATS_BEST,Best score:,Лучший счет:,Best score:
+STATS_TOTAL,Total points scored:,Общее число очков:,Total points scored:
+TUT_STAGE_1_1,Connect numbers that add up to 10.,"Соедините числа, дающие в сумме 10.",Connect numbers that add up to 10.
+TUT_STAGE_1_2,Tap and drag to select them.,Tap and drag to select them.,Tap and drag to select them.
+TUT_STAGE_2_1,Each 10 you make can open up new moves.,Each 10 you make can open up new moves.,Each 10 you make can open up new moves.
+TUT_STAGE_3_1,You win when there's no way to make another 10.,You win when there's no way to make another 10.,You win when there's no way to make another 10.
+TUT_STAGE_4_1,Now go for your highest score.,Now go for your highest score.,Now go for your highest score.
+TUT_STAGE_4_2,Good luck!,Good luck!,Good luck!
+INFO_TITLE,How to play?,How to play?,How to play?
+INFO_STEP_1,Select numbers that add up to [color=forest_green]10[/color]!,Select numbers that add up to [color=forest_green]10[/color]!,Select numbers that add up to [color=forest_green]10[/color]!
+INFO_STEP_2,You win when there are no more valid turns left.,You win when there are no more valid turns left.,You win when there are no more valid turns left.
+INFO_STEP_3,Beat levels to unlock new backgrounds!,Beat levels to unlock new backgrounds!,Beat levels to unlock new backgrounds!
+WIN_TITLE,Congratulations!,Congratulations!,Congratulations!
+WIN_LABEL,You scored %s points,You scored %s points,You scored %s points

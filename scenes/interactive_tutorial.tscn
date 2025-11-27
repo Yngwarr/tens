@@ -99,6 +99,7 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="Stage1" type="Control" parent="Layer" node_paths=PackedStringArray("grids", "highlight")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -429,7 +430,6 @@ grid = NodePath("../Control/Background/Grid")
 metadata/_custom_type_script = "uid://wofk0nojyk7r"
 
 [node name="Stage4" type="Control" parent="Layer" node_paths=PackedStringArray("highlight")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

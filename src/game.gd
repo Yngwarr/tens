@@ -182,7 +182,9 @@ func finish() -> void:
 
 	music_player.stop()
 	game_over_sound.play()
-	final_score_label.text = "You scored " + str(score) + " points"
+	
+	var format_label = "You scored %s points"
+	final_score_label.text = format_label % str(score) 
 	protection_layer.show()
 	anim.play(&"game_over")
 
