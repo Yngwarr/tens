@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=29 format=3 uid="uid://kg42ikejce6b"]
+[gd_resource type="Theme" load_steps=33 format=3 uid="uid://kg42ikejce6b"]
 
 [ext_resource type="StyleBox" uid="uid://bvarxeo5ibi88" path="res://theme/button_disabled.stylebox.tres" id="1_05tig"]
 [ext_resource type="StyleBox" uid="uid://8tpvxr4wuqae" path="res://theme/button_hover.stylebox.tres" id="2_110ce"]
@@ -15,6 +15,9 @@
 [ext_resource type="StyleBox" uid="uid://vhmh80fk6b81" path="res://styleboxes/option_stylebox.tres" id="11_mworl"]
 [ext_resource type="StyleBox" uid="uid://bhsoyycxe331r" path="res://styleboxes/scrollbar_grabber.tres" id="12_504p6"]
 [ext_resource type="StyleBox" uid="uid://bxq3dhyr0q00k" path="res://theme/popup_panel.stylebox.tres" id="12_howt0"]
+[ext_resource type="Texture2D" uid="uid://cns37e5fi2sps" path="res://img/common/radio_checked.svg" id="13_6q1gq"]
+[ext_resource type="StyleBox" uid="uid://hharbltqxqjg" path="res://theme/options_popup_panel.stylebox.tres" id="13_ndmpe"]
+[ext_resource type="Texture2D" uid="uid://lwqqlprih4bc" path="res://img/common/radio_unchecked.svg" id="14_3n26i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndmpe"]
 
@@ -53,6 +56,9 @@ texture_margin_right = 5.0
 texture_margin_bottom = 6.0
 modulate_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
+bg_color = Color(0, 0, 0, 0.78431374)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mworl"]
 content_margin_top = 20.0
 
@@ -73,13 +79,13 @@ texture_margin_bottom = 4.0
 [resource]
 AcceptDialog/styles/embedded_border = SubResource("StyleBoxEmpty_ndmpe")
 AcceptDialog/styles/panel = SubResource("StyleBoxTexture_0ceoj")
-Button/colors/font_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
-Button/colors/font_disabled_color = Color(0.39689007, 0.39688888, 0.39688927, 1)
-Button/colors/font_focus_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
-Button/colors/font_hover_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
-Button/colors/font_hover_pressed_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_outline_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
-Button/colors/font_pressed_color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 28
 Button/fonts/font = ExtResource("10_wdt2l")
 Button/styles/disabled = ExtResource("1_05tig")
@@ -108,9 +114,12 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 28
 Label/fonts/font = ExtResource("10_wdt2l")
 OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_disabled_color = Color(0, 0, 0, 1)
 OptionButton/colors/font_focus_color = Color(0, 0, 0, 1)
 OptionButton/colors/font_hover_color = Color(0, 0, 0, 1)
 OptionButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(0, 0, 0, 1)
 OptionButton/icons/arrow = ExtResource("10_mworl")
 OptionButton/styles/disabled = ExtResource("11_mworl")
 OptionButton/styles/disabled_mirrored = ExtResource("11_mworl")
@@ -124,6 +133,16 @@ OptionButton/styles/normal_mirrored = ExtResource("11_mworl")
 OptionButton/styles/pressed = ExtResource("11_mworl")
 OptionButton/styles/pressed_mirrored = ExtResource("11_mworl")
 Panel/styles/panel = ExtResource("9_ttqs8")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_separator_color = Color(1, 1, 1, 1)
+PopupMenu/constants/item_start_padding = 5
+PopupMenu/font_sizes/font_size = 25
+PopupMenu/icons/radio_checked = ExtResource("13_6q1gq")
+PopupMenu/icons/radio_checked_disabled = ExtResource("13_6q1gq")
+PopupMenu/icons/radio_unchecked = ExtResource("14_3n26i")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_6q1gq")
+PopupMenu/styles/panel = ExtResource("13_ndmpe")
 PopupPanel/colors/title_color = Color(0, 0, 0, 1)
 PopupPanel/constants/close_h_offset = 20
 PopupPanel/constants/close_v_offset = 40

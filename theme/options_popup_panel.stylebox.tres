@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://hharbltqxqjg"]
+
+[ext_resource type="Texture2D" uid="uid://dyveb6o8rw2l5" path="res://img/icon_slider.svg" id="1_o6ehv"]
+
+[resource]
+texture = ExtResource("1_o6ehv")
+texture_margin_left = 8.0
+texture_margin_top = 10.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
