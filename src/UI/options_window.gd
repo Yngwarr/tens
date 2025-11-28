@@ -6,6 +6,7 @@ extends PopupPanel
 @export var container: GridContainer
 @export var music_texture: Texture2D
 @export var sfx_texture: Texture2D
+@export var locale_texture: Texture2D
 
 var sliders: Array[VolumeSlider] = []
 var locales: PackedStringArray = []
@@ -67,7 +68,7 @@ func add_locale_dropdown() -> void:
 	dropdown.item_selected.connect(on_locale_selected)
 
 	var rect := TextureRect.new()
-	rect.texture = music_texture
+	rect.texture = locale_texture
 
 	container.add_child(rect)
 	container.add_child(dropdown)

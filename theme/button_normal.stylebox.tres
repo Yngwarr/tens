@@ -4,7 +4,7 @@
 
 [resource]
 texture = ExtResource("1_gs5ak")
-texture_margin_left = 41.0
+texture_margin_left = 31.0
 texture_margin_top = 38.0
 texture_margin_right = 41.0
 texture_margin_bottom = 38.0

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://kg42ikejce6b"]
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://kg42ikejce6b"]
 
 [ext_resource type="StyleBox" uid="uid://bvarxeo5ibi88" path="res://theme/button_disabled.stylebox.tres" id="1_05tig"]
 [ext_resource type="StyleBox" uid="uid://8tpvxr4wuqae" path="res://theme/button_hover.stylebox.tres" id="2_110ce"]
@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cjvuycifogguo" path="res://img/slider_body.svg" id="8_504p6"]
 [ext_resource type="StyleBox" uid="uid://oms2oghsl2pl" path="res://theme/panel.stylebox.tres" id="9_ttqs8"]
 [ext_resource type="Texture2D" uid="uid://cnsxppbjwdl1l" path="res://img/common/close_button.svg" id="10_6cw85"]
+[ext_resource type="Texture2D" uid="uid://bt1bei420o3pb" path="res://img/common/options_arrow_button.svg" id="10_mworl"]
 [ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="10_wdt2l"]
 [ext_resource type="Texture2D" uid="uid://5vxr51e3mp5v" path="res://img/window_frame.svg" id="11_504p6"]
+[ext_resource type="StyleBox" uid="uid://vhmh80fk6b81" path="res://styleboxes/option_stylebox.tres" id="11_mworl"]
 [ext_resource type="StyleBox" uid="uid://bhsoyycxe331r" path="res://styleboxes/scrollbar_grabber.tres" id="12_504p6"]
 [ext_resource type="StyleBox" uid="uid://bxq3dhyr0q00k" path="res://theme/popup_panel.stylebox.tres" id="12_howt0"]
 
@@ -105,6 +107,22 @@ HSlider/styles/slider = ExtResource("7_yin2u")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 28
 Label/fonts/font = ExtResource("10_wdt2l")
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_focus_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/icons/arrow = ExtResource("10_mworl")
+OptionButton/styles/disabled = ExtResource("11_mworl")
+OptionButton/styles/disabled_mirrored = ExtResource("11_mworl")
+OptionButton/styles/focus = ExtResource("11_mworl")
+OptionButton/styles/hover = ExtResource("11_mworl")
+OptionButton/styles/hover_mirrored = ExtResource("11_mworl")
+OptionButton/styles/hover_pressed = ExtResource("11_mworl")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("11_mworl")
+OptionButton/styles/normal = ExtResource("11_mworl")
+OptionButton/styles/normal_mirrored = ExtResource("11_mworl")
+OptionButton/styles/pressed = ExtResource("11_mworl")
+OptionButton/styles/pressed_mirrored = ExtResource("11_mworl")
 Panel/styles/panel = ExtResource("9_ttqs8")
 PopupPanel/colors/title_color = Color(0, 0, 0, 1)
 PopupPanel/constants/close_h_offset = 20

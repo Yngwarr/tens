@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp02anwflcyv8"]
+[gd_scene load_steps=5 format=3 uid="uid://dp02anwflcyv8"]
 
 [ext_resource type="Script" uid="uid://cmvm8kwol0v66" path="res://src/UI/options_window.gd" id="1_08yxq"]
 [ext_resource type="Texture2D" uid="uid://dyen6jyrp5awe" path="res://img/common/icons/icon_music.svg" id="2_i5hu1"]
 [ext_resource type="Texture2D" uid="uid://c0tmj1400xl57" path="res://img/common/icons/icon_SFX.svg" id="3_7eem4"]
+[ext_resource type="Texture2D" uid="uid://ot1l588tvxio" path="res://img/common/icons/icon_Locale.svg" id="4_aq4va"]
 
 [node name="OptionsWindow" type="PopupPanel" node_paths=PackedStringArray("container")]
 oversampling_override = 1.0
 title = "SETTINGS_TITLE"
 initial_position = 2
-size = Vector2i(265, 266)
+size = Vector2i(265, 186)
 visible = true
 borderless = false
 content_scale_mode = 1
@@ -16,9 +17,10 @@ script = ExtResource("1_08yxq")
 container = NodePath("Container")
 music_texture = ExtResource("2_i5hu1")
 sfx_texture = ExtResource("3_7eem4")
+locale_texture = ExtResource("4_aq4va")
 
 [node name="Container" type="GridContainer" parent="."]
 offset_top = 20.0
 offset_right = 265.0
-offset_bottom = 266.0
+offset_bottom = 186.0
 columns = 2
