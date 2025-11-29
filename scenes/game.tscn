@@ -1276,7 +1276,6 @@ parameters/looping = true
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_7ixpq")
-volume_db = 1.0
 bus = &"SFX"
 
 [node name="GameOverConfetti" type="AudioStreamPlayer" parent="."]
