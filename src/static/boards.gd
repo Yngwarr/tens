@@ -30,8 +30,8 @@ static var bs: Dictionary[Name, BoardData] = {
 	]),
 	Name.PAGE_3: BoardData.new(Vector2i(3, 3), [
 		5, 9, 5,
-		8, 2, 1,
-		5, 4, 5
+		8, 2, 3,
+		5, 2, 5
 	])
 }
 
