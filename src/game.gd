@@ -53,7 +53,6 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
-	options_window.visibility_changed.connect(on_options_visibility)
 	confirm_window.visibility_changed.connect(on_confirm_visibility)
 	idle_timer.timeout.connect(on_idle_timeout)
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
@@ -110,10 +109,6 @@ func on_grid_appeared() -> void:
 	protection_layer.hide()
 	PokiSDK.gameplayStart()
 	idle_timer.start()
-
-
-func on_options_visibility() -> void:
-	ScreenFader.visible = options_window.visible
 
 
 func on_confirm_visibility() -> void:

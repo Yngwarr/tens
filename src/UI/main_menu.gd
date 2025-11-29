@@ -26,7 +26,6 @@ func _ready() -> void:
 
 	credits_window.visibility_changed.connect(on_credits_visibility)
 	stats_window.visibility_changed.connect(on_stats_visibility)
-	options_window.visibility_changed.connect(on_options_visibility)
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 	tutorial_button.pressed.connect(on_show_tutorial)
 	start_button.pressed.connect(on_start_pressed)
@@ -45,10 +44,6 @@ func on_credits_visibility() -> void:
 
 func on_stats_visibility() -> void:
 	ScreenFader.visible = stats_window.visible
-
-
-func on_options_visibility() -> void:
-	ScreenFader.visible = options_window.visible
 
 
 func on_wallpaper_visibility() -> void:

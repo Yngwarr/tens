@@ -243,9 +243,10 @@ content_scale_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 20.0
-offset_right = 435.0
-offset_bottom = 405.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 431.0
+offset_bottom = 401.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -312,9 +313,10 @@ script = ExtResource("9_a8gd2")
 label_container = NodePath("MarginContainer/LabelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="StatsWindow"]
-offset_top = 20.0
-offset_right = 320.0
-offset_bottom = 150.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 316.0
+offset_bottom = 146.0
 
 [node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
 layout_mode = 2

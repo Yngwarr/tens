@@ -25,6 +25,8 @@ func _ready() -> void:
 
 
 func on_toggle() -> void:
+	ScreenFader.visible = visible
+
 	if not visible:
 		ConfigCtl.update_config()
 		return
