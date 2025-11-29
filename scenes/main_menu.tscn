@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbplqxkaqi83r"]
+[gd_scene load_steps=26 format=3 uid="uid://cbplqxkaqi83r"]
 
 [ext_resource type="Script" uid="uid://bbi34utukx1vw" path="res://src/UI/main_menu.gd" id="1_5dd4i"]
 [ext_resource type="FontFile" uid="uid://br47rkj5afajx" path="res://fonts/Open_Sans/static/OpenSans-Regular.ttf" id="3_flqon"]
@@ -18,7 +18,6 @@
 [ext_resource type="Theme" uid="uid://kg42ikejce6b" path="res://theme.tres" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="22_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c8ew3k8c8lu41" path="res://scenes/HUD/HUD_button_settings.tscn" id="22_vr8o3"]
-[ext_resource type="FontFile" uid="uid://cuhq5fai0mapa" path="res://fonts/Capriola/Capriola-Regular.ttf" id="23_3wgol"]
 [ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpaper_window.tscn" id="25_3wgol"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8bkd4"]
@@ -281,22 +280,21 @@ custom_minimum_size = Vector2(300, 185)
 layout_mode = 2
 theme = ExtResource("19_1dfpl")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("23_3wgol")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[ul]
-Font CherryBomb by The Cherry Bomb Project Authors (https://github.com/satsuyako/CherryBomb) 
-Font Capriola by Sorkin Type Co (www.sorkintype.com), with Reserved Font Name \"Capriola\". 
-Font Open Sans by The Open Sans Project Authors (https://github.com/googlefonts/opensans)
-Ambience sound by Sound Spark LLC (part of GDC 2019 Game Audio Bundle).
-Past Sadness by Kevin MacLeod (incompetech.com)
-Mouse click Sound Effect by Matthew Vakalyuk from Pixabay (https://pixabay.com/sound-effects/mouse-click-290204/)
-Vintage Keyboard 2 by jim-ph from Freesound (https://freesound.org/people/jim-ph/sounds/194796/)
-Domino_sfx_putOnBoard by poenia from Freesound (https://freesound.org/people/poenia/sounds/745030/)
-COMPUTER_MOUSE_SCROLL.WAV by dansotak from Freesound (https://freesound.org/people/dansotak/sounds/137402/)
-Pop 1 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
-Pop 4 by quatricise from Freesound (https://freesound.org/people/quatricise/sounds/789790/)
-Firecracker Explosion by unfa from Freesound (https://freesound.org/people/unfa/sounds/609588/)
+Past Sadness by Kevin MacLeod (incompetech.com) -- Licensed under Creative Commons: By Attribution 4 (https://creativecommons.org/licenses/by/4.0/)
+Vintage Keyboard 2 by jim-ph -- https://freesound.org/s/194796/ -- License: Creative Commons 0
+Domino_sfx_putOnBoard by poenia -- https://freesound.org/s/745030/ -- License: Creative Commons 0
+COMPUTER_MOUSE_SCROLL.WAV by dansotak -- https://freesound.org/s/137402/ -- License: Creative Commons 0
+Pop 1 by quatricise -- https://freesound.org/s/789790/ -- License: Creative Commons 0
+Pop 4 by quatricise -- https://freesound.org/s/789793/ -- License: Creative Commons 0
+Firecracker Explosion by unfa -- https://freesound.org/s/609588/ -- License: Creative Commons 0
+Mouse click Sound Effect by MatthewVakaliuk73627  -- https://pixabay.com/sound-effects/mouse-click-290204/ -- Licensed under the Pixabay Content License
+Font Cherry Bomb One by Satsuyako  -- Copyright 2019 The Cherry Bomb Project Authors (https://github.com/satsuyako/CherryBomb) -- Licensed under the SIL Open Font License, Version 1.1 . 
+Font Comfortaa by Johan Aakerlund  -- Copyright 2011 The Comfortaa Project Authors (https://github.com/alexeiva/comfortaa), with Reserved Font Name \"Comfortaa\". -- Licensed under the SIL Open Font License, Version 1.1 . 
+Font Open Sans  by Steve Matteson  -- Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans) -- Licensed under the SIL Open Font License, Version 1.1 .
+Font Arimo by Steve Matteson -- Licensed under Apache License Version 2.0, January 2004 (http://www.apache.org/licenses/)
 [/ul]"
 fit_content = true
 scroll_active = false
@@ -320,6 +318,7 @@ offset_bottom = 150.0
 
 [node name="LabelContainer" type="VBoxContainer" parent="StatsWindow/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

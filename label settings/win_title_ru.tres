@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dcx7jx72exl8k"]
+
+[ext_resource type="FontFile" uid="uid://dow2ai31hpmxt" path="res://fonts/Arimo/Arimo-Bold.ttf" id="1_80xj0"]
+
+[resource]
+font = ExtResource("1_80xj0")
+font_size = 85
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)

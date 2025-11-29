@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://edgrq6tj42xg"]
+
+[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="1_jxt2r"]
+
+[resource]
+font = ExtResource("1_jxt2r")
+font_size = 50
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)

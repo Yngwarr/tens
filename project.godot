@@ -66,6 +66,10 @@ cheat_reset={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://label settings/win_score_default.tres": PackedStringArray("res://label settings/win_score_ru.tres:ru"),
+"res://label settings/win_title_default.tres": PackedStringArray("res://label settings/win_title_ru.tres:ru")
+}
 locale/translations=PackedStringArray("res://locales/Tens_locales.en.translation", "res://locales/Tens_locales.es.translation", "res://locales/Tens_locales.ru.translation")
 
 [layer_names]

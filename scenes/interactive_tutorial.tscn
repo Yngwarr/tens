@@ -112,26 +112,34 @@ highlight = NodePath("../Highlight")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Layer/Stage1"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_bottom = 309.0
+anchor_bottom = 0.5
+offset_top = -257.0
+offset_bottom = -169.0
 grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Label" type="Label" parent="Layer/Stage1/VBoxContainer"]
+custom_minimum_size = Vector2(720, 40)
 layout_mode = 2
 text = "TUTORIAL_STAGE_1_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Layer/Stage1/VBoxContainer"]
+custom_minimum_size = Vector2(720, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TUTORIAL_STAGE_1_2"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Control1" type="Control" parent="Layer/Stage1"]
 layout_mode = 1
@@ -270,13 +278,17 @@ highlight = NodePath("../Highlight")
 
 [node name="CenterContainer" type="CenterContainer" parent="Layer/Stage2"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_bottom = 240.0
+anchor_bottom = 0.5
+offset_top = -234.0
+offset_bottom = -199.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Layer/Stage2/CenterContainer"]
-custom_minimum_size = Vector2(720, 0)
+custom_minimum_size = Vector2(700, 40)
 layout_mode = 2
 text = "TUTORIAL_STAGE_2_1"
 label_settings = ExtResource("6_pp5rf")
@@ -345,13 +357,17 @@ highlight = NodePath("../Highlight")
 
 [node name="CenterContainer" type="CenterContainer" parent="Layer/Stage3"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_bottom = 238.0
+anchor_bottom = 0.5
+offset_top = -234.0
+offset_bottom = -199.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Layer/Stage3/CenterContainer"]
-custom_minimum_size = Vector2(720, 0)
+custom_minimum_size = Vector2(680, 40)
 layout_mode = 2
 text = "TUTORIAL_STAGE_3_1"
 label_settings = ExtResource("6_pp5rf")
@@ -423,6 +439,7 @@ script = ExtResource("5_p5g2e")
 highlight = NodePath("../Highlight")
 
 [node name="Label" type="Label" parent="Layer/Stage4"]
+custom_minimum_size = Vector2(680, 40)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -435,8 +452,10 @@ grow_vertical = 2
 text = "TUTORIAL_STAGE_4_1"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Layer/Stage4"]
+custom_minimum_size = Vector2(680, 40)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -449,6 +468,7 @@ grow_vertical = 2
 text = "TUTORIAL_STAGE_4_2"
 label_settings = ExtResource("6_pp5rf")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Start" type="Button" parent="Layer/Stage4"]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b4cdbeg0ebk56"]
+[gd_scene load_steps=41 format=3 uid="uid://b4cdbeg0ebk56"]
 
 [ext_resource type="Script" uid="uid://ccf056r4v3os0" path="res://src/game.gd" id="1_suyxu"]
 [ext_resource type="PackedScene" uid="uid://bkoqy044j052o" path="res://scenes/UI buttons/hint_button.tscn" id="3_0bq3a"]
@@ -15,10 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://cdhk1ab3eg6qd" path="res://scenes/HUD/HUD_big_retry_button.tscn" id="13_jai3c"]
 [ext_resource type="PackedScene" uid="uid://5knj0y11uatt" path="res://scenes/confetti.tscn" id="13_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c5ifyk7vp76sh" path="res://scenes/tutorial_layer.tscn" id="14_pr1ej"]
-[ext_resource type="FontFile" uid="uid://xq71bo83kx40" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="14_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://duv5vwyuu2jya" path="res://scenes/HUD/HUD_big_home_button.tscn" id="15_1gdd5"]
 [ext_resource type="Texture2D" uid="uid://b06q2n6x7shmb" path="res://img/star_outlined.svg" id="15_wljb1"]
+[ext_resource type="LabelSettings" uid="uid://rb588qhokx6s" path="res://label settings/win_title_default.tres" id="16_twgab"]
 [ext_resource type="Texture2D" uid="uid://0a5xn4pytpoo" path="res://img/wallpapers-window/star_white.svg" id="16_v2yb1"]
+[ext_resource type="LabelSettings" uid="uid://edgrq6tj42xg" path="res://label settings/win_score_default.tres" id="17_gxtfn"]
 [ext_resource type="PackedScene" uid="uid://dk78ih4kqau4u" path="res://scenes/confirm_quit.tscn" id="18_0bq3a"]
 [ext_resource type="PackedScene" uid="uid://dp02anwflcyv8" path="res://scenes/options_window.tscn" id="19_h3rex"]
 [ext_resource type="PackedScene" uid="uid://b4faipnlrmqot" path="res://scenes/wallpaper_window.tscn" id="19_sww3w"]
@@ -34,18 +35,6 @@
 [ext_resource type="AudioStream" uid="uid://eis0bxp0s0pj" path="res://sfx/bgm/Past Sadness.mp3" id="31_js0lu"]
 [ext_resource type="AudioStream" uid="uid://cu1j51je5c6tl" path="res://sfx/effects/609588__unfa__firecracker-explosion_edited.wav" id="31_qouja"]
 [ext_resource type="AudioStream" uid="uid://cyprjs3rkxi44" path="res://sfx/effects/745030__poenia__domino_sfx_putonboard.wav" id="34_js0lu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_qouja"]
-font = ExtResource("14_sgl2t")
-font_size = 85
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_754j2"]
-font = ExtResource("14_sgl2t")
-font_size = 50
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_v2yb1"]
 _data = {
@@ -1105,17 +1094,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -361.0
+offset_left = -343.0
 offset_top = -239.0
-offset_right = 363.0
-offset_bottom = -93.999756
+offset_right = 344.0
+offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(363, 86)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 text = "WIN_TITLE"
-label_settings = SubResource("LabelSettings_qouja")
+label_settings = ExtResource("16_twgab")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1123,15 +1112,18 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
 offset_top = 265.0
+offset_right = -10.0
 offset_bottom = -365.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(363, 53)
 text = "WIN_SCORE"
-label_settings = SubResource("LabelSettings_754j2")
+label_settings = ExtResource("17_gxtfn")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Control" type="Control" parent="GameOverLayer"]
 layout_mode = 3
