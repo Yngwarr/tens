@@ -6,7 +6,7 @@ signal none_left
 @export var grid: Grid
 
 var hints: Array[Vector4i]
-var next_hint: Vector4
+var next_hint: Vector4i
 
 
 func _ready() -> void:
@@ -50,7 +50,7 @@ func read() -> int:
 #         |
 #         v
 # x,w <- z,w
-func optimize_hint(hint: Vector4i) -> Vector4:
+func optimize_hint(hint: Vector4i) -> Vector4i:
 	var x := hint.x
 	var y := hint.y
 	var z := hint.z
@@ -73,7 +73,10 @@ func optimize_hint(hint: Vector4i) -> Vector4:
 			continue
 		break
 
-	return hint_to_global(x, y, z, w)
+	return Vector4i(x, y, z, w)
+
+func get_hint() -> Vector4:
+	return hint_to_global(next_hint)
 
 
 func is_ten(x0: int, y0: int, x1: int, y1: int) -> bool:
@@ -106,9 +109,15 @@ func num_on(x: int, y: int) -> int:
 	return cell_on(x, y).value
 
 
-func hint_to_global(x0: int, y0: int, x1: int, y1: int) -> Vector4:
+func hint_to_global(hint: Vector4i) -> Vector4:
+	var x0 := hint.x
+	var y0 := hint.y
+	var x1 := hint.z
+	var y1 := hint.w
+
 	var first_point := cell_on(x0, y0).global_position
 	var second_point := cell_on(x1, y1).global_position
+
 	return Vector4(first_point.x, first_point.y, second_point.x, second_point.y)
 
 

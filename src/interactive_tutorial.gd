@@ -45,6 +45,6 @@ func get_hand_move() -> Vector4:
 
 		solver.grid = grid
 		solver.read()
-		return solver.next_hint
+		return solver.get_hint()
 
 	return Vector4.ZERO

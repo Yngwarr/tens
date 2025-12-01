@@ -145,7 +145,7 @@ func on_rewarded_ended(success: bool) -> void:
 
 
 func show_hint() -> void:
-	if not solver.next_hint:
+	if not solver.get_hint():
 		return
 
 	if hint.visible:
@@ -155,7 +155,7 @@ func show_hint() -> void:
 	if hint_count > 0:
 		hint_count -= 1
 		hint_sound.play()
-		hint.appear(solver.next_hint)
+		hint.appear(solver.get_hint())
 		hint_button.update_label(hint_count)
 		hint_button.calm_down()
 		idle_timer.stop()
