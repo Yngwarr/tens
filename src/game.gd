@@ -6,7 +6,7 @@ extends Node2D
 ## where your dreams come true! Adjust to your likings and may the code be with
 ## you.
 
-const DEFAULT_HINT_COUNT: int = 5
+const DEFAULT_HINT_COUNT: int = 3
 const REWARDED_AD_HINTS: int = 5
 
 static var CELL_SIZE := 58
@@ -60,11 +60,16 @@ func _ready() -> void:
 	Global.window_size_changed.connect(adjust_for_window_size)
 
 	PokiSDK.rewarded_break_ended.connect(on_rewarded_ended)
+	PokiSDK.commercial_break_ended.connect(on_ad_break_ended)
 	PokiSDK.ad_started.connect(on_ad_started)
 	PokiSDK.ad_ended.connect(on_ad_ended)
 
 	adjust_for_window_size(Tools.get_window_size(self))
 	hint_button.update_label(hint_count)
+
+	if Stats.get_stat(&"games_played") > 2:
+		start_ad_break()
+
 	anim.play(&"start")
 
 
@@ -144,6 +149,10 @@ func on_rewarded_ended(success: bool) -> void:
 	hint_button.update_label(hint_count)
 
 
+func on_ad_break_ended(_response) -> void:
+	Pause.call_deferred(&"turn", false)
+
+
 func show_hint() -> void:
 	if not solver.get_hint():
 		return
@@ -201,8 +210,6 @@ func adjust_for_window_size(size: Vector2) -> void:
 	)
 	var sum_offset := diff / 4 + 20
 
-	print(sum_label.size)
-
 	if is_portrait:
 		hint_button.set_anchors_preset(Control.LayoutPreset.PRESET_CENTER_BOTTOM)
 		hint_button.position = Vector2(size.x / 2 - hint_button.size.x / 2, size.y - hint_offset.y)
@@ -221,3 +228,8 @@ func move_wallpaper_button() -> void:
 
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(wallpaper_button, "position", global_dest, 2.0)
+
+
+func start_ad_break() -> void:
+	PokiSDK.commercialBreak()
+	Pause.turn(true)
