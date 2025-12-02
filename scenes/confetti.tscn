@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://csjtehs442ao8" path="res://img/confetti.png" id="1_xjk0n"]
 
 [node name="Confetti" type="CPUParticles2D"]
+position = Vector2(347, -5)
+emitting = false
 amount = 50
 texture = ExtResource("1_xjk0n")
 lifetime = 10.0

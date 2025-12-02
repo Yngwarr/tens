@@ -119,7 +119,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
+tracks/6/path = NodePath("GameOverLayer/ControlConfetti/ConfettiYellow:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -131,7 +131,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("GameOverLayer/ConfettiRed:emitting")
+tracks/7/path = NodePath("GameOverLayer/ControlConfetti/ConfettiRed:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -143,7 +143,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
+tracks/8/path = NodePath("GameOverLayer/ControlConfetti/ConfettiBlue:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -155,7 +155,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
+tracks/9/path = NodePath("GameOverLayer/ControlConfetti/ConfettiGreen:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -514,7 +514,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("GameOverLayer/ConfettiYellow:emitting")
+tracks/8/path = NodePath("GameOverLayer/ControlConfetti/ConfettiYellow:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -526,7 +526,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("GameOverLayer/ConfettiRed:emitting")
+tracks/9/path = NodePath("GameOverLayer/ControlConfetti/ConfettiRed:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -538,7 +538,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("GameOverLayer/ConfettiBlue:emitting")
+tracks/10/path = NodePath("GameOverLayer/ControlConfetti/ConfettiBlue:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -550,7 +550,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("GameOverLayer/ConfettiGreen:emitting")
+tracks/11/path = NodePath("GameOverLayer/ControlConfetti/ConfettiGreen:emitting")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1068,25 +1068,35 @@ metadata/_edit_lock_ = true
 layer = 3
 visible = false
 
-[node name="ConfettiYellow" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+[node name="ControlConfetti" type="Control" parent="GameOverLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -175.0
+offset_right = 5.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfettiYellow" parent="GameOverLayer/ControlConfetti" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(380, 200)
-emitting = false
+position = Vector2(-2, 22)
 
-[node name="ConfettiRed" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+[node name="ConfettiRed" parent="GameOverLayer/ControlConfetti" instance=ExtResource("13_sgl2t")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(380, 200)
-emitting = false
+position = Vector2(-3, 22)
 
-[node name="ConfettiBlue" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+[node name="ConfettiBlue" parent="GameOverLayer/ControlConfetti" instance=ExtResource("13_sgl2t")]
 modulate = Color(0, 0.39999986, 1, 1)
-position = Vector2(380, 200)
-emitting = false
+position = Vector2(-3, 22)
 
-[node name="ConfettiGreen" parent="GameOverLayer" instance=ExtResource("13_sgl2t")]
+[node name="ConfettiGreen" parent="GameOverLayer/ControlConfetti" instance=ExtResource("13_sgl2t")]
 modulate = Color(0.23333335, 1, 0, 1)
-position = Vector2(380, 200)
-emitting = false
+position = Vector2(-3, 22)
 
 [node name="CongratsLabel" type="Label" parent="GameOverLayer"]
 anchors_preset = 8
