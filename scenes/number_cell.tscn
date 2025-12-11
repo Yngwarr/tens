@@ -114,10 +114,12 @@ texture = ExtResource("2_6old5")
 
 [node name="Frame" type="Sprite2D" parent="View/Cell"]
 modulate = Color(0.388235, 0.745098, 0.894118, 1)
+z_index = 1
 texture = ExtResource("3_35xo7")
 
 [node name="Label" type="Label" parent="View/Cell"]
 modulate = Color(0.388235, 0.745098, 0.894118, 1)
+z_index = 2
 offset_left = -17.0
 offset_top = -18.0
 offset_right = 16.0
