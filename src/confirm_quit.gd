@@ -18,4 +18,8 @@ func on_no_pressed() -> void:
 
 func on_yes_pressed() -> void:
 	PokiSDK.gameplayStop()
+	call_deferred("change_scene")
+	
+
+func change_scene() -> void:
 	get_tree().change_scene_to_file(next_scene)
