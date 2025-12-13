@@ -23,6 +23,8 @@ func _ready() -> void:
 
 	hand.init(get_hand_move)
 
+	ConfigCtl.set_pref(&"show_tutorial", false)
+
 
 func on_stage_complete(index: int) -> void:
 	if index != len(stages) - 1:

@@ -62,7 +62,6 @@ func on_anim_finished(anim_name: StringName) -> void:
 
 	if ConfigCtl.get_pref(&"show_tutorial"):
 		next_scene = tutorial_scene_name
-		ConfigCtl.set_pref(&"show_tutorial", false)
 
 	get_tree().change_scene_to_file(next_scene)
 

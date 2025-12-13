@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ow3grckp8wr"]
+
+[ext_resource type="Script" uid="uid://bk31amwp6svj" path="res://src/entrypoint.gd" id="1_ki0t7"]
+[ext_resource type="PackedScene" uid="uid://b4cdbeg0ebk56" path="res://scenes/game.tscn" id="2_yol1p"]
+[ext_resource type="PackedScene" uid="uid://cm4rtw3mwedhd" path="res://scenes/interactive_tutorial.tscn" id="3_hepag"]
+
+[node name="Entrypoint" type="Node2D"]
+script = ExtResource("1_ki0t7")
+game_scene = ExtResource("2_yol1p")
+tutorial_scene = ExtResource("3_hepag")
