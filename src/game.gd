@@ -68,8 +68,7 @@ func _ready() -> void:
 	adjust_for_window_size(Tools.get_window_size(self))
 	hint_button.update_label(hint_count)
 
-	if Stats.get_stat(&"games_played") > 2:
-		start_ad_break()
+	start_ad_break()
 
 	anim.play(&"start")
 
