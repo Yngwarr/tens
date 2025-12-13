@@ -93,7 +93,6 @@ func on_grabbed() -> void:
 
 func on_released(_grid: Grid) -> void:
 	highlight.toggle(false)
-	hint.disappear()
 
 	if highlight.sum == TARGET_SUM:
 		var amount_removed = highlight.clear()
@@ -105,6 +104,7 @@ func on_released(_grid: Grid) -> void:
 		idle_timer.stop()
 		idle_timer.start()
 
+		hint.disappear()
 		solver.read()
 	else:
 		highlight.fail()
