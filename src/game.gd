@@ -40,6 +40,7 @@ static var TARGET_SUM := 10
 
 var score: int = 0
 var hint_count := DEFAULT_HINT_COUNT
+var gameplay_started := false
 
 
 func _ready() -> void:
@@ -88,6 +89,10 @@ func update_score(value: int) -> void:
 
 
 func on_grabbed() -> void:
+	if not gameplay_started:
+		gameplay_started = true
+		PokiSDK.gameplayStart()
+
 	highlight.toggle(true)
 
 
@@ -112,7 +117,6 @@ func on_released(_grid: Grid) -> void:
 
 func on_grid_appeared() -> void:
 	protection_layer.hide()
-	PokiSDK.gameplayStart()
 	idle_timer.start()
 
 
