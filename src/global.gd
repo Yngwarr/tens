@@ -6,6 +6,7 @@ signal window_size_changed(size: Vector2)
 const WALLPAPER_FOLDER := "res://img/backgrounds/"
 
 var wallpaper_textures: Array[Texture2D]
+var ad_break_countdown: int = 2
 
 
 func _ready() -> void:

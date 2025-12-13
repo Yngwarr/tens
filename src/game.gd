@@ -235,5 +235,9 @@ func move_wallpaper_button() -> void:
 
 
 func start_ad_break() -> void:
+	if Global.ad_break_countdown > 0:
+		Global.ad_break_countdown -= 1
+		return
+
 	PokiSDK.commercialBreak()
 	Pause.turn(true)
