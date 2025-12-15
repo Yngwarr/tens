@@ -244,6 +244,7 @@ oversampling_override = 1.0
 title = "CREDITS_TITLE"
 initial_position = 2
 size = Vector2i(435, 405)
+visible = true
 borderless = false
 content_scale_mode = 1
 
@@ -252,8 +253,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 20.0
-offset_right = 435.0
-offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -291,7 +290,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[ul]
-Past Sadness by Kevin MacLeod (incompetech.com) -- Licensed under Creative Commons: By Attribution 4 (https://creativecommons.org/licenses/by/4.0/)
 Vintage Keyboard 2 by jim-ph -- https://freesound.org/s/194796/ -- License: Creative Commons 0
 Domino_sfx_putOnBoard by poenia -- https://freesound.org/s/745030/ -- License: Creative Commons 0
 COMPUTER_MOUSE_SCROLL.WAV by dansotak -- https://freesound.org/s/137402/ -- License: Creative Commons 0
