@@ -118,10 +118,10 @@ texture = ExtResource("3_35xo7")
 
 [node name="Label" type="Label" parent="View/Cell"]
 modulate = Color(0.388235, 0.745098, 0.894118, 1)
-offset_left = -17.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = -16.800003
+offset_top = -24.800005
+offset_right = 16.199997
+offset_bottom = 22.199995
 theme_override_font_sizes/font_size = 24
 text = "6"
 label_settings = ExtResource("4_hj7ko")

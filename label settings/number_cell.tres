@@ -4,7 +4,7 @@
 
 [resource]
 font = ExtResource("1_c1rog")
-font_size = 24
-outline_size = 2
-shadow_size = 10
+font_size = 32
+outline_size = 3
+shadow_size = 13
 shadow_color = Color(0.501961, 0.501961, 0.501961, 1)

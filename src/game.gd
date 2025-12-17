@@ -230,7 +230,7 @@ func move_wallpaper_button() -> void:
 	var global_dest := star_path.to_global(local_dest) - wallpaper_button.size / 2
 
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(wallpaper_button, "position", global_dest, 2.0)
+	tween.tween_property(wallpaper_button, "position", global_dest, 1.0)
 
 
 func start_ad_break() -> void:

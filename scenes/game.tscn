@@ -517,7 +517,7 @@ tracks/8/path = NodePath("GameOverLayer/ControlConfetti/ConfettiYellow:emitting"
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -529,7 +529,7 @@ tracks/9/path = NodePath("GameOverLayer/ControlConfetti/ConfettiRed:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -541,7 +541,7 @@ tracks/10/path = NodePath("GameOverLayer/ControlConfetti/ConfettiBlue:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -553,7 +553,7 @@ tracks/11/path = NodePath("GameOverLayer/ControlConfetti/ConfettiGreen:emitting"
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -565,7 +565,7 @@ tracks/12/path = NodePath("GameOverConfetti")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(2.5666666),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -579,7 +579,7 @@ tracks/13/path = NodePath("GameOverLayer/Control/Path2D/PathFollow2D/Star:self_m
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(1.7, 2.0333335, 3.8666668, 4.0000005),
+"times": PackedFloat32Array(1.5999999, 2, 3.8666668, 4.0000005),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -615,10 +615,10 @@ tracks/16/path = NodePath("GameOverLayer/Control/Path2D/PathFollow2D/Star:scale"
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(1.8333337, 2.0333335, 2.2, 3.3666668, 3.9666667),
+"times": PackedFloat32Array(1.8, 2.0666666, 2.233333, 3.3666668, 3.9666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5)]
+"values": [Vector2(0.5, 0.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
