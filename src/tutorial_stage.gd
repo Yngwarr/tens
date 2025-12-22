@@ -2,6 +2,7 @@ class_name TutorialStage
 extends Control
 
 signal complete(index: int)
+signal grabbed
 
 @export_group("Internal")
 @export var grids: Array[Grid]
@@ -31,11 +32,16 @@ func on_visibility_changed() -> void:
 
 	for grid in grids:
 		grid.highlight_changed.connect(highlight.resize)
-		grid.grabbed.connect(func(): highlight.toggle(true))
+		grid.grabbed.connect(on_grabbed)
 		grid.released.connect(on_release)
 
 		grid.appear()
 		await grid.fully_appeared
+
+
+func on_grabbed() -> void:
+	grabbed.emit()
+	highlight.toggle(true)
 
 
 func on_release(_grid: Grid) -> void:

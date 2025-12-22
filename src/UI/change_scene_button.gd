@@ -11,12 +11,14 @@ extends BaseButton
 ## Set to ask for confirmation on button press.
 @export var confirm_dialog: ConfirmationDialog
 
+
 func _ready() -> void:
 	if confirm_dialog:
 		confirm_dialog.confirmed.connect(proceed)
 		pressed.connect(confirm_dialog.show)
 	else:
 		pressed.connect(proceed)
+
 
 func proceed() -> void:
 	# this is 100% expected behavior

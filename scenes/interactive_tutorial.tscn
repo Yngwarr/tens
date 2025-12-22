@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm4rtw3mwedhd"]
+[gd_scene load_steps=19 format=3 uid="uid://cm4rtw3mwedhd"]
 
 [ext_resource type="Script" uid="uid://c8i2yt2hpelpx" path="res://src/interactive_tutorial.gd" id="1_y1csx"]
-[ext_resource type="Script" uid="uid://cd0lmar1ikcjo" path="res://src/UI/change_scene_button.gd" id="3_q3s5m"]
 [ext_resource type="Texture2D" uid="uid://cytc7ovd8hj8e" path="res://img/common/arrow_normal.svg" id="4_q3s5m"]
 [ext_resource type="Script" uid="uid://bv0im7p3jfxj7" path="res://src/grid.gd" id="5_m62rh"]
 [ext_resource type="Script" uid="uid://dkh4nnoiermy4" path="res://src/tutorial_stage.gd" id="5_p5g2e"]
@@ -26,14 +25,16 @@ Button/styles/hover = ExtResource("8_ax6wd")
 Button/styles/normal = ExtResource("9_olgnm")
 Button/styles/pressed = ExtResource("10_pp5rf")
 
-[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand", "solver", "skip_button")]
+[node name="InteractiveTutorial" type="Node2D" node_paths=PackedStringArray("stages", "highlight", "sum_label", "hand", "solver", "skip_button", "start_button")]
 script = ExtResource("1_y1csx")
+game_scene_name = "uid://b4cdbeg0ebk56"
 stages = [NodePath("Layer/Stage1"), NodePath("Layer/Stage2"), NodePath("Layer/Stage3"), NodePath("Layer/Stage4")]
 highlight = NodePath("Layer/Highlight")
 sum_label = NodePath("Layer/SumLabel")
 hand = NodePath("Layer/TutorialHand")
 solver = NodePath("Layer/Stage3/Solver")
 skip_button = NodePath("Layer/ButtonSkip")
+start_button = NodePath("Layer/Stage4/Start")
 
 [node name="Solver" type="Node" parent="."]
 script = ExtResource("8_olgnm")
@@ -58,8 +59,6 @@ grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 0
 size_flags_vertical = 4
-script = ExtResource("3_q3s5m")
-next_scene_name = "uid://b4cdbeg0ebk56"
 
 [node name="Icon1" type="TextureRect" parent="Layer/ButtonSkip"]
 layout_mode = 1
@@ -487,8 +486,6 @@ pivot_offset = Vector2(118.5, 68)
 theme = SubResource("Theme_wjrhv")
 text = " "
 icon_alignment = 1
-script = ExtResource("3_q3s5m")
-next_scene_name = "uid://b4cdbeg0ebk56"
 
 [node name="Icon" type="TextureRect" parent="Layer/Stage4/Start"]
 layout_mode = 1
