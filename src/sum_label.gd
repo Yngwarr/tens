@@ -24,14 +24,17 @@ func update_text(value: int) -> void:
 
 	view.visible = value != 0
 
-	view.text = ("%d!" % value) if is_target else str(value)
+	view.text = ("%d" % value) if is_target else str(value)
 
 	if is_target:
-		view.label_settings.outline_color = Color.FOREST_GREEN
+		view.label_settings.shadow_color = Color("978100")
+		view.label_settings.font_color = Color("FFE347")
 	elif value > Game.TARGET_SUM:
-		view.label_settings.outline_color = Color.DARK_RED
+		view.label_settings.shadow_color = Color.DARK_RED
+		view.label_settings.font_color = Color.WHITE
 	else:
-		view.label_settings.outline_color = Color.BLACK
+		view.label_settings.shadow_color = Color.BLACK
+		view.label_settings.font_color = Color.WHITE
 
 	if is_target:
 		anim.play(&"bounce")
