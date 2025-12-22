@@ -14,6 +14,9 @@ config/name="Tens!"
 config/version="1.4.7"
 run/main_scene="uid://c5ow3grckp8wr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.627451, 0.74509805, 1, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://omt5raktu83a"
 config/icon="res://img/icon/icon.png"
 config/windows_native_icon="res://img/icon/icon.ico"
 
@@ -29,6 +32,7 @@ Pause="*res://src/pause.gd"
 
 window/size/viewport_width=720
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=6
