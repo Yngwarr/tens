@@ -14,9 +14,9 @@ config/name="Tens!"
 config/version="1.4.7"
 run/main_scene="uid://c5ow3grckp8wr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0.627451, 0.74509805, 1, 1)
+boot_splash/bg_color=Color(0.53333336, 0.6313726, 0.84313726, 1)
 boot_splash/fullsize=false
-boot_splash/image="uid://omt5raktu83a"
+boot_splash/image="uid://cllxfch6hs52b"
 config/icon="res://img/icon/icon.png"
 config/windows_native_icon="res://img/icon/icon.ico"
 
