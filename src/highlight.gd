@@ -34,9 +34,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func resize(rect: Rect2) -> void:
-	if size == rect.size and position == rect.position:
-		return
-
 	size = rect.size
 	position = rect.position
 
@@ -49,6 +46,7 @@ func resize(rect: Rect2) -> void:
 
 func toggle(on: bool) -> void:
 	visible = on
+
 	if on:
 		resize_sfx.pitch_scale = Tools.random_pitch(resize_base_pitch, .1)
 		play_sfx(resize_sfx)

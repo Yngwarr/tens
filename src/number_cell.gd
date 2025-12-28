@@ -5,8 +5,10 @@ extends Node2D
 signal pressed(target: NumberCell, pretend: bool)
 signal moved_to(target: NumberCell, pretend: bool)
 
-@onready var frame: Sprite2D = $View/Cell/Frame
-@onready var cell: Sprite2D = $View/Cell
+const SPEED_MULTIPLIER = 1
+
+@export var frame: Sprite2D
+@export var cell: Sprite2D
 @export var label: Label
 @export var area: Area2D
 @export var view: Node2D
@@ -29,12 +31,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
 		return
+
 	if view.position.y >= 2000:
 		view.hide()
 		return
 
-	view.position += velocity * delta * 20
-	velocity.y += 9.8 * delta * 20
+	view.position += velocity * delta * 20 * SPEED_MULTIPLIER
+	velocity.y += 9.8 * delta * 20 * SPEED_MULTIPLIER
 
 
 func on_area_entered(other: Area2D) -> void:

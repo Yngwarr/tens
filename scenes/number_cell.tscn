@@ -98,8 +98,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bdmo"]
 size = Vector2(58, 58)
 
-[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("label", "area", "view", "anim")]
+[node name="NumberCell" type="Node2D" node_paths=PackedStringArray("frame", "cell", "label", "area", "view", "anim")]
 script = ExtResource("1_4guiy")
+frame = NodePath("View/Cell/Frame")
+cell = NodePath("View/Cell")
 label = NodePath("View/Cell/Label")
 area = NodePath("Area2D")
 view = NodePath("View")
@@ -109,7 +111,6 @@ anim = NodePath("View/AnimationPlayer")
 scale = Vector2(1.25, 1.25)
 
 [node name="Cell" type="Sprite2D" parent="View"]
-position = Vector2(2.5629997e-06, 1.6689298e-06)
 texture = ExtResource("2_6old5")
 
 [node name="Frame" type="Sprite2D" parent="View/Cell"]
@@ -138,5 +139,6 @@ libraries = {
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_7bdmo")
 debug_color = Color(0, 0.6, 0.701961, 0.243137)

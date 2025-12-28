@@ -33,7 +33,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ks2s0")
-debug_color = Color(0.9058386, 0.00013457358, 0.74701256, 0.41960785)
+debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xu2pl")

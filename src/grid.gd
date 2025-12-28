@@ -51,7 +51,8 @@ func _input(event: InputEvent) -> void:
 	if not interactive:
 		return
 
-	on_released()
+	# deferring so it always happens after NumberCell's click handling
+	call_deferred(&"on_released")
 
 
 func setup_board() -> void:
