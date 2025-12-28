@@ -1,4 +1,7 @@
+class_name QuitPopup
 extends PopupPanel
+
+signal quit_confirmed
 
 @export_file("*.tscn") var next_scene: String
 
@@ -17,9 +20,9 @@ func on_no_pressed() -> void:
 
 
 func on_yes_pressed() -> void:
-	PokiSDK.gameplayStop()
+	quit_confirmed.emit()
 	call_deferred("change_scene")
-	
+
 
 func change_scene() -> void:
 	get_tree().change_scene_to_file(next_scene)

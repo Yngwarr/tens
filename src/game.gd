@@ -31,7 +31,7 @@ static var TARGET_SUM := 10
 @export var game_over_sound: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
 @export var options_window: PopupPanel
-@export var confirm_window: PopupPanel
+@export var confirm_quit_window: QuitPopup
 @export var wallpaper_window: PopupPanel
 @export var idle_timer: Timer
 
@@ -54,7 +54,8 @@ func _ready() -> void:
 	highlight.sum_changed.connect(update_sum)
 	solver.none_left.connect(finish)
 	hint_button.pressed.connect(show_hint)
-	confirm_window.visibility_changed.connect(on_confirm_visibility)
+	confirm_quit_window.visibility_changed.connect(on_confirm_visibility)
+	confirm_quit_window.quit_confirmed.connect(on_quit_confirmed)
 	idle_timer.timeout.connect(on_idle_timeout)
 	wallpaper_window.visibility_changed.connect(on_wallpaper_visibility)
 	tutorial_button.pressed.connect(on_show_tutorial)
@@ -120,7 +121,12 @@ func on_grid_appeared() -> void:
 
 
 func on_confirm_visibility() -> void:
-	ScreenFader.visible = confirm_window.visible
+	ScreenFader.visible = confirm_quit_window.visible
+
+
+func on_quit_confirmed() -> void:
+	if gameplay_started:
+		PokiSDK.gameplayStop()
 
 
 func on_idle_timeout() -> void:
