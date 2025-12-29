@@ -34,6 +34,10 @@ func _physics_process(_delta: float) -> void:
 
 
 func resize(rect: Rect2) -> void:
+	# to prevent playing sfx every frame
+	if not (size == rect.size and position == rect.position):
+		play_sfx(resize_sfx)
+
 	size = rect.size
 	position = rect.position
 
@@ -41,7 +45,6 @@ func resize(rect: Rect2) -> void:
 	collider.position = rect.size / 2.
 
 	resize_sfx.pitch_scale = Tools.random_pitch(resize_base_pitch, .1)
-	play_sfx(resize_sfx)
 
 
 func toggle(on: bool) -> void:
