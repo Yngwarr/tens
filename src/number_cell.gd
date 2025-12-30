@@ -5,7 +5,8 @@ extends Node2D
 signal pressed(target: NumberCell, pretend: bool)
 signal moved_to(target: NumberCell, pretend: bool)
 
-const SPEED_MULTIPLIER = 1
+const FALL_SPEED_MULTIPLIER = 1
+const BOUNCED_SCALE = .8
 
 @export var frame: Sprite2D
 @export var cell: Sprite2D
@@ -36,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		view.hide()
 		return
 
-	view.position += velocity * delta * 20 * SPEED_MULTIPLIER
-	velocity.y += 9.8 * delta * 20 * SPEED_MULTIPLIER
+	view.position += velocity * delta * 20 * FALL_SPEED_MULTIPLIER
+	velocity.y += 9.8 * delta * 20 * FALL_SPEED_MULTIPLIER
 
 
 func on_area_entered(other: Area2D) -> void:
@@ -113,16 +114,20 @@ func bounce() -> void:
 	if selected:
 		return
 
-	anim.play(&"selected")
 	selected = true
+
+	var tween := get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(cell, "scale", Vector2.ONE * BOUNCED_SCALE, .2)
 
 
 func unbounce() -> void:
 	if not selected:
 		return
 
-	anim.play_backwards(&"selected")
 	selected = false
+
+	var tween := get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(cell, "scale", Vector2.ONE, .2)
 
 
 func appear() -> void:
