@@ -37,7 +37,6 @@ debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="ResizePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xu2pl")
-volume_db = -5.0
 bus = &"SFX"
 
 [node name="ClearPlayer" type="AudioStreamPlayer" parent="."]

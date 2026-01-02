@@ -57,11 +57,14 @@ func _input(event: InputEvent) -> void:
 
 func setup_board() -> void:
 	var board := Boards.get_board(board_name)
+	var step := Game.CELL_SIZE
+	var rng := RandomNumberGenerator.new() if Boards.is_random(board_name) else null
+
+	if Boards.is_random(board_name) and Global.game_board_seed != "":
+		rng.seed = hash(Global.game_board_seed)
 
 	width = board.size.x
 	height = board.size.y
-
-	var step := Game.CELL_SIZE
 
 	clear()
 
@@ -74,7 +77,7 @@ func setup_board() -> void:
 			add_child(node)
 
 			if Boards.is_random(board_name):
-				node.set_value(randi_range(1, Game.TARGET_SUM - 1))
+				node.set_value(rng.randi_range(1, Game.TARGET_SUM - 1))
 			else:
 				node.set_value(board.data[y * width + x])
 
