@@ -60,8 +60,9 @@ func setup_board() -> void:
 	var step := Game.CELL_SIZE
 	var rng := RandomNumberGenerator.new() if Boards.is_random(board_name) else null
 
-	if Boards.is_random(board_name) and Global.game_board_seed != "":
-		rng.seed = hash(Global.game_board_seed)
+	if not Engine.is_editor_hint():
+		if Boards.is_random(board_name) and Global.game_board_seed != "":
+			rng.seed = hash(Global.game_board_seed)
 
 	width = board.size.x
 	height = board.size.y
